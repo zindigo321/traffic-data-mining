@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "aggregate_csvs_checked": [
+    "results/candidate_histogram.csv",
+    "results/cleaning_summary.csv",
+    "results/common_sample_comparison.csv",
+    "results/dbscan_experiments.csv",
+    "results/density_bias_grid.csv",
+    "results/hotspots.csv",
+    "results/kdistance_quantiles.csv",
+    "results/kmeans_clusters.csv",
+    "results/kmeans_experiments.csv",
+    "results/time_period_hotspots.csv",
+    "results/user_summary_anonymous.csv"
+  ],
+  "forbidden_direct_identifier_or_exact_point_columns": [],
+  "figure_links": [
+    "figures/02_cleaning.png",
+    "figures/04_sensitivity.png",
+    "figures/09_diagnostics.png",
+    "figures/05_heatmap.png",
+    "figures/11_time.png"
+  ],
+  "linked_figures_present": true,
+  "private_gzip_point_tables_included": false,
+  "unit_tests_passed": 9,
+  "offline_verification": "PASS",
+  "full_point_refit_in_this_wrapper_validation": false
+}

@@ -1,0 +1,11 @@
+{
+  "full_known": 171672,
+  "unique_training": 171672,
+  "positive": 4649,
+  "negative": 167023,
+  "uses_all_known": true,
+  "repeated_only_for_sampled_control": false,
+  "epoch_exposures": 171672,
+  "epochs": 12,
+  "updates_per_epoch": 1342
+}

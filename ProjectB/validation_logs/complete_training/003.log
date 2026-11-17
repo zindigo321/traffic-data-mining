@@ -1,0 +1,11 @@
+test_both_error_caps_apply_in_integer_counts (test_v8.V8Tests.test_both_error_caps_apply_in_integer_counts) ... ok
+test_fit_loader_rejects_holdout (test_v8.V8Tests.test_fit_loader_rejects_holdout) ... ok
+test_larger_threshold_for_same_BA (test_v8.V8Tests.test_larger_threshold_for_same_BA) ... ok
+test_max_F1_and_exact_BA (test_v8.V8Tests.test_max_F1_and_exact_BA) ... ok
+test_rank_loss_uses_main_label_and_top_negative (test_v8.V8Tests.test_rank_loss_uses_main_label_and_top_negative) ... ok
+test_threshold_transfer_uses_disjoint_dates (test_v8.V8Tests.test_threshold_transfer_uses_disjoint_dates) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+OK

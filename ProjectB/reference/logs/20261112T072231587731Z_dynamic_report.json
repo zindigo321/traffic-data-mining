@@ -1,0 +1,19 @@
+{
+  "stage": "dynamic_report",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "dynamic_report.py"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\20261112\\project",
+  "started_utc": "2026-11-12T07:22:31.587731+00:00",
+  "ended_utc": "2026-11-12T07:22:36.208688+00:00",
+  "elapsed_seconds": 4.6206,
+  "exit_code": 0,
+  "log": "20261112T072231587731Z_dynamic_report.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\20261112"
+  }
+}

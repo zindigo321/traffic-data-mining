@@ -1,0 +1,35 @@
+# Local tools and execution outputs
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+**/runs/
+**/node_modules/
+
+# Credentials and private keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Private Geolife originals and redundant archives
+/dataset/
+/private_data/
+*.plt
+*.gpx
+*.pkl
+*.pickle
+*.zip
+*.7z
+*.rar
+
+# ProjectB/data is deliberately retained: public NYC snapshot + prepared arrays.
+# ProjectB/reference models/predictions are retained for reproducibility.

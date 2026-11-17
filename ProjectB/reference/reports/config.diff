@@ -1,0 +1,32 @@
+--- original/config.json
++++ dynamic/config.json
+@@ -177,5 +177,28 @@
+     "minimum_AP": null,
+     "minimum_F1": null
+   },
+-  "training_use_all_known": true
++  "training_use_all_known": true,
++  "dynamic_edge": {
++    "fields": [
++      "lag20_relative_speed",
++      "lag30_relative_speed",
++      "lag40_relative_speed",
++      "lag20_minus_lag30_ratio",
++      "legal_usable_count",
++      "lag20_message_count",
++      "lag20_history_days",
++      "lag20_half_last_ratio"
++    ],
++    "hidden": 16,
++    "bound": 2.0,
++    "missing_policy": "neutral if either lag20_relative_speed missing",
++    "candidates": 1,
++    "initial_multiplier": 1.0,
++    "primary_static": "graph_max"
++  },
++  "dynamic_models": [
++    "dynamic_mean",
++    "dynamic_max",
++    "dynamic_attention"
++  ]
+ }

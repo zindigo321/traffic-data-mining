@@ -1,0 +1,11 @@
+test_calibration_tie_uses_larger_threshold (test_v7.LeadTests.test_calibration_tie_uses_larger_threshold) ... ok
+test_earliest_source_and_peak_boundary (test_v7.LeadTests.test_earliest_source_and_peak_boundary) ... ok
+test_frozen_prior_does_not_ingest_eval_truth (test_v7.LeadTests.test_frozen_prior_does_not_ingest_eval_truth) ... ok
+test_rewrite_both_label_grids_and_neighbors (test_v7.LeadTests.test_rewrite_both_label_grids_and_neighbors) ... ok
+test_sampling_does_not_read_outcome_risk (test_v7.LeadTests.test_sampling_does_not_read_outcome_risk) ... ok
+test_training_refuses_holdout (test_v7.LeadTests.test_training_refuses_holdout) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.243s
+
+OK

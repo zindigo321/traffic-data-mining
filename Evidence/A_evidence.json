@@ -1,0 +1,404 @@
+{
+  "status": "PASS",
+  "points": 53786,
+  "users": 30,
+  "trajectories": 1102,
+  "dbscan": {
+    "eps_m": 50,
+    "min_samples": 20,
+    "clusters": 174,
+    "clustered": 30040,
+    "noise": 23746,
+    "noise_fraction": 0.4414903506488677,
+    "coverage": 0.5585096493511322,
+    "silhouette_nonnoise": 0.10858512065142913,
+    "replayed_labels_exact": true
+  },
+  "kmeans": {
+    "k": 5,
+    "clusters": 5,
+    "silhouette_all": 0.3652873096107069,
+    "silhouette_common": 0.42770490260565147,
+    "replayed_labels_exact": true
+  },
+  "perturbation": {
+    "n": 48407,
+    "sample_fraction": 0.9,
+    "ARI_including_noise": 0.9063785102960764,
+    "clusters": 155,
+    "noise_fraction": 0.46598632429194126
+  },
+  "same_sample_verified": true,
+  "source_not_modified": true,
+  "load_format": "gzip CSV; no pickle",
+  "candidate_count": 115,
+  "report_current_values_consistent": true,
+  "old_manifest": {
+    "status": "FAIL",
+    "entries": 56,
+    "present": 53,
+    "missing": [
+      "references/Geolife-1.3-说明.txt",
+      "references/来源与接口核对.md",
+      "references/课件第8-10页.txt"
+    ],
+    "mismatch": [
+      "README.md",
+      "results/analysis_sample.csv.gz",
+      "results/dbscan_experiments.csv",
+      "results/kmeans_experiments.csv",
+      "results/pilot.json",
+      "results/point_labels.csv.gz",
+      "results/quality_issues.csv.gz",
+      "results/raw_to_sample.csv.gz",
+      "results/run_metadata.json",
+      "results/spatial_preview.csv.gz",
+      "results/thinned_points.csv.gz",
+      "results/实验报告.md",
+      "run.py",
+      "验收对照表.md"
+    ]
+  },
+  "source_hashes": [
+    {
+      "path": "config.json",
+      "sha256": "22242b496a2aa83f0335ebd62de2a076076c8997bea1069449a1d8ef7257252b",
+      "size": 587,
+      "old_match": true
+    },
+    {
+      "path": "README.md",
+      "sha256": "78971a86154e3491cd1db37c8b46474a7a2788428739e34915a518e3521c6f1f",
+      "size": 5980,
+      "old_match": false
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "06b1dff020813f3d01f9d3e033c14dbac13e295332dc4508b2c50d2c29c5710b",
+      "size": 108,
+      "old_match": true
+    },
+    {
+      "path": "results/analysis_sample.csv.gz",
+      "sha256": "50c82b5324e962a3f54ffa5706a52f9f33ed71a87300ced873df02d86b562098",
+      "size": 3435507,
+      "old_match": false
+    },
+    {
+      "path": "results/analysis_summary.json",
+      "sha256": "a7927368b7acd8846cd01e82da3895bef6e4cfd3cfc9920ae7c10c2a3516a22a",
+      "size": 483,
+      "old_match": true
+    },
+    {
+      "path": "results/case_studies.csv",
+      "sha256": "47de66f23bc284545a84bb9d77fbc2b7ef26f7d769591912579cd89837923642",
+      "size": 1147,
+      "old_match": true
+    },
+    {
+      "path": "results/cleaning_by_trajectory.csv",
+      "sha256": "0bd66094dd542932dd303f7599e641a9013ae2ce6a7aa2ad3f9ee424c185cc2e",
+      "size": 390150,
+      "old_match": true
+    },
+    {
+      "path": "results/cleaning_summary.csv",
+      "sha256": "c13707d42153c87f07ebc588c1a0c4222b2a5a1b0b447b83d20f28da65525298",
+      "size": 314,
+      "old_match": true
+    },
+    {
+      "path": "results/common_sample_comparison.csv",
+      "sha256": "7c7b10b5f2585ce995d0ca2aabfa1ecb3877cabd6ffef00c14fa691cd03f59dc",
+      "size": 131,
+      "old_match": true
+    },
+    {
+      "path": "results/dbscan_experiments.csv",
+      "sha256": "790ee1286fcc3dec1af7ce3ef8521e72d57f637094eaf29eed19855920713639",
+      "size": 2156,
+      "old_match": false
+    },
+    {
+      "path": "results/density_bias_grid.csv",
+      "sha256": "dea1665b2ac0050b2f1dc66e4794f9efa07cf78f4bf05723e5af4020a3afe1f3",
+      "size": 164274,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/01_region.png",
+      "sha256": "13f8b67f1c2f826bf64484af2eb4f3c6125584193c285ebf101554f3cf4f6969",
+      "size": 235037,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/02_cleaning.png",
+      "sha256": "e4243a81368c043b0f7ecb7ba9d2de11adee0f6360f4d4aef67c0f0f4a165c9d",
+      "size": 60994,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/03_dbscan.png",
+      "sha256": "9d1d8b15d7f8170d5b553ed509801eda0fd1a892fc99980f62e503b5b41cf265",
+      "size": 207675,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/04_sensitivity.png",
+      "sha256": "016b9cdb84a72de0acec74cbfd7a1b3a51e74ddce6ea0ad1f310af615b269f2e",
+      "size": 111931,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/05_heatmap.png",
+      "sha256": "761120bbc272c8c55f9e1748e93179b39393fce367e22197bbca783679c92d35",
+      "size": 63782,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/06_comparison.png",
+      "sha256": "5650486481de01282560012e7878e3116270cbf567b12e673fd6eea2b5094143",
+      "size": 472890,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/07_users.png",
+      "sha256": "5ae6ba4420771493d19e71b8fcf3dd6e16a383ba016a0ec63108757408b3aef7",
+      "size": 92059,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/08_cases.png",
+      "sha256": "40c555e4908fea9caeef89db99cdf672eb32ae2f7f37d8b1080c59198225e60f",
+      "size": 234715,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/09_diagnostics.png",
+      "sha256": "5ffa27d672dc6d70c2de750933cb5bc294a96a52ea8b6e78ff6346233a7159fc",
+      "size": 123921,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/10_parameter_examples.png",
+      "sha256": "2d8633b7365cfd764281f13add943ec919273c1f4ffbe4d5c7584710c11fbe79",
+      "size": 357195,
+      "old_match": true
+    },
+    {
+      "path": "results/figures/11_time.png",
+      "sha256": "80c88b873c9aa710343557b461d9f0162f57b38019d1ddda2165e8fd292c0a3b",
+      "size": 47337,
+      "old_match": true
+    },
+    {
+      "path": "results/final_analysis.log",
+      "sha256": "6bd59f068822f349104af81a7cc507b3736a66b0e442d02c88b489e6fb8c1952",
+      "size": 5127,
+      "old_match": true
+    },
+    {
+      "path": "results/full_run.log",
+      "sha256": "50c27ec85296caca9d3749c3726782ba1ce8979141f60864b45b8ed122e12b21",
+      "size": 5534,
+      "old_match": true
+    },
+    {
+      "path": "results/hotspots.csv",
+      "sha256": "a4f273cc5117ba398fcc62d0c333d5ebc81db9da08908961b45a5191150ab56a",
+      "size": 28026,
+      "old_match": true
+    },
+    {
+      "path": "results/inventory.csv",
+      "sha256": "5cbeb5617bd875a69957c671d322c2f3add199e1c22b3056cd14f3e1c7945c65",
+      "size": 4027142,
+      "old_match": true
+    },
+    {
+      "path": "results/inventory_summary.json",
+      "sha256": "1fa6ec331cafb55d457b7cc89f46ed3fb2ccbad76d70c9c8cf93eca5fee92ae2",
+      "size": 1345,
+      "old_match": true
+    },
+    {
+      "path": "results/kdistance_quantiles.csv",
+      "sha256": "4685aa864be52c59c79399fe601791f9ab6adee41206f7bb41a77bbce4543a68",
+      "size": 256,
+      "old_match": true
+    },
+    {
+      "path": "results/kmeans_clusters.csv",
+      "sha256": "126de0044cca9b13ef31374c1adfb8742fb1a4277b333553ea6fd96f45329df6",
+      "size": 915,
+      "old_match": true
+    },
+    {
+      "path": "results/kmeans_experiments.csv",
+      "sha256": "881acfed7883a55deea64cb4c51e9133e2bac5a3ddccf3ea755117596747142e",
+      "size": 728,
+      "old_match": false
+    },
+    {
+      "path": "results/pilot.json",
+      "sha256": "a9a13e8f589e4c4af7d3f65954c9c4a0babd164b3f4f160bc978cb23de0fd2ce",
+      "size": 85,
+      "old_match": false
+    },
+    {
+      "path": "results/point_labels.csv.gz",
+      "sha256": "597204bc289e3eec74e14348de1a21be3fd68f09604422593cba421c9170973e",
+      "size": 3446916,
+      "old_match": false
+    },
+    {
+      "path": "results/quality_issues.csv.gz",
+      "sha256": "9e7305c37ddea4ac4c5e301cce27260bfd72aaf6833f3f081ac5a6056487ae56",
+      "size": 92116,
+      "old_match": false
+    },
+    {
+      "path": "results/raw_to_sample.csv.gz",
+      "sha256": "171c7aa2300a7952b9a09baf99c74ccb9e396b3594d805f47c5b27ef03c7e27f",
+      "size": 4875957,
+      "old_match": false
+    },
+    {
+      "path": "results/run_metadata.json",
+      "sha256": "1889444fad99649ee617beae9e2cd9bd8ed1949bc8dbb558a8265153f2764e80",
+      "size": 1298,
+      "old_match": false
+    },
+    {
+      "path": "results/spatial_preview.csv.gz",
+      "sha256": "2fa90a9e734d0ecbdf5f62971c93840de0aa8c9a8e25245e316298f5419473ed",
+      "size": 2407969,
+      "old_match": false
+    },
+    {
+      "path": "results/test_results.txt",
+      "sha256": "44238b3def6d9ec0c744b4e12af8195878876d649acc5bc47b1013894a0412f2",
+      "size": 858,
+      "old_match": true
+    },
+    {
+      "path": "results/thinned_points.csv.gz",
+      "sha256": "2ec51321802601f5cef0f69b936d4c081ca051c45e420f43acb93106564be5c2",
+      "size": 6069487,
+      "old_match": false
+    },
+    {
+      "path": "results/time_period_hotspots.csv",
+      "sha256": "7381050af356e6894b3e20cdb8f3e25fce07af60366524fdef7043f7727bc382",
+      "size": 19555,
+      "old_match": true
+    },
+    {
+      "path": "results/trajectory_candidates.csv",
+      "sha256": "65867da841b3da9b155676b96d70c644c34fc0aa1990e35f604f19e8eb872d3e",
+      "size": 220605,
+      "old_match": true
+    },
+    {
+      "path": "results/trajectory_manifest.csv",
+      "sha256": "0508184b5150844219e22bf7270c1f4b8aae1bfd8598262d90fefb28f7131d02",
+      "size": 309713,
+      "old_match": true
+    },
+    {
+      "path": "results/user_comparison.csv",
+      "sha256": "eff24d11833b3a0ccc571449e4461c7947b98b34db8f59c94e7503dd8bf705e6",
+      "size": 1335,
+      "old_match": true
+    },
+    {
+      "path": "results/user_hotspot_relation.csv",
+      "sha256": "cc4068c8ddd4a4694fddd4b5a8197b9fb973c49338075fbb11e0fac2b23b4b78",
+      "size": 9958,
+      "old_match": true
+    },
+    {
+      "path": "results/user_manifest.csv",
+      "sha256": "49f359ed5f5f27b0f25418dc0669499e9ae6cecf62efcc49c329a3be8059753d",
+      "size": 482,
+      "old_match": true
+    },
+    {
+      "path": "results/verification.json",
+      "sha256": "c2d4284008a78aaa48d1822d07ab0aea18d8f01c9c50c6832b0656e5758699ae",
+      "size": 326,
+      "old_match": true
+    },
+    {
+      "path": "results/实验报告.md",
+      "sha256": "49ccf150a253d554272e42c643466905b21f4fb6a763bfecaefb015150da3208",
+      "size": 23160,
+      "old_match": false
+    },
+    {
+      "path": "run.py",
+      "sha256": "bbdfb88d9c37e3f96bf8b9b422c56be1049f89e6374e537456c59c1c5d050412",
+      "size": 3014,
+      "old_match": false
+    },
+    {
+      "path": "src/analysis.py",
+      "sha256": "0f6486ee1611fc6890742cbe16cb09226b11d2ea8cd791f4003c95d1250da785",
+      "size": 16269,
+      "old_match": true
+    },
+    {
+      "path": "src/data.py",
+      "sha256": "27944efe9064d0c449beded7431079c6cf05adcbb389b78bdb98d1abcc70c839",
+      "size": 9125,
+      "old_match": true
+    },
+    {
+      "path": "src/report.py",
+      "sha256": "da03e8b2352f9ec1a653c6c2e92cde5986eec62f15fa99a116083aeac16f536b",
+      "size": 20309,
+      "old_match": true
+    },
+    {
+      "path": "src/verify.py",
+      "sha256": "bbfe07f672dee0a1641e95d57d9b1067c3649c2d312a2e6e2fe028d6b7da6a2b",
+      "size": 2636,
+      "old_match": true
+    },
+    {
+      "path": "tests/test_pipeline.py",
+      "sha256": "2e151923ce58a4bed315161de47bea215df819ad4b49e506ebddcdb57aa6bd5d",
+      "size": 2938,
+      "old_match": true
+    },
+    {
+      "path": "验收对照表.md",
+      "sha256": "091098475af90467c154f6cb5c43bae3ffdd437997fcad986f0728d3f9de292a",
+      "size": 2902,
+      "old_match": false
+    }
+  ],
+  "runtime": {
+    "python": "3.11.17 | packaged by conda-forge | (main, Oct  6 2026, 23:51:21) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\conda_envs\\niulaoshi\\python.exe",
+    "platform": "Windows-10-10.0.26100-SP0",
+    "seconds": 1.4522626999532804
+  },
+  "raw_zip_current": {
+    "path": "G:\\course-jiaotongshujuwajue\\dataset\\Geolife Trajectories 1.3.zip",
+    "bytes": 353488286,
+    "sha256": "16c2caed998e80828acd5fe7b15404593d1752f2a1524505633c23fdfac8a066",
+    "matches_recorded_metadata": true
+  },
+  "funnel": {
+    "selected_users": 30,
+    "selected_trajectory_files": 1108,
+    "selected_raw_points": 2029261,
+    "after_basic_cleaning": 2021748,
+    "after_region": 1691926,
+    "after_minute_thinning": 101019,
+    "final_analysis_points": 53786,
+    "final_trajectories": 1102
+  }
+}

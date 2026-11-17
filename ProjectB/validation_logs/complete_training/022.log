@@ -1,0 +1,13 @@
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 1, 'AP': None, 'bce': 0.4222619855623053, 'elapsed': 16.2}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 2, 'AP': None, 'bce': 0.3746882465869095, 'elapsed': 32.8}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 3, 'AP': None, 'bce': 0.3655498443164698, 'elapsed': 49.1}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 4, 'AP': None, 'bce': 0.3581123417935593, 'elapsed': 65.5}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 5, 'AP': None, 'bce': 0.3470597785827115, 'elapsed': 81.7}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 6, 'AP': None, 'bce': 0.34387668579146025, 'elapsed': 98.5}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 7, 'AP': None, 'bce': 0.33502509687818927, 'elapsed': 115.6}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 8, 'AP': None, 'bce': 0.33093883335420926, 'elapsed': 130.8}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 9, 'AP': None, 'bce': 0.325793740809036, 'elapsed': 145.8}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 10, 'AP': None, 'bce': 0.32208292020992674, 'elapsed': 160.9}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 11, 'AP': None, 'bce': 0.3135027694018302, 'elapsed': 175.6}
+{'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'epoch': 12, 'AP': None, 'bce': 0.31202940884659025, 'elapsed': 190.8}
+{'status': 'complete', 'stage': 'final', 'model': 'dynamic_mean', 'seed': 22, 'started_utc': '2026-11-12T08:25:05.318867+00:00', 'completed_utc': '2026-11-12T08:28:17.939219+00:00', 'fit_and_score_seconds': 192.62227799999528, 'peak_RSS_bytes': 762589184, 'parameters': 24265, 'best_epoch': 11, 'fixed_epoch': 11, 'total_training_exposures': 2060064, 'updates': 16104, 'known_train': 171672, 'unique_training': 171672, 'full_known_coverage': 1.0, 'weight_sha256': '8ec878709f277f222d040c09297452aff30db57133fdd6e30d9a2595bb615cdc', 'assessment_rows': 81312, 'test_scored_before_freeze': False}

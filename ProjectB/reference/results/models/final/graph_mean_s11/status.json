@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "stage": "final",
+  "model": "graph_mean",
+  "seed": 11,
+  "started_utc": "2026-11-12T04:39:24.281224+00:00",
+  "completed_utc": "2026-11-12T04:43:08.290123+00:00",
+  "fit_and_score_seconds": 224.01145049999468,
+  "peak_RSS_bytes": 758472704,
+  "parameters": 22561,
+  "best_epoch": 11,
+  "fixed_epoch": 11,
+  "total_training_exposures": 2060064,
+  "updates": 16104,
+  "known_train": 171672,
+  "unique_training": 171672,
+  "full_known_coverage": 1.0,
+  "weight_sha256": "af64ef0f39e0251975e3beeefd2b5847376faab5d4c71c4c8d14a333c3f01148",
+  "evaluation_predictions": 211992
+}

@@ -1,0 +1,272 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-11-12T08:35:32.716017+00:00",
+  "operating_points": 72,
+  "matched_points": 288,
+  "group_metrics": 216,
+  "new_dynamic_fits": 18,
+  "reused_static_fits": 18,
+  "model_replay_count": 36,
+  "maximum_probability_error": 0.0,
+  "replay": [
+    {
+      "stage": "development",
+      "model": "graph_mean",
+      "seed": 11,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "graph_mean",
+      "seed": 22,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "graph_mean",
+      "seed": 33,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "graph_max",
+      "seed": 11,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "graph_max",
+      "seed": 22,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "graph_max",
+      "seed": 33,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "graph_attention",
+      "seed": 11,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "graph_attention",
+      "seed": 22,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "graph_attention",
+      "seed": 33,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "dynamic_mean",
+      "seed": 11,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "dynamic_mean",
+      "seed": 22,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "dynamic_mean",
+      "seed": 33,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "dynamic_max",
+      "seed": 11,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "dynamic_max",
+      "seed": 22,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "dynamic_max",
+      "seed": 33,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "dynamic_attention",
+      "seed": 11,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "dynamic_attention",
+      "seed": 22,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "development",
+      "model": "dynamic_attention",
+      "seed": 33,
+      "batches": 1,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "graph_mean",
+      "seed": 11,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "graph_mean",
+      "seed": 22,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "graph_mean",
+      "seed": 33,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "graph_max",
+      "seed": 11,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "graph_max",
+      "seed": 22,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "graph_max",
+      "seed": 33,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "graph_attention",
+      "seed": 11,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "graph_attention",
+      "seed": 22,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "graph_attention",
+      "seed": 33,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "dynamic_mean",
+      "seed": 11,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "dynamic_mean",
+      "seed": 22,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "dynamic_mean",
+      "seed": 33,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "dynamic_max",
+      "seed": 11,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "dynamic_max",
+      "seed": 22,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "dynamic_max",
+      "seed": 33,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "dynamic_attention",
+      "seed": 11,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "dynamic_attention",
+      "seed": 22,
+      "batches": 2,
+      "max_probability_error": 0.0
+    },
+    {
+      "stage": "final",
+      "model": "dynamic_attention",
+      "seed": 33,
+      "batches": 2,
+      "max_probability_error": 0.0
+    }
+  ],
+  "threshold_fit_only_calibration": true,
+  "all_known_train_used": true,
+  "unknown_excluded": true,
+  "static_metrics_identical": true,
+  "fresh_blind_validation": false,
+  "threshold_and_weights_frozen_before_current_round_test_scoring": true,
+  "full_clean_retraining_performed": false
+}

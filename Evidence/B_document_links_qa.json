@@ -1,0 +1,259 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-11-17T08:43:54.668467+00:00",
+  "final_submission_mapping": "FinalCourse_ProjectAB/ProjectB contains the complete contents of the source B runtime root",
+  "source_B": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi",
+  "path_checks": [
+    {
+      "document": "实验总报告.md",
+      "line": 207,
+      "reference": "ProjectB/数据来源与使用说明.md",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\数据来源与使用说明.md",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "实验总报告.md",
+      "line": 253,
+      "reference": "ProjectB/reference/results/summary.json",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\summary.json",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "实验总报告.md",
+      "line": 253,
+      "reference": "ProjectB/reference/results/operating_points.csv",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\operating_points.csv",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "实验总报告.md",
+      "line": 253,
+      "reference": "ProjectB/reference/results/matched_recall.csv",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\matched_recall.csv",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "实验总报告.md",
+      "line": 253,
+      "reference": "ProjectB/reference/results/paired_date_blocks.csv",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\paired_date_blocks.csv",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "实验总报告.md",
+      "line": 254,
+      "reference": "ProjectB/reference/evidence/cohort_final.json",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\evidence\\cohort_final.json",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "实验总报告.md",
+      "line": 254,
+      "reference": "ProjectB/reference/evidence/dynamic_threshold_freeze.json",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\evidence\\dynamic_threshold_freeze.json",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "实验总报告.md",
+      "line": 255,
+      "reference": "ProjectB/本地运行验证.json",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\本地运行验证.json",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "实验总报告.md",
+      "line": 255,
+      "reference": "ProjectB/validation_logs/",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\validation_logs",
+      "exists": true,
+      "kind": "directory"
+    },
+    {
+      "document": "实验总报告.md",
+      "line": 255,
+      "reference": "ProjectB/requirements-lock.txt",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\requirements-lock.txt",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "explicit required check",
+      "reference": "ProjectB/数据来源与使用说明.md",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\数据来源与使用说明.md",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "explicit required check",
+      "reference": "ProjectB/reference/evidence/cohort_final.json",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\evidence\\cohort_final.json",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "explicit required check",
+      "reference": "ProjectB/reference/evidence/dynamic_threshold_freeze.json",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\evidence\\dynamic_threshold_freeze.json",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "explicit required check",
+      "reference": "ProjectB/reference/results/operating_points.csv",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\operating_points.csv",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "explicit required check",
+      "reference": "ProjectB/reference/results/matched_recall.csv",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\matched_recall.csv",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "explicit required check",
+      "reference": "ProjectB/reference/results/paired_date_blocks.csv",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\paired_date_blocks.csv",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "explicit required check",
+      "reference": "ProjectB/src/portable_tasks.py",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\src\\portable_tasks.py",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "explicit required check",
+      "reference": "ProjectB/data/prepared/development.npz",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\data\\prepared\\development.npz",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "document": "explicit required check",
+      "reference": "ProjectB/data/prepared/final.npz",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\data\\prepared\\final.npz",
+      "exists": true,
+      "kind": "file"
+    }
+  ],
+  "cli_checks": [
+    {
+      "command": "prepare",
+      "invocation": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\run.py",
+        "prepare",
+        "--help"
+      ],
+      "exit_code": 0,
+      "accepted_in_declared_COMMANDS": true,
+      "scope": "argparse --help plus source route inspection",
+      "command_body_executed": false,
+      "help_sha256": "c3bcd5ed75d5cc6606b0eeee207ed36ae7f292d8e889c9a236247843969e2081"
+    },
+    {
+      "command": "train",
+      "invocation": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\run.py",
+        "train",
+        "--help"
+      ],
+      "exit_code": 0,
+      "accepted_in_declared_COMMANDS": true,
+      "scope": "argparse --help plus source route inspection",
+      "command_body_executed": false,
+      "help_sha256": "c3bcd5ed75d5cc6606b0eeee207ed36ae7f292d8e889c9a236247843969e2081"
+    },
+    {
+      "command": "predict",
+      "invocation": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\run.py",
+        "predict",
+        "--help"
+      ],
+      "exit_code": 0,
+      "accepted_in_declared_COMMANDS": true,
+      "scope": "argparse --help plus source route inspection",
+      "command_body_executed": false,
+      "help_sha256": "c3bcd5ed75d5cc6606b0eeee207ed36ae7f292d8e889c9a236247843969e2081"
+    },
+    {
+      "command": "replay",
+      "invocation": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\run.py",
+        "replay",
+        "--help"
+      ],
+      "exit_code": 0,
+      "accepted_in_declared_COMMANDS": true,
+      "scope": "argparse --help plus source route inspection",
+      "command_body_executed": false,
+      "help_sha256": "c3bcd5ed75d5cc6606b0eeee207ed36ae7f292d8e889c9a236247843969e2081"
+    },
+    {
+      "command": "tests",
+      "invocation": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\run.py",
+        "tests",
+        "--help"
+      ],
+      "exit_code": 0,
+      "accepted_in_declared_COMMANDS": true,
+      "scope": "argparse --help plus source route inspection",
+      "command_body_executed": false,
+      "help_sha256": "c3bcd5ed75d5cc6606b0eeee207ed36ae7f292d8e889c9a236247843969e2081"
+    }
+  ],
+  "default_command": "verify",
+  "training_semantics": "18 new dynamic fits; 18 hash-verified static fits reused",
+  "train_example": "python ProjectB/run.py train --output \"D:\\CourseRuns\\B_new\"",
+  "modified_documents": [
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\README_提交说明.md",
+      "sha256": "aeac17303c36599aeb3119ffaaacdfbd7087e34b4f2f593aafd02ac1e8c64ee1"
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\实验总报告.md",
+      "sha256": "3ec18e0e5f4419c744761a6f499339b402ad9190bdc20b6f4ec8d5b81d3cb85f"
+    }
+  ],
+  "corrections": [
+    "Expanded result/freeze basenames into complete ProjectB-relative paths",
+    "Replaced original absolute Geolife source path with Evidence/B_evidence.json navigation",
+    "Corrected A/evidence to ProjectA/evidence"
+  ],
+  "source_package_changed": false,
+  "training_or_data_rebuild_executed": false,
+  "validation_scope": "Existing files, AST syntax, route inspection, and harmless help commands; no experiment rerun"
+}

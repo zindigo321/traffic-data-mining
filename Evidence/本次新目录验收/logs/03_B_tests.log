@@ -1,0 +1,15 @@
+Python: D:\conda_envs\niulaoshi\python.exe
+Payload hashes: 1093
+Command: tests
+Output: G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests
+Running engineering_dynamic_0 -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests\logs\20261117T084707330195Z_engineering_dynamic_0.log
+Running engineering_dynamic_1 -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests\logs\20261117T084716299879Z_engineering_dynamic_1.log
+Running engineering_dynamic_2 -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests\logs\20261117T084721519772Z_engineering_dynamic_2.log
+Running engineering_dynamic_3 -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests\logs\20261117T084726800607Z_engineering_dynamic_3.log
+Running engineering_dynamic_4 -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests\logs\20261117T084732231501Z_engineering_dynamic_4.log
+Running engineering_dynamic_5 -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests\logs\20261117T084739673079Z_engineering_dynamic_5.log
+Running engineering_dynamic_6 -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests\logs\20261117T084745517891Z_engineering_dynamic_6.log
+Running engineering_dynamic_7 -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests\logs\20261117T084752178047Z_engineering_dynamic_7.log
+Running engineering_dynamic_8 -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests\logs\20261117T084758795004Z_engineering_dynamic_8.log
+Running portable_path_regressions -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests\logs\20261117T084807008211Z_portable_path_regressions.log
+Exit: 0; receipts: G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_tests

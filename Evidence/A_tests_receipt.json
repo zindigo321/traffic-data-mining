@@ -1,0 +1,17 @@
+{
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "G:\\course-jiaotongshujuwajue\\ProjectA\\tests",
+    "-v"
+  ],
+  "exit_code": 0,
+  "seconds": 3.904065900016576,
+  "source_read_only": true
+}

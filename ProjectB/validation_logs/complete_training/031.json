@@ -1,0 +1,20 @@
+{
+  "stage": "dynamic_evaluate",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "dynamic_score.py",
+    "evaluate"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\ProjectB_GT_niulaoshi\\src",
+  "started_utc": "2026-11-12T08:33:38.463164+00:00",
+  "ended_utc": "2026-11-12T08:34:21.475461+00:00",
+  "elapsed_seconds": 43.0138,
+  "exit_code": 0,
+  "log": "20261112T083338462648Z_dynamic_evaluate.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\complete_training_validation"
+  }
+}

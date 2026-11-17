@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-11-17T08:45:22.145137+00:00",
+  "original_sources_read_only": true,
+  "project_a_source": "G:/course-jiaotongshujuwajue/ProjectA",
+  "project_b_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi",
+  "project_b_files_identical": true,
+  "project_b_copy_mismatches": [],
+  "data_exclusions": [
+    "Geolife原始ZIP",
+    "个人精确点表/轨迹/点标签",
+    "pickle缓存",
+    "凭据",
+    "Conda二进制"
+  ],
+  "A_full_rerun_requires_authorized_external_Geolife": true,
+  "B_snapshot_included": true,
+  "packaging_does_not_claim_new_blind_test": true
+}

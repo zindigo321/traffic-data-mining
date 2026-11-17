@@ -1,0 +1,756 @@
+{
+  "frozen_utc": "2026-11-12T08:33:38.147293+00:00",
+  "primary": "dynamic_mean",
+  "static_primary": "graph_max",
+  "policy": "constrained",
+  "selection_sha256": "f8c778907ecd52a53c57cc3e9a062152d62db6853903420017f375a70459a682",
+  "config_sha256": "b4e615df6d08fafaa430e0ee02c55f9c976beaee450ad8713b1e2711ac52a055",
+  "prepared_sha256": "56d81b4b7838f44a3fa294a9039a8e0db788cc8b7c548e5bc02edabe43948a72",
+  "source_snapshot_sha256": "d9d8b7e81c6b468143f9dd0542ed946344f732ee333821450934cb0467bf6be9",
+  "code": {
+    "dynamic_analysis.py": "aee89acc62601972047a2fd3129df046371e1743e0084564ca1589bb35806381",
+    "dynamic_check.py": "f1ee9010e0c8e071b043b2364c7ec7259fd65b6669c9911d549d6849dd9daa7f",
+    "dynamic_clean_qa.py": "03f987d63acc31285d24281595b3901098d84b89acb9f8d49db639ac6a1c35c5",
+    "dynamic_model.py": "677110f2a550a35bcf700e290aac4c097771df5896c7d0f102a0d401f4e94957",
+    "dynamic_pack.py": "24ab76b6988845d5ec39758c7c43b94b5f126f8284013dc83a63c8779d91721e",
+    "dynamic_report.py": "8cfa7383ea0fe78a9d61cfd4e0f0121f47193fc2e5122aecfd495fbf72df53b1",
+    "dynamic_score.py": "03c2faa58160fe53917aa10826d0f943fececf6828d5ca26f4725abaddebdac3",
+    "dynamic_train.py": "3601834c1a0cb9faecd9b0aecfc030915ec1d76d642693796918199d3ef3cdc1",
+    "dynamic_verify.py": "c9ef180613b5a2aeabc6cd8f8a4eb8d36756c63f7aa5004fdd717fb51de89d0b"
+  },
+  "models": [
+    {
+      "model": "graph_mean",
+      "seed": 11,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9557286500930786,
+          "fit_TP": 1022,
+          "fit_FP": 528,
+          "fit_recovery_FP": 228,
+          "fit_BA": 0.8405045107811133,
+          "fit_F1": 0.6754791804362195,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9783715009689331,
+          "fit_TP": 846,
+          "fit_FP": 335,
+          "fit_recovery_FP": 167,
+          "fit_BA": 0.7829679677886966,
+          "fit_F1": 0.6368084305607828,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "85784325e8fecf790abaa05898c4f5e5060eb3fb9cd8497d85baeabfbe8a251f",
+        "curve.csv": "184d791d5f0496e3f19195f8f0d34bb2ff48adf6f0279063011e1111bc128ac6",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "772423b4b3d130796811ea29384b4bc04b04b7232bb6b9b9abf0efaf76c5a537",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "391de014cbf9168159814bc5b9a50eee9c968c3a6e74cd0499690e5fa431e789",
+        "weight.pt": "af64ef0f39e0251975e3beeefd2b5847376faab5d4c71c4c8d14a333c3f01148"
+      }
+    },
+    {
+      "model": "graph_mean",
+      "seed": 22,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9426432847976685,
+          "fit_TP": 1009,
+          "fit_FP": 480,
+          "fit_recovery_FP": 205,
+          "fit_BA": 0.8366190304957646,
+          "fit_F1": 0.6806070826306914,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9719281792640686,
+          "fit_TP": 827,
+          "fit_FP": 331,
+          "fit_recovery_FP": 168,
+          "fit_BA": 0.7765748462382689,
+          "fit_F1": 0.6279422930903569,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "f82948483c80ab738b7ea83d6d1b96004b806c49b7caf2123572ca3dceccd489",
+        "curve.csv": "53d53eee6410ef0c383d3e82839640af38d6f52eb1fb31c6759e9ad3a5c920cf",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "477d113e374753ad11e59235444fee76a3f56f67d6fdd1996c7574fb06738545",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "391de014cbf9168159814bc5b9a50eee9c968c3a6e74cd0499690e5fa431e789",
+        "weight.pt": "3ac9ed0c6692aab03c686c34e2fc61c93f78fd2c85fbd356a86348e1f61013c7"
+      }
+    },
+    {
+      "model": "graph_mean",
+      "seed": 33,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9408776164054871,
+          "fit_TP": 1045,
+          "fit_FP": 534,
+          "fit_recovery_FP": 238,
+          "fit_BA": 0.8482310494753186,
+          "fit_F1": 0.6841243862520459,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9671173691749573,
+          "fit_TP": 860,
+          "fit_FP": 313,
+          "fit_recovery_FP": 167,
+          "fit_BA": 0.7879480756841086,
+          "fit_F1": 0.6493016232540582,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "8d0469d30aa06f6c92dbbcbb200d72e5d3587577438d196802240dcc9d1fa50d",
+        "curve.csv": "73e9dd3fe91e33b84f707e497fded09f86d0c8f11928e8bffdc9f1f7b18fb9ac",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "644f21f3b3b7ae231dd20ba310fa3bc39b35c179f846f71dd1f413c045378af3",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "391de014cbf9168159814bc5b9a50eee9c968c3a6e74cd0499690e5fa431e789",
+        "weight.pt": "c102358511db151c3b49340e38acfa70e7a92905348bd9a23df9eec42818ea4c"
+      }
+    },
+    {
+      "model": "graph_max",
+      "seed": 11,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9727790951728821,
+          "fit_TP": 988,
+          "fit_FP": 468,
+          "fit_recovery_FP": 217,
+          "fit_BA": 0.829634787795701,
+          "fit_F1": 0.6739427012278308,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9812169075012207,
+          "fit_TP": 837,
+          "fit_FP": 336,
+          "fit_recovery_FP": 167,
+          "fit_BA": 0.7799083890977127,
+          "fit_F1": 0.6319365798414496,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "ab0d66ae59de86a21fd9159c072804e9d768e78f0dcba81568e5e7207a59672d",
+        "curve.csv": "e796fb2b36812a02c0f064f2834c046dbe325c4fe8dff8d4827663f9d9921c92",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "1be9858de52b81e622864d05fd2e1968c0d0493de57b249f33165f677eaf3d86",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "391de014cbf9168159814bc5b9a50eee9c968c3a6e74cd0499690e5fa431e789",
+        "weight.pt": "ced19b5984b368074df5376d33d7d67244d69b4bf7d538d1f259b85f6261f0b6"
+      }
+    },
+    {
+      "model": "graph_max",
+      "seed": 22,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9564515352249146,
+          "fit_TP": 988,
+          "fit_FP": 584,
+          "fit_recovery_FP": 218,
+          "fit_BA": 0.8283821962269381,
+          "fit_F1": 0.6482939632545932,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9733777046203613,
+          "fit_TP": 839,
+          "fit_FP": 335,
+          "fit_recovery_FP": 163,
+          "fit_BA": 0.7805966940759594,
+          "fit_F1": 0.6332075471698113,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "3a8b13c3be33fe85e0b70944a42665d8ffafa523d9f967f12d733a0ae168c539",
+        "curve.csv": "46f4eb048e07951d5b6a0473e7ebefb26c537a111abdfd189818ecb5e02eb42e",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "e7ff0f2a7dee05c07623e835850128613a6bcb44eb52779d21a707d3c3db2afd",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "391de014cbf9168159814bc5b9a50eee9c968c3a6e74cd0499690e5fa431e789",
+        "weight.pt": "2a7858e705b3e7aa817584b85c3d6f484b42d4d57c1c60696cd32dc038ee7ac2"
+      }
+    },
+    {
+      "model": "graph_max",
+      "seed": 33,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9289952516555786,
+          "fit_TP": 1041,
+          "fit_FP": 625,
+          "fit_recovery_FP": 235,
+          "fit_BA": 0.8458933994358948,
+          "fit_F1": 0.6626352641629535,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9640259742736816,
+          "fit_TP": 866,
+          "fit_FP": 336,
+          "fit_recovery_FP": 168,
+          "fit_BA": 0.7897322373361951,
+          "fit_F1": 0.6467513069454817,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "d7ebb49e07378c5f1ef00cf62819ec5b4eca2de3de3c545f6b218d597aab8fbb",
+        "curve.csv": "638c47336f305147951dfb045b829cf164c425452cc025b297092427a1d45ac7",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "7393e4b197a26b39c6bad96cad4dbfbad89c69767fdd99001b9dba760b61dcc4",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "391de014cbf9168159814bc5b9a50eee9c968c3a6e74cd0499690e5fa431e789",
+        "weight.pt": "7572e0d7799c41284c6430d46f9d8e234e49fd165eed06c5109e72ae2dedaf35"
+      }
+    },
+    {
+      "model": "graph_attention",
+      "seed": 11,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9162859320640564,
+          "fit_TP": 1062,
+          "fit_FP": 562,
+          "fit_recovery_FP": 244,
+          "fit_BA": 0.8536875073743826,
+          "fit_F1": 0.6851612903225807,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.977679431438446,
+          "fit_TP": 860,
+          "fit_FP": 322,
+          "fit_recovery_FP": 168,
+          "fit_BA": 0.7878508918554976,
+          "fit_F1": 0.6471030850263356,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "d953fa8c4b6f0285361b216ecaad3e97c35eefc2187e4d99345fea4300a0dcc0",
+        "curve.csv": "1bd38e46d280758f38228cad537284222defcb40ff39e7af96c3f70b1f3325fa",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "6c189dd69cf945c33f4e970826a48b0c994228def251a0ebb9557e089ebed53b",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "391de014cbf9168159814bc5b9a50eee9c968c3a6e74cd0499690e5fa431e789",
+        "weight.pt": "071ce596f30b502f0479c1e04ebcf19c829f204b136e79b45130446c537de5b1"
+      }
+    },
+    {
+      "model": "graph_attention",
+      "seed": 22,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9315365552902222,
+          "fit_TP": 996,
+          "fit_FP": 573,
+          "fit_recovery_FP": 209,
+          "fit_BA": 0.831211003562178,
+          "fit_F1": 0.6541871921182266,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9697670340538025,
+          "fit_TP": 842,
+          "fit_FP": 336,
+          "fit_recovery_FP": 163,
+          "fit_BA": 0.7816021560353822,
+          "fit_F1": 0.6345139412207988,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "e0ada694a13c2d7a86b8b13cb7d1cca6f8a291255ecc2b2ce22da141b6c4b406",
+        "curve.csv": "ab94757bb9e7ab743a9461d7f28c407694c97cbb108124e1a184cf86ffa2cff3",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "c03f2f9ede753ad84c7c6f350197a7d2c5ffedc18b0a3f0aeaf73e03ae39d16d",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "391de014cbf9168159814bc5b9a50eee9c968c3a6e74cd0499690e5fa431e789",
+        "weight.pt": "076ad450710dbcb67964c2daa5f18d1cd6b0d28fd6d681131fe7488895c44409"
+      }
+    },
+    {
+      "model": "graph_attention",
+      "seed": 33,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9686861634254456,
+          "fit_TP": 1032,
+          "fit_FP": 496,
+          "fit_recovery_FP": 230,
+          "fit_BA": 0.8442375871581799,
+          "fit_F1": 0.6870838881491345,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9846338629722595,
+          "fit_TP": 802,
+          "fit_FP": 300,
+          "fit_recovery_FP": 167,
+          "fit_BA": 0.7684407558484707,
+          "fit_F1": 0.622187742435997,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "f0b423f9dcbaa0eef1b0618a113a989cf5ecc18e71f6163359709901b0e1c527",
+        "curve.csv": "a286953ffb9ee2a76eda2a6abc5cc9a73cf6b11f3df6ece0ab707796e4acc251",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "592ca93b0e69a5cf86dea49194efa718d65128002fdfed18b2e1fa404a9486e4",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "391de014cbf9168159814bc5b9a50eee9c968c3a6e74cd0499690e5fa431e789",
+        "weight.pt": "30a1922d2751340a96f4b1294669bff83a5529b797e2d933266df841c8aee660"
+      }
+    },
+    {
+      "model": "dynamic_mean",
+      "seed": 11,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9634891748428345,
+          "fit_TP": 1059,
+          "fit_FP": 555,
+          "fit_recovery_FP": 240,
+          "fit_BA": 0.852746834634034,
+          "fit_F1": 0.6854368932038835,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9828570485115051,
+          "fit_TP": 866,
+          "fit_FP": 334,
+          "fit_recovery_FP": 168,
+          "fit_BA": 0.789753833742553,
+          "fit_F1": 0.6472346786248132,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "ea036bd7d6c3a51f4ee0287a5dac655c9d3c1137a0bc7246ed28bd8edf5c3c7a",
+        "curve.csv": "235a372e57badfe4c3cf73e99960af0e31004e4dc4cfd7b02fef284322af6098",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "2e45222ba8ea5a9869dcfb8ef3c96ac700ac5d90ebe0f234c8c7fa44b61a3d9e",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "1c094b04ecf4e4b85b6b4f901e9fb81d2b535ec912eeaa034da720c0b8e3fa39",
+        "weight.pt": "9dd18c681a050c62cdaa477e80ede85321afdc5d6efc69c7a3fb41a286bbd1df"
+      }
+    },
+    {
+      "model": "dynamic_mean",
+      "seed": 22,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9540709853172302,
+          "fit_TP": 954,
+          "fit_FP": 434,
+          "fit_recovery_FP": 201,
+          "fit_BA": 0.818484311527635,
+          "fit_F1": 0.6662011173184358,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9726728796958923,
+          "fit_TP": 809,
+          "fit_FP": 327,
+          "fit_recovery_FP": 166,
+          "fit_BA": 0.7705204780753752,
+          "fit_F1": 0.6194486983154671,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "721f771f81e7b54224de7a38ac74ce71b7d3f2369431e0664825d5cd7f9c89d3",
+        "curve.csv": "13ce9ba50d007578e190f69900b3763e2a8d91616d526632dcdd099de1bebc42",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "3b68199d4262a62beb8627cb95ec448d85c60ec9c245de65a0000994ecef25f9",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "1c094b04ecf4e4b85b6b4f901e9fb81d2b535ec912eeaa034da720c0b8e3fa39",
+        "weight.pt": "8ec878709f277f222d040c09297452aff30db57133fdd6e30d9a2595bb615cdc"
+      }
+    },
+    {
+      "model": "dynamic_mean",
+      "seed": 33,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9451429843902588,
+          "fit_TP": 1025,
+          "fit_FP": 511,
+          "fit_recovery_FP": 228,
+          "fit_BA": 0.8417043403977578,
+          "fit_F1": 0.6806108897742363,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9711730480194092,
+          "fit_TP": 869,
+          "fit_FP": 319,
+          "fit_recovery_FP": 168,
+          "fit_BA": 0.7909320669528395,
+          "fit_F1": 0.6524024024024024,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "b48d66b544297d5ff3f5799fc7369063f771a75e738c3beb60507f1fd1323f30",
+        "curve.csv": "75f5001d99f01101401821e9e8f64d42e780468f032ca0d5841796752e9c2e0d",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "dc72fbb75da3c1de063ac72efcb5d1a3cbbd141e5f554f844e4f5336197bb81e",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "1c094b04ecf4e4b85b6b4f901e9fb81d2b535ec912eeaa034da720c0b8e3fa39",
+        "weight.pt": "2fe9ebc7f1c8abd46c184fc318c5964e8e4477e2799573b32f83181935daa05c"
+      }
+    },
+    {
+      "model": "dynamic_max",
+      "seed": 11,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9716833829879761,
+          "fit_TP": 1026,
+          "fit_FP": 540,
+          "fit_recovery_FP": 225,
+          "fit_BA": 0.8417299458931009,
+          "fit_F1": 0.6745562130177515,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9838185906410217,
+          "fit_TP": 815,
+          "fit_FP": 321,
+          "fit_recovery_FP": 167,
+          "fit_BA": 0.7726177876196523,
+          "fit_F1": 0.6240428790199081,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "27726de1b2f7f537c05d8d05b3a7f4a61e2a83ead55fd4d8a710f583b01d2070",
+        "curve.csv": "c18465a5a5ba1b2e1368c840d1e4ff595c0d9010847943447b6778b19b0dae21",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "91614d9deb226efc3d2d02190ca1162a5f5ecff68770319238dcd1f03901750d",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "1c094b04ecf4e4b85b6b4f901e9fb81d2b535ec912eeaa034da720c0b8e3fa39",
+        "weight.pt": "a3525ac49efca4b9eb43f0542d705ec2c06b8e4f06f91c5e7fd30cea91c50386"
+      }
+    },
+    {
+      "model": "dynamic_max",
+      "seed": 22,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9668996930122375,
+          "fit_TP": 925,
+          "fit_FP": 460,
+          "fit_recovery_FP": 191,
+          "fit_BA": 0.8083797100064988,
+          "fit_F1": 0.6466270534778049,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9779344201087952,
+          "fit_TP": 815,
+          "fit_FP": 336,
+          "fit_recovery_FP": 166,
+          "fit_BA": 0.7724558145719674,
+          "fit_F1": 0.6204796345641416,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "bb00b2c9aa4b21f789df83773786f22c680cadda3f64485dc26329cf5265278a",
+        "curve.csv": "840e23ae8ef7e21265381316aede18aeb961515d1be15b96f255ae04c264cdc0",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "bd26be3e848b2bf261ced90e7dd3d63aaaec586e6dfe96d99be5f8bf1c57a09e",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "1c094b04ecf4e4b85b6b4f901e9fb81d2b535ec912eeaa034da720c0b8e3fa39",
+        "weight.pt": "f3e236c578b897e33e8992d9be99f7bcd137b247d8cd6f033ff1d81ab0223ab5"
+      }
+    },
+    {
+      "model": "dynamic_max",
+      "seed": 33,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9479748010635376,
+          "fit_TP": 1021,
+          "fit_FP": 568,
+          "fit_recovery_FP": 222,
+          "fit_BA": 0.8397338292664197,
+          "fit_F1": 0.666231647634584,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9727307558059692,
+          "fit_TP": 777,
+          "fit_FP": 287,
+          "fit_recovery_FP": 150,
+          "fit_BA": 0.7601122978014507,
+          "fit_F1": 0.6118110236220472,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "5a746195adb2173d5f4205766e693f50e500ff38f8bafc7a92e5211645f9170b",
+        "curve.csv": "742e3c7b78928e244b16eaf64c3d65a2ba9993e8a59b34a7047201237e212482",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "bea420882e4be561d6bc70077589ceb716a9b5d87c160b74fb7f7bcc4a5308bc",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "1c094b04ecf4e4b85b6b4f901e9fb81d2b535ec912eeaa034da720c0b8e3fa39",
+        "weight.pt": "f9e2dcc90b7fbd47dd36e007aee6f631aca7974d00b0639e4e5c73a06ddd7564"
+      }
+    },
+    {
+      "model": "dynamic_attention",
+      "seed": 11,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9708508849143982,
+          "fit_TP": 933,
+          "fit_FP": 401,
+          "fit_recovery_FP": 193,
+          "fit_BA": 0.8117268310943303,
+          "fit_F1": 0.6640569395017794,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.979323148727417,
+          "fit_TP": 839,
+          "fit_FP": 331,
+          "fit_recovery_FP": 168,
+          "fit_BA": 0.7806398868886754,
+          "fit_F1": 0.6341647770219199,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "4c1c68d1130f5b646037a5f3dafafc5dfd2d4396cfafc3f0be77fb5a9026d8a9",
+        "curve.csv": "4f2aa6a8a9fe338f4ea9d57ffc8a4db491eb50b866076053374351954e8c3a00",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "1b81524e89bcd1ab37d5d2afd3ea91652f6a91e940ce98ed6df10c385b93cceb",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "1c094b04ecf4e4b85b6b4f901e9fb81d2b535ec912eeaa034da720c0b8e3fa39",
+        "weight.pt": "3a53c6424a579b3504a3ce4756cad5b032cfb336ee87acf8d9b09ed1015d29cd"
+      }
+    },
+    {
+      "model": "dynamic_attention",
+      "seed": 22,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9648746848106384,
+          "fit_TP": 942,
+          "fit_FP": 423,
+          "fit_recovery_FP": 195,
+          "fit_BA": 0.8145380511121973,
+          "fit_F1": 0.6631467793030623,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9755297899246216,
+          "fit_TP": 840,
+          "fit_FP": 336,
+          "fit_recovery_FP": 163,
+          "fit_BA": 0.7809246492603144,
+          "fit_F1": 0.6334841628959276,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "30221a0b36b6c72020da7f200dfdfc9adf83b790a8010ed7fd51c9943d0a7e9f",
+        "curve.csv": "da3ce0ddba7914d521edcebc91b6d2f5683008655f4da69cffc1fb79da21adad",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "429b3e534a5f0b3379a98cddcea1d1d53accd9ea73bd1b36df6bce15879d3d98",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "1c094b04ecf4e4b85b6b4f901e9fb81d2b535ec912eeaa034da720c0b8e3fa39",
+        "weight.pt": "f3a961153f76c9ce14de2c56760dba34d170a6a616965034a1b6077be5db10c4"
+      }
+    },
+    {
+      "model": "dynamic_attention",
+      "seed": 33,
+      "options": {
+        "max_f1": {
+          "threshold": 0.9524668455123901,
+          "fit_TP": 1018,
+          "fit_FP": 502,
+          "fit_recovery_FP": 229,
+          "fit_BA": 0.8394302505136315,
+          "fit_F1": 0.6795727636849133,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": false
+        },
+        "constrained": {
+          "threshold": 0.9715409278869629,
+          "fit_TP": 834,
+          "fit_FP": 334,
+          "fit_recovery_FP": 168,
+          "fit_BA": 0.778913725341469,
+          "fit_F1": 0.6308623298033282,
+          "fit_days": 28,
+          "fit_FP_cap": 336,
+          "fit_recovery_cap": 168,
+          "fit_FP_budget_ok": true
+        }
+      },
+      "files": {
+        "assessment.npz": "67e119483742914ea62b1db5402bfc9970e29f89134effffa2238f78852b3c13",
+        "curve.csv": "565e78fe221e702aa2fb1877bf3a64bfcc21f4f72eeb5bcfb64deaa075d673c5",
+        "preprocessor.npz": "50374c130c7e739de73d5f48490da3c68a6b102a4c594d408ac558d8cafb78fc",
+        "status.json": "02711204ca73b8048256333732c076e028cb7455df2398f992f4eca5455b722a",
+        "training_ids.npz": "8d2a011d2f3cb91a6da639b151c0122b8d81736b6ef87b2e150d1eeed449c113",
+        "training_support.json": "1c094b04ecf4e4b85b6b4f901e9fb81d2b535ec912eeaa034da720c0b8e3fa39",
+        "weight.pt": "0d2208abe8aabf842901bcda4ff8defd7c96d1182ff48a98915396dca2dfa4be"
+      }
+    }
+  ],
+  "current_round_test_metrics_computed": false,
+  "new_dynamic_test_scores_computed": false,
+  "historical_test_already_public": true,
+  "fresh_blind_validation": false,
+  "test_sample_summary": {
+    "part": "retrospective_test",
+    "phase": 2,
+    "scheduled": 130680,
+    "known": 80536,
+    "positive": 2866,
+    "negative": 77670,
+    "unknown": 50144,
+    "known_fraction": 0.616284052647689,
+    "days": 45,
+    "start": "2026-09-28",
+    "stop_exclusive": "2026-11-12",
+    "known_roads": 91,
+    "positive_events": 796,
+    "recovery_negatives": 929,
+    "legal_lag20_missing": 62292,
+    "unknown_and_label_reasons": {
+      "not_low_current_estimate": 77670,
+      "two_consecutive_low_estimates": 2866,
+      "unconfirmed_low_estimate": 1427,
+      "insufficient_history": 338,
+      "invalid_speed_or_probe_support": 42126,
+      "absent_or_changed_metadata": 6253
+    },
+    "known_key_sha256": "9304ef2a76bb404db24a1632645095e2f3ec52279ba3d9d0ec6714ffd543d483",
+    "all_key_sha256": "0dd690413e2cd095ba8d944b1d9160cde088b443ae388818ec8b320cd031893a"
+  }
+}

@@ -1,0 +1,1 @@
+{'primary': 'dynamic_mean', 'epochs': {'dynamic_mean': 11, 'dynamic_max': 11, 'dynamic_attention': 11}, 'AP': {'graph_mean': 0.7380503962976405, 'graph_max': 0.7384912540474923, 'graph_attention': 0.7365172959394248, 'dynamic_mean': 0.7413244960980364, 'dynamic_max': 0.7378215673519435, 'dynamic_attention': 0.7410485870391069}}

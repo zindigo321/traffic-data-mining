@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-11-12T07:25:36.409119+00:00",
+  "fresh_directory": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack",
+  "clone": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\fresh_copy",
+  "files_copied_or_extracted": 527,
+  "archive_sha256": null,
+  "manifest_crc_hash_check": false,
+  "operating_points": 72,
+  "matched_points": 288,
+  "model_replay_count": 36,
+  "maximum_probability_error": 0.0,
+  "engineering_tests": 19,
+  "external_prepared_verified": true,
+  "full_clean_refits": 0,
+  "commands": [
+    {
+      "stage": "clean_metric_recomputation",
+      "command": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "dynamic_verify.py",
+        "--artifacts",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\fresh_copy"
+      ],
+      "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\fresh_copy\\project",
+      "started_utc": "2026-11-12T07:24:06.021892+00:00",
+      "ended_utc": "2026-11-12T07:24:23.189173+00:00",
+      "elapsed_seconds": 17.1642,
+      "exit_code": 0,
+      "log": "20261112T072406021892Z_clean_metric_recomputation.log",
+      "paths": {
+        "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\offline_check"
+      }
+    },
+    {
+      "stage": "clean_all_model_replay",
+      "command": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "dynamic_verify.py",
+        "--artifacts",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\fresh_copy",
+        "--replay"
+      ],
+      "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\fresh_copy\\project",
+      "started_utc": "2026-11-12T07:24:23.191420+00:00",
+      "ended_utc": "2026-11-12T07:25:29.539731+00:00",
+      "elapsed_seconds": 66.3485,
+      "exit_code": 0,
+      "log": "20261112T072423190917Z_clean_all_model_replay.log",
+      "paths": {
+        "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\replay_check"
+      }
+    },
+    {
+      "stage": "clean_engineering_tests",
+      "command": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\fresh_copy\\project",
+      "started_utc": "2026-11-12T07:25:29.544795+00:00",
+      "ended_utc": "2026-11-12T07:25:36.381199+00:00",
+      "elapsed_seconds": 6.8361,
+      "exit_code": 0,
+      "log": "20261112T072529544795Z_clean_engineering_tests.log",
+      "paths": {
+        "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\test_check"
+      }
+    }
+  ],
+  "scope": "fresh copy before packaging"
+}

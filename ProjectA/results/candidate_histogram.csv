@@ -1,0 +1,6 @@
+noise_fraction_left,noise_fraction_right,trajectories,candidates,median_points
+0.0,0.2,354,0,23.0
+0.2,0.4,178,0,35.0
+0.4,0.6,176,0,41.0
+0.6,0.8,189,0,41.0
+0.8,1.0,205,115,24.0

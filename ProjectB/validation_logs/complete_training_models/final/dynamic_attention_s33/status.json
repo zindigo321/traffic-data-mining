@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "stage": "final",
+  "model": "dynamic_attention",
+  "seed": 33,
+  "started_utc": "2026-11-12T08:31:39.027018+00:00",
+  "completed_utc": "2026-11-12T08:33:30.121530+00:00",
+  "fit_and_score_seconds": 111.0942076999927,
+  "peak_RSS_bytes": 762957824,
+  "parameters": 24298,
+  "best_epoch": 11,
+  "fixed_epoch": 11,
+  "total_training_exposures": 2060064,
+  "updates": 16104,
+  "known_train": 171672,
+  "unique_training": 171672,
+  "full_known_coverage": 1.0,
+  "weight_sha256": "0d2208abe8aabf842901bcda4ff8defd7c96d1182ff48a98915396dca2dfa4be",
+  "assessment_rows": 81312,
+  "test_scored_before_freeze": false
+}

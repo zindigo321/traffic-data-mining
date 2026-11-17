@@ -1,0 +1,60 @@
+{
+  "original_project": "G:/course-jiaotongshujuwajue/ProjectB",
+  "course_archive": "G:/course-jiaotongshujuwajue.zip",
+  "geolife_zip": "G:/course-jiaotongshujuwajue/dataset/Geolife Trajectories 1.3.zip",
+  "primitive_supplement_zip": "G:/course-jiaotongshujuwajue/dataset/Beijing_user_trajectory.pkl.zip",
+  "primitive_expected_sha256": "b4029fd856061ba03fabaf375fd3a6be202679e710e5110af39bc4d207cd4ef9",
+  "lecture_pdf": "E:/Wechatt/xwechat_files/ANON_WECHAT_ID/msg/file/2026-10/Lecture1-logistics-DM2026V3-part1.pdf",
+  "geolife_time_basis": "Asia/Shanghai",
+  "window_seconds": 60,
+  "minimum_history_days": 3,
+  "minimum_history_passages": 3,
+  "congestion_ratio": 0.4,
+  "congestion_duration_seconds": 300,
+  "minimum_coverage_seconds": 50,
+  "history_fallback": "same_road_direction_daytype_peak",
+  "public": {
+    "dataset_id": "4g9f-3jbs",
+    "start_date": "2024-07-01",
+    "end_date_exclusive": "2024-10-01",
+    "segment_max_id": 240,
+    "peak_hours": [
+      7,
+      8,
+      17,
+      18
+    ],
+    "slice_days": 7,
+    "bin_minutes": 10,
+    "lag_windows": 3,
+    "consecutive_low_estimates": 2,
+    "train_fraction": 0.6,
+    "validation_end_fraction": 0.8,
+    "max_speed_mph": 80,
+    "endpoint_round_decimals": 5,
+    "endpoint_named_radius_m": 20
+  },
+  "graph_hops": 2,
+  "max_nodes": 16,
+  "pooling": [
+    "mean",
+    "max",
+    "attention"
+  ],
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "width": 32,
+  "heads": 4,
+  "layers": 2,
+  "epochs": 12,
+  "learning_rate": 0.001,
+  "batch_size": 128,
+  "eval_batch_size": 512,
+  "train_negative_budget": 12000,
+  "train_sampling_seed": 741,
+  "torch_threads": 4,
+  "device": "cpu"
+}

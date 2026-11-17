@@ -1,0 +1,13 @@
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 1, 'AP': 0.6653447220721873, 'bce': 0.4468171178601646, 'elapsed': 7.2}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 2, 'AP': 0.727543803280408, 'bce': 0.3922214329971337, 'elapsed': 14.4}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 3, 'AP': 0.7096392494394973, 'bce': 0.3760260685548144, 'elapsed': 22.2}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 4, 'AP': 0.6986381215541869, 'bce': 0.3671330182730628, 'elapsed': 29.6}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 5, 'AP': 0.7209006806074824, 'bce': 0.35302713063321645, 'elapsed': 37.2}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 6, 'AP': 0.7313752163648752, 'bce': 0.34832562998568045, 'elapsed': 45.5}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 7, 'AP': 0.7327386852976129, 'bce': 0.3382552687698001, 'elapsed': 53.4}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 8, 'AP': 0.7280530883509109, 'bce': 0.3376391868054021, 'elapsed': 60.7}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 9, 'AP': 0.7356667226149926, 'bce': 0.32920038787598355, 'elapsed': 68.1}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 10, 'AP': 0.7171282860831022, 'bce': 0.3273761643359618, 'elapsed': 75.9}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 11, 'AP': 0.7471005021343076, 'bce': 0.3204137171887912, 'elapsed': 83.3}
+{'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 12, 'AP': 0.7229191348207944, 'bce': 0.3082902400339014, 'elapsed': 90.7}
+{'status': 'complete', 'stage': 'development', 'model': 'dynamic_attention', 'seed': 33, 'started_utc': '2026-11-12T07:08:30.396614+00:00', 'completed_utc': '2026-11-12T07:10:02.383326+00:00', 'fit_and_score_seconds': 91.98813770001289, 'peak_RSS_bytes': 630165504, 'parameters': 24298, 'best_epoch': 11, 'fixed_epoch': None, 'total_training_exposures': 1396572, 'updates': 10920, 'known_train': 116381, 'unique_training': 116381, 'full_known_coverage': 1.0, 'weight_sha256': 'f853278c23a054e184e2b6eba412e248d03c3f680fd61b5dfce1d346dfb4924e', 'assessment_rows': 81312, 'test_scored_before_freeze': False}

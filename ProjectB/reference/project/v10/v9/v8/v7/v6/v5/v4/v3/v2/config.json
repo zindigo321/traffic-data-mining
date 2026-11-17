@@ -1,0 +1,166 @@
+{
+  "v1_zip": "G:/gpt-file/Codex/2026-11-10/project-b-graph-transformer-graph-transformer/outputs/ProjectB_GraphTransformer/ProjectB_GraphTransformer_审计包.zip",
+  "v1_zip_sha256": "800fd4a17892c270e17521ac2281501f922bc8565fc81d8374d2d0754837570e",
+  "v1_cache": "G:/gpt-file/Codex/2026-11-10/project-b-graph-transformer-graph-transformer/work/final_zip_qa/run",
+  "review_file": "G:/gpt-file/Codex/2026-10-29/1-8-10-ppt-2-project1/outputs/ProjectB_指标复审与提升规划_20261110.txt",
+  "review_sha256": "f0eb1e8bec56887a4a39d66aff7692436d83bbd05ab725a6b5e56a1e476359ec",
+  "source": {
+    "dataset": "4g9f-3jbs",
+    "zone": "America/Chicago",
+    "hours": [
+      7,
+      8,
+      17,
+      18
+    ],
+    "bin_minutes": 10,
+    "max_segment_id": 240,
+    "max_speed_mph": 80,
+    "week_days": 7,
+    "workers": 4,
+    "http_retries": 3
+  },
+  "exclusions": [
+    [
+      "2024-09-12",
+      "2024-10-01"
+    ]
+  ],
+  "development_download": [
+    "2024-10-01",
+    "2025-02-17"
+  ],
+  "holdout": [
+    "2025-02-17",
+    "2025-07-01"
+  ],
+  "folds": {
+    "f1": {
+      "train": [
+        [
+          "2024-07-01",
+          "2024-08-25"
+        ]
+      ],
+      "valid": [
+        "2024-08-25",
+        "2024-09-12"
+      ]
+    },
+    "f2": {
+      "train": [
+        [
+          "2024-07-01",
+          "2024-09-12"
+        ],
+        [
+          "2024-10-01",
+          "2024-11-04"
+        ]
+      ],
+      "valid": [
+        "2024-11-04",
+        "2024-12-02"
+      ]
+    },
+    "f3": {
+      "train": [
+        [
+          "2024-07-01",
+          "2024-09-12"
+        ],
+        [
+          "2024-10-01",
+          "2024-12-16"
+        ]
+      ],
+      "valid": [
+        "2024-12-16",
+        "2025-01-20"
+      ]
+    },
+    "local_a": {
+      "train": [
+        [
+          "2024-07-01",
+          "2024-07-29"
+        ]
+      ],
+      "valid": [
+        "2024-07-29",
+        "2024-08-12"
+      ]
+    },
+    "local_b": {
+      "train": [
+        [
+          "2024-07-01",
+          "2024-08-12"
+        ]
+      ],
+      "valid": [
+        "2024-08-12",
+        "2024-08-25"
+      ]
+    }
+  },
+  "main_folds": [
+    "f1",
+    "f2",
+    "f3"
+  ],
+  "fallback_folds": [
+    "local_a",
+    "local_b",
+    "f1"
+  ],
+  "final_train": [
+    [
+      "2024-07-01",
+      "2024-09-12"
+    ],
+    [
+      "2024-10-01",
+      "2025-01-20"
+    ]
+  ],
+  "calibration": [
+    "2025-01-20",
+    "2025-02-17"
+  ],
+  "minimum_history_days": 3,
+  "ratio": 0.4,
+  "lag_count": 3,
+  "roster_count": 231,
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "sampling_seed": 741,
+  "aux_seed": 1971,
+  "epochs": 12,
+  "batch_size": 128,
+  "eval_batch_size": 768,
+  "lr": 0.001,
+  "width": 32,
+  "heads": 4,
+  "layers": 2,
+  "negative_budget": 12000,
+  "aux_batch": 32,
+  "aux_weight": 0.25,
+  "cpu_threads": 2,
+  "workers": 4,
+  "pools": [
+    "mean",
+    "max",
+    "attention"
+  ],
+  "reference_pool": "max",
+  "bootstrap_reps": 250,
+  "bootstrap_seed": 8841,
+  "goals": [
+    0.6,
+    0.75
+  ]
+}

@@ -1,0 +1,6 @@
+Python: D:\conda_envs\niulaoshi\python.exe
+Payload hashes: 1093
+Command: replay
+Output: G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_replay
+Running local_replay -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_replay\logs\20261117T084819455792Z_local_replay.log
+Exit: 0; receipts: G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\B_replay

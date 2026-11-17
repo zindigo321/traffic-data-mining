@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-11-12T04:07:31.244074+00:00",
+  "files": {
+    "development": {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\full_data\\20261112\\prepared\\development.npz",
+      "sha256": "1fc99b4e2b75d993c0a2e0f6b9b75412d363392fc8f83708701381a890b83e46",
+      "bytes": 13031405
+    },
+    "final": {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\full_data\\20261112\\prepared\\final.npz",
+      "sha256": "9e1ae8ae01c18fa92dc84edc1135c1b745ad059282deb380ffc49a5abd4bc3ca",
+      "bytes": 22496304
+    }
+  },
+  "source_funnel": {
+    "rows": 1019891,
+    "outside_pinned_roster": 33635,
+    "invalid_in_roster": 305500,
+    "valid_rows": 680756,
+    "status_counts": {
+      "0": 662466,
+      "-101": 357425
+    },
+    "valid_rows_by_status": {
+      "0": 640257,
+      "-101": 40499
+    },
+    "status_filters_speed": false,
+    "implied_miles_over_polyline_miles_p10_median_p90": [
+      0.7879603120197831,
+      0.9878387393933434,
+      1.3740179322324557
+    ],
+    "duplicate_valid_timestamps": 0,
+    "usable": 319699,
+    "observed": 493986,
+    "expected": 537240,
+    "first_half_only": 14228,
+    "last_half_only": 8759,
+    "source_days": 181,
+    "registered_days": 185,
+    "zero_observation_days": [
+      "2026-06-14",
+      "2026-06-15",
+      "2026-07-18",
+      "2026-10-12"
+    ]
+  },
+  "source_snapshot_sha256": "d9d8b7e81c6b468143f9dd0542ed946344f732ee333821450934cb0467bf6be9",
+  "raw_grid_sha256": "5bedcc9d51311c4baf1fb8a40f064d88a2631ceac4dde222118253412dc7520d",
+  "training_full_known": true,
+  "new_legacy_holdouts_included": true,
+  "evaluation_protocol": "chronological retrospective",
+  "latest_dynamic_lag_minutes": 20,
+  "unknown_retained": true
+}

@@ -1,0 +1,13 @@
+test_date_bootstrap_equals_explicit_duplicate_rows (test_v4.V4Tests.test_date_bootstrap_equals_explicit_duplicate_rows) ... ok
+test_embargo_and_no_holdout_loader (test_v4.V4Tests.test_embargo_and_no_holdout_loader) ... ok
+test_neighbor_direction_and_missing (test_v4.V4Tests.test_neighbor_direction_and_missing) ... ok
+test_pool_batches_do_not_mix_and_graph_changes_outputs (test_v4.V4Tests.test_pool_batches_do_not_mix_and_graph_changes_outputs) ... ok
+test_same_recall_exact_with_ties_and_full_denominator (test_v4.V4Tests.test_same_recall_exact_with_ties_and_full_denominator) ... ok
+test_tail_gradient_only_top_recovery_and_positives (test_v4.V4Tests.test_tail_gradient_only_top_recovery_and_positives) ... ok
+test_target_future_mutation_does_not_change_neighbor_feature_or_score (test_v4.V4Tests.test_target_future_mutation_does_not_change_neighbor_feature_or_score) ... ok
+test_unknown_rejected (test_v4.V4Tests.test_unknown_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.295s
+
+OK

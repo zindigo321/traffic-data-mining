@@ -1,0 +1,22 @@
+{
+  "stage": "local_replay",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "dynamic_verify.py",
+    "--artifacts",
+    "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB\\ProjectB\\reference",
+    "--replay"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB\\ProjectB\\src",
+  "started_utc": "2026-11-17T08:48:19.455792+00:00",
+  "ended_utc": "2026-11-17T08:48:48.327141+00:00",
+  "elapsed_seconds": 28.8713,
+  "exit_code": 0,
+  "log": "20261117T084819455792Z_local_replay.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_results_20261117\\B_replay"
+  }
+}

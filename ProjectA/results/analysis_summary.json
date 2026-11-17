@@ -1,0 +1,19 @@
+{
+  "main_eps_m": 50,
+  "main_min_samples": 20,
+  "kmeans_k": 5,
+  "points": 53786,
+  "users": 30,
+  "trajectories": 1102,
+  "candidate_count": 115,
+  "stability": {
+    "subset_fraction": 0.9,
+    "n": 48407,
+    "ari_including_noise": 0.9063785102960764,
+    "noise_fraction": 0.46598632429194126,
+    "clusters": 155
+  },
+  "grid_bias_total_variation": 0.14332257884044447,
+  "time_start": "2007-09-03 09:52:08+00:00",
+  "time_end": "2011-12-27 05:18:00+00:00"
+}

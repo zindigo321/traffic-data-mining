@@ -1,0 +1,1444 @@
+{
+  "status": "available_snapshot",
+  "pinned_utc": "2026-11-12T04:05:34.058986+00:00",
+  "latest_source_time": "2026-11-11T17:12:06.000",
+  "official_time_probe": {
+    "result": [
+      {
+        "data_as_of": "2026-11-11T17:12:06.000"
+      }
+    ],
+    "attempts": [
+      {
+        "utc": "2026-11-12T04:05:15.484427+00:00",
+        "status": 200,
+        "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.json?%24select=data_as_of&%24where=data_as_of+%3E%3D+%272026-11-09T00%3A00%3A00%27&%24order=data_as_of+DESC&%24limit=1",
+        "seconds": 7.459
+      }
+    ]
+  },
+  "corpus_requested": [
+    "2026-05-11",
+    "2026-11-12"
+  ],
+  "files": [
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-05-11_2026-05-18_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-05-11T00:00:00' AND data_as_of < '2026-05-18T00:00:00' AND ((data_as_of >= '2026-05-11T07:00:00' AND data_as_of < '2026-05-11T09:00:00') OR (data_as_of >= '2026-05-12T07:00:00' AND data_as_of < '2026-05-12T09:00:00') OR (data_as_of >= '2026-05-13T07:00:00' AND data_as_of < '2026-05-13T09:00:00') OR (data_as_of >= '2026-05-14T07:00:00' AND data_as_of < '2026-05-14T09:00:00') OR (data_as_of >= '2026-05-15T07:00:00' AND data_as_of < '2026-05-15T09:00:00') OR (data_as_of >= '2026-05-16T07:00:00' AND data_as_of < '2026-05-16T09:00:00') OR (data_as_of >= '2026-05-17T07:00:00' AND data_as_of < '2026-05-17T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 16967,
+      "bytes": 902692,
+      "sha256": "57dcd3c7cfe70ec09b3dbaa286ab32cd9a61d7c1a06670e5543049dc6db24a53",
+      "first_requested_utc": "2026-11-10T11:09:31.087991+00:00",
+      "completed_utc": "2026-11-10T11:09:36.001990+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:35.985404+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.0863,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-05-11T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-18T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-05-11T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-11T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-12T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-12T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-13T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-13T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-14T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-14T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-15T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-15T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-16T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-16T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-17T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-17T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/00/2026-05-11_2026-05-18_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-05-11_2026-05-18_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-05-11T00:00:00' AND data_as_of < '2026-05-18T00:00:00' AND ((data_as_of >= '2026-05-11T17:00:00' AND data_as_of < '2026-05-11T19:00:00') OR (data_as_of >= '2026-05-12T17:00:00' AND data_as_of < '2026-05-12T19:00:00') OR (data_as_of >= '2026-05-13T17:00:00' AND data_as_of < '2026-05-13T19:00:00') OR (data_as_of >= '2026-05-14T17:00:00' AND data_as_of < '2026-05-14T19:00:00') OR (data_as_of >= '2026-05-15T17:00:00' AND data_as_of < '2026-05-15T19:00:00') OR (data_as_of >= '2026-05-16T17:00:00' AND data_as_of < '2026-05-16T19:00:00') OR (data_as_of >= '2026-05-17T17:00:00' AND data_as_of < '2026-05-17T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 16968,
+      "bytes": 902914,
+      "sha256": "c35a1073426c24ae255f7342e3b75bc9f1e239cf6d7d0f08c86bd36fa9443c32",
+      "first_requested_utc": "2026-11-10T11:09:31.088995+00:00",
+      "completed_utc": "2026-11-10T11:09:35.155763+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:35.139791+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.2439,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-05-11T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-18T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-05-11T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-11T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-12T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-12T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-13T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-13T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-14T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-14T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-15T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-15T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-16T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-16T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-17T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-17T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/01/2026-05-11_2026-05-18_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-05-18_2026-05-25_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-05-18T00:00:00' AND data_as_of < '2026-05-25T00:00:00' AND ((data_as_of >= '2026-05-18T07:00:00' AND data_as_of < '2026-05-18T09:00:00') OR (data_as_of >= '2026-05-19T07:00:00' AND data_as_of < '2026-05-19T09:00:00') OR (data_as_of >= '2026-05-20T07:00:00' AND data_as_of < '2026-05-20T09:00:00') OR (data_as_of >= '2026-05-21T07:00:00' AND data_as_of < '2026-05-21T09:00:00') OR (data_as_of >= '2026-05-22T07:00:00' AND data_as_of < '2026-05-22T09:00:00') OR (data_as_of >= '2026-05-23T07:00:00' AND data_as_of < '2026-05-23T09:00:00') OR (data_as_of >= '2026-05-24T07:00:00' AND data_as_of < '2026-05-24T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 17078,
+      "bytes": 908250,
+      "sha256": "3b7dfd878064182bd79ec230f1fa12cc04a6c342ea06f192fbac9b643173974a",
+      "first_requested_utc": "2026-11-10T11:09:31.089983+00:00",
+      "completed_utc": "2026-11-10T11:09:39.032045+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:39.023452+00:00",
+          "status": 200,
+          "elapsed_seconds": 5.4191,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-05-18T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-25T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-05-18T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-18T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-19T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-19T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-20T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-20T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-21T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-21T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-22T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-22T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-23T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-23T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-24T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-24T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/02/2026-05-18_2026-05-25_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-05-18_2026-05-25_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-05-18T00:00:00' AND data_as_of < '2026-05-25T00:00:00' AND ((data_as_of >= '2026-05-18T17:00:00' AND data_as_of < '2026-05-18T19:00:00') OR (data_as_of >= '2026-05-19T17:00:00' AND data_as_of < '2026-05-19T19:00:00') OR (data_as_of >= '2026-05-20T17:00:00' AND data_as_of < '2026-05-20T19:00:00') OR (data_as_of >= '2026-05-21T17:00:00' AND data_as_of < '2026-05-21T19:00:00') OR (data_as_of >= '2026-05-22T17:00:00' AND data_as_of < '2026-05-22T19:00:00') OR (data_as_of >= '2026-05-23T17:00:00' AND data_as_of < '2026-05-23T19:00:00') OR (data_as_of >= '2026-05-24T17:00:00' AND data_as_of < '2026-05-24T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 16979,
+      "bytes": 902719,
+      "sha256": "159d21a0dcab16ac89e3fe97a5a187d41f53a4d03f80dd102f3bb2396ced6c4d",
+      "first_requested_utc": "2026-11-10T11:09:31.088995+00:00",
+      "completed_utc": "2026-11-10T11:09:34.898390+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:34.887705+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.6456,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-05-18T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-25T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-05-18T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-18T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-19T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-19T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-20T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-20T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-21T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-21T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-22T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-22T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-23T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-23T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-24T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-24T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/03/2026-05-18_2026-05-25_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-05-25_2026-06-01_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-05-25T00:00:00' AND data_as_of < '2026-06-01T00:00:00' AND ((data_as_of >= '2026-05-25T07:00:00' AND data_as_of < '2026-05-25T09:00:00') OR (data_as_of >= '2026-05-26T07:00:00' AND data_as_of < '2026-05-26T09:00:00') OR (data_as_of >= '2026-05-27T07:00:00' AND data_as_of < '2026-05-27T09:00:00') OR (data_as_of >= '2026-05-28T07:00:00' AND data_as_of < '2026-05-28T09:00:00') OR (data_as_of >= '2026-05-29T07:00:00' AND data_as_of < '2026-05-29T09:00:00') OR (data_as_of >= '2026-05-30T07:00:00' AND data_as_of < '2026-05-30T09:00:00') OR (data_as_of >= '2026-05-31T07:00:00' AND data_as_of < '2026-05-31T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 17194,
+      "bytes": 914360,
+      "sha256": "8d300e1d0e578c05027cb6a186c7f58f8cf9979444c04893edce5010ef0fe626",
+      "first_requested_utc": "2026-11-10T11:09:31.089983+00:00",
+      "completed_utc": "2026-11-10T11:09:34.602006+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:34.584955+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.3472,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-05-25T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-01T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-05-25T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-25T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-26T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-26T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-27T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-27T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-28T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-28T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-29T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-29T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-30T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-30T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-31T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-31T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/04/2026-05-25_2026-06-01_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-05-25_2026-06-01_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-05-25T00:00:00' AND data_as_of < '2026-06-01T00:00:00' AND ((data_as_of >= '2026-05-25T17:00:00' AND data_as_of < '2026-05-25T19:00:00') OR (data_as_of >= '2026-05-26T17:00:00' AND data_as_of < '2026-05-26T19:00:00') OR (data_as_of >= '2026-05-27T17:00:00' AND data_as_of < '2026-05-27T19:00:00') OR (data_as_of >= '2026-05-28T17:00:00' AND data_as_of < '2026-05-28T19:00:00') OR (data_as_of >= '2026-05-29T17:00:00' AND data_as_of < '2026-05-29T19:00:00') OR (data_as_of >= '2026-05-30T17:00:00' AND data_as_of < '2026-05-30T19:00:00') OR (data_as_of >= '2026-05-31T17:00:00' AND data_as_of < '2026-05-31T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 17025,
+      "bytes": 902837,
+      "sha256": "8606f2cfbcc435b1d592f086c1052d8cb6ea079a4693a47a06c7b3d961587f72",
+      "first_requested_utc": "2026-11-10T11:09:34.335977+00:00",
+      "completed_utc": "2026-11-10T11:09:38.971847+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:38.959202+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.2581,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-05-25T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-01T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-05-25T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-25T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-26T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-26T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-27T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-27T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-28T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-28T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-29T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-29T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-30T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-30T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-05-31T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-31T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/05/2026-05-25_2026-06-01_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-06-01_2026-06-08_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-06-01T00:00:00' AND data_as_of < '2026-06-08T00:00:00' AND ((data_as_of >= '2026-06-01T07:00:00' AND data_as_of < '2026-06-01T09:00:00') OR (data_as_of >= '2026-06-02T07:00:00' AND data_as_of < '2026-06-02T09:00:00') OR (data_as_of >= '2026-06-03T07:00:00' AND data_as_of < '2026-06-03T09:00:00') OR (data_as_of >= '2026-06-04T07:00:00' AND data_as_of < '2026-06-04T09:00:00') OR (data_as_of >= '2026-06-05T07:00:00' AND data_as_of < '2026-06-05T09:00:00') OR (data_as_of >= '2026-06-06T07:00:00' AND data_as_of < '2026-06-06T09:00:00') OR (data_as_of >= '2026-06-07T07:00:00' AND data_as_of < '2026-06-07T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 16780,
+      "bytes": 888786,
+      "sha256": "402860832db6e38df0ab6ef17b249266283a056c97a82d5cb92bfb2df6254eca",
+      "first_requested_utc": "2026-11-10T11:09:34.604718+00:00",
+      "completed_utc": "2026-11-10T11:09:38.746498+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:38.733797+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.5492,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-06-01T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-08T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-06-01T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-01T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-02T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-02T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-03T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-03T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-04T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-04T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-05T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-05T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-06T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-06T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-07T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-07T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/06/2026-06-01_2026-06-08_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-06-01_2026-06-08_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-06-01T00:00:00' AND data_as_of < '2026-06-08T00:00:00' AND ((data_as_of >= '2026-06-01T17:00:00' AND data_as_of < '2026-06-01T19:00:00') OR (data_as_of >= '2026-06-02T17:00:00' AND data_as_of < '2026-06-02T19:00:00') OR (data_as_of >= '2026-06-03T17:00:00' AND data_as_of < '2026-06-03T19:00:00') OR (data_as_of >= '2026-06-04T17:00:00' AND data_as_of < '2026-06-04T19:00:00') OR (data_as_of >= '2026-06-05T17:00:00' AND data_as_of < '2026-06-05T19:00:00') OR (data_as_of >= '2026-06-06T17:00:00' AND data_as_of < '2026-06-06T19:00:00') OR (data_as_of >= '2026-06-07T17:00:00' AND data_as_of < '2026-06-07T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 17069,
+      "bytes": 904143,
+      "sha256": "a659cc4ecb8363c1ba5b49cabf2e8dc07db25a4b859312b79c90b34c44025459",
+      "first_requested_utc": "2026-11-10T11:09:34.901572+00:00",
+      "completed_utc": "2026-11-10T11:09:46.301041+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:46.286849+00:00",
+          "status": 200,
+          "elapsed_seconds": 9.3599,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-06-01T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-08T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-06-01T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-01T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-02T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-02T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-03T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-03T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-04T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-04T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-05T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-05T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-06T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-06T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-07T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-07T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/07/2026-06-01_2026-06-08_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-06-08_2026-06-15_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-06-08T00:00:00' AND data_as_of < '2026-06-15T00:00:00' AND ((data_as_of >= '2026-06-08T07:00:00' AND data_as_of < '2026-06-08T09:00:00') OR (data_as_of >= '2026-06-09T07:00:00' AND data_as_of < '2026-06-09T09:00:00') OR (data_as_of >= '2026-06-10T07:00:00' AND data_as_of < '2026-06-10T09:00:00') OR (data_as_of >= '2026-06-11T07:00:00' AND data_as_of < '2026-06-11T09:00:00') OR (data_as_of >= '2026-06-12T07:00:00' AND data_as_of < '2026-06-12T09:00:00') OR (data_as_of >= '2026-06-13T07:00:00' AND data_as_of < '2026-06-13T09:00:00') OR (data_as_of >= '2026-06-14T07:00:00' AND data_as_of < '2026-06-14T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 16887,
+      "bytes": 895783,
+      "sha256": "5256e0e97970e27445da1feaecc2cdb15ab9d04aaa4841e9b41fc2e5b92b8599",
+      "first_requested_utc": "2026-11-10T11:09:35.160981+00:00",
+      "completed_utc": "2026-11-10T11:09:44.053051+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:44.045442+00:00",
+          "status": 200,
+          "elapsed_seconds": 7.3323,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-06-08T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-15T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-06-08T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-08T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-09T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-09T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-10T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-10T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-11T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-11T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-12T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-12T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-13T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-13T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-14T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-14T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/08/2026-06-08_2026-06-15_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-06-08_2026-06-15_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-06-08T00:00:00' AND data_as_of < '2026-06-15T00:00:00' AND ((data_as_of >= '2026-06-08T17:00:00' AND data_as_of < '2026-06-08T19:00:00') OR (data_as_of >= '2026-06-09T17:00:00' AND data_as_of < '2026-06-09T19:00:00') OR (data_as_of >= '2026-06-10T17:00:00' AND data_as_of < '2026-06-10T19:00:00') OR (data_as_of >= '2026-06-11T17:00:00' AND data_as_of < '2026-06-11T19:00:00') OR (data_as_of >= '2026-06-12T17:00:00' AND data_as_of < '2026-06-12T19:00:00') OR (data_as_of >= '2026-06-13T17:00:00' AND data_as_of < '2026-06-13T19:00:00') OR (data_as_of >= '2026-06-14T17:00:00' AND data_as_of < '2026-06-14T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 17465,
+      "bytes": 925599,
+      "sha256": "e62848aba8eae00fac412893c909e603088248c6f270bde70c4b5f909e971a67",
+      "first_requested_utc": "2026-11-10T11:09:36.007308+00:00",
+      "completed_utc": "2026-11-10T11:09:45.170992+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:45.151764+00:00",
+          "status": 200,
+          "elapsed_seconds": 6.3958,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-06-08T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-15T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-06-08T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-08T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-09T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-09T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-10T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-10T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-11T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-11T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-12T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-12T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-13T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-13T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-14T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-14T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/09/2026-06-08_2026-06-15_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-06-15_2026-06-22_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-06-15T00:00:00' AND data_as_of < '2026-06-22T00:00:00' AND ((data_as_of >= '2026-06-15T07:00:00' AND data_as_of < '2026-06-15T09:00:00') OR (data_as_of >= '2026-06-16T07:00:00' AND data_as_of < '2026-06-16T09:00:00') OR (data_as_of >= '2026-06-17T07:00:00' AND data_as_of < '2026-06-17T09:00:00') OR (data_as_of >= '2026-06-18T07:00:00' AND data_as_of < '2026-06-18T09:00:00') OR (data_as_of >= '2026-06-19T07:00:00' AND data_as_of < '2026-06-19T09:00:00') OR (data_as_of >= '2026-06-20T07:00:00' AND data_as_of < '2026-06-20T09:00:00') OR (data_as_of >= '2026-06-21T07:00:00' AND data_as_of < '2026-06-21T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 14954,
+      "bytes": 791728,
+      "sha256": "4049e54f703b44b24682353efbcc38802d8d002193d11fc17ce710e8072f1193",
+      "first_requested_utc": "2026-11-10T11:09:38.747935+00:00",
+      "completed_utc": "2026-11-10T11:09:45.653039+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:45.637904+00:00",
+          "status": 200,
+          "elapsed_seconds": 4.3626,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-06-15T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-22T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-06-15T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-15T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-16T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-16T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-17T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-17T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-18T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-18T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-19T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-19T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-20T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-20T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-21T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-21T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/10/2026-06-15_2026-06-22_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-06-15_2026-06-22_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-06-15T00:00:00' AND data_as_of < '2026-06-22T00:00:00' AND ((data_as_of >= '2026-06-15T17:00:00' AND data_as_of < '2026-06-15T19:00:00') OR (data_as_of >= '2026-06-16T17:00:00' AND data_as_of < '2026-06-16T19:00:00') OR (data_as_of >= '2026-06-17T17:00:00' AND data_as_of < '2026-06-17T19:00:00') OR (data_as_of >= '2026-06-18T17:00:00' AND data_as_of < '2026-06-18T19:00:00') OR (data_as_of >= '2026-06-19T17:00:00' AND data_as_of < '2026-06-19T19:00:00') OR (data_as_of >= '2026-06-20T17:00:00' AND data_as_of < '2026-06-20T19:00:00') OR (data_as_of >= '2026-06-21T17:00:00' AND data_as_of < '2026-06-21T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 12000,
+      "bytes": 636573,
+      "sha256": "bd66a6425fa3a454c4f6f30ecd15246559a6a3db496dc07601ff76965b9f6403",
+      "first_requested_utc": "2026-11-10T11:09:38.976324+00:00",
+      "completed_utc": "2026-11-10T11:09:46.791087+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:46.785155+00:00",
+          "status": 200,
+          "elapsed_seconds": 7.0857,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-06-15T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-22T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-06-15T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-15T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-16T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-16T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-17T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-17T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-18T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-18T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-19T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-19T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-20T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-20T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-21T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-21T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/11/2026-06-15_2026-06-22_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-06-22_2026-06-29_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-06-22T00:00:00' AND data_as_of < '2026-06-29T00:00:00' AND ((data_as_of >= '2026-06-22T07:00:00' AND data_as_of < '2026-06-22T09:00:00') OR (data_as_of >= '2026-06-23T07:00:00' AND data_as_of < '2026-06-23T09:00:00') OR (data_as_of >= '2026-06-24T07:00:00' AND data_as_of < '2026-06-24T09:00:00') OR (data_as_of >= '2026-06-25T07:00:00' AND data_as_of < '2026-06-25T09:00:00') OR (data_as_of >= '2026-06-26T07:00:00' AND data_as_of < '2026-06-26T09:00:00') OR (data_as_of >= '2026-06-27T07:00:00' AND data_as_of < '2026-06-27T09:00:00') OR (data_as_of >= '2026-06-28T07:00:00' AND data_as_of < '2026-06-28T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21034,
+      "bytes": 1116435,
+      "sha256": "69ab51196e2260b0f4621116e9285597e747ff41a5e7da743cf38de8168d4f84",
+      "first_requested_utc": "2026-11-10T11:09:39.035285+00:00",
+      "completed_utc": "2026-11-10T11:09:49.293908+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:49.284686+00:00",
+          "status": 200,
+          "elapsed_seconds": 6.9524,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-06-22T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-29T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-06-22T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-22T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-23T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-23T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-24T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-24T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-25T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-25T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-26T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-26T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-27T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-27T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-28T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-28T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/12/2026-06-22_2026-06-29_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-06-22_2026-06-29_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-06-22T00:00:00' AND data_as_of < '2026-06-29T00:00:00' AND ((data_as_of >= '2026-06-22T17:00:00' AND data_as_of < '2026-06-22T19:00:00') OR (data_as_of >= '2026-06-23T17:00:00' AND data_as_of < '2026-06-23T19:00:00') OR (data_as_of >= '2026-06-24T17:00:00' AND data_as_of < '2026-06-24T19:00:00') OR (data_as_of >= '2026-06-25T17:00:00' AND data_as_of < '2026-06-25T19:00:00') OR (data_as_of >= '2026-06-26T17:00:00' AND data_as_of < '2026-06-26T19:00:00') OR (data_as_of >= '2026-06-27T17:00:00' AND data_as_of < '2026-06-27T19:00:00') OR (data_as_of >= '2026-06-28T17:00:00' AND data_as_of < '2026-06-28T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20724,
+      "bytes": 1101159,
+      "sha256": "d5aa49861b55d79836c7363043632d485e2305d5238c25fbae17fdfc587e7df3",
+      "first_requested_utc": "2026-11-10T11:09:44.055115+00:00",
+      "completed_utc": "2026-11-10T11:09:52.720154+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:52.704928+00:00",
+          "status": 200,
+          "elapsed_seconds": 4.7497,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-06-22T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-29T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-06-22T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-22T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-23T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-23T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-24T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-24T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-25T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-25T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-26T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-26T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-27T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-27T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-28T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-28T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/13/2026-06-22_2026-06-29_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-06-29_2026-07-06_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-06-29T00:00:00' AND data_as_of < '2026-07-06T00:00:00' AND ((data_as_of >= '2026-06-29T07:00:00' AND data_as_of < '2026-06-29T09:00:00') OR (data_as_of >= '2026-06-30T07:00:00' AND data_as_of < '2026-06-30T09:00:00') OR (data_as_of >= '2026-07-01T07:00:00' AND data_as_of < '2026-07-01T09:00:00') OR (data_as_of >= '2026-07-02T07:00:00' AND data_as_of < '2026-07-02T09:00:00') OR (data_as_of >= '2026-07-03T07:00:00' AND data_as_of < '2026-07-03T09:00:00') OR (data_as_of >= '2026-07-04T07:00:00' AND data_as_of < '2026-07-04T09:00:00') OR (data_as_of >= '2026-07-05T07:00:00' AND data_as_of < '2026-07-05T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 19980,
+      "bytes": 1059657,
+      "sha256": "dbe167900d0b77780ea199df2eda67610609a49e788b8ff71f35ed847cdfc867",
+      "first_requested_utc": "2026-11-10T11:09:45.174556+00:00",
+      "completed_utc": "2026-11-10T11:09:49.812624+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:49.805891+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.0434,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-06-29T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-06T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-06-29T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-29T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-30T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-30T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-01T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-01T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-02T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-02T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-03T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-03T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-04T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-04T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-05T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-05T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/14/2026-06-29_2026-07-06_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-06-29_2026-07-06_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-06-29T00:00:00' AND data_as_of < '2026-07-06T00:00:00' AND ((data_as_of >= '2026-06-29T17:00:00' AND data_as_of < '2026-06-29T19:00:00') OR (data_as_of >= '2026-06-30T17:00:00' AND data_as_of < '2026-06-30T19:00:00') OR (data_as_of >= '2026-07-01T17:00:00' AND data_as_of < '2026-07-01T19:00:00') OR (data_as_of >= '2026-07-02T17:00:00' AND data_as_of < '2026-07-02T19:00:00') OR (data_as_of >= '2026-07-03T17:00:00' AND data_as_of < '2026-07-03T19:00:00') OR (data_as_of >= '2026-07-04T17:00:00' AND data_as_of < '2026-07-04T19:00:00') OR (data_as_of >= '2026-07-05T17:00:00' AND data_as_of < '2026-07-05T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20978,
+      "bytes": 1113040,
+      "sha256": "63769d34081e3492404d6d2d20db8485e7ec1a499ef3ee6935ed9a0ab1ebabf7",
+      "first_requested_utc": "2026-11-10T11:09:45.655517+00:00",
+      "completed_utc": "2026-11-10T11:09:50.563227+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:50.543851+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.8655,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-06-29T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-06T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-06-29T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-29T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-06-30T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-30T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-01T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-01T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-02T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-02T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-03T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-03T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-04T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-04T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-05T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-05T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/15/2026-06-29_2026-07-06_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-07-06_2026-07-13_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-07-06T00:00:00' AND data_as_of < '2026-07-13T00:00:00' AND ((data_as_of >= '2026-07-06T07:00:00' AND data_as_of < '2026-07-06T09:00:00') OR (data_as_of >= '2026-07-07T07:00:00' AND data_as_of < '2026-07-07T09:00:00') OR (data_as_of >= '2026-07-08T07:00:00' AND data_as_of < '2026-07-08T09:00:00') OR (data_as_of >= '2026-07-09T07:00:00' AND data_as_of < '2026-07-09T09:00:00') OR (data_as_of >= '2026-07-10T07:00:00' AND data_as_of < '2026-07-10T09:00:00') OR (data_as_of >= '2026-07-11T07:00:00' AND data_as_of < '2026-07-11T09:00:00') OR (data_as_of >= '2026-07-12T07:00:00' AND data_as_of < '2026-07-12T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 17939,
+      "bytes": 952413,
+      "sha256": "8217346ad637649d07c08a0d2b3f5e313d543ace78a0225a1e35e58e77c6e54f",
+      "first_requested_utc": "2026-11-10T11:09:46.303126+00:00",
+      "completed_utc": "2026-11-10T11:09:55.561111+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:55.550059+00:00",
+          "status": 200,
+          "elapsed_seconds": 4.8233,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-07-06T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-13T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-07-06T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-06T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-07T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-07T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-08T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-08T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-09T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-09T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-10T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-10T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-11T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-11T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-12T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-12T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/16/2026-07-06_2026-07-13_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-07-06_2026-07-13_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-07-06T00:00:00' AND data_as_of < '2026-07-13T00:00:00' AND ((data_as_of >= '2026-07-06T17:00:00' AND data_as_of < '2026-07-06T19:00:00') OR (data_as_of >= '2026-07-07T17:00:00' AND data_as_of < '2026-07-07T19:00:00') OR (data_as_of >= '2026-07-08T17:00:00' AND data_as_of < '2026-07-08T19:00:00') OR (data_as_of >= '2026-07-09T17:00:00' AND data_as_of < '2026-07-09T19:00:00') OR (data_as_of >= '2026-07-10T17:00:00' AND data_as_of < '2026-07-10T19:00:00') OR (data_as_of >= '2026-07-11T17:00:00' AND data_as_of < '2026-07-11T19:00:00') OR (data_as_of >= '2026-07-12T17:00:00' AND data_as_of < '2026-07-12T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20966,
+      "bytes": 1112272,
+      "sha256": "f4d660c24450d95ec1cdb6896da8ab0d4217cec8e6dfa87fb702cb70dbba6e57",
+      "first_requested_utc": "2026-11-10T11:09:46.792129+00:00",
+      "completed_utc": "2026-11-10T11:09:50.815989+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:50.803920+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.5589,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-07-06T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-13T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-07-06T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-06T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-07T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-07T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-08T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-08T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-09T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-09T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-10T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-10T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-11T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-11T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-12T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-12T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/17/2026-07-06_2026-07-13_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-07-13_2026-07-20_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-07-13T00:00:00' AND data_as_of < '2026-07-20T00:00:00' AND ((data_as_of >= '2026-07-13T07:00:00' AND data_as_of < '2026-07-13T09:00:00') OR (data_as_of >= '2026-07-14T07:00:00' AND data_as_of < '2026-07-14T09:00:00') OR (data_as_of >= '2026-07-15T07:00:00' AND data_as_of < '2026-07-15T09:00:00') OR (data_as_of >= '2026-07-16T07:00:00' AND data_as_of < '2026-07-16T09:00:00') OR (data_as_of >= '2026-07-17T07:00:00' AND data_as_of < '2026-07-17T09:00:00') OR (data_as_of >= '2026-07-18T07:00:00' AND data_as_of < '2026-07-18T09:00:00') OR (data_as_of >= '2026-07-19T07:00:00' AND data_as_of < '2026-07-19T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 15000,
+      "bytes": 795130,
+      "sha256": "b0fbf63a0cdd94d9ecded77d448455006c3f18c59be0db8c0f24821ae2d23671",
+      "first_requested_utc": "2026-11-10T11:09:49.293908+00:00",
+      "completed_utc": "2026-11-10T11:09:53.096798+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:53.090324+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.2334,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-07-13T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-20T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-07-13T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-13T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-14T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-14T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-15T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-15T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-16T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-16T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-17T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-17T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-18T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-18T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-19T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-19T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/18/2026-07-13_2026-07-20_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-07-13_2026-07-20_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-07-13T00:00:00' AND data_as_of < '2026-07-20T00:00:00' AND ((data_as_of >= '2026-07-13T17:00:00' AND data_as_of < '2026-07-13T19:00:00') OR (data_as_of >= '2026-07-14T17:00:00' AND data_as_of < '2026-07-14T19:00:00') OR (data_as_of >= '2026-07-15T17:00:00' AND data_as_of < '2026-07-15T19:00:00') OR (data_as_of >= '2026-07-16T17:00:00' AND data_as_of < '2026-07-16T19:00:00') OR (data_as_of >= '2026-07-17T17:00:00' AND data_as_of < '2026-07-17T19:00:00') OR (data_as_of >= '2026-07-18T17:00:00' AND data_as_of < '2026-07-18T19:00:00') OR (data_as_of >= '2026-07-19T17:00:00' AND data_as_of < '2026-07-19T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 17959,
+      "bytes": 952120,
+      "sha256": "17bd9363505be5fb3888aee24b85389a1e18c8e84bb28fdbae9bd33b7856f8d9",
+      "first_requested_utc": "2026-11-10T11:09:49.813984+00:00",
+      "completed_utc": "2026-11-10T11:09:56.258065+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:56.248045+00:00",
+          "status": 200,
+          "elapsed_seconds": 4.8542,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-07-13T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-20T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-07-13T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-13T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-14T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-14T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-15T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-15T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-16T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-16T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-17T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-17T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-18T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-18T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-19T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-19T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/19/2026-07-13_2026-07-20_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-07-20_2026-07-27_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-07-20T00:00:00' AND data_as_of < '2026-07-27T00:00:00' AND ((data_as_of >= '2026-07-20T07:00:00' AND data_as_of < '2026-07-20T09:00:00') OR (data_as_of >= '2026-07-21T07:00:00' AND data_as_of < '2026-07-21T09:00:00') OR (data_as_of >= '2026-07-22T07:00:00' AND data_as_of < '2026-07-22T09:00:00') OR (data_as_of >= '2026-07-23T07:00:00' AND data_as_of < '2026-07-23T09:00:00') OR (data_as_of >= '2026-07-24T07:00:00' AND data_as_of < '2026-07-24T09:00:00') OR (data_as_of >= '2026-07-25T07:00:00' AND data_as_of < '2026-07-25T09:00:00') OR (data_as_of >= '2026-07-26T07:00:00' AND data_as_of < '2026-07-26T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1115380,
+      "sha256": "e88759a7fd1732a86b594b6fc6708d43a9255cf3a77bbb3ba73e8348543f7ce7",
+      "first_requested_utc": "2026-11-10T11:09:50.566642+00:00",
+      "completed_utc": "2026-11-10T11:10:06.348853+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:06.340346+00:00",
+          "status": 200,
+          "elapsed_seconds": 10.3944,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-07-20T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-27T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-07-20T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-20T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-21T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-21T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-22T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-22T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-23T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-23T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-24T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-24T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-25T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-25T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-26T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-26T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/20/2026-07-20_2026-07-27_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-07-20_2026-07-27_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-07-20T00:00:00' AND data_as_of < '2026-07-27T00:00:00' AND ((data_as_of >= '2026-07-20T17:00:00' AND data_as_of < '2026-07-20T19:00:00') OR (data_as_of >= '2026-07-21T17:00:00' AND data_as_of < '2026-07-21T19:00:00') OR (data_as_of >= '2026-07-22T17:00:00' AND data_as_of < '2026-07-22T19:00:00') OR (data_as_of >= '2026-07-23T17:00:00' AND data_as_of < '2026-07-23T19:00:00') OR (data_as_of >= '2026-07-24T17:00:00' AND data_as_of < '2026-07-24T19:00:00') OR (data_as_of >= '2026-07-25T17:00:00' AND data_as_of < '2026-07-25T19:00:00') OR (data_as_of >= '2026-07-26T17:00:00' AND data_as_of < '2026-07-26T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 18356,
+      "bytes": 974127,
+      "sha256": "866b15b3e04868b0362bd19f9851a758bca7e84a485eeafd0a1f0e1ba27e2bc4",
+      "first_requested_utc": "2026-11-10T11:09:50.817290+00:00",
+      "completed_utc": "2026-11-10T11:10:03.002496+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:02.986030+00:00",
+          "status": 200,
+          "elapsed_seconds": 9.1292,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-07-20T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-27T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-07-20T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-20T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-21T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-21T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-22T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-22T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-23T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-23T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-24T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-24T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-25T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-25T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-26T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-26T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/21/2026-07-20_2026-07-27_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-07-27_2026-08-03_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-07-27T00:00:00' AND data_as_of < '2026-08-03T00:00:00' AND ((data_as_of >= '2026-07-27T07:00:00' AND data_as_of < '2026-07-27T09:00:00') OR (data_as_of >= '2026-07-28T07:00:00' AND data_as_of < '2026-07-28T09:00:00') OR (data_as_of >= '2026-07-29T07:00:00' AND data_as_of < '2026-07-29T09:00:00') OR (data_as_of >= '2026-07-30T07:00:00' AND data_as_of < '2026-07-30T09:00:00') OR (data_as_of >= '2026-07-31T07:00:00' AND data_as_of < '2026-07-31T09:00:00') OR (data_as_of >= '2026-08-01T07:00:00' AND data_as_of < '2026-08-01T09:00:00') OR (data_as_of >= '2026-08-02T07:00:00' AND data_as_of < '2026-08-02T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21078,
+      "bytes": 1119484,
+      "sha256": "c681421f5982a79457074c5320f6e60dfb3590122e5302879f5adf41cd8c2320",
+      "first_requested_utc": "2026-11-10T11:09:52.724671+00:00",
+      "completed_utc": "2026-11-10T11:09:56.945628+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:09:56.929058+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.8043,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-07-27T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-03T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-07-27T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-27T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-28T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-28T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-29T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-29T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-30T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-30T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-31T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-31T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-01T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-01T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-02T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-02T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/22/2026-07-27_2026-08-03_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-07-27_2026-08-03_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-07-27T00:00:00' AND data_as_of < '2026-08-03T00:00:00' AND ((data_as_of >= '2026-07-27T17:00:00' AND data_as_of < '2026-07-27T19:00:00') OR (data_as_of >= '2026-07-28T17:00:00' AND data_as_of < '2026-07-28T19:00:00') OR (data_as_of >= '2026-07-29T17:00:00' AND data_as_of < '2026-07-29T19:00:00') OR (data_as_of >= '2026-07-30T17:00:00' AND data_as_of < '2026-07-30T19:00:00') OR (data_as_of >= '2026-07-31T17:00:00' AND data_as_of < '2026-07-31T19:00:00') OR (data_as_of >= '2026-08-01T17:00:00' AND data_as_of < '2026-08-01T19:00:00') OR (data_as_of >= '2026-08-02T17:00:00' AND data_as_of < '2026-08-02T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20469,
+      "bytes": 1086258,
+      "sha256": "361bcd02d1b3ce562768a108e2b1aeb83ecf54e7cbbf498f2a4bd195b57abcf9",
+      "first_requested_utc": "2026-11-10T11:09:53.099711+00:00",
+      "completed_utc": "2026-11-10T11:10:00.556502+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:00.542223+00:00",
+          "status": 200,
+          "elapsed_seconds": 4.6284,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-07-27T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-03T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-07-27T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-27T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-28T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-28T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-29T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-29T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-30T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-30T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-07-31T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-07-31T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-01T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-01T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-02T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-02T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/23/2026-07-27_2026-08-03_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-08-03_2026-08-10_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-08-03T00:00:00' AND data_as_of < '2026-08-10T00:00:00' AND ((data_as_of >= '2026-08-03T07:00:00' AND data_as_of < '2026-08-03T09:00:00') OR (data_as_of >= '2026-08-04T07:00:00' AND data_as_of < '2026-08-04T09:00:00') OR (data_as_of >= '2026-08-05T07:00:00' AND data_as_of < '2026-08-05T09:00:00') OR (data_as_of >= '2026-08-06T07:00:00' AND data_as_of < '2026-08-06T09:00:00') OR (data_as_of >= '2026-08-07T07:00:00' AND data_as_of < '2026-08-07T09:00:00') OR (data_as_of >= '2026-08-08T07:00:00' AND data_as_of < '2026-08-08T09:00:00') OR (data_as_of >= '2026-08-09T07:00:00' AND data_as_of < '2026-08-09T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20109,
+      "bytes": 1069026,
+      "sha256": "8e989a1d80967804c3771209de1d6c3f229863fdb9b4dfa2002abf12d8832738",
+      "first_requested_utc": "2026-11-10T11:09:55.568475+00:00",
+      "completed_utc": "2026-11-10T11:10:13.407698+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:13.389234+00:00",
+          "status": 200,
+          "elapsed_seconds": 9.8304,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-08-03T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-10T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-08-03T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-03T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-04T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-04T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-05T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-05T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-06T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-06T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-07T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-07T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-08T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-08T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-09T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-09T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/24/2026-08-03_2026-08-10_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-08-03_2026-08-10_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-08-03T00:00:00' AND data_as_of < '2026-08-10T00:00:00' AND ((data_as_of >= '2026-08-03T17:00:00' AND data_as_of < '2026-08-03T19:00:00') OR (data_as_of >= '2026-08-04T17:00:00' AND data_as_of < '2026-08-04T19:00:00') OR (data_as_of >= '2026-08-05T17:00:00' AND data_as_of < '2026-08-05T19:00:00') OR (data_as_of >= '2026-08-06T17:00:00' AND data_as_of < '2026-08-06T19:00:00') OR (data_as_of >= '2026-08-07T17:00:00' AND data_as_of < '2026-08-07T19:00:00') OR (data_as_of >= '2026-08-08T17:00:00' AND data_as_of < '2026-08-08T19:00:00') OR (data_as_of >= '2026-08-09T17:00:00' AND data_as_of < '2026-08-09T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20997,
+      "bytes": 1115357,
+      "sha256": "a93c8736ef4dab5541a01bc65b7909eb792a339100eac18c769d618aca50a3e5",
+      "first_requested_utc": "2026-11-10T11:09:56.264788+00:00",
+      "completed_utc": "2026-11-10T11:10:01.501817+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:01.491347+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.6122,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-08-03T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-10T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-08-03T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-03T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-04T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-04T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-05T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-05T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-06T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-06T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-07T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-07T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-08T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-08T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-09T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-09T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/25/2026-08-03_2026-08-10_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-08-10_2026-08-17_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-08-10T00:00:00' AND data_as_of < '2026-08-17T00:00:00' AND ((data_as_of >= '2026-08-10T07:00:00' AND data_as_of < '2026-08-10T09:00:00') OR (data_as_of >= '2026-08-11T07:00:00' AND data_as_of < '2026-08-11T09:00:00') OR (data_as_of >= '2026-08-12T07:00:00' AND data_as_of < '2026-08-12T09:00:00') OR (data_as_of >= '2026-08-13T07:00:00' AND data_as_of < '2026-08-13T09:00:00') OR (data_as_of >= '2026-08-14T07:00:00' AND data_as_of < '2026-08-14T09:00:00') OR (data_as_of >= '2026-08-15T07:00:00' AND data_as_of < '2026-08-15T09:00:00') OR (data_as_of >= '2026-08-16T07:00:00' AND data_as_of < '2026-08-16T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21008,
+      "bytes": 1115891,
+      "sha256": "baef9c59736231ca14d76eb39b32bdc2b9a953957ad5365b1bb132b61123c1b4",
+      "first_requested_utc": "2026-11-10T11:09:56.950578+00:00",
+      "completed_utc": "2026-11-10T11:10:02.351660+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:02.336751+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.5732,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-08-10T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-17T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-08-10T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-10T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-11T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-11T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-12T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-12T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-13T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-13T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-14T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-14T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-15T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-15T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-16T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-16T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/26/2026-08-10_2026-08-17_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-08-10_2026-08-17_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-08-10T00:00:00' AND data_as_of < '2026-08-17T00:00:00' AND ((data_as_of >= '2026-08-10T17:00:00' AND data_as_of < '2026-08-10T19:00:00') OR (data_as_of >= '2026-08-11T17:00:00' AND data_as_of < '2026-08-11T19:00:00') OR (data_as_of >= '2026-08-12T17:00:00' AND data_as_of < '2026-08-12T19:00:00') OR (data_as_of >= '2026-08-13T17:00:00' AND data_as_of < '2026-08-13T19:00:00') OR (data_as_of >= '2026-08-14T17:00:00' AND data_as_of < '2026-08-14T19:00:00') OR (data_as_of >= '2026-08-15T17:00:00' AND data_as_of < '2026-08-15T19:00:00') OR (data_as_of >= '2026-08-16T17:00:00' AND data_as_of < '2026-08-16T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20999,
+      "bytes": 1115439,
+      "sha256": "80f96b2441331976bd9810bc3b68cab12701bec042163022de610b944f539290",
+      "first_requested_utc": "2026-11-10T11:10:00.557935+00:00",
+      "completed_utc": "2026-11-10T11:10:07.950233+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:07.936024+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.998,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-08-10T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-17T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-08-10T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-10T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-11T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-11T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-12T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-12T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-13T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-13T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-14T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-14T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-15T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-15T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-16T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-16T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/27/2026-08-10_2026-08-17_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-08-17_2026-08-24_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-08-17T00:00:00' AND data_as_of < '2026-08-24T00:00:00' AND ((data_as_of >= '2026-08-17T07:00:00' AND data_as_of < '2026-08-17T09:00:00') OR (data_as_of >= '2026-08-18T07:00:00' AND data_as_of < '2026-08-18T09:00:00') OR (data_as_of >= '2026-08-19T07:00:00' AND data_as_of < '2026-08-19T09:00:00') OR (data_as_of >= '2026-08-20T07:00:00' AND data_as_of < '2026-08-20T09:00:00') OR (data_as_of >= '2026-08-21T07:00:00' AND data_as_of < '2026-08-21T09:00:00') OR (data_as_of >= '2026-08-22T07:00:00' AND data_as_of < '2026-08-22T09:00:00') OR (data_as_of >= '2026-08-23T07:00:00' AND data_as_of < '2026-08-23T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1116893,
+      "sha256": "bdb50a45d06a98a0cff4191b7837779a1cc5c2347ab3da812d7988e99d8894e9",
+      "first_requested_utc": "2026-11-10T11:10:01.503455+00:00",
+      "completed_utc": "2026-11-10T11:10:10.200788+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:10.183945+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.416,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-08-17T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-24T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-08-17T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-17T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-18T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-18T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-19T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-19T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-20T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-20T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-21T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-21T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-22T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-22T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-23T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-23T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/28/2026-08-17_2026-08-24_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-08-17_2026-08-24_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-08-17T00:00:00' AND data_as_of < '2026-08-24T00:00:00' AND ((data_as_of >= '2026-08-17T17:00:00' AND data_as_of < '2026-08-17T19:00:00') OR (data_as_of >= '2026-08-18T17:00:00' AND data_as_of < '2026-08-18T19:00:00') OR (data_as_of >= '2026-08-19T17:00:00' AND data_as_of < '2026-08-19T19:00:00') OR (data_as_of >= '2026-08-20T17:00:00' AND data_as_of < '2026-08-20T19:00:00') OR (data_as_of >= '2026-08-21T17:00:00' AND data_as_of < '2026-08-21T19:00:00') OR (data_as_of >= '2026-08-22T17:00:00' AND data_as_of < '2026-08-22T19:00:00') OR (data_as_of >= '2026-08-23T17:00:00' AND data_as_of < '2026-08-23T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20994,
+      "bytes": 1115460,
+      "sha256": "44de6012eee392776c725fd1222cac31fdbba537d39fcfc0047608e5a1494a00",
+      "first_requested_utc": "2026-11-10T11:10:02.356801+00:00",
+      "completed_utc": "2026-11-10T11:10:07.925575+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:07.909817+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.943,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-08-17T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-24T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-08-17T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-17T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-18T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-18T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-19T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-19T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-20T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-20T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-21T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-21T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-22T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-22T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-23T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-23T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/29/2026-08-17_2026-08-24_pm.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-08-24_2026-08-31_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-08-24T00:00:00' AND data_as_of < '2026-08-31T00:00:00' AND ((data_as_of >= '2026-08-24T07:00:00' AND data_as_of < '2026-08-24T09:00:00') OR (data_as_of >= '2026-08-25T07:00:00' AND data_as_of < '2026-08-25T09:00:00') OR (data_as_of >= '2026-08-26T07:00:00' AND data_as_of < '2026-08-26T09:00:00') OR (data_as_of >= '2026-08-27T07:00:00' AND data_as_of < '2026-08-27T09:00:00') OR (data_as_of >= '2026-08-28T07:00:00' AND data_as_of < '2026-08-28T09:00:00') OR (data_as_of >= '2026-08-29T07:00:00' AND data_as_of < '2026-08-29T09:00:00') OR (data_as_of >= '2026-08-30T07:00:00' AND data_as_of < '2026-08-30T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20887,
+      "bytes": 1107489,
+      "sha256": "b98fc3d0f1996e789ddd78d9d58b44101bd36828de957aff690c17500afe54aa",
+      "first_requested_utc": "2026-11-10T11:10:03.008112+00:00",
+      "completed_utc": "2026-11-10T11:10:07.683476+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:07.663028+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.3691,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-08-24T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-31T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-08-24T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-24T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-25T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-25T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-26T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-26T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-27T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-27T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-28T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-28T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-29T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-29T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-30T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-30T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/30/2026-08-24_2026-08-31_am.csv"
+    },
+    {
+      "origin": "V10",
+      "status": "complete",
+      "file": "2026-08-24_2026-08-31_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-08-24T00:00:00' AND data_as_of < '2026-08-31T00:00:00' AND ((data_as_of >= '2026-08-24T17:00:00' AND data_as_of < '2026-08-24T19:00:00') OR (data_as_of >= '2026-08-25T17:00:00' AND data_as_of < '2026-08-25T19:00:00') OR (data_as_of >= '2026-08-26T17:00:00' AND data_as_of < '2026-08-26T19:00:00') OR (data_as_of >= '2026-08-27T17:00:00' AND data_as_of < '2026-08-27T19:00:00') OR (data_as_of >= '2026-08-28T17:00:00' AND data_as_of < '2026-08-28T19:00:00') OR (data_as_of >= '2026-08-29T17:00:00' AND data_as_of < '2026-08-29T19:00:00') OR (data_as_of >= '2026-08-30T17:00:00' AND data_as_of < '2026-08-30T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1112589,
+      "sha256": "2aa6c7592c418045b70a2ff69b869655b6b9f1221dc7b8b404eafdf1dd98864d",
+      "first_requested_utc": "2026-11-10T11:10:06.349909+00:00",
+      "completed_utc": "2026-11-10T11:10:10.784221+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:10.772042+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.0446,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-08-24T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-31T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-08-24T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-24T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-25T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-25T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-26T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-26T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-27T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-27T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-28T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-28T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-29T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-29T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-08-30T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-30T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/31/2026-08-24_2026-08-31_pm.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-08-31_2026-09-07_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-08-31T00:00:00' AND data_as_of < '2026-09-07T00:00:00' AND ((data_as_of >= '2026-08-31T07:00:00' AND data_as_of < '2026-08-31T09:00:00') OR (data_as_of >= '2026-09-01T07:00:00' AND data_as_of < '2026-09-01T09:00:00') OR (data_as_of >= '2026-09-02T07:00:00' AND data_as_of < '2026-09-02T09:00:00') OR (data_as_of >= '2026-09-03T07:00:00' AND data_as_of < '2026-09-03T09:00:00') OR (data_as_of >= '2026-09-04T07:00:00' AND data_as_of < '2026-09-04T09:00:00') OR (data_as_of >= '2026-09-05T07:00:00' AND data_as_of < '2026-09-05T09:00:00') OR (data_as_of >= '2026-09-06T07:00:00' AND data_as_of < '2026-09-06T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 18606,
+      "bytes": 981363,
+      "sha256": "7c0b4fb0839b36ced4072fff3a9c465a7fad723712e33a863750d8ab63ecff18",
+      "first_requested_utc": "2026-11-10T11:10:07.686779+00:00",
+      "completed_utc": "2026-11-10T11:10:19.888694+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:19.874641+00:00",
+          "status": 200,
+          "elapsed_seconds": 6.5135,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-08-31T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-07T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-08-31T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-31T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-01T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-01T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-02T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-02T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-03T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-03T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-04T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-04T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-05T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-05T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-06T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-06T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/32/2026-08-31_2026-09-07_am.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-08-31_2026-09-07_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-08-31T00:00:00' AND data_as_of < '2026-09-07T00:00:00' AND ((data_as_of >= '2026-08-31T17:00:00' AND data_as_of < '2026-08-31T19:00:00') OR (data_as_of >= '2026-09-01T17:00:00' AND data_as_of < '2026-09-01T19:00:00') OR (data_as_of >= '2026-09-02T17:00:00' AND data_as_of < '2026-09-02T19:00:00') OR (data_as_of >= '2026-09-03T17:00:00' AND data_as_of < '2026-09-03T19:00:00') OR (data_as_of >= '2026-09-04T17:00:00' AND data_as_of < '2026-09-04T19:00:00') OR (data_as_of >= '2026-09-05T17:00:00' AND data_as_of < '2026-09-05T19:00:00') OR (data_as_of >= '2026-09-06T17:00:00' AND data_as_of < '2026-09-06T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 18644,
+      "bytes": 983034,
+      "sha256": "d2076618bb11c12896a9fcbad8feaf6ae82a888e353f49244ac6c08578a3a154",
+      "first_requested_utc": "2026-11-10T11:10:07.930541+00:00",
+      "completed_utc": "2026-11-10T11:10:12.974810+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:12.964412+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.2263,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-08-31T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-07T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-08-31T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-31T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-01T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-01T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-02T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-02T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-03T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-03T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-04T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-04T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-05T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-05T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-06T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-06T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/33/2026-08-31_2026-09-07_pm.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-09-07_2026-09-14_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-09-07T00:00:00' AND data_as_of < '2026-09-14T00:00:00' AND ((data_as_of >= '2026-09-07T07:00:00' AND data_as_of < '2026-09-07T09:00:00') OR (data_as_of >= '2026-09-08T07:00:00' AND data_as_of < '2026-09-08T09:00:00') OR (data_as_of >= '2026-09-09T07:00:00' AND data_as_of < '2026-09-09T09:00:00') OR (data_as_of >= '2026-09-10T07:00:00' AND data_as_of < '2026-09-10T09:00:00') OR (data_as_of >= '2026-09-11T07:00:00' AND data_as_of < '2026-09-11T09:00:00') OR (data_as_of >= '2026-09-12T07:00:00' AND data_as_of < '2026-09-12T09:00:00') OR (data_as_of >= '2026-09-13T07:00:00' AND data_as_of < '2026-09-13T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20995,
+      "bytes": 1108314,
+      "sha256": "b308c8af04c01ac7a51a6fc1f1508d955d49575e206dbc56550e1f51a843b52e",
+      "first_requested_utc": "2026-11-10T11:10:07.952507+00:00",
+      "completed_utc": "2026-11-10T11:10:12.932268+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:12.919170+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.3803,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-09-07T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-14T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-09-07T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-07T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-08T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-08T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-09T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-09T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-10T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-10T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-11T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-11T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-12T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-12T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-13T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-13T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/34/2026-09-07_2026-09-14_am.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-09-07_2026-09-14_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-09-07T00:00:00' AND data_as_of < '2026-09-14T00:00:00' AND ((data_as_of >= '2026-09-07T17:00:00' AND data_as_of < '2026-09-07T19:00:00') OR (data_as_of >= '2026-09-08T17:00:00' AND data_as_of < '2026-09-08T19:00:00') OR (data_as_of >= '2026-09-09T17:00:00' AND data_as_of < '2026-09-09T19:00:00') OR (data_as_of >= '2026-09-10T17:00:00' AND data_as_of < '2026-09-10T19:00:00') OR (data_as_of >= '2026-09-11T17:00:00' AND data_as_of < '2026-09-11T19:00:00') OR (data_as_of >= '2026-09-12T17:00:00' AND data_as_of < '2026-09-12T19:00:00') OR (data_as_of >= '2026-09-13T17:00:00' AND data_as_of < '2026-09-13T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20995,
+      "bytes": 1107794,
+      "sha256": "120edc184d1f305c1e971889e27f9172f04279aa297ce05593dbbd94bd50123c",
+      "first_requested_utc": "2026-11-10T11:10:10.202498+00:00",
+      "completed_utc": "2026-11-10T11:10:13.980656+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:13.968955+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.3976,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-09-07T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-14T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-09-07T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-07T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-08T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-08T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-09T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-09T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-10T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-10T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-11T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-11T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-12T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-12T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-13T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-13T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/35/2026-09-07_2026-09-14_pm.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-09-14_2026-09-21_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-09-14T00:00:00' AND data_as_of < '2026-09-21T00:00:00' AND ((data_as_of >= '2026-09-14T07:00:00' AND data_as_of < '2026-09-14T09:00:00') OR (data_as_of >= '2026-09-15T07:00:00' AND data_as_of < '2026-09-15T09:00:00') OR (data_as_of >= '2026-09-16T07:00:00' AND data_as_of < '2026-09-16T09:00:00') OR (data_as_of >= '2026-09-17T07:00:00' AND data_as_of < '2026-09-17T09:00:00') OR (data_as_of >= '2026-09-18T07:00:00' AND data_as_of < '2026-09-18T09:00:00') OR (data_as_of >= '2026-09-19T07:00:00' AND data_as_of < '2026-09-19T09:00:00') OR (data_as_of >= '2026-09-20T07:00:00' AND data_as_of < '2026-09-20T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1107858,
+      "sha256": "2879cc617bf9ccd5d62b9c18178e40f5a022f252495f64353b110ae743e6f75a",
+      "first_requested_utc": "2026-11-10T11:10:10.785848+00:00",
+      "completed_utc": "2026-11-10T11:10:15.699481+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:15.691220+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.2953,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-09-14T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-21T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-09-14T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-14T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-15T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-15T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-16T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-16T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-17T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-17T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-18T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-18T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-19T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-19T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-20T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-20T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/36/2026-09-14_2026-09-21_am.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-09-14_2026-09-21_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-09-14T00:00:00' AND data_as_of < '2026-09-21T00:00:00' AND ((data_as_of >= '2026-09-14T17:00:00' AND data_as_of < '2026-09-14T19:00:00') OR (data_as_of >= '2026-09-15T17:00:00' AND data_as_of < '2026-09-15T19:00:00') OR (data_as_of >= '2026-09-16T17:00:00' AND data_as_of < '2026-09-16T19:00:00') OR (data_as_of >= '2026-09-17T17:00:00' AND data_as_of < '2026-09-17T19:00:00') OR (data_as_of >= '2026-09-18T17:00:00' AND data_as_of < '2026-09-18T19:00:00') OR (data_as_of >= '2026-09-19T17:00:00' AND data_as_of < '2026-09-19T19:00:00') OR (data_as_of >= '2026-09-20T17:00:00' AND data_as_of < '2026-09-20T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1107559,
+      "sha256": "01961e97659d6843ff1b3f75c1ae98463dd6bc694a578026a7bbebec69c94214",
+      "first_requested_utc": "2026-11-10T11:10:12.933738+00:00",
+      "completed_utc": "2026-11-10T11:10:17.295219+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:17.281305+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.7631,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-09-14T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-21T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-09-14T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-14T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-15T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-15T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-16T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-16T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-17T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-17T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-18T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-18T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-19T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-19T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-20T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-20T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/37/2026-09-14_2026-09-21_pm.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-09-21_2026-09-28_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-09-21T00:00:00' AND data_as_of < '2026-09-28T00:00:00' AND ((data_as_of >= '2026-09-21T07:00:00' AND data_as_of < '2026-09-21T09:00:00') OR (data_as_of >= '2026-09-22T07:00:00' AND data_as_of < '2026-09-22T09:00:00') OR (data_as_of >= '2026-09-23T07:00:00' AND data_as_of < '2026-09-23T09:00:00') OR (data_as_of >= '2026-09-24T07:00:00' AND data_as_of < '2026-09-24T09:00:00') OR (data_as_of >= '2026-09-25T07:00:00' AND data_as_of < '2026-09-25T09:00:00') OR (data_as_of >= '2026-09-26T07:00:00' AND data_as_of < '2026-09-26T09:00:00') OR (data_as_of >= '2026-09-27T07:00:00' AND data_as_of < '2026-09-27T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1107657,
+      "sha256": "60d037517015b552479d0ff1d36c465eeabe4de625316e59ca34c3eaa68580eb",
+      "first_requested_utc": "2026-11-10T11:10:12.977476+00:00",
+      "completed_utc": "2026-11-10T11:10:19.255922+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:19.248183+00:00",
+          "status": 200,
+          "elapsed_seconds": 4.4531,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-09-21T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-28T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-09-21T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-21T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-22T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-22T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-23T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-23T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-24T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-24T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-25T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-25T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-26T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-26T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-27T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-27T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/38/2026-09-21_2026-09-28_am.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-09-21_2026-09-28_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-09-21T00:00:00' AND data_as_of < '2026-09-28T00:00:00' AND ((data_as_of >= '2026-09-21T17:00:00' AND data_as_of < '2026-09-21T19:00:00') OR (data_as_of >= '2026-09-22T17:00:00' AND data_as_of < '2026-09-22T19:00:00') OR (data_as_of >= '2026-09-23T17:00:00' AND data_as_of < '2026-09-23T19:00:00') OR (data_as_of >= '2026-09-24T17:00:00' AND data_as_of < '2026-09-24T19:00:00') OR (data_as_of >= '2026-09-25T17:00:00' AND data_as_of < '2026-09-25T19:00:00') OR (data_as_of >= '2026-09-26T17:00:00' AND data_as_of < '2026-09-26T19:00:00') OR (data_as_of >= '2026-09-27T17:00:00' AND data_as_of < '2026-09-27T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1106879,
+      "sha256": "fde60347660b56b7bfc86f755c539df5361d61a930c5f32a66152fe882c06928",
+      "first_requested_utc": "2026-11-10T11:10:13.410037+00:00",
+      "completed_utc": "2026-11-10T11:10:21.358857+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:21.350427+00:00",
+          "status": 200,
+          "elapsed_seconds": 5.836,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-09-21T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-28T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-09-21T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-21T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-22T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-22T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-23T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-23T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-24T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-24T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-25T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-25T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-26T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-26T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-27T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-27T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/39/2026-09-21_2026-09-28_pm.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-09-28_2026-10-05_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-09-28T00:00:00' AND data_as_of < '2026-10-05T00:00:00' AND ((data_as_of >= '2026-09-28T07:00:00' AND data_as_of < '2026-09-28T09:00:00') OR (data_as_of >= '2026-09-29T07:00:00' AND data_as_of < '2026-09-29T09:00:00') OR (data_as_of >= '2026-09-30T07:00:00' AND data_as_of < '2026-09-30T09:00:00') OR (data_as_of >= '2026-10-01T07:00:00' AND data_as_of < '2026-10-01T09:00:00') OR (data_as_of >= '2026-10-02T07:00:00' AND data_as_of < '2026-10-02T09:00:00') OR (data_as_of >= '2026-10-03T07:00:00' AND data_as_of < '2026-10-03T09:00:00') OR (data_as_of >= '2026-10-04T07:00:00' AND data_as_of < '2026-10-04T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1108591,
+      "sha256": "8ad5130223035d589d1fad1dc63b6a0405b84bfa185a5335b650f8cf85789d41",
+      "first_requested_utc": "2026-11-10T11:10:13.985806+00:00",
+      "completed_utc": "2026-11-10T11:10:29.794262+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:29.781545+00:00",
+          "status": 200,
+          "elapsed_seconds": 6.849,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-09-28T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-05T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-09-28T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-28T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-29T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-29T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-30T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-30T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-01T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-01T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-02T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-02T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-03T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-03T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-04T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-04T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/40/2026-09-28_2026-10-05_am.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-09-28_2026-10-05_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-09-28T00:00:00' AND data_as_of < '2026-10-05T00:00:00' AND ((data_as_of >= '2026-09-28T17:00:00' AND data_as_of < '2026-09-28T19:00:00') OR (data_as_of >= '2026-09-29T17:00:00' AND data_as_of < '2026-09-29T19:00:00') OR (data_as_of >= '2026-09-30T17:00:00' AND data_as_of < '2026-09-30T19:00:00') OR (data_as_of >= '2026-10-01T17:00:00' AND data_as_of < '2026-10-01T19:00:00') OR (data_as_of >= '2026-10-02T17:00:00' AND data_as_of < '2026-10-02T19:00:00') OR (data_as_of >= '2026-10-03T17:00:00' AND data_as_of < '2026-10-03T19:00:00') OR (data_as_of >= '2026-10-04T17:00:00' AND data_as_of < '2026-10-04T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1107903,
+      "sha256": "6cf1523776b823c2092cf117f477cbec162b297623c83b8bad51dcc58c2b8528",
+      "first_requested_utc": "2026-11-10T11:10:15.701115+00:00",
+      "completed_utc": "2026-11-10T11:10:21.038746+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:21.028733+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.7115,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-09-28T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-05T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-09-28T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-28T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-29T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-29T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-09-30T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-30T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-01T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-01T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-02T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-02T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-03T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-03T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-04T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-04T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/41/2026-09-28_2026-10-05_pm.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-10-05_2026-10-12_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-10-05T00:00:00' AND data_as_of < '2026-10-12T00:00:00' AND ((data_as_of >= '2026-10-05T07:00:00' AND data_as_of < '2026-10-05T09:00:00') OR (data_as_of >= '2026-10-06T07:00:00' AND data_as_of < '2026-10-06T09:00:00') OR (data_as_of >= '2026-10-07T07:00:00' AND data_as_of < '2026-10-07T09:00:00') OR (data_as_of >= '2026-10-08T07:00:00' AND data_as_of < '2026-10-08T09:00:00') OR (data_as_of >= '2026-10-09T07:00:00' AND data_as_of < '2026-10-09T09:00:00') OR (data_as_of >= '2026-10-10T07:00:00' AND data_as_of < '2026-10-10T09:00:00') OR (data_as_of >= '2026-10-11T07:00:00' AND data_as_of < '2026-10-11T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20993,
+      "bytes": 1108851,
+      "sha256": "4f1199e29ba30812073bec06da22bf6a77e59d8775b165d541bcf20d696179ea",
+      "first_requested_utc": "2026-11-10T11:10:17.297261+00:00",
+      "completed_utc": "2026-11-10T11:10:22.521214+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:22.504667+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.3905,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-10-05T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-12T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-10-05T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-05T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-06T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-06T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-07T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-07T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-08T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-08T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-09T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-09T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-10T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-10T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-11T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-11T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/42/2026-10-05_2026-10-12_am.csv"
+    },
+    {
+      "origin": "V5",
+      "status": "complete",
+      "file": "2026-10-05_2026-10-12_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-10-05T00:00:00' AND data_as_of < '2026-10-12T00:00:00' AND ((data_as_of >= '2026-10-05T17:00:00' AND data_as_of < '2026-10-05T19:00:00') OR (data_as_of >= '2026-10-06T17:00:00' AND data_as_of < '2026-10-06T19:00:00') OR (data_as_of >= '2026-10-07T17:00:00' AND data_as_of < '2026-10-07T19:00:00') OR (data_as_of >= '2026-10-08T17:00:00' AND data_as_of < '2026-10-08T19:00:00') OR (data_as_of >= '2026-10-09T17:00:00' AND data_as_of < '2026-10-09T19:00:00') OR (data_as_of >= '2026-10-10T17:00:00' AND data_as_of < '2026-10-10T19:00:00') OR (data_as_of >= '2026-10-11T17:00:00' AND data_as_of < '2026-10-11T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 19894,
+      "bytes": 1050496,
+      "sha256": "e272a18d0b0a35643d06b17be73f1625f355580b4328cfb5b35fc00e739f9d43",
+      "first_requested_utc": "2026-11-10T11:10:19.257632+00:00",
+      "completed_utc": "2026-11-10T11:10:27.606914+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:10:27.597565+00:00",
+          "status": 200,
+          "elapsed_seconds": 5.4759,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-10-05T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-12T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-10-05T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-05T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-06T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-06T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-07T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-07T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-08T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-08T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-09T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-09T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-10T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-10T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-11T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-11T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/43/2026-10-05_2026-10-12_pm.csv"
+    },
+    {
+      "origin": "V6",
+      "status": "complete",
+      "file": "2026-10-12_2026-10-19_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-10-12T00:00:00' AND data_as_of < '2026-10-19T00:00:00' AND ((data_as_of >= '2026-10-12T07:00:00' AND data_as_of < '2026-10-12T09:00:00') OR (data_as_of >= '2026-10-13T07:00:00' AND data_as_of < '2026-10-13T09:00:00') OR (data_as_of >= '2026-10-14T07:00:00' AND data_as_of < '2026-10-14T09:00:00') OR (data_as_of >= '2026-10-15T07:00:00' AND data_as_of < '2026-10-15T09:00:00') OR (data_as_of >= '2026-10-16T07:00:00' AND data_as_of < '2026-10-16T09:00:00') OR (data_as_of >= '2026-10-17T07:00:00' AND data_as_of < '2026-10-17T09:00:00') OR (data_as_of >= '2026-10-18T07:00:00' AND data_as_of < '2026-10-18T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 14688,
+      "bytes": 775747,
+      "sha256": "16a447b90a4b127c86e20aa19c2e1ba8913f2d560a6db0c68d7f727f0730699f",
+      "first_requested_utc": "2026-11-10T11:37:40.065009+00:00",
+      "completed_utc": "2026-11-10T11:37:44.247795+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:37:44.228678+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.0063,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-10-12T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-19T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-10-12T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-12T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-13T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-13T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-14T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-14T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-15T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-15T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-16T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-16T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-17T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-17T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-18T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-18T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/44/2026-10-12_2026-10-19_am.csv"
+    },
+    {
+      "origin": "V6",
+      "status": "complete",
+      "file": "2026-10-12_2026-10-19_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-10-12T00:00:00' AND data_as_of < '2026-10-19T00:00:00' AND ((data_as_of >= '2026-10-12T17:00:00' AND data_as_of < '2026-10-12T19:00:00') OR (data_as_of >= '2026-10-13T17:00:00' AND data_as_of < '2026-10-13T19:00:00') OR (data_as_of >= '2026-10-14T17:00:00' AND data_as_of < '2026-10-14T19:00:00') OR (data_as_of >= '2026-10-15T17:00:00' AND data_as_of < '2026-10-15T19:00:00') OR (data_as_of >= '2026-10-16T17:00:00' AND data_as_of < '2026-10-16T19:00:00') OR (data_as_of >= '2026-10-17T17:00:00' AND data_as_of < '2026-10-17T19:00:00') OR (data_as_of >= '2026-10-18T17:00:00' AND data_as_of < '2026-10-18T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 18000,
+      "bytes": 950076,
+      "sha256": "37bfa5ba6fc3ec7ea3c7367ee734cb3e190498bd1ae8f41f21b4793f3abec117",
+      "first_requested_utc": "2026-11-10T11:37:40.065569+00:00",
+      "completed_utc": "2026-11-10T11:37:45.407551+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:37:45.392379+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.4753,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-10-12T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-19T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-10-12T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-12T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-13T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-13T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-14T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-14T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-15T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-15T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-16T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-16T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-17T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-17T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-18T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-18T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/45/2026-10-12_2026-10-19_pm.csv"
+    },
+    {
+      "origin": "V6",
+      "status": "complete",
+      "file": "2026-10-19_2026-10-26_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-10-19T00:00:00' AND data_as_of < '2026-10-26T00:00:00' AND ((data_as_of >= '2026-10-19T07:00:00' AND data_as_of < '2026-10-19T09:00:00') OR (data_as_of >= '2026-10-20T07:00:00' AND data_as_of < '2026-10-20T09:00:00') OR (data_as_of >= '2026-10-21T07:00:00' AND data_as_of < '2026-10-21T09:00:00') OR (data_as_of >= '2026-10-22T07:00:00' AND data_as_of < '2026-10-22T09:00:00') OR (data_as_of >= '2026-10-23T07:00:00' AND data_as_of < '2026-10-23T09:00:00') OR (data_as_of >= '2026-10-24T07:00:00' AND data_as_of < '2026-10-24T09:00:00') OR (data_as_of >= '2026-10-25T07:00:00' AND data_as_of < '2026-10-25T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1110096,
+      "sha256": "fe9bb81a927a5bb245eb45ca4728aea985f15aeb75f3be298882c8a4d3a21871",
+      "first_requested_utc": "2026-11-10T11:37:40.066090+00:00",
+      "completed_utc": "2026-11-10T11:37:44.775911+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:37:44.760796+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.3036,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-10-19T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-26T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-10-19T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-19T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-20T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-20T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-21T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-21T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-22T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-22T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-23T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-23T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-24T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-24T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-25T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-25T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/46/2026-10-19_2026-10-26_am.csv"
+    },
+    {
+      "origin": "V6",
+      "status": "complete",
+      "file": "2026-10-19_2026-10-26_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-10-19T00:00:00' AND data_as_of < '2026-10-26T00:00:00' AND ((data_as_of >= '2026-10-19T17:00:00' AND data_as_of < '2026-10-19T19:00:00') OR (data_as_of >= '2026-10-20T17:00:00' AND data_as_of < '2026-10-20T19:00:00') OR (data_as_of >= '2026-10-21T17:00:00' AND data_as_of < '2026-10-21T19:00:00') OR (data_as_of >= '2026-10-22T17:00:00' AND data_as_of < '2026-10-22T19:00:00') OR (data_as_of >= '2026-10-23T17:00:00' AND data_as_of < '2026-10-23T19:00:00') OR (data_as_of >= '2026-10-24T17:00:00' AND data_as_of < '2026-10-24T19:00:00') OR (data_as_of >= '2026-10-25T17:00:00' AND data_as_of < '2026-10-25T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1111545,
+      "sha256": "5b8f3567756dbd292a22140d711d985240b02da921095041534711fdff0bef90",
+      "first_requested_utc": "2026-11-10T11:37:40.067124+00:00",
+      "completed_utc": "2026-11-10T11:37:46.686843+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:37:46.676449+00:00",
+          "status": 200,
+          "elapsed_seconds": 4.2688,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-10-19T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-26T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-10-19T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-19T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-20T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-20T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-21T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-21T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-22T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-22T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-23T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-23T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-24T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-24T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-25T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-25T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/47/2026-10-19_2026-10-26_pm.csv"
+    },
+    {
+      "origin": "V6",
+      "status": "complete",
+      "file": "2026-10-26_2026-11-02_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-10-26T00:00:00' AND data_as_of < '2026-11-02T00:00:00' AND ((data_as_of >= '2026-10-26T07:00:00' AND data_as_of < '2026-10-26T09:00:00') OR (data_as_of >= '2026-10-27T07:00:00' AND data_as_of < '2026-10-27T09:00:00') OR (data_as_of >= '2026-10-28T07:00:00' AND data_as_of < '2026-10-28T09:00:00') OR (data_as_of >= '2026-10-29T07:00:00' AND data_as_of < '2026-10-29T09:00:00') OR (data_as_of >= '2026-10-30T07:00:00' AND data_as_of < '2026-10-30T09:00:00') OR (data_as_of >= '2026-10-31T07:00:00' AND data_as_of < '2026-10-31T09:00:00') OR (data_as_of >= '2026-11-01T07:00:00' AND data_as_of < '2026-11-01T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1112856,
+      "sha256": "37e93a2fa4619e580de8d9d62cd97f65dc0ea8fa609fbb25b4837c8a3db0c9d2",
+      "first_requested_utc": "2026-11-10T11:37:40.066607+00:00",
+      "completed_utc": "2026-11-10T11:37:45.864776+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:37:45.855228+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.2169,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-10-26T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-02T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-10-26T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-26T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-27T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-27T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-28T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-28T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-29T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-29T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-30T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-30T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-31T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-31T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-01T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-01T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/48/2026-10-26_2026-11-02_am.csv"
+    },
+    {
+      "origin": "V6",
+      "status": "complete",
+      "file": "2026-10-26_2026-11-02_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-10-26T00:00:00' AND data_as_of < '2026-11-02T00:00:00' AND ((data_as_of >= '2026-10-26T17:00:00' AND data_as_of < '2026-10-26T19:00:00') OR (data_as_of >= '2026-10-27T17:00:00' AND data_as_of < '2026-10-27T19:00:00') OR (data_as_of >= '2026-10-28T17:00:00' AND data_as_of < '2026-10-28T19:00:00') OR (data_as_of >= '2026-10-29T17:00:00' AND data_as_of < '2026-10-29T19:00:00') OR (data_as_of >= '2026-10-30T17:00:00' AND data_as_of < '2026-10-30T19:00:00') OR (data_as_of >= '2026-10-31T17:00:00' AND data_as_of < '2026-10-31T19:00:00') OR (data_as_of >= '2026-11-01T17:00:00' AND data_as_of < '2026-11-01T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 21000,
+      "bytes": 1113252,
+      "sha256": "04f84ecc56cbf6e14bae3d613ea007f2d6ea9fe63b5dd1f7857bfcccc3d19da3",
+      "first_requested_utc": "2026-11-10T11:37:40.067124+00:00",
+      "completed_utc": "2026-11-10T11:37:45.166014+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:37:45.147588+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.6868,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-10-26T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-02T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-10-26T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-26T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-27T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-27T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-28T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-28T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-29T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-29T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-30T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-30T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-10-31T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-31T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-01T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-01T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/49/2026-10-26_2026-11-02_pm.csv"
+    },
+    {
+      "origin": "V6",
+      "status": "complete",
+      "file": "2026-11-02_2026-11-09_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-11-02T00:00:00' AND data_as_of < '2026-11-09T00:00:00' AND ((data_as_of >= '2026-11-02T07:00:00' AND data_as_of < '2026-11-02T09:00:00') OR (data_as_of >= '2026-11-03T07:00:00' AND data_as_of < '2026-11-03T09:00:00') OR (data_as_of >= '2026-11-04T07:00:00' AND data_as_of < '2026-11-04T09:00:00') OR (data_as_of >= '2026-11-05T07:00:00' AND data_as_of < '2026-11-05T09:00:00') OR (data_as_of >= '2026-11-06T07:00:00' AND data_as_of < '2026-11-06T09:00:00') OR (data_as_of >= '2026-11-07T07:00:00' AND data_as_of < '2026-11-07T09:00:00') OR (data_as_of >= '2026-11-08T07:00:00' AND data_as_of < '2026-11-08T09:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20976,
+      "bytes": 1109946,
+      "sha256": "bd57b8a915ff55612858e8e98ab60ffa78f107edd8f8f13c7f234f56ebeffc19",
+      "first_requested_utc": "2026-11-10T11:37:44.249608+00:00",
+      "completed_utc": "2026-11-10T11:37:48.672286+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:37:48.657274+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.0313,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-11-02T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-09T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-11-02T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-02T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-03T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-03T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-04T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-04T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-05T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-05T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-06T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-06T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-07T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-07T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-08T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-08T09%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/50/2026-11-02_2026-11-09_am.csv"
+    },
+    {
+      "origin": "V6",
+      "status": "complete",
+      "file": "2026-11-02_2026-11-09_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "data_as_of >= '2026-11-02T00:00:00' AND data_as_of < '2026-11-09T00:00:00' AND ((data_as_of >= '2026-11-02T17:00:00' AND data_as_of < '2026-11-02T19:00:00') OR (data_as_of >= '2026-11-03T17:00:00' AND data_as_of < '2026-11-03T19:00:00') OR (data_as_of >= '2026-11-04T17:00:00' AND data_as_of < '2026-11-04T19:00:00') OR (data_as_of >= '2026-11-05T17:00:00' AND data_as_of < '2026-11-05T19:00:00') OR (data_as_of >= '2026-11-06T17:00:00' AND data_as_of < '2026-11-06T19:00:00') OR (data_as_of >= '2026-11-07T17:00:00' AND data_as_of < '2026-11-07T19:00:00') OR (data_as_of >= '2026-11-08T17:00:00' AND data_as_of < '2026-11-08T19:00:00'))",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 20904,
+      "bytes": 1105649,
+      "sha256": "2afeca3015dc4d0188c3f0ee5fc0220e593b2d9dff8835dccb506e1535add39c",
+      "first_requested_utc": "2026-11-10T11:37:44.777190+00:00",
+      "completed_utc": "2026-11-10T11:37:49.616257+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-10T11:37:49.608555+00:00",
+          "status": 200,
+          "elapsed_seconds": 3.1871,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=data_as_of+%3E%3D+%272026-11-02T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-09T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-11-02T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-02T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-03T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-03T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-04T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-04T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-05T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-05T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-06T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-06T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-07T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-07T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-08T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-08T19%3A00%3A00%27%29%29&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/51/2026-11-02_2026-11-09_pm.csv"
+    },
+    {
+      "origin": "live_extension",
+      "status": "complete",
+      "file": "2026-11-09_2026-11-12_am.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "(data_as_of >= '2026-11-09T00:00:00' AND data_as_of < '2026-11-12T00:00:00' AND ((data_as_of >= '2026-11-09T07:00:00' AND data_as_of < '2026-11-09T09:00:00') OR (data_as_of >= '2026-11-10T07:00:00' AND data_as_of < '2026-11-10T09:00:00') OR (data_as_of >= '2026-11-11T07:00:00' AND data_as_of < '2026-11-11T09:00:00'))) AND data_as_of <= '2026-11-11T17:12:06.000'",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 9000,
+      "bytes": 476514,
+      "sha256": "a2336e105408cab5701070b15c54a5af3f6cb27f072dae6b216d8a6815ef236b",
+      "first_requested_utc": "2026-11-12T04:05:22.947439+00:00",
+      "completed_utc": "2026-11-12T04:05:34.036333+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-12T04:05:27.100611+00:00",
+          "status": 503,
+          "elapsed_seconds": 4.1516,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=%28data_as_of+%3E%3D+%272026-11-09T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-12T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-11-09T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-09T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-10T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-10T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-11T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-11T09%3A00%3A00%27%29%29%29+AND+data_as_of+%3C%3D+%272026-11-11T17%3A12%3A06.000%27&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        },
+        {
+          "attempt": 2,
+          "at_utc": "2026-11-12T04:05:34.023294+00:00",
+          "status": 200,
+          "elapsed_seconds": 4.8258,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=%28data_as_of+%3E%3D+%272026-11-09T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-12T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-11-09T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-09T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-10T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-10T09%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-11T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-11T09%3A00%3A00%27%29%29%29+AND+data_as_of+%3C%3D+%272026-11-11T17%3A12%3A06.000%27&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/52/2026-11-09_2026-11-12_am.csv"
+    },
+    {
+      "origin": "live_extension",
+      "status": "complete",
+      "file": "2026-11-09_2026-11-12_pm.csv",
+      "query": {
+        "$select": "data_as_of,link_id,speed,travel_time,status",
+        "$where": "(data_as_of >= '2026-11-09T00:00:00' AND data_as_of < '2026-11-12T00:00:00' AND ((data_as_of >= '2026-11-09T17:00:00' AND data_as_of < '2026-11-09T19:00:00') OR (data_as_of >= '2026-11-10T17:00:00' AND data_as_of < '2026-11-10T19:00:00') OR (data_as_of >= '2026-11-11T17:00:00' AND data_as_of < '2026-11-11T19:00:00'))) AND data_as_of <= '2026-11-11T17:12:06.000'",
+        "$order": "data_as_of,link_id,:id",
+        "$limit": 50000
+      },
+      "rows": 6353,
+      "bytes": 336643,
+      "sha256": "4d884139047407207653817485c1009287254572a77754b3ebac4bd09a6ef3ba",
+      "first_requested_utc": "2026-11-12T04:05:22.947952+00:00",
+      "completed_utc": "2026-11-12T04:05:25.816406+00:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "at_utc": "2026-11-12T04:05:25.807186+00:00",
+          "status": 200,
+          "elapsed_seconds": 2.8566,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=data_as_of%2Clink_id%2Cspeed%2Ctravel_time%2Cstatus&%24where=%28data_as_of+%3E%3D+%272026-11-09T00%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-12T00%3A00%3A00%27+AND+%28%28data_as_of+%3E%3D+%272026-11-09T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-09T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-10T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-10T19%3A00%3A00%27%29+OR+%28data_as_of+%3E%3D+%272026-11-11T17%3A00%3A00%27+AND+data_as_of+%3C+%272026-11-11T19%3A00%3A00%27%29%29%29+AND+data_as_of+%3C%3D+%272026-11-11T17%3A12%3A06.000%27&%24order=data_as_of%2Clink_id%2C%3Aid&%24limit=50000"
+        }
+      ],
+      "path": "data/raw/53/2026-11-09_2026-11-12_pm.csv"
+    }
+  ],
+  "cached_rows": 1004538,
+  "new_rows": 15353,
+  "failed_extension_shards": [],
+  "dates_or_coverage_do_not_block_experiment": true,
+  "unknown_retained_on_missing_dates": true,
+  "label_or_score_performance_used_for_admission": false,
+  "location_note": "Package-relative paths; file bytes, original queries and timestamps unchanged."
+}

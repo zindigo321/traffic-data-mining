@@ -1,0 +1,460 @@
+{
+  "status": "PASS",
+  "registered_utc": "2026-11-12T06:57:20.546882+00:00",
+  "source_archive_sha256": "0436558b017bb6c5d52d0ab2103ae52f2315b970e4a9b9cf615c7b4a9f0c1c47",
+  "source_payload": {
+    "manifest_rows": 642,
+    "hashes": 643
+  },
+  "raw_shards": 54,
+  "raw_records": 1019891,
+  "raw_files": [
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-05-11_2026-05-18_am.csv",
+      "sha256": "57dcd3c7cfe70ec09b3dbaa286ab32cd9a61d7c1a06670e5543049dc6db24a53",
+      "rows": 16967
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-05-11_2026-05-18_pm.csv",
+      "sha256": "c35a1073426c24ae255f7342e3b75bc9f1e239cf6d7d0f08c86bd36fa9443c32",
+      "rows": 16968
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-05-18_2026-05-25_am.csv",
+      "sha256": "3b7dfd878064182bd79ec230f1fa12cc04a6c342ea06f192fbac9b643173974a",
+      "rows": 17078
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-05-18_2026-05-25_pm.csv",
+      "sha256": "159d21a0dcab16ac89e3fe97a5a187d41f53a4d03f80dd102f3bb2396ced6c4d",
+      "rows": 16979
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-05-25_2026-06-01_am.csv",
+      "sha256": "8d300e1d0e578c05027cb6a186c7f58f8cf9979444c04893edce5010ef0fe626",
+      "rows": 17194
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-05-25_2026-06-01_pm.csv",
+      "sha256": "8606f2cfbcc435b1d592f086c1052d8cb6ea079a4693a47a06c7b3d961587f72",
+      "rows": 17025
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-06-01_2026-06-08_am.csv",
+      "sha256": "402860832db6e38df0ab6ef17b249266283a056c97a82d5cb92bfb2df6254eca",
+      "rows": 16780
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-06-01_2026-06-08_pm.csv",
+      "sha256": "a659cc4ecb8363c1ba5b49cabf2e8dc07db25a4b859312b79c90b34c44025459",
+      "rows": 17069
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-06-08_2026-06-15_am.csv",
+      "sha256": "5256e0e97970e27445da1feaecc2cdb15ab9d04aaa4841e9b41fc2e5b92b8599",
+      "rows": 16887
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-06-08_2026-06-15_pm.csv",
+      "sha256": "e62848aba8eae00fac412893c909e603088248c6f270bde70c4b5f909e971a67",
+      "rows": 17465
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-06-15_2026-06-22_am.csv",
+      "sha256": "4049e54f703b44b24682353efbcc38802d8d002193d11fc17ce710e8072f1193",
+      "rows": 14954
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-06-15_2026-06-22_pm.csv",
+      "sha256": "bd66a6425fa3a454c4f6f30ecd15246559a6a3db496dc07601ff76965b9f6403",
+      "rows": 12000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-06-22_2026-06-29_am.csv",
+      "sha256": "69ab51196e2260b0f4621116e9285597e747ff41a5e7da743cf38de8168d4f84",
+      "rows": 21034
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-06-22_2026-06-29_pm.csv",
+      "sha256": "d5aa49861b55d79836c7363043632d485e2305d5238c25fbae17fdfc587e7df3",
+      "rows": 20724
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-06-29_2026-07-06_am.csv",
+      "sha256": "dbe167900d0b77780ea199df2eda67610609a49e788b8ff71f35ed847cdfc867",
+      "rows": 19980
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-06-29_2026-07-06_pm.csv",
+      "sha256": "63769d34081e3492404d6d2d20db8485e7ec1a499ef3ee6935ed9a0ab1ebabf7",
+      "rows": 20978
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-07-06_2026-07-13_am.csv",
+      "sha256": "8217346ad637649d07c08a0d2b3f5e313d543ace78a0225a1e35e58e77c6e54f",
+      "rows": 17939
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-07-06_2026-07-13_pm.csv",
+      "sha256": "f4d660c24450d95ec1cdb6896da8ab0d4217cec8e6dfa87fb702cb70dbba6e57",
+      "rows": 20966
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-07-13_2026-07-20_am.csv",
+      "sha256": "b0fbf63a0cdd94d9ecded77d448455006c3f18c59be0db8c0f24821ae2d23671",
+      "rows": 15000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-07-13_2026-07-20_pm.csv",
+      "sha256": "17bd9363505be5fb3888aee24b85389a1e18c8e84bb28fdbae9bd33b7856f8d9",
+      "rows": 17959
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-07-20_2026-07-27_am.csv",
+      "sha256": "e88759a7fd1732a86b594b6fc6708d43a9255cf3a77bbb3ba73e8348543f7ce7",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-07-20_2026-07-27_pm.csv",
+      "sha256": "866b15b3e04868b0362bd19f9851a758bca7e84a485eeafd0a1f0e1ba27e2bc4",
+      "rows": 18356
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-07-27_2026-08-03_am.csv",
+      "sha256": "c681421f5982a79457074c5320f6e60dfb3590122e5302879f5adf41cd8c2320",
+      "rows": 21078
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-07-27_2026-08-03_pm.csv",
+      "sha256": "361bcd02d1b3ce562768a108e2b1aeb83ecf54e7cbbf498f2a4bd195b57abcf9",
+      "rows": 20469
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-08-03_2026-08-10_am.csv",
+      "sha256": "8e989a1d80967804c3771209de1d6c3f229863fdb9b4dfa2002abf12d8832738",
+      "rows": 20109
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-08-03_2026-08-10_pm.csv",
+      "sha256": "a93c8736ef4dab5541a01bc65b7909eb792a339100eac18c769d618aca50a3e5",
+      "rows": 20997
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-08-10_2026-08-17_am.csv",
+      "sha256": "baef9c59736231ca14d76eb39b32bdc2b9a953957ad5365b1bb132b61123c1b4",
+      "rows": 21008
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-08-10_2026-08-17_pm.csv",
+      "sha256": "80f96b2441331976bd9810bc3b68cab12701bec042163022de610b944f539290",
+      "rows": 20999
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-08-17_2026-08-24_am.csv",
+      "sha256": "bdb50a45d06a98a0cff4191b7837779a1cc5c2347ab3da812d7988e99d8894e9",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-08-17_2026-08-24_pm.csv",
+      "sha256": "44de6012eee392776c725fd1222cac31fdbba537d39fcfc0047608e5a1494a00",
+      "rows": 20994
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-08-24_2026-08-31_am.csv",
+      "sha256": "b98fc3d0f1996e789ddd78d9d58b44101bd36828de957aff690c17500afe54aa",
+      "rows": 20887
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\development\\2026-08-24_2026-08-31_pm.csv",
+      "sha256": "2aa6c7592c418045b70a2ff69b869655b6b9f1221dc7b8b404eafdf1dd98864d",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-08-31_2026-09-07_am.csv",
+      "sha256": "7c0b4fb0839b36ced4072fff3a9c465a7fad723712e33a863750d8ab63ecff18",
+      "rows": 18606
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-08-31_2026-09-07_pm.csv",
+      "sha256": "d2076618bb11c12896a9fcbad8feaf6ae82a888e353f49244ac6c08578a3a154",
+      "rows": 18644
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-09-07_2026-09-14_am.csv",
+      "sha256": "b308c8af04c01ac7a51a6fc1f1508d955d49575e206dbc56550e1f51a843b52e",
+      "rows": 20995
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-09-07_2026-09-14_pm.csv",
+      "sha256": "120edc184d1f305c1e971889e27f9172f04279aa297ce05593dbbd94bd50123c",
+      "rows": 20995
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-09-14_2026-09-21_am.csv",
+      "sha256": "2879cc617bf9ccd5d62b9c18178e40f5a022f252495f64353b110ae743e6f75a",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-09-14_2026-09-21_pm.csv",
+      "sha256": "01961e97659d6843ff1b3f75c1ae98463dd6bc694a578026a7bbebec69c94214",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-09-21_2026-09-28_am.csv",
+      "sha256": "60d037517015b552479d0ff1d36c465eeabe4de625316e59ca34c3eaa68580eb",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-09-21_2026-09-28_pm.csv",
+      "sha256": "fde60347660b56b7bfc86f755c539df5361d61a930c5f32a66152fe882c06928",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-09-28_2026-10-05_am.csv",
+      "sha256": "8ad5130223035d589d1fad1dc63b6a0405b84bfa185a5335b650f8cf85789d41",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-09-28_2026-10-05_pm.csv",
+      "sha256": "6cf1523776b823c2092cf117f477cbec162b297623c83b8bad51dcc58c2b8528",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-10-05_2026-10-12_am.csv",
+      "sha256": "4f1199e29ba30812073bec06da22bf6a77e59d8775b165d541bcf20d696179ea",
+      "rows": 20993
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\raw_external\\holdout_sealed\\2026-10-05_2026-10-12_pm.csv",
+      "sha256": "e272a18d0b0a35643d06b17be73f1625f355580b4328cfb5b35fc00e739f9d43",
+      "rows": 19894
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v6\\20261110_v6\\raw_external\\holdout_sealed\\2026-10-12_2026-10-19_am.csv",
+      "sha256": "16a447b90a4b127c86e20aa19c2e1ba8913f2d560a6db0c68d7f727f0730699f",
+      "rows": 14688
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v6\\20261110_v6\\raw_external\\holdout_sealed\\2026-10-12_2026-10-19_pm.csv",
+      "sha256": "37bfa5ba6fc3ec7ea3c7367ee734cb3e190498bd1ae8f41f21b4793f3abec117",
+      "rows": 18000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v6\\20261110_v6\\raw_external\\holdout_sealed\\2026-10-19_2026-10-26_am.csv",
+      "sha256": "fe9bb81a927a5bb245eb45ca4728aea985f15aeb75f3be298882c8a4d3a21871",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v6\\20261110_v6\\raw_external\\holdout_sealed\\2026-10-19_2026-10-26_pm.csv",
+      "sha256": "5b8f3567756dbd292a22140d711d985240b02da921095041534711fdff0bef90",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v6\\20261110_v6\\raw_external\\holdout_sealed\\2026-10-26_2026-11-02_am.csv",
+      "sha256": "37e93a2fa4619e580de8d9d62cd97f65dc0ea8fa609fbb25b4837c8a3db0c9d2",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v6\\20261110_v6\\raw_external\\holdout_sealed\\2026-10-26_2026-11-02_pm.csv",
+      "sha256": "04f84ecc56cbf6e14bae3d613ea007f2d6ea9fe63b5dd1f7857bfcccc3d19da3",
+      "rows": 21000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v6\\20261110_v6\\raw_external\\holdout_sealed\\2026-11-02_2026-11-09_am.csv",
+      "sha256": "bd57b8a915ff55612858e8e98ab60ffa78f107edd8f8f13c7f234f56ebeffc19",
+      "rows": 20976
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v6\\20261110_v6\\raw_external\\holdout_sealed\\2026-11-02_2026-11-09_pm.csv",
+      "sha256": "2afeca3015dc4d0188c3f0ee5fc0220e593b2d9dff8835dccb506e1535add39c",
+      "rows": 20904
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\full_data\\20261112\\raw_extension\\2026-11-09_2026-11-12_am.csv",
+      "sha256": "a2336e105408cab5701070b15c54a5af3f6cb27f072dae6b216d8a6815ef236b",
+      "rows": 9000
+    },
+    {
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\full_data\\20261112\\raw_extension\\2026-11-09_2026-11-12_pm.csv",
+      "sha256": "4d884139047407207653817485c1009287254572a77754b3ebac4bd09a6ef3ba",
+      "rows": 6353
+    }
+  ],
+  "arrays": {
+    "development": {
+      "shape": [
+        2688,
+        121,
+        52
+      ],
+      "known": 171686,
+      "roads": 121
+    },
+    "final": {
+      "shape": [
+        4440,
+        121,
+        52
+      ],
+      "known": 299988,
+      "roads": 121
+    }
+  },
+  "controls": [
+    {
+      "stage": "development",
+      "model": "graph_mean",
+      "seed": 11,
+      "weight_sha256": "e108164a649e3d53b35764d24ce5352693ba2c4fd31a95e0cd938b99354cbc86",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_mean_s11",
+      "new_training": false
+    },
+    {
+      "stage": "development",
+      "model": "graph_mean",
+      "seed": 22,
+      "weight_sha256": "9c133183cafffb56997faed295a4654ee602473aeeb96c98b20b266192821b6d",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_mean_s22",
+      "new_training": false
+    },
+    {
+      "stage": "development",
+      "model": "graph_mean",
+      "seed": 33,
+      "weight_sha256": "bdd022716c18f7e4f8f25d349cbc43d4c6f3991e9471e5d075db6e07456f7d0c",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_mean_s33",
+      "new_training": false
+    },
+    {
+      "stage": "development",
+      "model": "graph_max",
+      "seed": 11,
+      "weight_sha256": "6327021ddcb68d503efd3cdd82e8d0d4d56befeee4a717039a09229c373790c2",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_max_s11",
+      "new_training": false
+    },
+    {
+      "stage": "development",
+      "model": "graph_max",
+      "seed": 22,
+      "weight_sha256": "80bbac6288ece670c0e586993534e8632ccac5523b1f776dce83a4a986757e77",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_max_s22",
+      "new_training": false
+    },
+    {
+      "stage": "development",
+      "model": "graph_max",
+      "seed": 33,
+      "weight_sha256": "ac39d12861de06e126e7ebfd888f351833ab6bf1e949df70dc239fb1868e47c8",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_max_s33",
+      "new_training": false
+    },
+    {
+      "stage": "development",
+      "model": "graph_attention",
+      "seed": 11,
+      "weight_sha256": "63584c6f293b73b75291aa9c9e43f9cf4b29ce660490e740244b60360c7929f9",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_attention_s11",
+      "new_training": false
+    },
+    {
+      "stage": "development",
+      "model": "graph_attention",
+      "seed": 22,
+      "weight_sha256": "c9bb07aac156705e9a1420ae35d9e6c2fce057905b73d8b5104e4d404ed6fceb",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_attention_s22",
+      "new_training": false
+    },
+    {
+      "stage": "development",
+      "model": "graph_attention",
+      "seed": 33,
+      "weight_sha256": "21ff571f5db1486416a6178219e9fc9b96a0478918a0b9281ec615a66035e275",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_attention_s33",
+      "new_training": false
+    },
+    {
+      "stage": "final",
+      "model": "graph_mean",
+      "seed": 11,
+      "weight_sha256": "af64ef0f39e0251975e3beeefd2b5847376faab5d4c71c4c8d14a333c3f01148",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_mean_s11",
+      "new_training": false
+    },
+    {
+      "stage": "final",
+      "model": "graph_mean",
+      "seed": 22,
+      "weight_sha256": "3ac9ed0c6692aab03c686c34e2fc61c93f78fd2c85fbd356a86348e1f61013c7",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_mean_s22",
+      "new_training": false
+    },
+    {
+      "stage": "final",
+      "model": "graph_mean",
+      "seed": 33,
+      "weight_sha256": "c102358511db151c3b49340e38acfa70e7a92905348bd9a23df9eec42818ea4c",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_mean_s33",
+      "new_training": false
+    },
+    {
+      "stage": "final",
+      "model": "graph_max",
+      "seed": 11,
+      "weight_sha256": "ced19b5984b368074df5376d33d7d67244d69b4bf7d538d1f259b85f6261f0b6",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_max_s11",
+      "new_training": false
+    },
+    {
+      "stage": "final",
+      "model": "graph_max",
+      "seed": 22,
+      "weight_sha256": "2a7858e705b3e7aa817584b85c3d6f484b42d4d57c1c60696cd32dc038ee7ac2",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_max_s22",
+      "new_training": false
+    },
+    {
+      "stage": "final",
+      "model": "graph_max",
+      "seed": 33,
+      "weight_sha256": "7572e0d7799c41284c6430d46f9d8e234e49fd165eed06c5109e72ae2dedaf35",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_max_s33",
+      "new_training": false
+    },
+    {
+      "stage": "final",
+      "model": "graph_attention",
+      "seed": 11,
+      "weight_sha256": "071ce596f30b502f0479c1e04ebcf19c829f204b136e79b45130446c537de5b1",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_attention_s11",
+      "new_training": false
+    },
+    {
+      "stage": "final",
+      "model": "graph_attention",
+      "seed": 22,
+      "weight_sha256": "076ad450710dbcb67964c2daa5f18d1cd6b0d28fd6d681131fe7488895c44409",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_attention_s22",
+      "new_training": false
+    },
+    {
+      "stage": "final",
+      "model": "graph_attention",
+      "seed": 33,
+      "weight_sha256": "30a1922d2751340a96f4b1294669bff83a5529b797e2d933266df841c8aee660",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_attention_s33",
+      "new_training": false
+    }
+  ],
+  "new_fits_planned": 18,
+  "static_reused": 18,
+  "protocol": "chronological retrospective",
+  "fresh_blind_test": false,
+  "plan_sha256": "c327cd9b9ea513cbd150a0bb340c3a2cfd64594ba67af4fb759a94b3b78887b4",
+  "config_sha256": "b4e615df6d08fafaa430e0ee02c55f9c976beaee450ad8713b1e2711ac52a055",
+  "implementation": {
+    "dynamic_check.py": "f1ee9010e0c8e071b043b2364c7ec7259fd65b6669c9911d549d6849dd9daa7f",
+    "dynamic_model.py": "677110f2a550a35bcf700e290aac4c097771df5896c7d0f102a0d401f4e94957",
+    "dynamic_train.py": "d907987a729953a90404092aee09dfaf1ed27003cd3a9c40c9d696b192c0e93d"
+  }
+}

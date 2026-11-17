@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "date": "2026-11-17",
+  "scope": "Public repository files and document metadata",
+  "removed_categories": [
+    "Author real name and student number",
+    "Personal account aliases and email",
+    "Local Windows user folder component",
+    "Private messaging account path",
+    "Office/PDF author/editor/revision/thumbnail metadata"
+  ],
+  "documents": {
+    "assignments": 4,
+    "presentation_decks": 2,
+    "presentation_PDF": 1,
+    "legacy_script_DOCX": 1,
+    "assignment_visual_pages": 11,
+    "presentation_slides_reviewed": 20,
+    "legacy_script_pages_reviewed": 7
+  },
+  "image_review": "Local Chinese OCR and manual review; exact personal point/line figures removed from legacy deck",
+  "retained_public_sources": [
+    "Scholarly citations",
+    "Official traffic agency dataset attribution and public contact"
+  ],
+  "original_course_sources_modified": false,
+  "model_arrays_and_weights_modified": false,
+  "original_teacher_materials_suitable_for_public_upload": false,
+  "history": {
+    "previous_upload_confirmed_by_user": false,
+    "previous_local_commits": false
+  },
+  "Git_author_policy": {
+    "name": "Course Archive",
+    "email": "archive@example.invalid",
+    "scope": "repository-local"
+  },
+  "limitations": [
+    "Public repository ownership remains visible on GitHub",
+    "Future documents and freshly generated logs require a new privacy review"
+  ],
+  "runtime_validation": "AnonymousRuntimeQA.json",
+  "checksums": "manifest.csv and SHA256SUMS rebuilt for anonymous public copy",
+  "final_scan_file_count": 1266,
+  "known_author_identity_residuals": 0,
+  "scan_errors": 0,
+  "concurrent_scan_file_changes": 0,
+  "decoded_text_scanning": true,
+  "compressed_model_array_containers_scanned": 192,
+  "reviewed_image_count": 32,
+  "image_OCR": "PASS - local Chinese OCR + manual review",
+  "numeric_hash_and_public_contact_candidates": "Reviewed; non-personal source references and hash substrings retained",
+  "public_commit_or_push_performed": false
+}

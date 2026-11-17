@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-11-12T07:26:37.163251+00:00",
+  "files": [
+    "paired_PR.png",
+    "paired_metrics.png",
+    "matched_recall_FP.png",
+    "development_curves.png"
+  ],
+  "method": "all four actual generated PNGs viewed at full readable resolution",
+  "clipping_or_overlap": false
+}

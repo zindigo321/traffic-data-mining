@@ -1,0 +1,15 @@
+test_excluded_ranges_raise (test_v3.V3Tests.test_excluded_ranges_raise) ... ok
+test_held_observations_require_unlock (test_v3.V3Tests.test_held_observations_require_unlock) ... ok
+test_lag_breaks_on_partition_and_gap (test_v3.V3Tests.test_lag_breaks_on_partition_and_gap) ... ok
+test_mutating_target_and_future_changes_truth_only (test_v3.V3Tests.test_mutating_target_and_future_changes_truth_only) ... ok
+test_pair_budget_and_risk_sampling (test_v3.V3Tests.test_pair_budget_and_risk_sampling) ... ok
+test_past_transition_prior_does_not_see_today_or_eval (test_v3.V3Tests.test_past_transition_prior_does_not_see_today_or_eval) ... ok
+test_recovery_target_has_no_unknown_truth (test_v3.V3Tests.test_recovery_target_has_no_unknown_truth) ... ok
+test_routed_AP_equals_risk_AP_on_full_support (test_v3.V3Tests.test_routed_AP_equals_risk_AP_on_full_support) ... ok
+test_smoothl1_head_and_main_have_gradient (test_v3.V3Tests.test_smoothl1_head_and_main_have_gradient) ... ok
+test_streak_and_lag_counts_missing (test_v3.V3Tests.test_streak_and_lag_counts_missing) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.170s
+
+OK

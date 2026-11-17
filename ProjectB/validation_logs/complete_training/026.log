@@ -1,0 +1,13 @@
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 1, 'AP': None, 'bce': 0.4285758537205997, 'elapsed': 15.2}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 2, 'AP': None, 'bce': 0.3765359684426357, 'elapsed': 30.2}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 3, 'AP': None, 'bce': 0.36168198120431394, 'elapsed': 45.3}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 4, 'AP': None, 'bce': 0.35213279233595896, 'elapsed': 60.5}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 5, 'AP': None, 'bce': 0.34186283073750995, 'elapsed': 75.6}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 6, 'AP': None, 'bce': 0.33410951902680097, 'elapsed': 90.6}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 7, 'AP': None, 'bce': 0.32714651867499406, 'elapsed': 105.6}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 8, 'AP': None, 'bce': 0.3254478474215018, 'elapsed': 120.5}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 9, 'AP': None, 'bce': 0.3156943319813184, 'elapsed': 135.6}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 10, 'AP': None, 'bce': 0.3074781336711423, 'elapsed': 150.7}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 11, 'AP': None, 'bce': 0.3047425664020077, 'elapsed': 165.9}
+{'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'epoch': 12, 'AP': None, 'bce': 0.2965173086561091, 'elapsed': 180.9}
+{'status': 'complete', 'stage': 'final', 'model': 'dynamic_max', 'seed': 33, 'started_utc': '2026-11-12T08:28:27.605672+00:00', 'completed_utc': '2026-11-12T08:31:30.364916+00:00', 'fit_and_score_seconds': 182.75678029999835, 'peak_RSS_bytes': 762626048, 'parameters': 24265, 'best_epoch': 11, 'fixed_epoch': 11, 'total_training_exposures': 2060064, 'updates': 16104, 'known_train': 171672, 'unique_training': 171672, 'full_known_coverage': 1.0, 'weight_sha256': 'f9e2dcc90b7fbd47dd36e007aee6f631aca7974d00b0639e4e5c73a06ddd7564', 'assessment_rows': 81312, 'test_scored_before_freeze': False}

@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "evaluation_started_utc": "2026-11-12T07:20:34.516686+00:00",
+  "completed_utc": "2026-11-12T07:21:13.287587+00:00",
+  "new_dynamic_fits": 18,
+  "reused_static_fits": 18,
+  "test_known": 80536,
+  "evaluation_type": "chronological retrospective full available data",
+  "new_independent_validation": false,
+  "primary": "dynamic_mean",
+  "new_test_data_downloaded": false,
+  "Chicago": "blocked",
+  "Geolife": "blocked"
+}

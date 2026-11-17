@@ -1,0 +1,24 @@
+{
+  "stage": "engineering_dynamic_5",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\privacy_review_20261117\\candidate\\ProjectB\\src\\v10\\v9\\v8\\v7\\v6",
+  "started_utc": "2026-11-17T09:48:40.966648+00:00",
+  "ended_utc": "2026-11-17T09:48:47.233348+00:00",
+  "elapsed_seconds": 6.2668,
+  "exit_code": 0,
+  "log": "20261117T094840966648Z_engineering_dynamic_5.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\privacy_review_20261117\\runtime_qa\\B_tests"
+  }
+}

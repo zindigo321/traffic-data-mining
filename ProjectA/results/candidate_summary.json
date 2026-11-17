@@ -1,0 +1,7 @@
+{
+  "total_trajectories": 1102,
+  "candidate_trajectories": 115,
+  "rule": "points>=20 and DBSCAN noise_fraction>=0.8",
+  "interpretation": "low-density travel candidates; no confirmed abnormal driving",
+  "individual_trajectory_details_included": false
+}

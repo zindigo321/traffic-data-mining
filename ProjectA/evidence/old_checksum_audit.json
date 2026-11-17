@@ -1,0 +1,82 @@
+{
+  "entries": 56,
+  "missing": [
+    "references/Geolife-1.3-说明.txt",
+    "references/来源与接口核对.md",
+    "references/课件第8-10页.txt"
+  ],
+  "mismatches": [
+    {
+      "path": "README.md",
+      "expected": "e99627a8d734996e716cd2c71717e15dd3af8be441ff9c89a3b093a9f90233bd",
+      "actual": "78971a86154e3491cd1db37c8b46474a7a2788428739e34915a518e3521c6f1f"
+    },
+    {
+      "path": "results/analysis_sample.csv.gz",
+      "expected": "f7c413ad43af56a197a8edb3cf233f6a0ab5d0dedb606f0014e675aae641ed02",
+      "actual": "50c82b5324e962a3f54ffa5706a52f9f33ed71a87300ced873df02d86b562098"
+    },
+    {
+      "path": "results/dbscan_experiments.csv",
+      "expected": "d94345e3d0f3214f31ee71a8ad822c0a14e17f2004a348b1188d6c588154dc53",
+      "actual": "790ee1286fcc3dec1af7ce3ef8521e72d57f637094eaf29eed19855920713639"
+    },
+    {
+      "path": "results/kmeans_experiments.csv",
+      "expected": "eb55349e9f7e2cd6ac41d34d06cfc3d54a89df48eeac2a4124b2918eab27c233",
+      "actual": "881acfed7883a55deea64cb4c51e9133e2bac5a3ddccf3ea755117596747142e"
+    },
+    {
+      "path": "results/pilot.json",
+      "expected": "825393be88a6f1d660227437e619d2fd2e3cb5ef794e5f3099216e30f18f58aa",
+      "actual": "a9a13e8f589e4c4af7d3f65954c9c4a0babd164b3f4f160bc978cb23de0fd2ce"
+    },
+    {
+      "path": "results/point_labels.csv.gz",
+      "expected": "dbda8ee7edb4a2caff30113d4081255e3aa8034f7f553bd1a2e25446bedc4748",
+      "actual": "597204bc289e3eec74e14348de1a21be3fd68f09604422593cba421c9170973e"
+    },
+    {
+      "path": "results/quality_issues.csv.gz",
+      "expected": "bfcf9bb650587cc002cb0e4cee31ddde405c8dada3c0ff805ef7f7f0aa824497",
+      "actual": "9e7305c37ddea4ac4c5e301cce27260bfd72aaf6833f3f081ac5a6056487ae56"
+    },
+    {
+      "path": "results/raw_to_sample.csv.gz",
+      "expected": "d1b15da1217d37c191b3af4b46397ff6f18c58620ee282fbeceb09df944d16a8",
+      "actual": "171c7aa2300a7952b9a09baf99c74ccb9e396b3594d805f47c5b27ef03c7e27f"
+    },
+    {
+      "path": "results/run_metadata.json",
+      "expected": "c114a34d7f6e82e4c519460cb57ef7399fdaa1b7bcfad93762e801bd45a8aa33",
+      "actual": "1889444fad99649ee617beae9e2cd9bd8ed1949bc8dbb558a8265153f2764e80"
+    },
+    {
+      "path": "results/spatial_preview.csv.gz",
+      "expected": "edf10ed3d20e71ffe3e4157c0152e0200a87c0e657d8ff57d64e6ad9f5403a6e",
+      "actual": "2fa90a9e734d0ecbdf5f62971c93840de0aa8c9a8e25245e316298f5419473ed"
+    },
+    {
+      "path": "results/thinned_points.csv.gz",
+      "expected": "5a4a21a5fdaed933bbb56f76d9e71aac8fcdce015533a6643f78e46dbf5fb145",
+      "actual": "2ec51321802601f5cef0f69b936d4c081ca051c45e420f43acb93106564be5c2"
+    },
+    {
+      "path": "results/实验报告.md",
+      "expected": "c1b248d965159b061c3c6ffe09e254e29d4c15cd934b408495deebe5f413cefb",
+      "actual": "49ccf150a253d554272e42c643466905b21f4fb6a763bfecaefb015150da3208"
+    },
+    {
+      "path": "run.py",
+      "expected": "163f1aebc2c061bcd3bae90f5131079c2253911e958e3c6eb99ec157102f55d3",
+      "actual": "bbdfb88d9c37e3f96bf8b9b422c56be1049f89e6374e537456c59c1c5d050412"
+    },
+    {
+      "path": "验收对照表.md",
+      "expected": "a7a03d5c142f4282fc6b4a9f7e53fc6a9b25b5b5063c7fb1b633a5624b2322dc",
+      "actual": "091098475af90467c154f6cb5c43bae3ffdd437997fcad986f0728d3f9de292a"
+    }
+  ],
+  "status": "stale",
+  "new_submission_manifest_required": true
+}

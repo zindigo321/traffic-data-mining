@@ -1,0 +1,12 @@
+test_budgets_are_inclusive_and_all_negative_valid (test_v9.V9PolicyTest.test_budgets_are_inclusive_and_all_negative_valid) ... ok
+test_calibration_and_holdout_gate (test_v9.V9PolicyTest.test_calibration_and_holdout_gate) ... ok
+test_date_weights_recompute_equal_recall_with_ties (test_v9.V9PolicyTest.test_date_weights_recompute_equal_recall_with_ties) ... ok
+test_group_and_identity (test_v9.V9PolicyTest.test_group_and_identity) ... ok
+test_policy_reads_only_truncated_inputs (test_v9.V9PolicyTest.test_policy_reads_only_truncated_inputs) ... ok
+test_score_ties_are_indivisible_for_thresholds (test_v9.V9PolicyTest.test_score_ties_are_indivisible_for_thresholds) ... ok
+test_selection_requires_two_seeds_and_both_caps (test_v9.V9PolicyTest.test_selection_requires_two_seeds_and_both_caps) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.007s
+
+OK

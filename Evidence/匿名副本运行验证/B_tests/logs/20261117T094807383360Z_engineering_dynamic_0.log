@@ -1,0 +1,24 @@
+test_backward_and_safe_weight_roundtrip (test_dynamic.DynamicTests.test_backward_and_safe_weight_roundtrip) ... ok
+test_batch_isolation_all_pools (test_dynamic.DynamicTests.test_batch_isolation_all_pools) ... ok
+test_direction_self_loop_padding_and_bound (test_dynamic.DynamicTests.test_direction_self_loop_padding_and_bound) ... ok
+test_missing_endpoint_has_neutral_prior (test_dynamic.DynamicTests.test_missing_endpoint_has_neutral_prior) ... ok
+test_reject_empty_invalid_center_nonfinite (test_dynamic.DynamicTests.test_reject_empty_invalid_center_nonfinite) ... ok
+test_rewrite_label_and_future_cannot_change_edge_or_score (test_dynamic.DynamicTests.test_rewrite_label_and_future_cannot_change_edge_or_score) ... ok
+test_single_batch_overfit (test_dynamic.DynamicTests.test_single_batch_overfit) ... ok
+test_singleton_gate_cannot_change_output (test_dynamic.DynamicTests.test_singleton_gate_cannot_change_output) ... ok
+test_static_topology_mask_still_changes_output (test_dynamic.DynamicTests.test_static_topology_mask_still_changes_output) ... ok
+test_target_mapping_node_permutation_all_pools (test_dynamic.DynamicTests.test_target_mapping_node_permutation_all_pools) ... ok
+test_valid_past_edge_change_changes_output (test_dynamic.DynamicTests.test_valid_past_edge_change_changes_output) ... ok
+test_zero_gate_exact_static_all_pools (test_dynamic.DynamicTests.test_zero_gate_exact_static_all_pools) ... ok
+test_calibration_and_test_labels_do_not_update_prior_features (test_full.FullDataTest.test_calibration_and_test_labels_do_not_update_prior_features) ... ok
+test_full_epoch_uses_each_known_row_once (test_full.FullDataTest.test_full_epoch_uses_each_known_row_once) ... ok
+test_full_training_ignores_legacy_negative_cap (test_full.FullDataTest.test_full_training_ignores_legacy_negative_cap) ... ok
+test_no_minimum_coverage_needed_to_report_na_metrics (test_full.FullDataTest.test_no_minimum_coverage_needed_to_report_na_metrics) ... ok
+test_sampled_control_matches_updates_with_repetitions (test_full.FullDataTest.test_sampled_control_matches_updates_with_repetitions) ... ok
+test_single_class_does_not_block_threshold_stage (test_full.FullDataTest.test_single_class_does_not_block_threshold_stage) ... ok
+test_unknown_is_scored_but_excluded_from_metrics (test_full.FullDataTest.test_unknown_is_scored_but_excluded_from_metrics) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.449s
+
+OK

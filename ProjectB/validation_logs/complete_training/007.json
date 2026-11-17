@@ -1,0 +1,24 @@
+{
+  "stage": "engineering_dynamic_7",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\ProjectB_GT_niulaoshi\\src\\v10\\v9\\v8\\v7\\v6\\v5\\v4",
+  "started_utc": "2026-11-12T08:17:35.935801+00:00",
+  "ended_utc": "2026-11-12T08:17:42.972078+00:00",
+  "elapsed_seconds": 7.0454,
+  "exit_code": 0,
+  "log": "20261112T081735934795Z_engineering_dynamic_7.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\complete_training_validation"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "date": "2026-11-17",
+  "A_tests_passed": 9,
+  "B_tests_passed": 81,
+  "model_replay_count": 36,
+  "maximum_probability_error": 0.0,
+  "metrics_recalculated": true,
+  "array_and_weight_file_count": 192,
+  "all_arrays_and_weights_byte_identical": true,
+  "Python_source_count": 349,
+  "Python_syntax_check": "PASS",
+  "training_or_label_changes": false,
+  "full_retraining_this_privacy_review": false,
+  "logs": "Evidence/匿名副本运行验证/"
+}

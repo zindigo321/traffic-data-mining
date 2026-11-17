@@ -1,0 +1,140 @@
+{
+  "nyc_dataset": "i4gi-tjb9",
+  "zone": "America/New_York",
+  "geometry_window": [
+    "2026-06-21T07:00:00",
+    "2026-06-21T08:00:00"
+  ],
+  "train_start": "2026-05-11",
+  "folds": {
+    "f1": [
+      "2026-06-22",
+      "2026-07-06"
+    ],
+    "f2": [
+      "2026-07-06",
+      "2026-07-20"
+    ],
+    "f3": [
+      "2026-07-20",
+      "2026-08-03"
+    ]
+  },
+  "calibration": [
+    "2026-08-03",
+    "2026-08-31"
+  ],
+  "holdout": [
+    "2026-11-09",
+    "2026-12-07"
+  ],
+  "source": {
+    "hours": [
+      7,
+      8,
+      17,
+      18
+    ],
+    "week_days": 7,
+    "workers": 6,
+    "http_retries": 3,
+    "max_speed_mph": 85
+  },
+  "minimum_history_days": 3,
+  "ratio": 0.4,
+  "lag_count": 3,
+  "graph_hops": 1,
+  "max_nodes": 12,
+  "endpoint_near_m": 25,
+  "endpoint_same_corridor_m": 80,
+  "turn_angle_max": 100,
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "pools": [
+    "mean",
+    "max",
+    "attention"
+  ],
+  "recipes": [
+    "X1"
+  ],
+  "sampling_seed": 741,
+  "negative_budget": 12000,
+  "epochs": 12,
+  "batch_size": 128,
+  "eval_batch_size": 768,
+  "lr": 0.001,
+  "width": 32,
+  "heads": 4,
+  "layers": 2,
+  "cpu_threads": 2,
+  "workers": 4,
+  "tail_fraction": 0.25,
+  "rank_weight": 0.35,
+  "aux_weight": 0.3,
+  "aux_beta": 0.2,
+  "recalls": [
+    0.5,
+    0.6,
+    0.7,
+    0.8
+  ],
+  "main_recall": 0.6,
+  "bootstrap_reps": 1000,
+  "bootstrap_seed": 7527,
+  "goal": 0.6,
+  "primary_recipe": "X1",
+  "primary_pool": "attention",
+  "minimum_affected_seeds": 2,
+  "embargo": [
+    "2026-08-31",
+    "2026-11-09"
+  ],
+  "lead_minutes": 10,
+  "current_primary": "attention",
+  "warning_primary": "attention",
+  "v8_rank_weight": 0.35,
+  "v8_rank_tail_fraction": 0.25,
+  "threshold_rules": [
+    "constrained",
+    "max_f1",
+    "max_ba"
+  ],
+  "FP_budget_day": 12,
+  "recovery_budget_day": 6,
+  "max_dev_AP_drop": 0.01,
+  "early_days": 7,
+  "v9_primary": "center",
+  "v9_offsets": [
+    -1.5,
+    -1,
+    -0.75,
+    -0.5,
+    -0.25,
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1,
+    1.5
+  ],
+  "v9_latest_legal_lag_minutes": 20,
+  "v9_legal_ratio": 0.4,
+  "v9_min_seeds_improved": 2,
+  "v10_recipes": [
+    "B0",
+    "S1",
+    "R1",
+    "R2"
+  ],
+  "v10_rank_weight": 0.35,
+  "v10_rank_tail_fraction": 0.25,
+  "v10_macro_weight": 0.25,
+  "v10_max_AP_drop": 0.01,
+  "v10_max_group_recall_drop": 0.02,
+  "v10_min_seeds_recovery_improved": 2,
+  "v10_primary_baseline": "B0"
+}

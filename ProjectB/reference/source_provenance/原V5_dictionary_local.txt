@@ -1,0 +1,140 @@
+Traffic Sensors Metadata
+
+What does this data set describe?
+Definition of fields
+How should this data set be cited?
+What geographic area does the data set cover?
+Does the data set describe conditions during a particular time period?
+What is the general form of this data set?
+Who produced the data set?
+To whom should users address questions about the data?
+Why was the data set created?
+What similar or related data should the user be aware of?
+How reliable are the data; what problems remain in the data set?
+Where are the gaps in the data? What is missing?
+Are there legal restrictions on access or use of the data?
+Who distributes the data set?
+What legal disclaimers am I supposed to read?
+Who wrote the metadata?
+
+
+What does this data set describe?
+Title: New York City Traffic Speed Detectors
+Abstract: New York City DOT’s traffic speed detector feed is a free service that allows
+various user groups (i.e. the general public, private sector, commercial vendors,
+transportation agencies, researchers, media and others) to download traffic speed
+information on a regular basis to use in their applications and research efforts. This data
+feed contains 'real‐time' traffic information from locations where NYCDOT has installed
+sensors, mostly on major arterials and highways within the City limits. NYCDOT uses this
+information for emergency response and management.
+Definition of fields
+ Field Name         Definition
+ Id                 TRANSCOM Link ID
+                    Average speed a vehicle traveled between end points on the link in the
+Speed               most recent interval
+TravelTime          Time the average vehicle took to traverse the link
+Status              Artifact – not useful
+DataAsOf            Last time data was received from link
+linkId              TRANSCOM Link ID (same as ID field)
+linkPoints          Sequence of Lat/ Long points, describes locations of the sensor links
+                    Google compatible polyline from
+EncodedPolyLine     http://code.google.com/apis/maps/documentation/polylineutility.html
+                    Google compatible poly levels from
+EncodedPolyLineLvls http://code.google.com/apis/maps/documentation/polylineutility.html
+Owner               Owner of the Detector
+Transcom_id         Artifact – not useful
+Borough             NYC borough (Brooklyn, Bronx, Manhattan, Queens, Staten Island)
+LinkName            Description of the link location and end points
+
+
+
+How should this data set be cited?
+  City of New York Department of Transportation
+  Online Links:
+    * http://a841‐dotweb01.nyc.gov/datafeeds/
+
+What geographic area does the data set cover?
+The sensors are installed within the New York City limits
+
+Does the data set describe conditions during a particular time period?
+The data is updated several times per minute.
+
+What is the general form of this data set?
+Text or php files are available.
+
+How does the data set represent geographic features?
+This data is in Google compatible polyline from, for more information please see:
+http://code.google.com/apis/maps/documentation/polylineutility.html.
+
+
+Who produced the data set?
+City of New York Department of Transportation
+To whom should users address questions about the data?
+
+   New York City Department of Transportation
+   Traffic Management Center
+   Deputy Commissioner’s Office
+   New York City Department of Transportation
+   28‐11 Queens Plaza, 8th FL
+   Long Island City, New York 11101
+   TMCDOT@dot.nyc.gov
+
+Why was the data set created?
+The New York City Traffic Speed Detectors is meant to provide real time traffic speed
+information supplied by NYCDOT owned sensors to the general public and the developer
+community for use in application development. This data is also displayed in a web‐
+ready format at http://nyctmc.org/.
+
+What similar or related data should the user be aware of?
+There is also a data feed for NYCDOT’s traffic cameras. Developers wishing to access the
+cameras via a data feed, must contact the NYCDOT TMC at TMCDOT@dot.nyc.gov and
+sign a data‐sharing agreement. A sample copy is provided here: http://a841‐
+dotweb01.nyc.gov/datafeeds/. Other traffic and travel information for the entire state is
+available via New York State’s 511 program, http://www.511ny.org/
+
+
+How reliable are the data; what problems remain in the data set?
+linkTimeStamp indicates when data was last received from the sensor. If the date is
+other than the current date it indicates an error with that sensor and that data should
+not be used.
+
+Users of the data should carefully check for missing or anomalous travel time readings,
+as these can result in extremely low calculated speeds. Analysis should filter or
+statistically account for such issues. Simple averages or other aggregations of all
+available records, without addressing missing data or anomalous reading concerns, are
+not advised.
+
+Where are the gaps in the data? What is missing?
+This data only covers major arterial roadways within the five boroughs. For coverage
+elsewhere in New York State visit: http://www.511ny.org/traffic.aspx.
+
+
+Are there legal restrictions on access or use of the data?
+Access_Constraints:
+ New York City Traffic Speed Detectors is freely available to the public.
+Use_Constraints:
+The Department of Transportation makes no representation as to the accuracy of the
+information or its suitability for any purposes. The Department and the City disclaim any
+liability for errors that may be contained herein.
+Who distributes the data set?
+New York City Department of Transportation
+55 Water St
+New York, NY 10041
+USA
+
+
+What legal disclaimers am I supposed to read?
+http://a841‐dotweb01.nyc.gov/datafeeds/Disclaimer.htm
+
+Who wrote the metadata?
+Dates:
+Last modified: 20‐July‐2010
+Metadata author:
+New York City Department of Transportation
+Traffic Management Center
+Deputy Commissioner’s Office
+New York City Department of Transportation
+28‐11 Queens Plaza, 8th FL
+Long Island City, New York 11101
+TMCDOT@dot.nyc.gov
+

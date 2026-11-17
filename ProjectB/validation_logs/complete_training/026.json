@@ -1,0 +1,26 @@
+{
+  "stage": "dynamic_fit_final_dynamic_max_s33",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "dynamic_train.py",
+    "fit",
+    "--stage",
+    "final",
+    "--model",
+    "dynamic_max",
+    "--seed",
+    "33"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\ProjectB_GT_niulaoshi\\src",
+  "started_utc": "2026-11-12T08:28:18.541234+00:00",
+  "ended_utc": "2026-11-12T08:31:30.918002+00:00",
+  "elapsed_seconds": 192.3838,
+  "exit_code": 0,
+  "log": "20261112T082818541234Z_dynamic_fit_final_dynamic_max_s33.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\complete_training_validation"
+  }
+}

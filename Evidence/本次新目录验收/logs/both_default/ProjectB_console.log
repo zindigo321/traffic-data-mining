@@ -1,0 +1,6 @@
+Python: D:\conda_envs\niulaoshi\python.exe
+Payload hashes: 1093
+Command: verify
+Output: G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\both_default\ProjectB
+Running local_verify -> G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\both_default\ProjectB\logs\20261117T084641983614Z_local_verify.log
+Exit: 0; receipts: G:\gpt-file\Codex\2026-11-10\project-b-graph-transformer-graph-transformer\work\final_course_20261117\zip_qa_results_20261117\both_default\ProjectB

@@ -1,0 +1,26 @@
+{
+  "stage": "dynamic_fit_final_dynamic_attention_s22",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "dynamic_train.py",
+    "fit",
+    "--stage",
+    "final",
+    "--model",
+    "dynamic_attention",
+    "--seed",
+    "22"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\ProjectB_GT_niulaoshi\\src",
+  "started_utc": "2026-11-12T08:28:19.173010+00:00",
+  "ended_utc": "2026-11-12T08:31:34.214995+00:00",
+  "elapsed_seconds": 195.041,
+  "exit_code": 0,
+  "log": "20261112T082819173010Z_dynamic_fit_final_dynamic_attention_s22.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\complete_training_validation"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "stage": "clean_engineering_tests",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\fresh_copy\\project",
+  "started_utc": "2026-11-12T07:25:29.544795+00:00",
+  "ended_utc": "2026-11-12T07:25:36.381199+00:00",
+  "elapsed_seconds": 6.8361,
+  "exit_code": 0,
+  "log": "20261112T072529544795Z_clean_engineering_tests.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\qa_20261112_prepack\\test_check"
+  }
+}

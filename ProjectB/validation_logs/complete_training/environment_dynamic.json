@@ -1,0 +1,23 @@
+{
+  "executable": "D:\\conda_envs\\niulaoshi\\python.exe",
+  "python": "3.11.17 | packaged by conda-forge | (main, Oct  6 2026, 23:51:21) [MSC v.1944 64 bit (AMD64)]",
+  "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "device": "CPU",
+  "cpu_threads": 2,
+  "threads": 2,
+  "workers": 4,
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "packages": {
+    "torch": "2.14.1+cpu",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.17.1",
+    "psutil": "7.2.2",
+    "matplotlib": "3.11.2"
+  }
+}

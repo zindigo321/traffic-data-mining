@@ -1,0 +1,65 @@
+{
+  "config": {
+    "seed": 20261020,
+    "valid_time_start": "2007-04-01T00:00:00Z",
+    "valid_time_end": "2012-09-01T00:00:00Z",
+    "bounds": [
+      116.1,
+      116.7,
+      39.7,
+      40.2
+    ],
+    "users": 30,
+    "min_region_points": 1000,
+    "trajectories_per_user": 40,
+    "points_per_user": 2000,
+    "thin_seconds": 60,
+    "gap_seconds": 300,
+    "jump_speed_mps": 100,
+    "eps_m": [
+      30,
+      50,
+      100,
+      200,
+      500
+    ],
+    "min_samples": [
+      5,
+      10,
+      20
+    ],
+    "main_eps_m": 50,
+    "main_min_samples": 20,
+    "k_values": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "silhouette_sample": 2000,
+    "anomaly_min_points": 20,
+    "anomaly_noise_fraction": 0.8,
+    "grid_m": 500
+  },
+  "python": "3.11.17",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "scipy": "1.17.1",
+    "pyproj": "3.7.2",
+    "psutil": "7.2.2"
+  },
+  "stage_seconds": {
+    "all": 197.62966380000034
+  },
+  "input_zip_name": "Geolife Trajectories 1.3.zip",
+  "input_zip_bytes": 353488286,
+  "input_sha256": "16c2caed998e80828acd5fe7b15404593d1752f2a1524505633c23fdfac8a066"
+}

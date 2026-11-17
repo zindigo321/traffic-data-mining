@@ -1,0 +1,21 @@
+{
+  "executable": "D:\\conda_envs\\niulaoshi\\python.exe",
+  "python": "3.11.17 | packaged by conda-forge | (main, Oct  6 2026, 23:51:21) [MSC v.1944 64 bit (AMD64)]",
+  "prefix": "D:\\conda_envs\\niulaoshi",
+  "packages": {
+    "torch": "2.14.1+cpu",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.17.1",
+    "psutil": "7.2.2",
+    "matplotlib": "3.11.2",
+    "requests": "2.34.2",
+    "tzdata": "2026.5",
+    "geopandas": "1.2.0",
+    "shapely": "2.2.0",
+    "pyproj": "3.7.2",
+    "pyogrio": "0.12.1",
+    "joblib": "1.6.0"
+  }
+}

@@ -1,0 +1,15 @@
+test_group_contract_and_boundary (test_v10.V10Test.test_group_contract_and_boundary) ... ok
+test_group_rank_gradient_excludes_other_groups (test_v10.V10Test.test_group_rank_gradient_excludes_other_groups) ... ok
+test_group_rank_missing_class_safe_backward (test_v10.V10Test.test_group_rank_missing_class_safe_backward) ... ok
+test_holdout_cannot_be_opened_by_fit_loader (test_v10.V10Test.test_holdout_cannot_be_opened_by_fit_loader) ... ok
+test_legal_low_reservation_ignores_realized_risk (test_v10.V10Test.test_legal_low_reservation_ignores_realized_risk) ... ok
+test_macro_weights_are_train_class_balanced (test_v10.V10Test.test_macro_weights_are_train_class_balanced) ... ok
+test_na_precision_and_aggregation (test_v10.V10Test.test_na_precision_and_aggregation) ... ok
+test_record_normalizes_integer_argument (test_v10.V10Test.test_record_normalizes_integer_argument) ... Running typed_command -> C:\Users\PUBLIC_USER\AppData\Local\Temp\tmpueo_9ala\logs\20261112T082448551698Z_typed_command.log
+ok
+test_selection_fallback_and_two_seed_guard (test_v10.V10Test.test_selection_fallback_and_two_seed_guard) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.160s
+
+OK

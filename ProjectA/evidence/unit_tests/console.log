@@ -1,0 +1,14 @@
+test_bin_independent_of_datetime_storage_unit (test_pipeline.Checks.test_bin_independent_of_datetime_storage_unit) ... ok
+test_empty_single_all_noise (test_pipeline.Checks.test_empty_single_all_noise) ... ok
+test_exact_duplicates (test_pipeline.Checks.test_exact_duplicates) ... ok
+test_gap_not_speed (test_pipeline.Checks.test_gap_not_speed) ... ok
+test_jump_both_endpoints (test_pipeline.Checks.test_jump_both_endpoints) ... ok
+test_same_place_different_time (test_pipeline.Checks.test_same_place_different_time) ... ok
+test_sort_and_no_reconnect (test_pipeline.Checks.test_sort_and_no_reconnect) ... ok
+test_time_range (test_pipeline.Checks.test_time_range) ... ok
+test_timestamp_conflict (test_pipeline.Checks.test_timestamp_conflict) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.061s
+
+OK

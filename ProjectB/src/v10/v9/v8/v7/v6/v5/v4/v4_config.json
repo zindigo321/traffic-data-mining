@@ -1,0 +1,20 @@
+{
+  "v3_work": "G:/gpt-file/Codex/2026-11-10/project-b-graph-transformer-graph-transformer/work/gt_v3/20261110_v3",
+  "v3_release": "G:/gpt-file/Codex/2026-11-10/project-b-graph-transformer-graph-transformer/outputs/ProjectB_GraphTransformer_V3",
+  "v3_archive_sha256": "d228a1889ac74419a07be170436ee144d82227e5992266e45ca93f22cb4b3a49",
+  "v3_known_unavailable": ["2026-02-02", "2026-05-01"],
+  "earliest_new_date": "2026-05-01",
+  "all_exclusions": [["2024-09-12", "2024-10-01"], ["2025-02-17", "2025-07-01"], ["2026-02-02", "2026-05-01"]],
+  "folds": ["f1", "f2", "f3"],
+  "fold_limits": {"f1": ["2025-07-01", "2025-08-11"], "f2": ["2025-08-11", "2025-09-22"], "f3": ["2025-09-22", "2025-11-10"], "final": ["2025-11-10", "2026-02-02"]},
+  "seeds": [11, 22, 33],
+  "pools": ["mean", "max", "attention"],
+  "variants": ["P1", "P2", "P3"],
+  "recalls": [0.50, 0.60, 0.70, 0.80],
+  "main_recall": 0.60,
+  "tail_fraction": 0.25,
+  "rank_weight": 0.35,
+  "bootstrap_reps": 250,
+  "bootstrap_seed": 2219,
+  "goal": 0.60
+}

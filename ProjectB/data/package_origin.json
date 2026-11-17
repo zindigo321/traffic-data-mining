@@ -1,0 +1,11 @@
+{
+  "original_dynamic_archive_sha256": "152b523a1ce2fce1791536378004a533f4a5e3dff7fdc48b547b8e9a55199fd5",
+  "source_prepared_sha256": "56d81b4b7838f44a3fa294a9039a8e0db788cc8b7c548e5bc02edabe43948a72",
+  "source_snapshot_sha256": "d9d8b7e81c6b468143f9dd0542ed946344f732ee333821450934cb0467bf6be9",
+  "public_raw_shards": 54,
+  "raw_bytes": 54030626,
+  "private_geolife_included": false,
+  "reference_immutable": true,
+  "baseline_reuse": true,
+  "source_project_modified": false
+}

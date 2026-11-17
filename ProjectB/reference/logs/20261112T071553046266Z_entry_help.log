@@ -1,0 +1,12 @@
+usage: run_dynamic.py [-h]
+                      [--phase {all,continue,check,tests,development,select,final,freeze,evaluate,analysis,verify,report}]
+                      [--output OUTPUT] [--source-run SOURCE_RUN]
+                      [--artifacts ARTIFACTS] [--no-replay]
+
+options:
+  -h, --help            show this help message and exit
+  --phase {all,continue,check,tests,development,select,final,freeze,evaluate,analysis,verify,report}
+  --output OUTPUT
+  --source-run SOURCE_RUN
+  --artifacts ARTIFACTS
+  --no-replay

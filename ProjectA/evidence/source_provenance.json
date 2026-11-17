@@ -1,0 +1,96 @@
+{
+  "source_root": "G:\\course-jiaotongshujuwajue\\ProjectA",
+  "original_project_unchanged": true,
+  "copied_or_transformed": [
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\analysis_summary.json",
+      "sha256": "a7927368b7acd8846cd01e82da3895bef6e4cfd3cfc9920ae7c10c2a3516a22a",
+      "target": "results/analysis_summary.json",
+      "transformation": "unmodified aggregate"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\cleaning_summary.csv",
+      "sha256": "c13707d42153c87f07ebc588c1a0c4222b2a5a1b0b447b83d20f28da65525298",
+      "target": "results/cleaning_summary.csv",
+      "transformation": "unmodified aggregate"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\dbscan_experiments.csv",
+      "sha256": "790ee1286fcc3dec1af7ce3ef8521e72d57f637094eaf29eed19855920713639",
+      "target": "results/dbscan_experiments.csv",
+      "transformation": "unmodified aggregate"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\kmeans_experiments.csv",
+      "sha256": "881acfed7883a55deea64cb4c51e9133e2bac5a3ddccf3ea755117596747142e",
+      "target": "results/kmeans_experiments.csv",
+      "transformation": "unmodified aggregate"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\common_sample_comparison.csv",
+      "sha256": "7c7b10b5f2585ce995d0ca2aabfa1ecb3877cabd6ffef00c14fa691cd03f59dc",
+      "target": "results/common_sample_comparison.csv",
+      "transformation": "unmodified aggregate"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\kdistance_quantiles.csv",
+      "sha256": "4685aa864be52c59c79399fe601791f9ab6adee41206f7bb41a77bbce4543a68",
+      "target": "results/kdistance_quantiles.csv",
+      "transformation": "unmodified aggregate"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\density_bias_grid.csv",
+      "sha256": "dea1665b2ac0050b2f1dc66e4794f9efa07cf78f4bf05723e5af4020a3afe1f3",
+      "target": "results/density_bias_grid.csv",
+      "transformation": "unmodified aggregate"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\time_period_hotspots.csv",
+      "sha256": "7381050af356e6894b3e20cdb8f3e25fce07af60366524fdef7043f7727bc382",
+      "target": "results/time_period_hotspots.csv",
+      "transformation": "unmodified aggregate"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\run_metadata.json",
+      "sha256": "1889444fad99649ee617beae9e2cd9bd8ed1949bc8dbb558a8265153f2764e80",
+      "target": "results/run_metadata.json",
+      "transformation": "unmodified aggregate"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\pilot.json",
+      "sha256": "a9a13e8f589e4c4af7d3f65954c9c4a0babd164b3f4f160bc978cb23de0fd2ce",
+      "target": "results/pilot.json",
+      "transformation": "unmodified aggregate"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\hotspots.csv",
+      "source_sha256": "a4f273cc5117ba398fcc62d0c333d5ebc81db9da08908961b45a5191150ab56a",
+      "target": "results/hotspots.csv",
+      "transformation": "removed exact centroid and bounding-box coordinates; aggregate counts and widths/heights retained"
+    },
+    {
+      "source": "G:\\course-jiaotongshujuwajue\\ProjectA\\results\\kmeans_clusters.csv",
+      "source_sha256": "126de0044cca9b13ef31374c1adfb8742fb1a4277b333553ea6fd96f45329df6",
+      "target": "results/kmeans_clusters.csv",
+      "transformation": "removed exact centroid and bounding-box coordinates; aggregate counts and widths/heights retained"
+    }
+  ],
+  "private_point_and_trajectory_data_included": false,
+  "figures_retained": [
+    "02_cleaning.png",
+    "04_sensitivity.png",
+    "05_heatmap.png",
+    "09_diagnostics.png",
+    "11_time.png"
+  ],
+  "figures_excluded": [
+    "01_region.png",
+    "03_dbscan.png",
+    "06_comparison.png",
+    "07_users.png",
+    "08_cases.png",
+    "10_parameter_examples.png"
+  ],
+  "excluded_reason": "individual route panels and/or precise point clouds are excluded; coarse 500m heatmap retained",
+  "old_checksum_status": "stale: do not use as current verification; new submission manifest is authoritative"
+}

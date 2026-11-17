@@ -1,0 +1,9 @@
+{
+  "at_utc": "2026-11-12T07:22:01.173734+00:00",
+  "engineering": false,
+  "selection": "fixed seed 1811, connected assessment graphs, no labels used",
+  "graphs_per_fit": 1024,
+  "orientation": "[graph,layer,head,target,source]",
+  "self_multiplier": 1,
+  "note": "Only physical directed edges enter summaries; neutral scores are diagnostic, not a new selected model."
+}

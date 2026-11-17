@@ -1,0 +1,48 @@
+{
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB\\ProjectB\\src\\portable_tasks.py",
+    "verify",
+    "--output",
+    "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_results_20261117\\both_default\\ProjectB",
+    "--pool",
+    "mean",
+    "--seed",
+    "11",
+    "--phase",
+    "all"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB\\ProjectB\\src",
+  "started_utc": "2026-11-17T08:46:32.914153+00:00",
+  "elapsed_seconds": 23.91527630004566,
+  "exit_code": 0,
+  "environment": {
+    "executable": "D:\\conda_envs\\niulaoshi\\python.exe",
+    "python": "3.11.17 | packaged by conda-forge | (main, Oct  6 2026, 23:51:21) [MSC v.1944 64 bit (AMD64)]",
+    "prefix": "D:\\conda_envs\\niulaoshi",
+    "packages": {
+      "torch": "2.14.1+cpu",
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.17.1",
+      "psutil": "7.2.2",
+      "matplotlib": "3.11.2",
+      "requests": "2.34.2",
+      "tzdata": "2026.5",
+      "geopandas": "1.2.0",
+      "shapely": "2.2.0",
+      "pyproj": "3.7.2",
+      "pyogrio": "0.12.1",
+      "joblib": "1.6.0"
+    }
+  },
+  "package_root": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB\\ProjectB",
+  "data_root": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB\\ProjectB\\data",
+  "dependency_installation": false,
+  "package_hashes_checked": 1093,
+  "external_task_paths_required": false
+}

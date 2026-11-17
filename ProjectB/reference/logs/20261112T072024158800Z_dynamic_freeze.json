@@ -1,0 +1,20 @@
+{
+  "stage": "dynamic_freeze",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "dynamic_score.py",
+    "freeze"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\20261112\\project",
+  "started_utc": "2026-11-12T07:20:24.159345+00:00",
+  "ended_utc": "2026-11-12T07:20:30.735807+00:00",
+  "elapsed_seconds": 6.5771,
+  "exit_code": 0,
+  "log": "20261112T072024158800Z_dynamic_freeze.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\20261112"
+  }
+}

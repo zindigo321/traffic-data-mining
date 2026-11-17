@@ -1,0 +1,9 @@
+{
+  "url": "https://data.cityofnewyork.us/api/views/i4gi-tjb9/files/02907e84-631f-4c04-814e-6f7144cf8dd1?download=true&filename=metadata_trafficspeeds.pdf",
+  "utc": "2026-11-10T11:07:15.792386+00:00",
+  "status": 200,
+  "bytes": 123857,
+  "content_type": "application/octet-stream",
+  "sha256": "779fe0462f195855b916673636ebce86e5bd49d67f718ac684f2a41e55983bb6",
+  "pdftotext": "G:\\texlive\\2026\\bin\\windows\\pdftotext.EXE"
+}

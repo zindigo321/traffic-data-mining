@@ -1,0 +1,100 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-11-12T07:26:36.534532+00:00",
+  "max_f1_thresholds": [
+    {
+      "model": "graph_mean",
+      "seed": 11,
+      "threshold": 0.9557286500930786
+    },
+    {
+      "model": "graph_mean",
+      "seed": 22,
+      "threshold": 0.9426432847976685
+    },
+    {
+      "model": "graph_mean",
+      "seed": 33,
+      "threshold": 0.9408776164054871
+    },
+    {
+      "model": "graph_max",
+      "seed": 11,
+      "threshold": 0.9727790951728821
+    },
+    {
+      "model": "graph_max",
+      "seed": 22,
+      "threshold": 0.9564515352249146
+    },
+    {
+      "model": "graph_max",
+      "seed": 33,
+      "threshold": 0.9289952516555786
+    },
+    {
+      "model": "graph_attention",
+      "seed": 11,
+      "threshold": 0.9162859320640564
+    },
+    {
+      "model": "graph_attention",
+      "seed": 22,
+      "threshold": 0.9315365552902222
+    },
+    {
+      "model": "graph_attention",
+      "seed": 33,
+      "threshold": 0.9686861634254456
+    },
+    {
+      "model": "dynamic_mean",
+      "seed": 11,
+      "threshold": 0.9634891748428345
+    },
+    {
+      "model": "dynamic_mean",
+      "seed": 22,
+      "threshold": 0.9540709853172302
+    },
+    {
+      "model": "dynamic_mean",
+      "seed": 33,
+      "threshold": 0.9451429843902588
+    },
+    {
+      "model": "dynamic_max",
+      "seed": 11,
+      "threshold": 0.9716833829879761
+    },
+    {
+      "model": "dynamic_max",
+      "seed": 22,
+      "threshold": 0.9668996930122375
+    },
+    {
+      "model": "dynamic_max",
+      "seed": 33,
+      "threshold": 0.9479748010635376
+    },
+    {
+      "model": "dynamic_attention",
+      "seed": 11,
+      "threshold": 0.9708508849143982
+    },
+    {
+      "model": "dynamic_attention",
+      "seed": 22,
+      "threshold": 0.9648746848106384
+    },
+    {
+      "model": "dynamic_attention",
+      "seed": 33,
+      "threshold": 0.9524668455123901
+    }
+  ],
+  "edge_summary_rows": 9,
+  "learned_non_neutral_weights_in_all_nine_fits": true,
+  "edge_bounds_verified": true,
+  "modifies_model_or_threshold": false
+}

@@ -1,0 +1,24 @@
+{
+  "stage": "portable_path_regressions",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\20261112\\ProjectB_GT_niulaoshi\\package_tests",
+    "-v"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\20261112\\ProjectB_GT_niulaoshi\\src",
+  "started_utc": "2026-11-12T08:25:59.278785+00:00",
+  "ended_utc": "2026-11-12T08:26:09.439778+00:00",
+  "elapsed_seconds": 10.168,
+  "exit_code": 0,
+  "log": "20261112T082559277139Z_portable_path_regressions.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\20261112\\entry_tests_validation"
+  }
+}

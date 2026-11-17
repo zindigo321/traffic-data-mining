@@ -1,0 +1,27 @@
+{
+  "peak_motor_points": 8267,
+  "nearest_matched": 8198,
+  "match_rate": 0.9916535623563566,
+  "usable_intervals": 6494,
+  "matched_ways": 481,
+  "distance_quantiles": {
+    "0.5": 3.8574183408809146,
+    "0.9": 15.323354408145324,
+    "0.95": 20.716808450992392,
+    "0.99": 33.0669405318641
+  },
+  "date_conflicts": 0,
+  "windows": 578,
+  "effective_roads": 344,
+  "directed_roads": 356,
+  "label_counts": {
+    "-1": 578
+  },
+  "reasons": {
+    "insufficient_history": 578
+  },
+  "events": 0,
+  "train_end": "2011-10-05 00:00:00",
+  "validation_end": "2011-11-05 00:00:00",
+  "elapsed_seconds": 4.904000282287598
+}

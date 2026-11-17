@@ -1,0 +1,10 @@
+test_stability_requires_all_three_conditions (test_v6.V6Tests.test_stability_requires_all_three_conditions) ... ok
+test_transport_refuses_speed_reads_until_unlock (test_v6.V6Tests.test_transport_refuses_speed_reads_until_unlock) ... ok
+test_transport_rejects_time_before_registered (test_v6.V6Tests.test_transport_rejects_time_before_registered) ... ok
+test_unique_fair_pool_and_control_jobs (test_v6.V6Tests.test_unique_fair_pool_and_control_jobs) ... ok
+test_v5_test_is_outside_both_training_and_new_test (test_v6.V6Tests.test_v5_test_is_outside_both_training_and_new_test) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.042s
+
+OK

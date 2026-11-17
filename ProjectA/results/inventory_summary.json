@@ -1,0 +1,20 @@
+{
+  "users": 182,
+  "trajectories": 18670,
+  "points": 24876978,
+  "labels_users": 69,
+  "time_start": "2000-01-01 23:12:19+00:00",
+  "time_end": "2012-07-27 08:31:20+00:00",
+  "lon_min": -179.9695933,
+  "lon_max": 179.9969416,
+  "lat_min": 1.044024,
+  "lat_max": 64.751993,
+  "region_points": 18856020,
+  "invalid": 1,
+  "missing_fields": 0,
+  "duplicates": 146900,
+  "altitude_invalid": 55484,
+  "nonpositive_dt": 698900,
+  "gaps": 39810,
+  "time_outside_release": 3
+}

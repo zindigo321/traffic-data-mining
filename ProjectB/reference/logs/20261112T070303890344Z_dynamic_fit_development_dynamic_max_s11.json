@@ -1,0 +1,26 @@
+{
+  "stage": "dynamic_fit_development_dynamic_max_s11",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "dynamic_train.py",
+    "fit",
+    "--stage",
+    "development",
+    "--model",
+    "dynamic_max",
+    "--seed",
+    "11"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\20261112\\project",
+  "started_utc": "2026-11-12T07:03:03.891563+00:00",
+  "ended_utc": "2026-11-12T07:05:40.875490+00:00",
+  "elapsed_seconds": 156.9869,
+  "exit_code": 0,
+  "log": "20261112T070303890344Z_dynamic_fit_development_dynamic_max_s11.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\20261112"
+  }
+}

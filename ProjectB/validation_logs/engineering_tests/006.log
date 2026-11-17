@@ -1,0 +1,10 @@
+test_aux_loss_has_finite_gradient_and_safe_checkpoint (test_v5.NYCProtocolTests.test_aux_loss_has_finite_gradient_and_safe_checkpoint) ... ok
+test_directed_connectivity (test_v5.NYCProtocolTests.test_directed_connectivity) ... ok
+test_rewrite_current_and_future_changes_truth_not_model_inputs (test_v5.NYCProtocolTests.test_rewrite_current_and_future_changes_truth_not_model_inputs) ... ok
+test_sealed_file_and_training_gate (test_v5.NYCProtocolTests.test_sealed_file_and_training_gate) ... ok
+test_two_halves_and_legacy_status (test_v5.NYCProtocolTests.test_two_halves_and_legacy_status) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.364s
+
+OK

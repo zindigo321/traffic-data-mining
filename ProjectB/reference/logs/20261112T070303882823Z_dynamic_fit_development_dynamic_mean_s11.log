@@ -1,0 +1,13 @@
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 1, 'AP': 0.6947004780054263, 'bce': 0.45380286033701267, 'elapsed': 12.6}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 2, 'AP': 0.7253401224804071, 'bce': 0.39095576747511473, 'elapsed': 24.0}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 3, 'AP': 0.7007311306268068, 'bce': 0.3714204893139552, 'elapsed': 35.1}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 4, 'AP': 0.7210917430941235, 'bce': 0.3648134389638434, 'elapsed': 46.3}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 5, 'AP': 0.7036031525012122, 'bce': 0.35580812908677745, 'elapsed': 59.5}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 6, 'AP': 0.693738651182135, 'bce': 0.34527346333123676, 'elapsed': 73.8}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 7, 'AP': 0.704300053346001, 'bce': 0.3431860421676278, 'elapsed': 86.2}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 8, 'AP': 0.7362616502018196, 'bce': 0.33724206646795535, 'elapsed': 98.7}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 9, 'AP': 0.7275608671547231, 'bce': 0.32418980961774746, 'elapsed': 110.1}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 10, 'AP': 0.7278546787158691, 'bce': 0.3238284608992738, 'elapsed': 121.9}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 11, 'AP': 0.7280843597383775, 'bce': 0.3216281748065567, 'elapsed': 133.7}
+{'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'epoch': 12, 'AP': 0.7337093646036589, 'bce': 0.31830071775031377, 'elapsed': 145.3}
+{'status': 'complete', 'stage': 'development', 'model': 'dynamic_mean', 'seed': 11, 'started_utc': '2026-11-12T07:03:11.083668+00:00', 'completed_utc': '2026-11-12T07:05:38.397014+00:00', 'fit_and_score_seconds': 147.3127070000046, 'peak_RSS_bytes': 630534144, 'parameters': 24265, 'best_epoch': 8, 'fixed_epoch': None, 'total_training_exposures': 1396572, 'updates': 10920, 'known_train': 116381, 'unique_training': 116381, 'full_known_coverage': 1.0, 'weight_sha256': 'b63a564bfdefd574f6f79f84dc727c7dbe0943ca96eaf51993c424314f1237ce', 'assessment_rows': 81312, 'test_scored_before_freeze': False}

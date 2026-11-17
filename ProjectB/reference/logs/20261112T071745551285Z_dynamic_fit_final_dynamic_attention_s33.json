@@ -1,0 +1,26 @@
+{
+  "stage": "dynamic_fit_final_dynamic_attention_s33",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "dynamic_train.py",
+    "fit",
+    "--stage",
+    "final",
+    "--model",
+    "dynamic_attention",
+    "--seed",
+    "33"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\20261112\\project",
+  "started_utc": "2026-11-12T07:17:45.551285+00:00",
+  "ended_utc": "2026-11-12T07:20:23.854983+00:00",
+  "elapsed_seconds": 158.3055,
+  "exit_code": 0,
+  "log": "20261112T071745551285Z_dynamic_fit_final_dynamic_attention_s33.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\20261112"
+  }
+}

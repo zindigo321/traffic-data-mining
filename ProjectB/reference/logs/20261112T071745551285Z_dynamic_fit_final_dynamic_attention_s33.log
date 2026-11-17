@@ -1,0 +1,13 @@
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 1, 'AP': None, 'bce': 0.4296996608696622, 'elapsed': 9.7}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 2, 'AP': None, 'bce': 0.3784268427366085, 'elapsed': 19.9}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 3, 'AP': None, 'bce': 0.3633448135135011, 'elapsed': 30.6}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 4, 'AP': None, 'bce': 0.3526728570702925, 'elapsed': 41.4}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 5, 'AP': None, 'bce': 0.3464584383504039, 'elapsed': 52.3}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 6, 'AP': None, 'bce': 0.337079699944181, 'elapsed': 64.4}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 7, 'AP': None, 'bce': 0.3320013046197986, 'elapsed': 75.7}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 8, 'AP': None, 'bce': 0.32902692202736444, 'elapsed': 86.0}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 9, 'AP': None, 'bce': 0.3229955383194749, 'elapsed': 96.3}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 10, 'AP': None, 'bce': 0.316535102512931, 'elapsed': 108.1}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 11, 'AP': None, 'bce': 0.3124121780875256, 'elapsed': 118.8}
+{'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'epoch': 12, 'AP': None, 'bce': 0.30405111262924855, 'elapsed': 129.7}
+{'status': 'complete', 'stage': 'final', 'model': 'dynamic_attention', 'seed': 33, 'started_utc': '2026-11-12T07:18:12.468656+00:00', 'completed_utc': '2026-11-12T07:20:23.408908+00:00', 'fit_and_score_seconds': 130.93902669998351, 'peak_RSS_bytes': 762486784, 'parameters': 24298, 'best_epoch': 11, 'fixed_epoch': 11, 'total_training_exposures': 2060064, 'updates': 16104, 'known_train': 171672, 'unique_training': 171672, 'full_known_coverage': 1.0, 'weight_sha256': '0d2208abe8aabf842901bcda4ff8defd7c96d1182ff48a98915396dca2dfa4be', 'assessment_rows': 81312, 'test_scored_before_freeze': False}

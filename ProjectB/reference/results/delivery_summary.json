@@ -1,0 +1,19 @@
+{
+  "primary": "dynamic_mean",
+  "AP": 0.6664436951713479,
+  "AP_sd": 0.02426680914395258,
+  "F1": 0.6500547289353372,
+  "F1_sd": 0.01952475459032627,
+  "balanced_accuracy": 0.7918859434555504,
+  "recall": 0.5922307513375203,
+  "FP_day": 14.6,
+  "recovery_FP_day": 7.503703703703704,
+  "goal_met": true,
+  "total_FP_budget_met": false,
+  "recovery_FP_budget_met": false,
+  "independent_validation": false,
+  "new_dynamic_fits": 18,
+  "reused_static_fits": 18,
+  "static_pair_AP_delta": 0.011183828609727775,
+  "static_pair_F1_delta": 0.004532055033370064
+}

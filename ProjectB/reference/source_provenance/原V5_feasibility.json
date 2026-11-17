@@ -1,0 +1,370 @@
+{
+  "at_utc": "2026-11-10T11:05:24.259396+00:00",
+  "speed_values_requested": false,
+  "results": {
+    "chi_latest": {
+      "query": {
+        "$select": "time",
+        "$order": "time DESC",
+        "$limit": 1
+      },
+      "attempts": [
+        {
+          "utc": "2026-11-10T11:05:07.188226+00:00",
+          "seconds": 8.0201,
+          "error": "ConnectTimeout"
+        },
+        {
+          "utc": "2026-11-10T11:05:15.208863+00:00",
+          "seconds": 9.0473,
+          "status": 200,
+          "url": "https://data.cityofchicago.org/resource/4g9f-3jbs.json?%24select=time&%24order=time+DESC&%24limit=1"
+        }
+      ],
+      "result": [
+        {
+          "time": "2026-04-30T01:10:21.000"
+        }
+      ]
+    },
+    "chi_post_v3": {
+      "query": {
+        "$select": "time",
+        "$where": "time >= '2026-05-01T00:00:00' AND segment_id between 1 and 240",
+        "$limit": 1
+      },
+      "attempts": [
+        {
+          "utc": "2026-11-10T11:05:07.189231+00:00",
+          "seconds": 5.3489,
+          "status": 200,
+          "url": "https://data.cityofchicago.org/resource/4g9f-3jbs.json?%24select=time&%24where=time+%3E%3D+%272026-05-01T00%3A00%3A00%27+AND+segment_id+between+1+and+240&%24limit=1"
+        }
+      ],
+      "result": []
+    },
+    "stop": {
+      "query": null,
+      "attempts": [
+        {
+          "utc": "2026-11-10T11:05:07.189231+00:00",
+          "seconds": 8.0771,
+          "error": "ReadTimeout"
+        },
+        {
+          "utc": "2026-11-10T11:05:15.266458+00:00",
+          "seconds": 3.512,
+          "status": 200,
+          "url": "https://data.cityofchicago.org/stories/s/c28d-stgw"
+        }
+      ],
+      "result": {
+        "stop_confirmed": true,
+        "daily_replacement": true
+      }
+    },
+    "ny_meta": {
+      "query": null,
+      "attempts": [
+        {
+          "utc": "2026-11-10T11:05:07.189231+00:00",
+          "seconds": 2.1443,
+          "status": 200,
+          "url": "https://data.cityofnewyork.us/api/views/i4gi-tjb9.json"
+        }
+      ],
+      "result": {
+        "id": "i4gi-tjb9",
+        "name": "DOT Traffic Speeds",
+        "updated": 1794308511,
+        "metadata": {
+          "rdfSubject": "0",
+          "rdfClass": "",
+          "jsonQuery": {
+            "order": [
+              {
+                "columnFieldName": "data_as_of",
+                "ascending": false
+              }
+            ]
+          },
+          "attachments": [
+            {
+              "filename": "metadata_trafficspeeds.pdf",
+              "assetId": "02907e84-631f-4c04-814e-6f7144cf8dd1",
+              "name": "metadata_trafficspeeds.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "7/13/2017",
+              "Update Frequency": "Daily",
+              "Data Change Frequency": "Several times per minute each day"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "rowIdentifier": 298355226,
+          "rowLabel": "Average Speed of a Vehicle Traveled Between End Points",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "table": true
+            }
+          }
+        },
+        "fields": [
+          [
+            "id",
+            "text"
+          ],
+          [
+            "speed",
+            "text"
+          ],
+          [
+            "travel_time",
+            "text"
+          ],
+          [
+            "status",
+            "text"
+          ],
+          [
+            "data_as_of",
+            "calendar_date"
+          ],
+          [
+            "link_id",
+            "text"
+          ],
+          [
+            "link_points",
+            "text"
+          ],
+          [
+            "encoded_poly_line",
+            "text"
+          ],
+          [
+            "encoded_poly_line_lvls",
+            "text"
+          ],
+          [
+            "owner",
+            "text"
+          ],
+          [
+            "transcom_id",
+            "text"
+          ],
+          [
+            "borough",
+            "text"
+          ],
+          [
+            "link_name",
+            "text"
+          ]
+        ]
+      }
+    },
+    "ny_cadence_training": {
+      "query": {
+        "$select": "link_id,data_as_of,status",
+        "$where": "data_as_of >= '2026-05-12T07:00:00' AND data_as_of < '2026-05-12T07:12:00'",
+        "$order": "data_as_of,link_id",
+        "$limit": 5000
+      },
+      "attempts": [
+        {
+          "utc": "2026-11-10T11:05:07.189231+00:00",
+          "seconds": 2.3216,
+          "status": 200,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.json?%24select=link_id%2Cdata_as_of%2Cstatus&%24where=data_as_of+%3E%3D+%272026-05-12T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-12T07%3A12%3A00%27&%24order=data_as_of%2Clink_id&%24limit=5000"
+        }
+      ],
+      "result": {
+        "row_count": 202,
+        "links": 101,
+        "statuses": {
+          "0": 152,
+          "-101": 50
+        },
+        "timestamps": [
+          [
+            "2026-05-12T07:03:04.000",
+            61
+          ],
+          [
+            "2026-05-12T07:08:06.000",
+            56
+          ],
+          [
+            "2026-05-12T07:03:13.000",
+            25
+          ],
+          [
+            "2026-05-12T07:08:14.000",
+            25
+          ],
+          [
+            "2026-05-12T07:08:04.000",
+            10
+          ],
+          [
+            "2026-05-12T07:04:04.000",
+            9
+          ],
+          [
+            "2026-05-12T07:08:08.000",
+            5
+          ],
+          [
+            "2026-05-12T07:03:07.000",
+            3
+          ],
+          [
+            "2026-05-12T07:09:04.000",
+            3
+          ],
+          [
+            "2026-05-12T07:03:08.000",
+            2
+          ],
+          [
+            "2026-05-12T07:04:02.000",
+            1
+          ],
+          [
+            "2026-05-12T07:08:02.000",
+            1
+          ],
+          [
+            "2026-05-12T07:09:02.000",
+            1
+          ]
+        ]
+      }
+    },
+    "ny_count_2026-05-12": {
+      "query": {
+        "$select": "count(*) as n,count(distinct link_id) as roads",
+        "$where": "data_as_of >= '2026-05-12T07:00:00' AND data_as_of < '2026-05-12T09:00:00'"
+      },
+      "attempts": [
+        {
+          "utc": "2026-11-10T11:05:07.189231+00:00",
+          "seconds": 8.0191,
+          "error": "ConnectTimeout"
+        },
+        {
+          "utc": "2026-11-10T11:05:15.208863+00:00",
+          "seconds": 4.4359,
+          "status": 200,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.json?%24select=count%28%2A%29+as+n%2Ccount%28distinct+link_id%29+as+roads&%24where=data_as_of+%3E%3D+%272026-05-12T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-05-12T09%3A00%3A00%27"
+        }
+      ],
+      "result": [
+        {
+          "n": "2424",
+          "roads": "101"
+        }
+      ]
+    },
+    "ny_count_2026-06-23": {
+      "query": {
+        "$select": "count(*) as n,count(distinct link_id) as roads",
+        "$where": "data_as_of >= '2026-06-23T07:00:00' AND data_as_of < '2026-06-23T09:00:00'"
+      },
+      "attempts": [
+        {
+          "utc": "2026-11-10T11:05:09.336595+00:00",
+          "seconds": 9.0159,
+          "status": 200,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.json?%24select=count%28%2A%29+as+n%2Ccount%28distinct+link_id%29+as+roads&%24where=data_as_of+%3E%3D+%272026-06-23T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-23T09%3A00%3A00%27"
+        }
+      ],
+      "result": [
+        {
+          "n": "3002",
+          "roads": "125"
+        }
+      ]
+    },
+    "ny_count_2026-08-04": {
+      "query": {
+        "$select": "count(*) as n,count(distinct link_id) as roads",
+        "$where": "data_as_of >= '2026-08-04T07:00:00' AND data_as_of < '2026-08-04T09:00:00'"
+      },
+      "attempts": [
+        {
+          "utc": "2026-11-10T11:05:09.512748+00:00",
+          "seconds": 3.4691,
+          "status": 200,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.json?%24select=count%28%2A%29+as+n%2Ccount%28distinct+link_id%29+as+roads&%24where=data_as_of+%3E%3D+%272026-08-04T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-08-04T09%3A00%3A00%27"
+        }
+      ],
+      "result": [
+        {
+          "n": "3000",
+          "roads": "125"
+        }
+      ]
+    },
+    "ny_count_2026-09-01": {
+      "query": {
+        "$select": "count(*) as n,count(distinct link_id) as roads",
+        "$where": "data_as_of >= '2026-09-01T07:00:00' AND data_as_of < '2026-09-01T09:00:00'"
+      },
+      "attempts": [
+        {
+          "utc": "2026-11-10T11:05:12.538277+00:00",
+          "seconds": 4.2407,
+          "status": 200,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.json?%24select=count%28%2A%29+as+n%2Ccount%28distinct+link_id%29+as+roads&%24where=data_as_of+%3E%3D+%272026-09-01T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-09-01T09%3A00%3A00%27"
+        }
+      ],
+      "result": [
+        {
+          "n": "3000",
+          "roads": "125"
+        }
+      ]
+    },
+    "ny_count_2026-10-13": {
+      "query": {
+        "$select": "count(*) as n,count(distinct link_id) as roads",
+        "$where": "data_as_of >= '2026-10-13T07:00:00' AND data_as_of < '2026-10-13T09:00:00'"
+      },
+      "attempts": [
+        {
+          "utc": "2026-11-10T11:05:12.983155+00:00",
+          "seconds": 8.0203,
+          "error": "ReadTimeout"
+        },
+        {
+          "utc": "2026-11-10T11:05:21.002994+00:00",
+          "seconds": 1.8592,
+          "status": 200,
+          "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.json?%24select=count%28%2A%29+as+n%2Ccount%28distinct+link_id%29+as+roads&%24where=data_as_of+%3E%3D+%272026-10-13T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-10-13T09%3A00%3A00%27"
+        }
+      ],
+      "result": [
+        {
+          "n": "0",
+          "roads": "0"
+        }
+      ]
+    }
+  },
+  "ny_publisher": "https://www.nyc.gov/html/dot/html/about/datafeeds.shtml",
+  "ny_terms": "https://www.nyc.gov/html/datamine/html/data/terms.html?dataSetJs=raw",
+  "ny_faq": "https://www.nyc.gov/opendata/get-started/FAQs"
+}

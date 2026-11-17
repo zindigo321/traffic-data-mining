@@ -1,0 +1,27 @@
+{
+  "road_count": 121,
+  "edges": 56,
+  "isolated": 54,
+  "max_subgraph_nodes": 5,
+  "outgoing_and_incoming_scope": "one-hop, fixed ordered endpoints",
+  "anchor": [
+    "2026-06-21T07:00:00",
+    "2026-06-21T08:00:00"
+  ],
+  "metadata_links": 125,
+  "excluded_links": [
+    "4362244",
+    "4575278",
+    "4616241",
+    "4616337"
+  ],
+  "metadata_link_conflicts": 63,
+  "geometry_methods": {
+    "encoded_poly_line": 106,
+    "link_points": 15
+  },
+  "source_sha256": "cb3f259679321f41f61815b9c55211457e8b334ca39ebf618c1965b9a71f3cd1",
+  "roster_sha256": "f4ca63c60fbff1bcbef7d4807250e904011e649e4ad45c801e658bd78661cc9d",
+  "adjacency_sha256": "5125e50a294463e47a67a7333062e0a7aed9518c80a6498fdf7f90b01fcb4eec",
+  "edge_sha256": "a45fb415ac2bc4ae165222dad5d2b9975883730e5dfcb6fd13d50e17a333c573"
+}

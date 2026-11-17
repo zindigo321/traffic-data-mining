@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-11-12T07:26:37.153736+00:00",
+  "files": [
+    {
+      "path": "dynamic_analysis.py",
+      "sha256": "aee89acc62601972047a2fd3129df046371e1743e0084564ca1589bb35806381"
+    },
+    {
+      "path": "dynamic_check.py",
+      "sha256": "f1ee9010e0c8e071b043b2364c7ec7259fd65b6669c9911d549d6849dd9daa7f"
+    },
+    {
+      "path": "dynamic_clean_qa.py",
+      "sha256": "03f987d63acc31285d24281595b3901098d84b89acb9f8d49db639ac6a1c35c5"
+    },
+    {
+      "path": "dynamic_model.py",
+      "sha256": "677110f2a550a35bcf700e290aac4c097771df5896c7d0f102a0d401f4e94957"
+    },
+    {
+      "path": "dynamic_pack.py",
+      "sha256": "24ab76b6988845d5ec39758c7c43b94b5f126f8284013dc83a63c8779d91721e"
+    },
+    {
+      "path": "dynamic_report.py",
+      "sha256": "8cfa7383ea0fe78a9d61cfd4e0f0121f47193fc2e5122aecfd495fbf72df53b1"
+    },
+    {
+      "path": "dynamic_score.py",
+      "sha256": "03c2faa58160fe53917aa10826d0f943fececf6828d5ca26f4725abaddebdac3"
+    },
+    {
+      "path": "dynamic_train.py",
+      "sha256": "3601834c1a0cb9faecd9b0aecfc030915ec1d76d642693796918199d3ef3cdc1"
+    },
+    {
+      "path": "dynamic_verify.py",
+      "sha256": "c9ef180613b5a2aeabc6cd8f8a4eb8d36756c63f7aa5004fdd717fb51de89d0b"
+    },
+    {
+      "path": "run_dynamic.py",
+      "sha256": "90bb298068a3b4e03c11dbf03180520787089377a983c7aa31db75c46bfe9392"
+    },
+    {
+      "path": "finish_dynamic.py",
+      "sha256": "f7175e193e9da73a0acabf229352f231bafb7decad7b801a2b843d32ebd8e74d"
+    }
+  ],
+  "dimensions": [
+    "security",
+    "compatibility",
+    "error handling",
+    "resource handling",
+    "change scope",
+    "shape/type checks"
+  ],
+  "original_source_unchanged": true,
+  "safe_loading": "weights_only=True; NPZ allow_pickle=False",
+  "no_new_dependency_installed": true,
+  "known_limitations": [
+    "external snapshot paths needed for retraining",
+    "no fresh blind validation; dense local graph attention"
+  ],
+  "runtime_verified_separately": true
+}

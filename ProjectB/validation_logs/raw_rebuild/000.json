@@ -1,0 +1,26 @@
+{
+  "stage": "local_prepare",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "portable_tasks.py",
+    "worker_prepare",
+    "--output",
+    "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\raw_rebuild_validation",
+    "--pool",
+    "mean",
+    "--seed",
+    "11"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\ProjectB_GT_niulaoshi\\src",
+  "started_utc": "2026-11-12T08:16:48.351985+00:00",
+  "ended_utc": "2026-11-12T08:17:01.587948+00:00",
+  "elapsed_seconds": 13.2322,
+  "exit_code": 0,
+  "log": "20261112T081648351985Z_local_prepare.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\raw_rebuild_validation"
+  }
+}

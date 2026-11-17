@@ -1,0 +1,11 @@
+test_legacy_external_file_guard_is_active (test_portable.PortableTests.test_legacy_external_file_guard_is_active) ... ok
+test_manifest_rejects_path_traversal (test_portable.PortableTests.test_manifest_rejects_path_traversal) ... ok
+test_missing_local_arrays_never_fall_back_to_old_drive (test_portable.PortableTests.test_missing_local_arrays_never_fall_back_to_old_drive) ... ok
+test_original_numerical_sources_and_configuration_unchanged (test_portable.PortableTests.test_original_numerical_sources_and_configuration_unchanged) ... ok
+test_public_raw_manifest_is_relative_and_preserves_bytes (test_portable.PortableTests.test_public_raw_manifest_is_relative_and_preserves_bytes) ... ok
+test_reject_wrong_python_environment (test_portable.PortableTests.test_reject_wrong_python_environment) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 4.759s
+
+OK

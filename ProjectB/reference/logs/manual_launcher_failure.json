@@ -1,0 +1,10 @@
+{
+  "stage": "manual launcher before check",
+  "command": "Resolve-Path work/dynamic_edges/20261112 from project working directory",
+  "exit_code": 1,
+  "error": "relative path not found, followed by missing GTFULL_ROOT KeyError",
+  "model_training_executed": false,
+  "remedy": "resolved absolute project parent; source_integrity check then passed",
+  "source": "actual exec tool output retained in conversation",
+  "not_a_model_failure": true
+}

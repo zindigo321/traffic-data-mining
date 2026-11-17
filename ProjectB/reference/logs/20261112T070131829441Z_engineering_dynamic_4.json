@@ -1,0 +1,24 @@
+{
+  "stage": "engineering_dynamic_4",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\20261112\\project\\v10\\v9\\v8\\v7",
+  "started_utc": "2026-11-12T07:01:31.829441+00:00",
+  "ended_utc": "2026-11-12T07:01:36.816608+00:00",
+  "elapsed_seconds": 4.9863,
+  "exit_code": 0,
+  "log": "20261112T070131829441Z_engineering_dynamic_4.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\dynamic_edges\\20261112"
+  }
+}

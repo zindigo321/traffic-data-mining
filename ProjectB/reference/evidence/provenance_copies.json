@@ -1,0 +1,42 @@
+{
+  "copied_utc": "2026-11-12T07:26:37.127138+00:00",
+  "files": [
+    {
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\README_全量实验入口.md",
+      "target": "source_provenance/原全量_README_全量实验入口.md",
+      "sha256": "72dd93edff037ae1b8d52fd6df0cad15757850544ac2033b5ed5e9ec7398d254"
+    },
+    {
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\方法与数据合同.md",
+      "target": "source_provenance/原全量_方法与数据合同.md",
+      "sha256": "963eba098e734c8df07f297d0ce3411e07e54aebd48ccc736a016d0389678108"
+    },
+    {
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\审计报告.md",
+      "target": "source_provenance/原全量_审计报告.md",
+      "sha256": "55a804fce261a166d01c93ca4ac65daae2ca350b0fe0eaf099008b12b18e3e81"
+    },
+    {
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\protocol_nyc.md",
+      "target": "source_provenance/原V5_protocol_nyc.md",
+      "sha256": "acbbe494d2ff476cbbfd1a04c65a5388b96c9f535aebe570f28dc3d1ad73238e"
+    },
+    {
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\evidence\\feasibility.json",
+      "target": "source_provenance/原V5_feasibility.json",
+      "sha256": "331e77b22ba4bf8d70a4c2345e82ed3559dc862a6a9f0481cfcf0275a119084e"
+    },
+    {
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\evidence\\dictionary_receipt.json",
+      "target": "source_provenance/原V5_dictionary_receipt.json",
+      "sha256": "594972303e8155c0efe14cb231b4b835fd3c2294c464e2a4aaab21dfd9864495"
+    },
+    {
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\evidence\\dictionary_local.txt",
+      "target": "source_provenance/原V5_dictionary_local.txt",
+      "sha256": "8e06e88bef38d3632597b8eabae0da5da5bb8f59828198f5d4494379af20d6de"
+    }
+  ],
+  "new_online_license_check": false,
+  "note": "Historical collection evidence only; source snapshots remain external."
+}

@@ -1,0 +1,25 @@
+{
+  "path": "data/geometry/roads.csv",
+  "status": "complete",
+  "file": "roads.csv",
+  "query": {
+    "$select": "link_id,link_name,borough,encoded_poly_line,link_points",
+    "$where": "data_as_of >= '2026-06-21T07:00:00' AND data_as_of < '2026-06-21T08:00:00'",
+    "$order": "link_id,data_as_of,:id",
+    "$limit": 50000
+  },
+  "rows": 1500,
+  "bytes": 544084,
+  "sha256": "cb3f259679321f41f61815b9c55211457e8b334ca39ebf618c1965b9a71f3cd1",
+  "first_requested_utc": "2026-11-10T11:09:31.088995+00:00",
+  "completed_utc": "2026-11-10T11:09:34.331784+00:00",
+  "attempts": [
+    {
+      "attempt": 1,
+      "at_utc": "2026-11-10T11:09:34.320666+00:00",
+      "status": 200,
+      "elapsed_seconds": 3.0125,
+      "url": "https://data.cityofnewyork.us/resource/i4gi-tjb9.csv?%24select=link_id%2Clink_name%2Cborough%2Cencoded_poly_line%2Clink_points&%24where=data_as_of+%3E%3D+%272026-06-21T07%3A00%3A00%27+AND+data_as_of+%3C+%272026-06-21T08%3A00%3A00%27&%24order=link_id%2Cdata_as_of%2C%3Aid&%24limit=50000"
+    }
+  ]
+}

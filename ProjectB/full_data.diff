@@ -1,0 +1,21 @@
+--- reference/project/full_data.py
++++ src/full_data.py
+@@ -1,5 +1,6 @@
+ """Full-known supervised indices and immutable chronological experiment inputs."""
+ import sys
++import os
+ from pathlib import Path
+ 
+ import numpy as np
+@@ -16,7 +17,10 @@
+     if stage not in ("development","final"):
+         raise ValueError("Unknown experiment stage")
+     info=load(root/"evidence/prepared.json")["files"][stage]
+-    p=alternate/"prepared"/(stage+".npz") if alternate else Path(info["path"])
++    portable=os.environ.get("PROJECTB_PREPARED_DIR")
++    # Explicit portable binding has priority. Never silently read a historic drive.
++    p=(Path(portable)/(stage+".npz") if portable else
++       alternate/"prepared"/(stage+".npz") if alternate else Path(info["path"]))
+     assert sha(p)==info["sha256"]
+     data=read_npz(p)
+     assert data["eligible"].all() and data["x"].shape[-1]==52 and np.isin(data["y"],[-1,0,1]).all()

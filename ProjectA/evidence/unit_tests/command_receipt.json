@@ -1,0 +1,19 @@
+{
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\A_submission\\tests",
+    "-v"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 2.9228142000501975,
+  "executable": "D:\\conda_envs\\niulaoshi\\python.exe",
+  "raw_data_included": false,
+  "output": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\A_tests"
+}

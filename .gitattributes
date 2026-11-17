@@ -1,0 +1,11 @@
+# Preserve audited source bytes and checksum verification; no LF/CRLF conversion.
+* -text -filter -ident
+*.py diff
+*.md diff
+*.json diff
+*.csv diff
+*.txt diff
+*.cmd diff
+ProjectB/data/** linguist-vendored
+ProjectB/reference/** linguist-generated
+Evidence/** linguist-generated

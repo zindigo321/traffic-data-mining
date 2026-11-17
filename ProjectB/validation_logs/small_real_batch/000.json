@@ -1,0 +1,26 @@
+{
+  "stage": "local_smoke",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "portable_tasks.py",
+    "worker_smoke",
+    "--output",
+    "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\smoke_validation",
+    "--pool",
+    "mean",
+    "--seed",
+    "11"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\ProjectB_GT_niulaoshi\\src",
+  "started_utc": "2026-11-12T08:21:58.798293+00:00",
+  "ended_utc": "2026-11-12T08:22:19.115589+00:00",
+  "elapsed_seconds": 20.3185,
+  "exit_code": 0,
+  "log": "20261112T082158797293Z_local_smoke.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\smoke_validation"
+  }
+}

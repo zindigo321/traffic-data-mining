@@ -1,0 +1,19 @@
+{
+  "stage": "dynamic_report",
+  "command": [
+    "D:\\conda_envs\\niulaoshi\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "dynamic_report.py"
+  ],
+  "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\ProjectB_GT_niulaoshi\\src",
+  "started_utc": "2026-11-12T08:35:33.269338+00:00",
+  "ended_utc": "2026-11-12T08:35:39.470566+00:00",
+  "elapsed_seconds": 6.201,
+  "exit_code": 0,
+  "log": "20261112T083533269338Z_dynamic_report.log",
+  "paths": {
+    "GTFULL_ROOT": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\portable_niulaoshi\\qa with spaces\\complete_training_validation"
+  }
+}

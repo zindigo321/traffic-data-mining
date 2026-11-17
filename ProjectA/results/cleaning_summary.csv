@@ -1,0 +1,8 @@
+step,before,removed,after
+invalid_coordinate_or_time,2029261,1,2029260
+time_outside_release,2029260,0,2029260
+exact_duplicate,2029260,1775,2027485
+timestamp_conflict,2027485,3162,2024323
+jump_edge_endpoint,2024323,2575,2021748
+outside_region,2021748,329822,1691926
+temporal_thinning,1691926,1590907,101019
