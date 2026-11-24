@@ -1,5 +1,8 @@
-# 历史答辩版本
+# Historical Course Defense
 
-此目录保留课程原答辩文件，用于记录方法演变。旧材料中的方法、状态和数值可能已过时。当前结论以根目录01_汇报的10页新汇报及Report/实验总报告.md为准，原Geolife拥堵监督任务仍blocked。
+This archive documents the original course defense and the development of the methods. Use the [final presentation](../../01_presentation/final_presentation_project_a_project_b.pptx) and [experiment report](../../Report/experiment_report.md) for the current conclusions. The original Geolife supervised congestion task remains blocked.
 
-公开版已移除署名、学籍信息、Office编辑属性及原始点级图。旧PPT第3页采用500m聚合图，第6页改为移除说明及聚合图链接，旧材料仅作历史记录。
+The public copy omits names, student identifiers, personal Office metadata, and point-level figures. Slide 3 uses a 500 m grid figure. Slide 6 explains the removed point-level map and links to the separate Project A aggregate figure.
+
+- [Historical deck](traffic_data_mining_course_defense.pptx)
+- [Historical speaker notes](speaker_notes.docx)

@@ -13,7 +13,7 @@ from v4_io import load, settings
 from v4_matrix import location
 from v4_train import read_npz
 
-NAME = dict(B_mean="V3 R2 + Mean refit", P1="尾部排序", P2="方向证据", P3="尾部排序＋方向证据")
+NAME = dict(B_mean="V3 R2 + Mean refit", P1="Tail ranking", P2="Directional evidence", P3="Tail ranking and directional evidence")
 
 
 def figures(root, cfg, selected, model_names, points):
@@ -78,58 +78,58 @@ def render(root, cfg):
     models = [f"{select['recipe']}_{p}" for p in cfg["pools"]] + ["B_mean"]
     figures(root, cfg, chosen, models, points)
     lines = [
-        "# Project B V4 审计报告",
+        "# Project B V4 Audit Report",
         "",
-        "**正式验证 blocked，AP 与正类 F1 的双 0.60 目标为 N/A。** 第四轮完成 Chicago 三折开发和原独立校准。"
-        "V3 R2＋Mean 为同支持重跑对照。所有 V4 分数来自开发或校准日期。",
+        "**Formal validation is blocked, and the dual 0.60 target for AP and positive-class F1 is N/A.** Round four completed three Chicago development folds and the original independent calibration. "
+        "A V3 R2 + Mean refit is the common-support control. All V4 scores come from development or calibration dates.",
         "",
-        "## 数据边界与评价支持",
+        "## Data Boundaries and Evaluation Support",
         "",
-        f"官方 API 最新时间为 {latest}（Chicago 本地）。2026-05-01 起同路段 ID 范围查询返回 HTTP 200 和空数组。"
-        "官方停更公告与目录查询未发现可验证的同口径后继。官方列出的替代日均流量缺少原任务需要的 10 分钟有向路段速度。"
-        "较早年份也无法形成晚于 V3 的前向验证。 [查询收据](evidence/holdout_gate.json) · "
-        "[发布方停更说明](https://data.cityofchicago.org/stories/s/c28d-stgw) · [数据集](https://data.cityofchicago.org/d/4g9f-3jbs)",
+        f"The latest official API timestamp is {latest} in Chicago local time. Queries from 2026-05-01 onward for the same segment IDs return HTTP 200 with an empty array. "
+        "The official discontinuation notice and catalog search revealed no verifiable successor with the same definition. The suggested alternative daily traffic volumes lack the original task's ten-minute speeds on directed road segments. "
+        "Earlier years cannot provide forward validation after V3. [Query receipt](evidence/holdout_gate.json) · "
+        "[Publisher discontinuation notice](https://data.cityofchicago.org/stories/s/c28d-stgw) · [Dataset](https://data.cityofchicago.org/d/4g9f-3jbs)",
         "",
-        "V3 留出 2026-02-02 至 04-30 只引用发布的 R2＋Mean 聚合 AP 0.4356、F1 0.4459。"
-        "V1、V2、V3 留出的观测均排除在训练、历史、误报复盘、选型和校准之外。V3 归档中的留出文件仅作字节完整性核验。"
-        "Geolife 沿用原审计的 blocked/N/A，Chicago 继续作为补充代理任务。 [原始输入核验](evidence/inputs.json) · "
-        "[V3 历史摘要](evidence/v3_historical_only.json) · [Geolife](evidence/geolife_status.json)",
+        "For the V3 holdout from 2026-02-02 through 04-30, only the published R2 + Mean aggregate AP of 0.4356 and F1 of 0.4459 are cited. "
+        "V1, V2, and V3 holdout observations were excluded from training, historical baselines, false-positive review, selection, and calibration. Holdout files in the V3 archive were used only to verify byte integrity. "
+        "Geolife retains its original audited status of blocked/N/A. Chicago remains a supplemental proxy task. [Original input verification](evidence/inputs.json) · "
+        "[V3 historical summary](evidence/v3_historical_only.json) · [Geolife](evidence/geolife_status.json)",
         "",
-        "保持 231 条有向路段和 220 条边、原高峰、10 分钟、两次连续低于各自历史基准的 40%。"
-        "unknown 与预测资格保持 V3 规则，监督评价覆盖每折全部已知有图窗口。相同折的键、标签、风险和训练抽样完全一致。",
+        "The protocol retains 231 directed segments, 220 edges, the original peaks, and ten-minute bins. A positive requires two consecutive speeds below 40% of their respective historical baselines. "
+        "Unknown labels and prediction eligibility follow V3. Supervised evaluation covers every known graph window in each fold. Keys, labels, risk groups, and training samples match exactly within a fold.",
         "",
-        "| 用途 | Chicago 本地日期（左闭右开） | 已知窗 | 正例 | 恢复负例 | 正例事件段 | 未知有图窗 | 已知覆盖 |",
+        "| Purpose | Chicago local dates (start inclusive, end exclusive) | Known windows | Positive | Recovery negatives | Positive episodes | Unknown graph windows | Known coverage |",
         "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for fold in cfg["folds"] + ["final"]:
         a, b = cfg["fold_limits"][fold]
         row = load(root / "evidence" / f"fold_{fold}.json")["parts"][1]
-        lines.append(f"| {fold.upper() if fold != 'final' else '84 日校准'} | {a} 至 {b} | {row['positive']+row['negative']:,} "
+        lines.append(f"| {fold.upper() if fold != 'final' else '84-day calibration'} | {a} to {b} | {row['positive']+row['negative']:,} "
                      f"| {row['positive']:,} | {row['high_risk_recovered']:,} | {row['true_events']:,} "
                      f"| {row['unknown_eligible']:,} | {row['known_coverage']:.2%} |")
-    lines += ["", "已知覆盖分母为固定路网内的全量预期网格。事件为同道路同日相邻正例窗。 "
-              "[数据漏斗](results/comparison/support.csv) · [时点合同](方法与数据合同.md)",
-              "", "## 配对开发消融", "",
-              "同一采样、Graph Transformer、路由与更新预算。先 Mean、seed 11 三折初筛。开发 F1 以同折最佳阈值计算，用于诊断。", "",
-              "| 组 | 变化 | AP | 诊断 F1 | 60% 召回 FP／日 |",
+    lines += ["", "Known coverage uses the complete expected grid on the fixed network as the denominator. Episodes are adjacent positive windows on the same road and day. "
+              "[Data funnel](results/comparison/support.csv) · [Availability contract](method_and_data_contract.md)",
+              "", "## Paired Development Ablation", "",
+              "The runs share sampling, Graph Transformer, routing, and update budget. Initial screening uses Mean, seed 11, and three folds. Development F1 uses the best threshold in the same fold for diagnosis.", "",
+              "| Group | Change | AP | Diagnostic F1 | FP/day at 60% recall |",
               "| --- | --- | ---: | ---: | ---: |"]
     for model, value in screen.items():
-        lines.append(f"| {model} | {NAME.get(model, 'V3 R2＋Mean 重跑')} | {value['AP']:.4f} | {value['f1']:.4f} | {value['FP60_per_day']:.3f} |")
-    lines += ["", f"按预登记规则入围 {select['recipe']}。三种池化各三种子各三折，开发预选 **{chosen}**。表内均值先按种子对三折等权平均，标准差在三个种子间计算。 "
-              "[初筛](results/screen.json) · [确认](results/confirmation.json) · [选择收据](results/selection.json)",
-              "", "| 配方 | AP | 诊断 F1 | 60% 召回 FP／日 |",
+        lines.append(f"| {model} | {NAME.get(model, 'V3 R2 + Mean refit')} | {value['AP']:.4f} | {value['f1']:.4f} | {value['FP60_per_day']:.3f} |")
+    lines += ["", f"Preregistration rules shortlisted {select['recipe']}. Each pooling method ran three seeds on each of three folds, and development selected **{chosen}**. The table first averages the three folds equally within each seed, then calculates the standard deviation across the three seeds. "
+              "[Initial screening](results/screen.json) · [Confirmation](results/confirmation.json) · [Selection receipt](results/selection.json)",
+              "", "| Recipe | AP | Diagnostic F1 | FP/day at 60% recall |",
               "| --- | ---: | ---: | ---: |"]
     for model in models:
         value = confirm[model]
         label = f"**{model}**" if model == chosen else model
         lines.append(f"| {label} | {value['AP']:.4f} ± {value['AP_sd']:.4f} | {value['f1']:.4f} ± {value['f1_sd']:.4f} "
                      f"| {value['FP60_per_day']:.3f} ± {value['FP60_per_day_sd']:.3f} |")
-    lines += ["", "## 相同召回下的误报与漏报", "",
-              "每折在全量已知分数上取达到规定 TP 数的最短排名前缀。所有正例在高风险分支。"
-              "在这四个召回点，误报均为上一格低速、本格恢复的已知负例。并列按样本键取序，表内另存纯阈值把整组并列纳入时的计数。"
-              "这些比较需要当折真值，仅度量排名在相同召回下的代价。 [逐折等召回](results/comparison/matched_points.csv) · "
-              "[逐对差值](results/comparison/paired_matched_recall.csv) · [等召回曲线](figures/matched_recall.png)",
-              "", "| 目标召回 | 实际折均召回 | V3 重跑 FP／日 | V4 Mean | V4 Max | V4 Attention |",
+    lines += ["", "## False Positives and Negatives at Matched Recall", "",
+              "For each fold, take the shortest prefix of all ranked known scores that reaches the required TP count. All positives are in the high-risk branch. "
+              "At these four recall points, every false positive is a known negative with low speed in the previous bin and recovery in the current one. Ties are ordered by sample key. The table also retains the count when a single threshold includes the entire tied group. "
+              "These comparisons use observed labels in the fold and measure the ranking cost at equal recall. [Matched recall by fold](results/comparison/matched_points.csv) · "
+              "[Paired differences](results/comparison/paired_matched_recall.csv) · [Matched-recall curve](figures/matched_recall.png)",
+              "", "| Target recall | Actual mean recall across folds | V3 refit FP/day | V4 Mean | V4 Max | V4 Attention |",
               "| --- | ---: | ---: | ---: | ---: | ---: |"]
     for rate in cfg["recalls"]:
         view = points[points.target_recall == rate].set_index("model")
@@ -137,49 +137,49 @@ def render(root, cfg):
                      + " | ".join(f"{view.loc[model, 'mean_FP_per_day']:.3f}" for model in ["B_mean", *models[:3]]) + " |")
     ref, alt = confirm["B_mean"], confirm[chosen]
     ci = bands[bands.model == chosen].set_index("metric")
-    lines += ["", f"{chosen} 相对 V3 重跑的开发差为 ΔAP {alt['AP']-ref['AP']:+.4f}、"
-              f"ΔF1 {alt['f1']-ref['f1']:+.4f}、等召回 ΔFP／日 {alt['FP60_per_day']-ref['FP60_per_day']:+.3f}。"
-              f"配对日期块 250 次的 95% 区间分别为 [{ci.loc['AP', 'lower_95']:+.4f}, {ci.loc['AP', 'upper_95']:+.4f}]、"
-              f"[{ci.loc['diagnostic_F1', 'lower_95']:+.4f}, {ci.loc['diagnostic_F1', 'upper_95']:+.4f}] 和 "
-              f"[{ci.loc['FP60_per_day', 'lower_95']:+.3f}, {ci.loc['FP60_per_day', 'upper_95']:+.3f}]。"
-              "同一折的三种子、模型共用日期块，F1 重采样固定原诊断阈值。开发复用及事件稀少限制推断。 "
-              "[配对区间](results/comparison/paired_date_blocks.csv) · [开发 PR](figures/development_PR.png)",
-              "", "按低速连续深度分组。分母和计数单位为种子窗，同一个道路窗口可在三个种子中各计一次。",
-              "", "| 上一格起连续低速深度 | 恢复负例支持 | V3 误报 | V4 误报 | 正例支持 | V3 漏报 | V4 漏报 |",
+    lines += ["", f"{chosen} differed from the V3 refit in development by ΔAP {alt['AP']-ref['AP']:+.4f}, "
+              f"ΔF1 {alt['f1']-ref['f1']:+.4f}, and matched-recall ΔFP/day {alt['FP60_per_day']-ref['FP60_per_day']:+.3f}. "
+              f"The 95% intervals from 250 paired date-block draws were [{ci.loc['AP', 'lower_95']:+.4f}, {ci.loc['AP', 'upper_95']:+.4f}], "
+              f"[{ci.loc['diagnostic_F1', 'lower_95']:+.4f}, {ci.loc['diagnostic_F1', 'upper_95']:+.4f}], and "
+              f"[{ci.loc['FP60_per_day', 'lower_95']:+.3f}, {ci.loc['FP60_per_day', 'upper_95']:+.3f}], respectively. "
+              "All three seeds and models share date blocks within a fold. F1 resampling keeps the original diagnostic thresholds fixed. Reuse of development dates and sparse events limit inference. "
+              "[Paired intervals](results/comparison/paired_date_blocks.csv) · [Development PR](figures/development_PR.png)",
+              "", "Grouping uses the length of the low-speed streak. Denominators and counts are seed-windows, so a road window can count once in each of three seeds.",
+              "", "| Low-speed streak from the preceding bin | Recovery negative support | V3 false positives | V4 false positives | Positive support | V3 false negatives | V4 false negatives |",
               "| --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
     for cat in ("1", "2", "3+"):
         rows = errors[(errors.dimension == "depth_bin") & (errors.category == cat)].set_index("model")
         before, after = rows.loc["B_mean"], rows.loc[chosen]
         lines.append(f"| {cat} | {before.recovery_support:,} | {before.FP:,} | {after.FP:,} "
                      f"| {before.positive_support:,} | {before.FN:,} | {after.FN:,} |")
-    lines += ["", "完整分组另含前格速度比、公交探针数、连接性、峰别、日类型和道路。"
-              "格内公交数及连续低速深度可能同时反映观测质量和交通情况，分组误差不支持因果解释。 "
-              "[逐键风险表](results/paired_error_review/risk_windows.csv) · [分组](results/paired_error_review/groups.csv) · "
-              "[误差图](figures/risk_errors_by_streak.png)",
-              "", "## 既有独立校准与复核", "",
-              "开发选择和 epoch 锁定后，在此前独立的 84 日校准段拟合诊断阈值。每组保留三种子。"
-              "这段已用于 V3 校准，以下分数反映本轮校准段拟合，不用于双 0.60 判定。", "",
-              "| 组 | AP | 校准段最大 F1 | 固定 epoch |",
+    lines += ["", "The full grouping also includes previous-bin speed ratio, bus probe count, connectivity, peak period, day type, and road. "
+              "Bus counts within the bin and low-speed streak length can reflect both observation quality and traffic conditions. Grouped errors do not support causal inference. "
+              "[Risk by window key](results/paired_error_review/risk_windows.csv) · [Groups](results/paired_error_review/groups.csv) · "
+              "[Error plot](figures/risk_errors_by_streak.png)",
+              "", "## Existing Independent Calibration and Verification", "",
+              "After development selection and checkpoint locking, diagnostic thresholds were fitted on the previously independent 84-day calibration period. Three seeds are retained for each group. "
+              "V3 used this period for calibration. The scores below describe calibration fit in this round and are excluded from the dual 0.60 decision.", "",
+              "| Group | AP | Maximum calibration F1 | Fixed epoch |",
               "| --- | ---: | ---: | ---: |"]
     for model in models:
         value = calibration[model]
         lines.append(f"| {model} | {value['AP']:.4f} ± {value['AP_sd']:.4f} | "
                      f"{value['f1']:.4f} ± {value['f1_sd']:.4f} | {select['fixed_epochs'][model]} |")
-    lines += ["", f"独立复核重新计算 {proof['runs']} 个模型的指标、阈值及等召回计数。"
-              f"九个 V3 开发重跑的样本、决定、AP、F1 与等召回计数一致，{proof['exact_V3_dev_runs']} 组逐位一致。"
-              f"其余组的最大概率差为 {proof['max_V3_probability_difference']:.3g}，保留首次逐位检查失败日志。"
-              f"{proof['replays']} 组权重各重放一个推理批次，"
-              f"最大概率差 {proof['replay_max_probability_difference']:.2g}。"
-              "封存收据保留权重、阈值、采样键、预处理器、配置和诊断结果哈希。 "
-              "[校准收据](results/calibration_freeze.json) · [指标和重放](evidence/verification_replay.json) · [测试报告](测试报告.md)",
-              "", "1. 校验原始 V3 ZIP、原料缓存指纹和本包清单。",
-              "2. 按 plan 核对开发与校准日期、封存与禁用区间。在逐折 NPZ 上核查标签、样本键、未知覆盖和抽样。",
-              "3. 运行 verify 离线复算，或附 V3 固定数组和原 V3 归档重放权重与开发对照。",
-              "4. 检查正式状态 JSON、原标签合同和 API 收据。未来只有找到兼容的前向速度数据，才能预登记新的留出和正式验证。",
-              "", "完整命令、环境与数据路径见 [审计入口](README_审计入口.md)。ZIP 旁保留干净解压复核收据。",
+    lines += ["", f"Independent verification recomputed metrics, thresholds, and matched-recall counts for {proof['runs']} models. "
+              f"The nine V3 development refits matched in samples, decisions, AP, F1, and matched-recall counts, with {proof['exact_V3_dev_runs']} bit-identical runs. "
+              f"The maximum probability difference across the other runs was {proof['max_V3_probability_difference']:.3g}. The original failed bitwise-check logs are retained. "
+              f"One inference batch was replayed for each of {proof['replays']} sets of weights. "
+              f"The maximum probability difference was {proof['replay_max_probability_difference']:.2g}. "
+              "Sealing receipts preserve hashes of weights, thresholds, sampled keys, preprocessing, configuration, and diagnostic results. "
+              "[Calibration receipt](results/calibration_freeze.json) · [Metrics and replay](evidence/verification_replay.json) · [Test report](test_report.md)",
+              "", "1. Verify the original V3 ZIP, raw-cache fingerprints, and this package manifest.",
+              "2. Use the plan to check development and calibration dates, the sealed interval, and excluded intervals. Inspect labels, sample keys, unknown coverage, and samples in each fold's NPZ.",
+              "3. Run verify for offline recomputation, or supply the fixed V3 arrays and original V3 archive to replay weights and development controls.",
+              "4. Verify the formal status JSON, original label contract, and API receipts. A new preregistered holdout and formal validation require compatible future speed data.",
+              "", "See [audit entry points](README_audit.md) for commands, environments, and data paths. The clean extraction receipt is next to the ZIP.",
               ""]
-    (root / "审计报告.md").write_text("\n".join(lines), encoding="utf-8")
-    print(dict(report=str(root / "审计报告.md"), figures=3, chosen=chosen, formal="blocked"), flush=True)
+    (root / "audit_report.md").write_text("\n".join(lines), encoding="utf-8")
+    print(dict(report=str(root / "audit_report.md"), figures=3, chosen=chosen, formal="blocked"), flush=True)
 
 
 if __name__ == "__main__":

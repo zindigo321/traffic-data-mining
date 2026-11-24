@@ -44,7 +44,7 @@ def probe(root,cfg):
     stop=datetime.fromisoformat(cfg["holdout"][1])
     mature=local.date()>=stop.date()
     reached=bool(latest and datetime.fromisoformat(latest[0]["data_as_of"])>=stop)
-    reason="预登记纽约区间尚未结束" if not mature else "官方时间未覆盖登记终点" if not reached else "须先复核双高峰逐日覆盖"
+    reason="The preregistered NYC period has not ended" if not mature else "Official timestamps do not reach the preregistered end date" if not reached else "Verify daily coverage of both peak periods first"
     state=dict(at_utc=now(),NYC_now=local.isoformat(),NYC_status="blocked",NYC_reason=reason,
                latest=latest[0]["data_as_of"] if latest else None,holdout=cfg["holdout"],
                dates_mature=mature,time_extent_reaches_stop=reached,Chicago_status="blocked",Geolife_status="blocked",

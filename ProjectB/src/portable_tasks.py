@@ -208,7 +208,7 @@ def train(root,cfg,phase):
     if phase in ('all','initialize'):
         initialize_training(root,cfg)
     elif not (root/'evidence/registration_dynamic.json').is_file():
-        raise FileNotFoundError('分阶段训练先执行 train --phase initialize --output 同一个新目录。')
+        raise FileNotFoundError('For staged training, first run train --phase initialize --output with the same new directory.')
     if phase=='initialize':return
     from run_dynamic import run
     for stage in (('tests','development','select','final','freeze','evaluate','analysis','verify','report') if phase=='all' else (phase,)):

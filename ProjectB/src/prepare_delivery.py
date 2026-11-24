@@ -14,15 +14,20 @@ def main():
     provenance=root/'source_provenance'
     provenance.mkdir(exist_ok=True)
     copied=[]
-    for name in ('README_全量实验入口.md','方法与数据合同.md','审计报告.md'):
-        dst=provenance/('原全量_'+name)
+    original_docs=(
+        ('README_\u5168\u91cf\u5b9e\u9a8c\u5165\u53e3.md','original_full_README.md'),
+        ('\u65b9\u6cd5\u4e0e\u6570\u636e\u5408\u540c.md','original_full_method_and_data_contract.md'),
+        ('\u5ba1\u8ba1\u62a5\u544a.md','original_full_audit_report.md'),
+    )
+    for name,target in original_docs:
+        dst=provenance/target
         shutil.copy2(source/name,dst)
         copied.append(dict(source=str(source/name),target=dst.relative_to(root).as_posix(),sha256=sha(dst)))
     v5=root.parents[1]/'gt_v5/20261110_v5'
     for rel in ('protocol_nyc.md','evidence/feasibility.json','evidence/dictionary_receipt.json','evidence/dictionary_local.txt'):
         src=v5/rel
         if src.exists():
-            dst=provenance/('原V5_'+src.name)
+            dst=provenance/('original_v5_'+src.name)
             shutil.copy2(src,dst)
             copied.append(dict(source=str(src),target=dst.relative_to(root).as_posix(),sha256=sha(dst)))
     save(root/'evidence/provenance_copies.json',dict(copied_utc=now(),files=copied,

@@ -131,20 +131,20 @@ def final_holdout(t):
 def computed(t):
     out = ROOT/"reports"
     out.mkdir(exist_ok=True)
-    lines = ["# 由运行产物生成的指标摘要", ""]
+    lines = ["# Metrics from Run Artifacts", ""]
     sel_path = ROOT/"results/screen_selection.json"
     if sel_path.exists():
         raw = json_read(sel_path)
-        lines += ["## Chicago 开发期","", "| 候选 | 三折 AP 均值 | 三折正类 F1 均值 |",
+        lines += ["## Chicago Development", "", "| Candidate | Mean AP across three folds | Mean positive F1 across three folds |",
                   "| --- | ---: | ---: |"]
         for name,row in raw["choices"].items():
             lines.append(f"| {name} | {row['mean_AP']:.4f} | {row['mean_f1']:.4f} |")
         if raw["routed_challenger"]:
             r=raw["routed_challenger"]
-            lines.append(f"| {raw['chosen_enhancement']} 加风险路由 | {r['mean_AP']:.4f} | {r['mean_f1']:.4f} |")
-        lines += ["", "以上为 seed 11 / max 的配对开发诊断。阈值来自相同折，仅供选择。", ""]
+            lines.append(f"| {raw['chosen_enhancement']} plus risk routing | {r['mean_AP']:.4f} | {r['mean_f1']:.4f} |")
+        lines += ["", "The results above are paired development diagnostics for seed 11 with Max pooling. Each threshold was fitted on its own fold for selection.", ""]
     if t is not None:
-        lines += ["## Chicago 冻结留出","", "| 配方 | AP | F1 | ROC-AUC | 精确率 | 召回率 | FP/日 | 事件 F1 |",
+        lines += ["## Chicago Frozen Holdout", "", "| Configuration | AP | F1 | ROC-AUC | Precision | Recall | FP/day | Event F1 |",
                   "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"]
         for name,g in t.groupby("comparison",sort=False):
             values = []
@@ -152,9 +152,9 @@ def computed(t):
                 s = g[col].dropna()
                 values.append("N/A" if not len(s) else (f"{s.mean():.4f} ± {s.std():.4f}" if len(s)>1 else f"{s.iloc[0]:.4f}"))
             lines.append("| "+name+" | "+" | ".join(values)+" |")
-        lines += ["", "标准差来自固定种子，日期分块区间和配对差值在 results/holdout。"]
+        lines += ["", "Standard deviations use the fixed seeds. Date-block intervals and paired differences are in results/holdout."]
     else:
-        lines += ["## Chicago 新留出", "", "未发现可报告的完整正式留出结果。"]
+        lines += ["## New Chicago Holdout", "", "A complete formal holdout result is unavailable."]
     (out/"computed_summary.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
 
 

@@ -10,7 +10,7 @@ import zipfile
 
 from v4_io import CODE, LEGACY, load, now, save, settings, sha
 
-V3_NAME = "ProjectB_GraphTransformer_V3_审计包"
+V3_NAME = "ProjectB_GraphTransformer_V3_\u5ba1\u8ba1\u5305"
 EVIDENCE_FILES = ("prior_inputs.json", "prepared_development.json", "download_development.json",
                   "roads.csv", "geolife_status.json", "geolife_split_counts.json")
 FOLD_FILES = ("f1", "f2", "f3", "final")
@@ -114,7 +114,7 @@ def bind(root, cfg):
     plan_source = root / "plan.md"
     if not plan_source.is_file():
         shutil.copy2(CODE.parent / "plan.md", plan_source)
-    for document in ("README_审计入口.md", "方法与数据合同.md", "测试报告.md"):
+    for document in ("README_audit.md", "method_and_data_contract.md", "test_report.md"):
         source = CODE.parent / document
         if source.is_file() and not (root / document).exists():
             shutil.copy2(source, root / document)

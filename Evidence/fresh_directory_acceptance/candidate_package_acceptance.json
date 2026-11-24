@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-11-17T08:46:20.527216+00:00",
+  "python": "D:\\conda_envs\\niulaoshi\\python.exe",
+  "commands": [
+    {
+      "name": "01_both_default",
+      "command": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB\\verify_submission.py",
+        "--run",
+        "--output",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_results_20261117\\both_default"
+      ],
+      "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB",
+      "exit_code": 0,
+      "elapsed_seconds": 26.491157399956137,
+      "console_log": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_results_20261117\\01_both_default.log"
+    },
+    {
+      "name": "02_A_tests",
+      "command": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB\\ProjectA\\run.py",
+        "tests",
+        "--out",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_results_20261117\\A_tests"
+      ],
+      "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB",
+      "exit_code": 0,
+      "elapsed_seconds": 3.822826699935831,
+      "console_log": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_results_20261117\\02_A_tests.log"
+    },
+    {
+      "name": "03_B_tests",
+      "command": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB\\ProjectB\\run.py",
+        "tests",
+        "--output",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_results_20261117\\B_tests"
+      ],
+      "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB",
+      "exit_code": 0,
+      "elapsed_seconds": 71.99374860001262,
+      "console_log": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_results_20261117\\03_B_tests.log"
+    },
+    {
+      "name": "04_B_replay",
+      "command": [
+        "D:\\conda_envs\\niulaoshi\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB\\ProjectB\\run.py",
+        "replay",
+        "--output",
+        "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_results_20261117\\B_replay"
+      ],
+      "cwd": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_20261117\\FinalCourse_ProjectAB",
+      "exit_code": 0,
+      "elapsed_seconds": 36.028143999981694,
+      "console_log": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\zip_qa_results_20261117\\04_B_replay.log"
+    }
+  ],
+  "data_installation": false,
+  "manifest_entries_verified": 1178,
+  "zip_file_count": 1180,
+  "pptx": {
+    "slides": 10,
+    "SimSun_present": true,
+    "Times_New_Roman_present": true,
+    "sha256": "d43a39469721d99ea5fb6fd5e5a3f2f6c6d938f14efd8ee1583fd39054a7405c"
+  },
+  "manifest_entries_reverified_after_runs": 1178,
+  "scope": [
+    "fresh extraction + zip CRC",
+    "all root manifest sizes and SHA256",
+    "10-slide PPT and requested fonts",
+    "A aggregate verification and 9 tests",
+    "B prediction metric recalculation + engineering tests + 36 saved-model replays"
+  ],
+  "not_run_this_packaging_round": [
+    "A full private point-data training",
+    "B complete retraining",
+    "new independent blind test"
+  ],
+  "elapsed_seconds": 148.58756680006627,
+  "candidate_zip_sha256": "91dfcf5de53c20ee1b8847fbb4b9fb7451ce8dabf8076f0b77df2ff612ad3115",
+  "candidate_zip_path_at_runtime": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\FinalCourse_20261117\\Course_Archive_ANON_STUDENT_Final_ProjectA_ProjectB.zip",
+  "note": "This acceptance ran on the candidate package before the logs were added. The final ZIP was extracted separately into a fresh directory and checked against its full manifest. Code, models, and data were byte-identical to the candidate that was run."
+}

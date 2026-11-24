@@ -21,12 +21,12 @@ assert (edge.neutral_fraction<1).all()
 save(root/'evidence/extra_acceptance.json',dict(status='PASS',checked_utc=now(),max_f1_thresholds=thresholds,
     edge_summary_rows=len(edge),learned_non_neutral_weights_in_all_nine_fits=True,edge_bounds_verified=True,
     modifies_model_or_threshold=False))
-(root/'reports/成本与统计补充说明.md').write_text('''# 成本与统计说明
+(root/'reports/supplementary_cost_and_statistics.md').write_text('''# Computational Cost and Statistical Notes
 
-动态边权每个模型额外 1704 参数；Mean/Max 从 22561 到 24265，Attention 从 22594 到 24298，约增加 7.5%。每轮已知样本和更新数与静态完全一致，但每次更新的计算量增加，不能把相同步数说成完全相同 FLOPs。实际耗时、内存见 training_resources.csv；静态耗时来自旧运行，当时系统负载不同，不据此宣称动态模型更快。
+Dynamic edge weights add 1,704 parameters to each model. Mean and Max increase from 22,561 to 24,265. Attention increases from 22,594 to 24,298, about 7.5%. Known examples and updates per epoch match the static controls exactly. Each update requires more computation. See `training_resources.csv` for runtime and memory. Static timings came from an earlier run under a different system load, which limits speed comparisons.
 
-主模型依登记开发 AP 仍为 dynamic_mean。其回测 AP/F1 对静态 Mean 小幅上升，F1 日期块区间跨零，60% 召回下恢复误报差的区间也跨零，因此尚无稳定恢复误报改善的证据。Attention 的配对结果另有改善，但未据测试改换主模型。全部区间条件于现有模型和日期，未作多重比较校正。
+The development AP rule selected `dynamic_mean` as the primary model. It slightly increased historical AP and F1 relative to static Mean. The date-block interval for F1 and the interval for recovery false positives at 60% recall both cross zero, so evidence of a stable recovery false-positive improvement is inconclusive. Attention has separate paired improvements, while the primary selection remains the development choice. Intervals are conditional on the fitted models and dates and have no multiple-comparison correction.
 
-max_f1 辅助工作点另用独立唯一分数组累计方法重算，18 个模型阈值一致，见 evidence/extra_acceptance.json；主 constrained 阈值已在 verification_dynamic_replay.json 复核。真实边权汇总 9 组均有非单位边权，处于 [0.5,2]；物理边约 46.84% 因端点最新相对速度缺失退回 1，边权不会补齐缺失观测。
+The independent calculation for the `max_f1` auxiliary operating point uses cumulative counts over unique scores and matches thresholds for 18 models. See `evidence/extra_acceptance.json`. The principal constrained thresholds were verified in `evidence/verification_dynamic_replay.json`. All nine edge-weight groups contained nonunit weights within [0.5, 2]. Approximately 46.84% of physical edges reverted to 1 because the latest relative speed was missing at an endpoint. The fallback keeps the edge weight neutral when the speed observation is unavailable.
 ''',encoding='utf-8')
 print(dict(status='PASS',max_f1_thresholds=len(thresholds),real_edge_summaries=len(edge)))

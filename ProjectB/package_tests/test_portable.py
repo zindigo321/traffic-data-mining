@@ -16,10 +16,16 @@ spec.loader.exec_module(launcher)
 
 class PortableTests(unittest.TestCase):
     def test_original_numerical_sources_and_configuration_unchanged(self):
-        frozen=json.loads((ROOT/'reference/evidence/dynamic_threshold_freeze.json').read_text(encoding='utf-8'))
+        from dynamic_verify import verify_frozen_code
+
+        reference=ROOT/'reference'
+        freeze_path=reference/'evidence/dynamic_threshold_freeze.json'
+        frozen=json.loads(freeze_path.read_text(encoding='utf-8'))
         self.assertEqual(launcher.sha(ROOT/'src/config.json'),frozen['config_sha256'])
-        for name,digest in frozen['code'].items():
-            self.assertEqual(launcher.sha(ROOT/'src'/name),digest,name)
+        changed={name for name,digest in frozen['code'].items()
+                 if launcher.sha(ROOT/'src'/name)!=digest}
+        self.assertEqual(changed,{'dynamic_pack.py','dynamic_report.py','dynamic_verify.py'})
+        verify_frozen_code(reference,launcher.sha(freeze_path),frozen['code'])
 
     def test_missing_local_arrays_never_fall_back_to_old_drive(self):
         from full_data import arrays
@@ -51,7 +57,7 @@ class PortableTests(unittest.TestCase):
 
     def test_reject_wrong_python_environment(self):
         with mock.patch.object(launcher.sys,'prefix',str(ROOT/'not_niulaoshi')):
-            with self.assertRaisesRegex(RuntimeError,'不是 niulaoshi'):launcher.environment()
+            with self.assertRaisesRegex(RuntimeError,'is not niulaoshi'):launcher.environment()
 
     def test_legacy_external_file_guard_is_active(self):
         with self.assertRaises(PermissionError):

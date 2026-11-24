@@ -43,7 +43,7 @@ def main():
         raise ValueError("Review attachment digest differs")
     temp = root / "v1_extracted"
     temp.mkdir(exist_ok=False)
-    archive_name = "ProjectB_GraphTransformer_审计包"
+    archive_name = "ProjectB_GraphTransformer_\u5ba1\u8ba1\u5305"
     with zipfile.ZipFile(source) as z:
         names = set()
         for member in z.infolist():

@@ -43,7 +43,7 @@ def main():
             receipt['commands'].append(dict(command=command,exit_code=proc.returncode,elapsed_seconds=time.perf_counter()-t))
             if proc.returncode:receipt['status']='FAIL'
     receipt['elapsed_seconds']=time.perf_counter()-tick
-    (out/'验收.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    (out/'acceptance.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(receipt,ensure_ascii=False,indent=2),flush=True)
     return int(receipt['status']!='PASS')
 

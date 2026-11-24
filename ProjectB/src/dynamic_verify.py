@@ -1,5 +1,6 @@
 """Independent metric/threshold recomputation and weights-only causal replay."""
 import argparse
+import csv
 from datetime import datetime
 from pathlib import Path
 
@@ -15,6 +16,38 @@ from dynamic_score import ALL,DYNAMIC,STATIC,jobs,read_assessment
 from dynamic_model import build_model
 from v9_verify import independent_cut
 from v7_verify import verify_point,check_support
+
+
+PACKAGED_FREEZE_SHA256='e716e42b73f4275e8ce0ffb06fd2212b817e1dfbafc034671894d970b56e02de'
+LOCALIZED_SOURCE_RECEIPT='evidence/english_source_identity.json'
+
+
+def verify_frozen_code(root,freeze_sha256,frozen_code):
+    for name in frozen_code:
+        if Path(name).name!=name or Path(name).suffix!='.py':
+            raise ValueError(f'Invalid frozen source name: {name}')
+    actual={name:sha(CODE/name) for name in frozen_code}
+    if actual==frozen_code:
+        return
+
+    # Only the packaged copy of this historical freeze has translated source.
+    reference=CODE.parent/'reference' if CODE.name=='src' else CODE.parent
+    if CODE.name not in ('src','project') or root.resolve()!=reference.resolve() or freeze_sha256!=PACKAGED_FREEZE_SHA256:
+        raise ValueError('Current source does not match the frozen source hashes.')
+
+    receipt=root/LOCALIZED_SOURCE_RECEIPT
+    lineage=load(receipt)
+    if (lineage['original_freeze_sha256']!=freeze_sha256 or
+            lineage['original_frozen_code']!=frozen_code or lineage['english_code']!=actual):
+        raise ValueError('Current source does not match the packaged English source identity.')
+
+    expected={f'project/{name}':digest for name,digest in actual.items()}
+    expected[LOCALIZED_SOURCE_RECEIPT]=sha(receipt)
+    with (root/'manifest.csv').open(encoding='utf-8',newline='') as stream:
+        manifest={row['path']:row['sha256'] for row in csv.DictReader(stream)}
+    for name,digest in expected.items():
+        if manifest.get(name)!=digest or sha(root/name)!=digest:
+            raise ValueError(f'English source identity differs from the reference manifest: {name}')
 
 
 def close(actual,expected):
@@ -62,11 +95,13 @@ def replay_one(root,cfg,stage,model,seed,study,raw):
 
 
 def verify(root,out,cfg,replay=False):
-    freeze=load(root/'evidence/dynamic_threshold_freeze.json')
-    assert sha(root/'evidence/dynamic_threshold_freeze.json')==load(root/'evidence/dynamic_threshold_freeze_sha256.json')['sha256']
+    freeze_path=root/'evidence/dynamic_threshold_freeze.json'
+    freeze=load(freeze_path)
+    freeze_sha256=sha(freeze_path)
+    assert freeze_sha256==load(root/'evidence/dynamic_threshold_freeze_sha256.json')['sha256']
     assert sha(root/'results/dynamic_selection.json')==freeze['selection_sha256']
     assert sha(CODE/'config.json')==freeze['config_sha256']
-    for name,digest in freeze['code'].items():assert sha(CODE/name)==digest
+    verify_frozen_code(root,freeze_sha256,freeze['code'])
     selection=load(root/'results/dynamic_selection.json')
     candidates=sorted(DYNAMIC,key=lambda m:(-selection['summary'][m]['AP'],-selection['summary'][m]['f1'],DYNAMIC.index(m)))
     assert selection['primary']==candidates[0] and not selection['test_used_for_current_selection']

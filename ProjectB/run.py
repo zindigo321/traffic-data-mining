@@ -32,7 +32,7 @@ def verify_integrity():
     manifest=ROOT/'manifest.csv'
     sums=ROOT/'SHA256SUMS'
     if not manifest.is_file() or not sums.is_file():
-        raise FileNotFoundError('缺少 manifest.csv / SHA256SUMS，请完整解压运行包。')
+        raise FileNotFoundError('manifest.csv or SHA256SUMS is missing. Extract the entire runtime package.')
     expected={}
     for line in sums.read_text(encoding='utf-8').splitlines():
         digest,name=line.split('  ',1)
@@ -55,19 +55,19 @@ def verify_integrity():
 
 
 def environment():
-    if sys.version_info<(3,11):raise RuntimeError('请使用 Python 3.11 或更高版本的 niulaoshi 环境。')
+    if sys.version_info<(3,11):raise RuntimeError('Use Python 3.11 or later in the niulaoshi environment.')
     if Path(sys.prefix).name.lower()!='niulaoshi':
-        raise RuntimeError(f'当前环境不是 niulaoshi：{sys.executable}。请先 conda activate niulaoshi。')
+        raise RuntimeError(f'The active environment is not niulaoshi: {sys.executable}. Run conda activate niulaoshi first.')
     missing=[name for name,module in PACKAGES.items() if importlib.util.find_spec(module) is None]
-    if missing:raise RuntimeError('缺少依赖：'+', '.join(missing)+'。不会自动修改您的 Conda 环境。')
+    if missing:raise RuntimeError('Missing dependencies: '+', '.join(missing)+'. The launcher does not modify your Conda environment.')
     return dict(executable=sys.executable,python=sys.version,prefix=sys.prefix,
         packages={name:importlib.metadata.version(name) for name in PACKAGES})
 
 
 def main():
-    p=argparse.ArgumentParser(description='Project B 动态边权：niulaoshi 完整本地运行入口')
+    p=argparse.ArgumentParser(description='Project B dynamic edge weights: local niulaoshi launcher')
     p.add_argument('command',choices=COMMANDS,nargs='?',default='verify')
-    p.add_argument('--output',type=Path,help='新输出目录；默认包内 runs/时间戳_命令')
+    p.add_argument('--output',type=Path,help='New output directory, defaulting to runs/<timestamp>_<command> in the package')
     p.add_argument('--pool',choices=('mean','max','attention'),default='mean')
     p.add_argument('--seed',type=int,choices=(11,22,33),default=11)
     p.add_argument('--phase',choices=('all','initialize','tests','development','select','final','freeze','evaluate','analysis','verify','report'),default='all')
@@ -76,9 +76,9 @@ def main():
     checked=verify_integrity()
     output=(args.output or ROOT/'runs'/(datetime.now().strftime('%Y%m%d_%H%M%S_%f')+'_'+args.command)).resolve()
     if output==ROOT or output.is_relative_to(ROOT/'reference') or output.is_relative_to(ROOT/'data') or output.is_relative_to(ROOT/'src'):
-        raise ValueError('输出必须在独立目录或 runs/，不能覆盖代码、数据或参考实验。')
+        raise ValueError('Write to a separate directory or runs/. The source, data, and reference experiment directories are protected.')
     if output.exists() and not (args.command=='train' and args.phase not in ('all','initialize')):
-        raise FileExistsError(f'输出目录已存在，请另选名称：{output}')
+        raise FileExistsError(f'The output directory already exists. Choose a different path: {output}')
     if args.command!='train':output.mkdir(parents=True,exist_ok=False)
     os.environ['PROJECTB_PACKAGE_ROOT']=str(ROOT)
     os.environ['PROJECTB_PREPARED_DIR']=str(ROOT/'data/prepared')

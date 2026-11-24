@@ -84,10 +84,10 @@ def check(root):
     for src,dst in (("graph.json","v5_graph.json"),("prepared_development.json","v5_prepared_development.json"),
                      ("chicago_status.json","v5_chicago_status.json"),("geolife_prior.json","geolife_prior.json")):
         shutil.copy2(bundle/"evidence"/src,ev/dst)
-    old_report=(bundle/"审计报告.md").read_text(encoding="utf-8")
-    historical=[row for row in old_report.splitlines() if row.startswith(("| **X1＋Mean","| X1＋Max","| X1＋Attention","| V4 P1＋Mean 同支持重跑"))]
-    save(ev/"v5_historical_only.json",dict(interval=OLD,source=str(bundle/"审计报告.md"),aggregate_rows=historical,
-        source_sha256=sha(bundle/"审计报告.md"),observation_files_used=False,labels_or_scores_parsed=False))
+    old_report=(bundle/"\u5ba1\u8ba1\u62a5\u544a.md").read_text(encoding="utf-8")
+    historical=[row for row in old_report.splitlines() if row.startswith(("| **X1＋Mean","| X1＋Max","| X1＋Attention","| V4 P1＋Mean \u540c\u652f\u6301\u91cd\u8dd1"))]
+    save(ev/"v5_historical_only.json",dict(interval=OLD,source=str(bundle/"\u5ba1\u8ba1\u62a5\u544a.md"),aggregate_rows=historical,
+        source_sha256=sha(bundle/"\u5ba1\u8ba1\u62a5\u544a.md"),observation_files_used=False,labels_or_scores_parsed=False))
     receipt=dict(status="PASS",sha256=PINNED,**integrity,code_files=len(wanted),archive=str(archive),
         raw_prior_roles=checks,v5_holdout=OLD,v5_epoch_settings=EPOCHS,prior_epoch_freeze_sha256=old_unlock["freeze_sha256"],
         old_holdout_read="Archive integrity bytes and published aggregate narrative only",verified_utc=now())

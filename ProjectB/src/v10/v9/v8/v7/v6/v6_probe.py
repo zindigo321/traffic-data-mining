@@ -18,7 +18,7 @@ MIN_DAYS=14
 MIN_ROWS=1000
 MIN_ROADS=70
 RELEASE="G:/gpt-file/Codex/2026-11-10/project-b-graph-transformer-graph-transformer/outputs/ProjectB_GraphTransformer_V5"
-V5="ProjectB_GraphTransformer_V5_审计包"
+V5="ProjectB_GraphTransformer_V5_\u5ba1\u8ba1\u5305"
 ROAD_SHA="f4ca63c60fbff1bcbef7d4807250e904011e649e4ad45c801e658bd78661cc9d"
 
 

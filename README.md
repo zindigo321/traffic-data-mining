@@ -1,27 +1,27 @@
-# 交通数据挖掘课程作业与项目记录
+# Traffic Data Mining Coursework and Projects
 
-本仓库整理每周作业、Project A、重跑Project B及期末汇报。资料整理于2026-11-17；项目数据截止和实验日期以各自证据记录为准。
+This repository contains weekly assignments, Project A, the Project B rerun, and the final presentation. The archive was assembled on November 17, 2026. Data cutoffs and experiment dates are recorded in the supporting evidence.
 
-| 目录 | 内容 |
+| Directory | Contents |
 | --- | --- |
-| [assignments](assignments/) | 第一至第三周作业PDF，第三周另有可编辑DOCX |
-| [ProjectA](ProjectA/) | Geolife轨迹清洗、DBSCAN/KMeans热点与低密度候选分析 |
-| [ProjectB](ProjectB/) | 严格提前10分钟、动态边权Graph Transformer、三池化三种子 |
-| [01_汇报](01_汇报/) | 新版10页PPTX、PDF和逐页讲稿 |
-| [Report](Report/实验总报告.md) | 实验全流程、结果及课程要求差异 |
-| [Figures](Figures/) | 实测结果图与作图数值 |
-| [Evidence](Evidence/) | 来源、数据合同、模型/指标复核与实际运行日志 |
-| [archive](archive/legacy-presentation/) | 原答辩版本，仅作历史记录 |
+| [Assignments](assignments/) | Week 1–3 PDFs and editable Week 3 notes |
+| [Project A](ProjectA/) | Geolife trajectory cleaning, DBSCAN and K-means hotspot discovery, and low-density candidate analysis |
+| [Project B](ProjectB/) | A 10-minute-ahead congestion proxy using a Graph Transformer with dynamic edge weights, three pooling methods, and three seeds |
+| [Final presentation](01_presentation/) | A 10-slide deck, PDF preview, and speaker notes |
+| [Experiment report](Report/experiment_report.md) | Methods, results, and how they address the course requirements |
+| [Figures](Figures/) | Result plots and their source values |
+| [Evidence](Evidence/) | Provenance, data contracts, model and metric checks, and execution logs |
+| [Archive](archive/legacy-presentation/) | The original defense materials for historical context |
 
-## 主要结果
+## Main Results
 
-- Project A：30用户、53,786分析点；DBSCAN 50米/20点形成174簇，覆盖55.85%，噪声44.15%；KMeans按肘部规则选K=5。聚类内部指标及ARI不能当作分类准确率，115个低密度候选没有异常驾驶真值。
-- Project B原Geolife目录：578窗全部unknown，正式监督训练blocked。重跑是纽约公开路段估速的独立补充代理任务，不能替代原课件100用户、2010—2012年与五分钟连续拥堵证据。
-- 纽约动态Mean（开发预选）在80,536个known历史测试窗上，三个种子AP=0.6664±0.0243、正类F1=0.6501±0.0195。总误报14.600/日、恢复误报7.504/日仍超12/6预算；当前日期为已公开历史回测，并非新的独立盲测。
+- Project A used 30 users and 53,786 analysis points. DBSCAN at 50 m and 20 points produced 174 clusters, with 55.85% coverage and 44.15% noise. The elbow rule selected K = 5 for K-means. Internal clustering metrics and adjusted Rand index (ARI) measure clustering properties. The 115 low-density candidates lack anomalous-driving ground truth.
+- All 578 windows from the original Project B Geolife pipeline were labeled unknown, blocking supervised training. The rerun uses public NYC segment speed estimates for a separate proxy task. The original course requirements for 100 users, 2010–2012 data, and five continuous minutes of congestion remain unmet.
+- The dynamic Mean model, selected on development data, achieved AP of 0.6664 ± 0.0243 and positive-class F1 of 0.6501 ± 0.0195 across three seeds on 80,536 known NYC historical test windows. Total and recovery false positives were 14.600 and 7.504 per day, above the respective budgets of 12 and 6. This evaluation is a backtest on previously disclosed dates.
 
-## 运行
+## Run the Checks
 
-在已有`niulaoshi`环境中，从仓库根目录执行：
+From the repository root, use the existing `niulaoshi` environment.
 
 ```bat
 conda activate niulaoshi
@@ -31,7 +31,7 @@ python ProjectB/run.py tests
 python ProjectB/run.py replay
 ```
 
-默认仅新建runs目录，不覆盖参考实验。A默认复核聚合结果；完整重跑需使用者自行合法取得Geolife Trajectories 1.3 ZIP：
+Runs create fresh output directories under `runs/`. Project A verifies aggregate results by default. A full Project A rerun requires a legitimately obtained copy of Geolife Trajectories 1.3.
 
 ```bat
 python ProjectA/run.py full --data "D:\data\Geolife Trajectories 1.3.zip" --out "D:\CourseRuns\A_new"
@@ -39,12 +39,14 @@ python ProjectB/run.py prepare
 python ProjectB/run.py train --output "D:\CourseRuns\B_new"
 ```
 
-B使用包内固定NYC公开快照、prepared数组和实际权重；train执行18次动态训练，静态18次对照为核验复用。依赖见各项目requirements文件；不需要上传或复制Conda环境。
+Project B uses the included frozen public NYC snapshot, prepared arrays, and model weights. The training command fits 18 dynamic models and verifies and reuses 18 static controls. See each project’s requirements file for dependencies.
 
-## 公开范围和完整性
+## Public Scope and Integrity
 
-未复制私人Geolife原始轨迹、个人精确点表、pickle、教师课件或原始课程压缩包。B公开聚合路段数据的来源、快照、修改与使用条件见[数据说明](ProjectB/数据来源与使用说明.md)；原始与第三方内容的权利不因本仓库公开而转移。本次未替第三方材料指定开源许可。公开副本已移除文档署名、学号、个人作者属性、个人账号和本机用户目录标识；审查范围见PrivacyReview.json。
+The public copy excludes private Geolife tracks, individual precise-point tables, pickle files, instructor slides, and the original course archives. See the [Project B data sources and usage notes](ProjectB/data_sources_and_usage.md) for the public segment data, snapshot, transformations, and terms. Publication does not transfer rights in source or third-party material. This repository grants no license on behalf of other rights holders. `PrivacyReview.json` records the removal of bylines, student IDs, personal author properties, account names, and local user directory identifiers.
 
-根目录manifest.csv和SHA256SUMS已为匿名公开副本重建，覆盖本次全部公开文件；ProjectB内部清单也已为匿名副本更新。历史实验记录的个人路径采用匿名映射，历史原始字节哈希与当前公开副本哈希分开理解。`.gitattributes`禁止换行转换，以保持原清单字节哈希有效。请勿在仓库中原位改写参考结果；新实验输出写入runs。
+`manifest.csv` and `SHA256SUMS` cover the current anonymous public copy. Project B also has its own integrity manifest. Historical records use anonymized path mappings. Their original-byte hashes document the historical artifacts, while the current manifests identify the files in this revision. `.gitattributes` preserves file bytes by disabling line-ending conversion. Write new runs under `runs/` to preserve the reference results.
 
-GitHub首次提交和后续更新步骤见[提交指南](docs/GITHUB_UPLOAD.md)。
+The English edition translates public filenames, captions, and report text. The [Project B source identity receipt](ProjectB/reference/evidence/english_source_identity.json) links the English verifier source hashes to the original experiment freeze. The [original archive revision](https://github.com/zindigo321/traffic-data-mining/tree/8bea3c796b3fec43db25a6694dbbf83626f01e12) provides the original spellings and bytes for historically cited artifacts.
+
+See the [submission guide](README_submission.md) for package navigation and verification and the [GitHub publishing notes](docs/GITHUB_UPLOAD.md) for the original publication workflow.

@@ -109,7 +109,7 @@ def evidence(root, cfg):
                 assert files == snapshot(dest)
                 jobs[f"{fold}/{model}/{seed}"] = dict(source=src.relative_to(bundle).as_posix(), files=files)
     info = dict(status="PASS", checked_utc=now(), v8_zip_sha256=V8_SHA, source_archive=str(archive),
-                source_manifest_sha256=sha(bundle / "manifest.csv"), prior_report_sha256=sha(bundle / "审计报告.md"),
+                source_manifest_sha256=sha(bundle / "manifest.csv"), prior_report_sha256=sha(bundle / "\u5ba1\u8ba1\u62a5\u544a.md"),
                 **sizes, v8_code=code, source_evidence=sources, prepared=mapping, signed_jobs=jobs,
                 V5_V6_holdout_used=False, new_holdout_values_read=False)
     save(ev / "inputs.json", info)

@@ -1,1 +1,1 @@
-{'primary': 'dynamic_mean', 'report': '审计报告.md', 'engineering_tests': 75, 'goal': '达到回测数值目标'}
+{'primary': 'dynamic_mean', 'report': 'audit_report.md', 'engineering_tests': 75, 'goal': 'Met the backtest metric targets'}

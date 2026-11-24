@@ -1,72 +1,74 @@
-# Project A 当前证据复核（2026-11-17）
+# Project A Evidence Review
 
-## 结论
+Review date: November 17, 2026
 
-只读核查原项目，安全读取 CSV.GZ，没有加载 pickle，也没有修改 ProjectA 的源代码、数据或结果。当前 DBSCAN/KMeans 全样本重拟合标签与现有 point_labels.csv.gz 逐值一致；当前报告关键数字与 CSV 一致。原 9 项工程测试通过。详细机器证据见同目录 A_evidence.json、A_tests.log、A_tests_receipt.json。
+## Findings
 
-旧 checksums.sha256 不可作为当前完整性成功证据：56 条中 53 条现存，3 条 references 文件缺失，14 条当前 SHA 与旧清单不符。ProjectA.zip 也没有 references/。应在提交副本上重新生成 manifest/SHA256SUMS，明确这是本次提交清单，保留旧清单不通过的记录。
+The original project was read-only. The review read CSV.GZ files without loading pickles or modifying source, data, or results. Independent full-sample DBSCAN and K-means refits reproduced the labels in `point_labels.csv.gz` value for value, and the report's key numbers matched the CSVs. All nine original engineering tests passed. See `A_evidence.json`, `A_tests.log`, and `A_tests_receipt.json`.
 
-## 课程原要求
+The original `checksums.sha256` listed 56 files. Fifty-three existed, three under `references/` were missing, and 14 current hashes differed. `ProjectA.zip` also lacked `references/`. The public submission uses its own manifest and checksum list, with the previous audit outcome retained as historical evidence.
 
-课程 PDF `G:/course-jiaotongshujuwajue/ppt/Lecture1-logistics-DM2026V3-part1.pdf` 物理第9—10页为 ProjectA：环境、Geolife加载/清洗/特征、DBSCAN参数敏感性、KMeans实际对比、不同主体热点、异常轨迹分析、散点/热力图、实验报告。可选时间分析已实施；路网匹配、停车/拥堵事件分析没有实施，不应宣称完成。
+## Coursework Requirements
 
-第8页权重：Assignments 30%，Group Project 60%（A20%、B20%、final presentation20%），Quiz/Participation10%。A没有B课件的“100用户2010—2012”要求。课件用“车辆”措辞，本数据是混合出行主体GPS，不应全部称机动车。已提取相关页文本到 course_A_requirements_pages9_10.txt。
+Physical pages 9–10 of `G:/course-jiaotongshujuwajue/ppt/Lecture1-logistics-DM2026V3-part1.pdf` cover environment setup, Geolife loading, cleaning and features, DBSCAN sensitivity, a K-means comparison, hotspots across subjects, unusual trajectories, scatterplots and heatmaps, and the report. The optional temporal analysis was completed. Road-network matching and detection of parking or congestion events were outside the implementation.
 
-## 真实数据和流程
+Page 8 gives 30% for assignments, 60% for the group project (20% each for A, B, and the presentation), and 10% for quizzes and participation. Project A has no Project B requirement for 100 users in 2010–2012. The course slides use “vehicles,” but Geolife contains mixed-mode trajectories. See the English slide extraction in `course_A_requirements_pages9_10.txt`.
 
-- 原ZIP：`G:/course-jiaotongshujuwajue/dataset/Geolife Trajectories 1.3.zip`，353,488,286字节，当前实际 SHA-256=`16c2caed998e80828acd5fe7b15404593d1752f2a1524505633c23fdfac8a066`，与现有元数据一致。
-- 原ZIP全量盘点：182用户、18,670轨迹文件、24,876,978点；69个用户有方式标签文件，A未将方式标签用于监督分类。
-- 北京研究矩形：经度116.1–116.7、纬度39.7–40.2；数据清洗有效时期2007-04-01至2012-09-01（右端不含）。正式样本实际UTC范围2007-09-03 09:52:08至2011-12-27 05:18:00。
-- 先按区域原始点≥1000判定用户资格，按用户编号升序取30人；各用户用seed+ZIP成员名SHA排序，最多40条区域内有点轨迹；总选1108文件、2,029,261原始点。
-- 逐轨迹质量清洗：非法坐标/时间、完全重复、冲突时间戳、相邻速度>100m/s的跳点两端。速度边不跨拒绝点或>300s缺口重连。清洗后2,021,748点；区域筛选后1,691,926点。
-- 每轨迹按一分钟分桶保留首点，留下101,019个代表点；WGS84投影EPSG:32650，距离单位米；每用户固定seed最多抽2000点，总得53,786点、30用户、1102轨迹。
-- 聚类输入只用投影x/y二维空间坐标。时间、速度、海拔用于预处理/诊断/可选分时汇总，不能声称做了时空联合深度聚类。
-- 无监督聚类在同一固定样本做内部评价，没有监督训练/验证/测试拆分、没有分类准确率/AP/F1。
+## Data and Workflow
 
-流程位置：src/data.py:67 清洗；:97 选择/抽样；:108 投影；src/analysis.py:33 主分析，:38 定义XY输入，:48 DBSCAN参数网格，:70 KMeans，:89 共同支持比较，:97 个人热点，:142 子样本扰动；run.py:22 入口；src/verify.py:7 原一致性验收。
+- Original ZIP: `G:/course-jiaotongshujuwajue/dataset/Geolife Trajectories 1.3.zip`, 353,488,286 bytes. Its SHA-256, `16c2caed998e80828acd5fe7b15404593d1752f2a1524505633c23fdfac8a066`, matches the recorded metadata.
+- The ZIP inventory has 182 users, 18,670 trajectory files, and 24,876,978 points. Sixty-nine users have mode label files. Project A did not use them for supervised classification.
+- The Beijing rectangle spans longitude 116.1–116.7° and latitude 39.7–40.2°. The cleaning interval covers 2007-04-01 up to but excluding 2012-09-01. The actual sample covers 2007-09-03 09:52:08 to 2011-12-27 05:18:00 UTC.
+- The first 30 users by ID with at least 1,000 original regional points were eligible. For each user, rank trajectory files with points in the region by the hash of the seed and ZIP member name, then retain up to 40. This selected 1,108 files and 2,029,261 original points.
+- Per-trajectory cleaning removed invalid coordinates or times, exact duplicates, conflicting timestamps, and both endpoints of jumps with adjacent speed over 100 m/s. Speed edges did not cross rejected points or gaps over 300 seconds. Cleaning left 2,021,748 points and region filtering left 1,691,926.
+- Keeping the first point per trajectory-minute left 101,019 representative points. WGS84 coordinates were projected to EPSG:32650 in meters. A fixed seed capped each user at 2,000 points, giving 53,786 points, 30 users, and 1,102 trajectories.
+- Clustering uses projected x and y. Time, speed, and elevation support preprocessing, diagnostics, and optional time-period summaries.
+- Unsupervised evaluation uses the same fixed sample throughout. There is no supervised split or classification accuracy, AP, or F1 measure.
 
-## 重新计算的结果
+Original source locations include `src/data.py:67` for cleaning, `:97` for selection and sampling, and `:108` for projection. In `src/analysis.py`, `:33` starts the analysis, `:38` defines x/y, `:48` runs the DBSCAN grid, `:70` covers K-means, `:89` compares shared support, `:97` covers personal hotspots, and `:142` runs the perturbation check. See `run.py:22` for the historical entry point and `src/verify.py:7` for its consistency check.
 
-| 项目 | 当前实际复核结果 |
+## Recomputed Results
+
+| Item | Verified result |
 | --- | --- |
-| 主DBSCAN | eps=50m，min_samples=20，174簇 |
-| DBSCAN非噪声支持 | 30,040点，覆盖率55.8509649% |
-| DBSCAN噪声 | 23,746点，噪声率44.1490351% |
-| 主DBSCAN轮廓 | 0.10858512065142913，非噪声支持随机抽2000点 |
-| KMeans | 几何肘部规则K=5，非轮廓最优K |
-| KMeans全样本轮廓 | 0.3652873096107069，固定53786输入中抽2000点 |
-| KMeans共同支持轮廓 | 0.42770490260565147，固定DBSCAN非噪声30040点支持中抽2000点 |
-| 90%扰动 | 48,407点，ARI=0.9063785102960764，包含噪声标签，155簇，噪声46.5986% |
-| 低密度候选 | 115条，≥20分析点且噪声占比≥80%，不是已确认异常驾驶 |
-| 重拟合一致性 | DBSCAN全样本标签、KMeans K5全样本标签逐值相同 |
-| 工程测试 | 9项通过，退出码0 |
+| Main DBSCAN | eps = 50 m, min_samples = 20, 174 clusters |
+| DBSCAN non-noise support | 30,040 points, 55.8509649% coverage |
+| DBSCAN noise | 23,746 points, 44.1490351% noise |
+| Main DBSCAN silhouette | 0.10858512065142913, on 2,000 sampled non-noise points |
+| K-means | K = 5 by the geometric elbow |
+| K-means full-support silhouette | 0.3652873096107069, on 2,000 of the 53,786 points |
+| K-means common-support silhouette | 0.42770490260565147, on 2,000 of the 30,040 DBSCAN non-noise points |
+| 90% perturbation | 48,407 points, ARI = 0.9063785102960764 including noise, 155 clusters, 46.5986% noise |
+| Low-density candidates | 115 trajectories with at least 20 analysis points and at least 80% noise. No verified anomalous-driving label. |
+| Independent refits | Full-sample DBSCAN and K-means K = 5 labels matched value for value |
+| Engineering tests | 9 passed, exit code 0 |
 
-DBSCAN15组为eps=[30,50,100,200,500]×min_samples=[5,10,20]，KMeans为K2–10。两种算法目标不同、簇数不同，轮廓不是外部真值准确率。共同支持比较应注明30040点支持、内部各抽2000；不可将KMeans全样本0.365与DBSCAN非噪声0.109直接作为公平排名。
+DBSCAN used 15 combinations of eps = [30, 50, 100, 200, 500] m and min_samples = [5, 10, 20]. K-means evaluated K = 2–10. Silhouette scores measure internal cluster structure and reflect different methods and cluster counts. The fair comparison uses 30,040 common-support points with an internal 2,000-point sample. The all-point K-means score of 0.365 and non-noise DBSCAN score of 0.109 use different supports.
 
-敏感性：固定min_samples=20，eps从30增至500m，噪声率从60.8002%降至4.51976%；若引用全网格最低1.1806%，对应的是eps500/min_samples5，同时改变了两个参数。主方案选择过程有先9组后补30/50m的开发调整，不能宣称预先登记后一次盲选。
+At fixed min_samples = 20, increasing eps from 30 to 500 m reduced noise from 60.8002% to 4.51976%. The grid minimum of 1.1806% uses eps = 500 and min_samples = 5. The initial nine configurations were expanded with 30 m and 50 m cases during development. The final choice was made after that exploration.
 
-## 建议PPT的三条结果
+## Presentation Results
 
-1. 地理活动热点：53,786固定分析点形成174个密度簇，覆盖55.85%，其余44.15%保留为噪声。用粗网格热力图+簇规模/覆盖数字。
-2. 参数敏感与算法对比：显示固定min_samples下噪声曲线；共同30,040点支持的轮廓DBSCAN0.109、KMeans0.428，注明目的/簇数不同，不能说是准确率。
-3. 行为筛查边界：115个低密度候选、扰动ARI0.906，均为探索性证据。无需展示具体用户/轨迹路径和时空标识。
+1. The 53,786 fixed analysis points form 174 density clusters, covering 55.85% with 44.15% noise. A coarse-grid heatmap and cluster sizes show the scale.
+2. The noise curve at fixed min_samples shows parameter sensitivity. On the common 30,040-point support, silhouettes are 0.109 for DBSCAN and 0.428 for K-means. The methods have different objectives and cluster counts.
+3. The 115 low-density candidates and the perturbation ARI of 0.906 are exploratory results. Individual routes and space-time identifiers are unnecessary for showing them.
 
-## 图与隐私建议
+## Figure and Privacy Review
 
-原始图目录：`G:/course-jiaotongshujuwajue/ProjectA/results/figures/`，01—11共11张。
+The original directory `G:/course-jiaotongshujuwajue/ProjectA/results/figures/` contains 11 plots numbered 01–11.
 
-- 优先安全图：02_cleaning.png、04_sensitivity.png、09_diagnostics.png、11_time.png。它们是计数/曲线/分布，无个人时空轨迹。
-- 05_heatmap.png为500m网格聚合，不带用户ID或时间联结，可用于老师包。为满足白黑蓝红、Times New Roman/宋体要求，推荐从汇总表重绘。
-- 07_users.png带单用户热点、08_cases.png带个体轨迹ID/时序路径，严格排除。
-- 01_region.png、03_dbscan.png、06_comparison.png、10_parameter_examples.png为未联结身份的点级空间散点，严控隐私时不直接提交，优先重画500m聚合或簇规模图。
-- 热点CSV虽没有逐人ID，但含单用户簇精确中心和边界。老师提交表建议删除lon/lat/x_min/x_max/y_min/y_max，或只保留用户数≥3的空间统计。users是独立用户数，不是列表。
-- user_comparison.csv可去原用户ID，改匿名显示标签后保留点数/簇数/比例；trajectory_candidates.csv仅交噪声率分布、候选总数和匿名案例计数，去轨迹ID/时间/坐标边界。
-- 不提交原ZIP、任何点级CSV.GZ、quality_issues.csv.gz、raw_to_sample.csv.gz、点级标签、个人时序。源码、配置和外部只读数据获取/路径说明可保留，教师需要时在自备原ZIP上复现。
+- `02_cleaning.png`, `04_sensitivity.png`, `09_diagnostics.png`, and `11_time.png` show counts, curves, and distributions without individual space-time tracks.
+- `05_heatmap.png` aggregates over 500 m cells and has no user or time linkage. The published design uses aggregate source tables.
+- Keep `07_users.png` and `08_cases.png` private because they show individual hotspots, trajectory IDs, and paths.
+- `01_region.png`, `03_dbscan.png`, `06_comparison.png`, and `10_parameter_examples.png` contain precise point scatterplots. Use the 500 m map or cluster sizes for public presentation.
+- The original hotspot CSV has precise centers and bounds, including single-user clusters. Remove `lon`, `lat`, `x_min`, `x_max`, `y_min`, and `y_max` for public tables or use spatial statistics with at least three users. The `users` field is a count of distinct users.
+- For `user_comparison.csv`, anonymize user labels and retain counts and proportions. For `trajectory_candidates.csv`, publish the noise distribution, candidate totals, and anonymous counts, excluding trajectory IDs, times, and spatial bounds.
+- The original ZIP, point-level CSV.GZ files, `quality_issues.csv.gz`, `raw_to_sample.csv.gz`, labels, and personal time series stay private. The code, configuration, and external read-only data instructions support authorized reproduction.
 
-原图为YaHei/默认英文，并非用户本次要求字体，PPT应从已核验CSV新绘宋体/Times New Roman配色图，而不是直接把原图当新格式图。
+The historical plots used YaHei and default Latin fonts. The original deck's new design specified SimSun and Times New Roman and regenerated its white, black, blue, and red figures from verified CSVs.
 
-## 入口限制
+## Entry-Point Scope
 
-`python run.py --data <Geolife.zip> --out <新目录>`全流程可重建，原源默认results会覆盖，提交版须提供新输出默认值或外层入口。
+The original `python run.py --data <Geolife.zip> --out <new-directory>` rebuilds the pipeline. Its default output was `results/`, so the public wrapper uses a fresh output path.
 
-原 `run.py --stage verify` 仍无条件对默认raw ZIP执行stat/hash，因此它不是完全无原始数据的离线验证入口。原 src.verify 也依赖敏感点级文件。老师安全提交版应新增独立的聚合表/文件哈希核验命令；不要将它描述为已重跑完整原始数据实验。原9项工程测试无原ZIP也可运行，已实际在niulaoshi执行。
+The original `run.py --stage verify` still performs a stat and hash of the default raw ZIP and `src.verify` requires sensitive point-level files. The public instructor entry point checks aggregate tables and files separately. The original nine engineering tests were also run in `niulaoshi` without the ZIP.

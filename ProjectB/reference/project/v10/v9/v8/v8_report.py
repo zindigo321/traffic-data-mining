@@ -7,8 +7,8 @@ import pandas as pd
 
 from v8_io import load,settings
 
-NAMES={"attention":"V7 Attention","center":"V7 仅中心路段","rank":"V8 尾部排序"}
-RULES={"max_ba":"最大 BA","max_f1":"最大 F1","constrained":"误报约束 F1"}
+NAMES={"attention":"V7 Attention","center":"V7 center-only","rank":"V8 tail ranking"}
+RULES={"max_ba":"Maximum balanced accuracy","max_f1":"Maximum F1","constrained":"False-positive-constrained F1"}
 ENG={"max_ba":"Max BA","max_f1":"Max F1","constrained":"Constrained F1"}
 
 
@@ -55,7 +55,7 @@ def operating(rows,model,choice=None):
     output=[]
     for rule in ("max_ba","max_f1","constrained"):
         a=rows[model][rule]
-        label=RULES[rule]+("（冻结）" if rule==choice else "")
+        label=RULES[rule]+(" (frozen)" if rule==choice else "")
         output.append(f"| {label} | {a['AP']:.4f} | {a['balanced_accuracy']:.4f} | {a['f1']:.4f} | "
                       f"{a['recall']:.4f} | {a['fp_per_day']:.3f} | {a['recovery_FP_day']:.3f} |")
     return output
@@ -80,90 +80,90 @@ def render(root,cfg):
     n=sum(load(root/"evidence"/f"fold_lead_{fold}.json")["parts"][1]["positive"]+
           load(root/"evidence"/f"fold_lead_{fold}.json")["parts"][1]["negative"] for fold in cfg["folds"])
     support=load(root/"evidence/fold_lead_final.json")["parts"][1]
-    head=["| 阈值 | AP | BA | 正类 F1 | Recall | 总 FP／日 | 恢复 FP／日 |",
+    head=["| Threshold | AP | BA | Positive F1 | Recall | Total FP/day | Recovery FP/day |",
           "| --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
     lines=[
-        "# Project B V8 审计报告",
+        "# Project B V8 Audit Report",
         "",
-        f"**已完成阈值迁移诊断和 28 日独立校准，冻结 {NAMES[model]}＋{RULES[rule]}。** "
-        "纽约正式验证 blocked／N/A，Chicago 原口径、Geolife 各自 blocked。",
+        f"**Threshold-transfer diagnostics and 28-day independent calibration completed. The frozen choice is {NAMES[model]} plus {RULES[rule]}.** "
+        "Formal NYC validation remains blocked/N/A. The original Chicago and Geolife protocols are separately blocked.",
         "",
-        "## 时间合同、真值和样本",
+        "## Timing Contract, Ground Truth, and Samples",
         "",
-        "固定纽约本地 2026-11-09 至 12-06 新留出，V5/V6 日期 08-31 至 11-08 禁止用于训练、校准和选型。"
-        f"本次官方时间查询最新 {gate['latest'] or 'N/A'}，登记日期未结束。无新速度、标签或正式结果。"
-        "只用 V7 的经过校验的严格提前输入，t−1、t 与未来速度仍只在真值侧。 "
-        "[日期闸门](evidence/date_gate.json) · [预登记计划](plan.md) · [NYC DOT 数据](https://data.cityofnewyork.us/d/i4gi-tjb9) · "
-        "[Chicago 停更说明](https://data.cityofchicago.org/stories/s/c28d-stgw)",
+        "The fixed new holdout is 2026-11-09 through 12-06 in NYC local time. The V5/V6 dates from 08-31 through 11-08 are excluded from training, calibration, and selection. "
+        f"The latest official timestamp was {gate['latest'] or 'N/A'}, before the registered period ended. There are no new speeds, labels, or formal results. "
+        "The experiment uses V7's verified strict-lead inputs. Speeds from t−1, t, and later are available only for ground truth. "
+        "[Date gate](evidence/date_gate.json) · [Registered plan](plan.md) · [NYC DOT data](https://data.cityofnewyork.us/d/i4gi-tjb9) · "
+        "[Chicago discontinuation](https://data.cityofchicago.org/stories/s/c28d-stgw)",
         "",
-        f"三折全量已知支持合计 {n:,} 窗，28 日校准 {support['positive']+support['negative']:,} 个已知窗、"
-        f"{support['positive']:,} 个正例、{support['high_risk_recovered']:,} 个恢复负例，{support['unknown_eligible']:,} 个 unknown。"
-        "同一折的 3 个模型、3 个种子共用相同键、标签、风险审计和训练抽样。"
-        "复用 V7 Attention 与中心 24 组验签预测和权重；新增 Attention 尾部排序从头训练 12 次。 "
-        "[输入证据](evidence/inputs.json) · [校准支持](evidence/fold_lead_final.json) · [方法与时点](方法与数据合同.md)",
+        f"The 3 development folds contain {n:,} known windows. The 28-day calibration set contains {support['positive']+support['negative']:,} known windows, "
+        f"{support['positive']:,} positives, {support['high_risk_recovered']:,} recovery negatives, and {support['unknown_eligible']:,} unknown windows. "
+        "Within each fold, 3 models and 3 seeds share keys, labels, risk audits, and training samples. "
+        "Reused 24 verified sets of V7 Attention and center-only predictions and weights. Trained the new Attention tail-ranking version from scratch 12 times. "
+        "[Input evidence](evidence/inputs.json) · [Calibration support](evidence/fold_lead_final.json) · [Method and timing](method_and_data_contract.md)",
         "",
-        "## 等召回排序对照",
+        "## Matched-Recall Ranking Comparison",
         "",
-        "在全量已知评分上取相同 TP 的前缀。三种阈值只改变工作点；同一模型 AP 和固定召回排序相同。"
-        "下表是各阶段的三种子均值，开发先按种子平均三折。",
+        "Take prefixes containing the same number of true positives on the full known support. The three threshold rules change the operating point while the model's AP and matched-recall ranking stay fixed. "
+        "Tables show three-seed means. Development first averages across all three folds within each seed.",
         "",
-        "| 阶段 | 评分模型 | AP | 60% 召回总 FP／日 | 60% 召回恢复 FP／日 |",
+        "| Stage | Scoring model | AP | Total FP/day at 60% recall | Recovery FP/day at 60% recall |",
         "| --- | --- | ---: | ---: | ---: |",
     ]
-    for stage,label in (("development","三折开发"),("calibration","独立校准")):
+    for stage,label in (("development","Three development folds"),("calibration","Independent calibration")):
         for name in ("attention","center","rank"):
             a=ranking[stage][name]
             lines.append(f"| {label} | {NAMES[name]} | {a['AP']:.4f} | {a['FP60_day']:.3f} | {a['recovery_FP60_day']:.3f} |")
     delta=rank["rank"]["recovery_FP60_day"]-rank["attention"]["recovery_FP60_day"]
     inter=bounds.loc["recovery_FP60_day"]
     lines+=["",
-        f"排序候选符合预登记的开发准入，主点恢复 FP 日差 {delta:+.3f}、两个种子下降。"
-        f"相对 V7 Attention 的 1,000 次日期分块 95% 区间为 [{inter.low_95:+.3f}, {inter.high_95:+.3f}]。"
-        "校准段相对两组基线的同召回恢复误报略高。现有证据支持阈值取舍，排序改善仍待独立日期确认。 "
-        "[配对区间](results/analysis/paired_date_blocks.csv) · [完整等召回](results/analysis/matched_recall.csv) · [曲线](figures/matched_recall.png)",
+        f"The ranking candidate met the preregistered development admission criteria. At the primary recall target, the recovery FP/day difference was {delta:+.3f}, with reductions in two seeds. "
+        f"The 1,000-resample date-block 95% interval relative to V7 Attention was [{inter.low_95:+.3f}, {inter.high_95:+.3f}]. "
+        "At matched recall on calibration, recovery false positives were slightly higher than both baselines. The current evidence supports the threshold trade-off. Ranking improvements still require independent dates. "
+        "[Paired intervals](results/analysis/paired_date_blocks.csv) · [Full matched recall](results/analysis/matched_recall.csv) · [Curves](figures/matched_recall.png)",
         "",
-        "## 开发阈值迁移与独立校准",
+        "## Development Threshold Transfer and Independent Calibration",
         "",
-        "每个开发折前七日定阈值，后七日评估迁移，模型 checkpoint 沿用整折选出的权重。"
-        "28 日独立校准表为同段拟合阈值的诊断，完整阈值和逐种子计数均保留。预先设总 FP／日≤12、恢复 FP／日≤6。",
+        "Fit thresholds on the first seven days of each development fold and test transfer on the second seven days, using the model checkpoint selected from the entire fold. "
+        "The 28-day independent calibration table gives a same-split threshold diagnostic. The package records all thresholds and per-seed counts. The registered daily limits are 12 total and 6 recovery false positives.",
         "",
-        f"### {NAMES[model]} 三折后七日",
+        f"### {NAMES[model]} on the Last Seven Days of Each Development Fold",
         "",
         *head,
         *operating(summary["development_transfer"],model),
         "",
-        f"### {NAMES[model]} 28 日独立校准",
+        f"### {NAMES[model]} on 28-Day Independent Calibration",
         "",
         *head,
         *operating(summary["calibration"],model,rule),
         "",
-        f"选择规则比较显示，最大 F1 的开发迁移满足平均预算，独立校准超预算。"
-        f"{RULES[rule]} 在两段满足冻结条件，三种子阈值在 {lock['at_utc']} 锁定。"
-        f"相对 V7 Attention 原最大 BA 阈值，校准正类 F1 {old['f1']:.4f}→{chosen['f1']:.4f}，"
-        f"恢复 FP／日 {old['recovery_FP_day']:.3f}→{chosen['recovery_FP_day']:.3f}，"
-        f"召回 {old['recall']:.4f}→{chosen['recall']:.4f}。 "
-        "[逐行阈值、误报与混淆](results/analysis/thresholds.csv) · [冻结收据](evidence/freeze.json) · [校准图](figures/calibration_thresholds.png)",
+        f"The max-F1 rule satisfies the average budgets in development transfer and exceeds them on independent calibration. "
+        f"{RULES[rule]} meets the freeze criteria in both splits. The three seed thresholds were locked at {lock['at_utc']}. "
+        f"Relative to the original V7 Attention max-BA threshold, calibration positive F1 changes from {old['f1']:.4f} to {chosen['f1']:.4f}, "
+        f"recovery FP/day from {old['recovery_FP_day']:.3f} to {chosen['recovery_FP_day']:.3f}, "
+        f"and recall from {old['recall']:.4f} to {chosen['recall']:.4f}. "
+        "[Thresholds, false positives, and confusion counts](results/analysis/thresholds.csv) · [Freeze receipt](evidence/freeze.json) · [Calibration figure](figures/calibration_thresholds.png)",
         "",
-        "| 同校准误报约束 | 正类 F1 | BA | 恢复 FP／日 |",
+        "| Same calibration false-positive constraints | Positive F1 | BA | Recovery FP/day |",
         "| --- | ---: | ---: | ---: |",
     ]
     for name in ("attention","center","rank"):
         v=summary["calibration"][name]["constrained"]
         lines.append(f"| {NAMES[name]} | {v['f1']:.4f} | {v['balanced_accuracy']:.4f} | {v['recovery_FP_day']:.3f} |")
     lines += ["",
-        "三种评分采用同一约束后校准 F1 接近，V7 两组略高。正类 F1 的主要变化来自工作点调整。"
-        "预算是在校准及开发迁移中量化，正式日期的误报与召回仍待完整覆盖。 "
-        "[三组阈值汇总](results/analysis/threshold_summary.json)",
+        "Under the same constraints, calibration F1 is similar across all three scoring models, with the two V7 models slightly higher. Most of the positive F1 change comes from moving the operating point. "
+        "The budgets are measured on calibration and development transfer. False positives and recall on the formal dates await complete coverage. "
+        "[Summary for the three models](results/analysis/threshold_summary.json)",
         "",
-        "## 验收",
+        "## Acceptance",
         "",
-        f"独立复算 {proof['score_sets']} 组分数、{proof['threshold_evaluations']} 个阈值诊断和 {proof['matched_points']} 个等召回点，"
-        f"抽样重放 {proof['replayed']} 组，最大分数差 {proof['max_score_difference']:.2g}。"
-        "40 项工程测试只用于实现核查。冻结哈希、命令、实际退出码、数据映射及干净解压复核随包。 "
-        "[复算](evidence/verification_replay.json) · [测试](测试报告.md) · [复现](README_审计入口.md)",
+        f"Independently recomputed {proof['score_sets']} score sets, {proof['threshold_evaluations']} threshold diagnostics, and {proof['matched_points']} matched-recall points. "
+        f"Sample replay covered {proof['replayed']} groups, with a maximum score difference of {proof['max_score_difference']:.2g}. "
+        "The 40 engineering tests verify the implementation. The package includes frozen hashes, commands, observed exit codes, data mappings, and clean extraction verification. "
+        "[Recomputation](evidence/verification_replay.json) · [Tests](test_report.md) · [Reproduction](README_audit.md)",
         ""]
-    (root/"审计报告.md").write_text("\n".join(lines),encoding="utf-8")
-    print(dict(report=str(root/"审计报告.md"),model=model,rule=rule,formal=status["NYC_formal"]),flush=True)
+    (root/"audit_report.md").write_text("\n".join(lines),encoding="utf-8")
+    print(dict(report=str(root/"audit_report.md"),model=model,rule=rule,formal=status["NYC_formal"]),flush=True)
 
 
 if __name__=="__main__":

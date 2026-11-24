@@ -10,9 +10,9 @@ import zipfile
 from common import digest, json_write
 from check_inputs import verify_manifest
 
-NAME = "ProjectB_GraphTransformer_V2_审计包"
+NAME = "ProjectB_GraphTransformer_V2_\u5ba1\u8ba1\u5305"
 META = {"manifest.csv","SHA256SUMS"}
-DOCS = ("README_审计入口.md","plan.md","变更说明.md","方法与数据合同.md","审计报告.md","测试报告.md")
+DOCS = ("README_audit.md","plan.md","change_notes.md","method_and_data_contract.md","audit_report.md","test_report.md")
 
 
 def files(root):

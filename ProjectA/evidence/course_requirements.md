@@ -1,27 +1,27 @@
-# 原课件要求与当前项目对应
+# Original Coursework Requirements and Project Coverage
 
-来源：G:/course-jiaotongshujuwajue/ppt/Lecture1-logistics-DM2026V3-part1.pdf，物理46页。以下页码为PDF一开始起计的物理页码，页脚同号。只读提取，没有更改课件。
+Source: `G:/course-jiaotongshujuwajue/ppt/Lecture1-logistics-DM2026V3-part1.pdf`, 46 physical pages. Page numbers count from the start of the PDF and match the footers. The original material was read without modification.
 
-## 评分与任务
+## Assessment
 
-第8页：Assignments 30%；Group Project 60%，其中Project A 20%、Project B 20%、final presentation 20%；Quiz/Participation 10%。
+Page 8 allocates 30% to assignments, 60% to the group project, and 10% to quiz and participation. Project A, Project B, and the final presentation each account for 20% of the overall grade.
 
-## Project A，第9–10页
+## Project A, Pages 9–10
 
-目标是搭建Python/scikit-learn环境，处理Geolife轨迹并应用聚类识别出行模式。完整链条是数据加载、清洗、特征提取、建模和结果可视化，示例散点图与热力图。任务包括调整DBSCAN eps/min_samples、尝试KMeans对比、分析不同对象的热点与异常轨迹、撰写预处理/算法/结果/应用价值报告。进阶包括时间维度、道路网络和交通事件。
+The objective is to set up Python and scikit-learn, process Geolife trajectories, and identify travel patterns by clustering. The workflow covers loading, cleaning, feature extraction, modeling, and visualization through scatterplots and heatmaps. Tasks include tuning DBSCAN `eps` and `min_samples`, comparing K-means, studying hotspots and unusual trajectories across subjects, and reporting preprocessing, method choice, results, and use cases. Extensions cover time, road networks, and traffic events.
 
-当前Project A以30用户、53,786点、1,102轨迹作受控计算样本，完成15组DBSCAN参数、K=2–10、共同支持对比、500m热图、时段分析、低密度候选和稳定性。Geolife含多种方式，不能全部称为车辆，115候选没有真实异常标签，ARI/轮廓不是准确率。路网结合和真实交通事件不是A已完成成果。
+Project A used a controlled sample of 30 users, 53,786 points, and 1,102 trajectories. It ran 15 DBSCAN configurations, K-means for K = 2–10, a common-support comparison, a 500 m heatmap, time-of-day and low-density candidate analyses, and a stability check. Geolife covers several travel modes. The 115 candidates lack verified anomaly labels, and ARI and silhouette scores are internal clustering measures. Road-network integration and real traffic event validation remain outside the completed Project A work.
 
-## Project B，第11–15页
+## Project B, Pages 11–15
 
-第11页：Geolife预处理、通勤高峰特征，以及神经网络如CNN-LSTM/MLP。第12页明确选100名用户2010–2012年，早高峰07–09、晚高峰17–19，含时间戳、经纬度、速度、海拔；去漂移/重复、匹配路网、提速度变化率/通行量/时间等、建模训练并可视化。
+Page 11 covers Geolife preprocessing, rush-hour features, and neural models such as CNN-LSTM and MLP. Page 12 calls for 100 users in 2010–2012, morning and evening peaks at 07:00–09:00 and 17:00–19:00, and timestamp, location, speed, and elevation. It calls for drift and duplicate removal, network matching, speed-change, volume, and time features, model training, and visualization.
 
-第13页：路段平均速度低于该时段历史平均速度40%，并持续至少5分钟，作为拥堵标准；路网等级/车道、速度标准差/加速度、日历等为候选特征；MLP隐藏2–3层、学习率0.001/0.0001、batch32/64。第14页：与随机森林等传统方法比较，量化因素并写报告。第15页进阶为CNN-LSTM、用户类型及特征干预模拟。
+Page 13 defines congestion as segment mean speed below 40% of the historical mean for the same period for at least five continuous minutes. Candidate features include road class, lanes, speed standard deviation, acceleration, and calendar information. The sample MLP has two or three hidden layers, learning rate 0.001 or 0.0001, and batch size 32 or 64. Page 14 calls for comparison with traditional methods such as random forests, analysis of factors, and a report. Page 15 proposes CNN-LSTM, user types, and simulated feature interventions as extensions.
 
-本次用户明确要求将B方法改为Graph Transformer，故PPT按新方法汇报。数据与真值限制仍需区分：原Geolife B当前没有可训练标签证据；纽约固定121有向路段、双十分钟低速估速、过去历史基准的提前十分钟代理预警是公开数据补充验证。它不等价满足原课件100用户/2010–2012/北京路网/持续5分钟要求，不能宣称新模型因果解释或干预模拟已经成立。
+The presentation reports the requested Graph Transformer method. The original Geolife project lacks trainable labels. The supplementary public NYC proxy uses 121 fixed directed segments, two consecutive 10-minute low-speed estimates relative to past baselines, and a strict 10-minute prediction lead time. It differs from the original conditions for 100 users, 2010–2012, the Beijing road network, and five minutes of continuous congestion. Causal interpretation and intervention simulation remain outside the evidence.
 
-## 旧答辩身份核对
+## Original Defense Identity Review
 
-原答辩和作业文件的个人署名不在公开副本中保留。
+The public copy omits personal bylines from the original defense and assignments.
 
-提取方法：随任务只读PDF用捆绑Python+pypdf抽取，旧PPTX用zipfile/XML读取文本，没有打开或执行任何pickle。
+The historical review extracted text from the source PDF using the bundled Python and pypdf and inspected the original PPTX through zipfile and XML. It opened and executed no pickle files.

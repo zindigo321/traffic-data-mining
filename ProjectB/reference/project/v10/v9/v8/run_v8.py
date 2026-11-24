@@ -8,7 +8,7 @@ from v8_io import CODE,python,record
 from v8_check import RELEASE,WORK
 
 PHASES=("check","probe","test","train","analysis","freeze","verify","report")
-DOCS=("plan.md","README_审计入口.md","方法与数据合同.md","测试报告.md")
+DOCS=("plan.md","README_audit.md","method_and_data_contract.md","test_report.md")
 
 
 def initialize(root,source):

@@ -22,7 +22,7 @@ def register(root):
     if status=="eligible":
         if not (new[0]>=OLD[1] and new[1]>new[0] and gate["substantial_days"]>=14):
             raise ValueError("Independent calendar failed")
-        wording=f"**{new[0]} 至 {date.fromisoformat(new[1])-timedelta(days=1)}**"
+        wording=f"**{new[0]} to {date.fromisoformat(new[1])-timedelta(days=1)}**"
     else:
         wording="**blocked／N/A**"
     cfg=load(V5/"config.json")
@@ -32,15 +32,15 @@ def register(root):
         primary_recipe="X1",primary_pool="attention",epochs=EPOCHS,
         controls=[["X1","mean"],["B","mean"]],minimum_affected_seeds=2,recipes=["X1"])
     save(CONFIG,cfg)
-    note=f"""# V6 纽约独立留出登记
+    note=f"""# V6 New York Independence holdout Registration
 
-纽约本地留出 {wording}。候选起止、发布上限、每个高峰计数和失败日期均见 evidence/date_gate.json。实际登记日历为左闭右开 {new}。区间含 {gate['calendar_days']} 个日历日，其中 {gate['substantial_days']} 个通过双高峰报告覆盖闸门，所有日历日都保留。日期选择只用了官方时间、路段 ID 和计数。
+NYC local-time holdout {wording}. See evidence/date_gate.json for candidate endpoints, publication cutoff, counts for each peak period, and failed dates. The registered calendar is left-inclusive and right-exclusive {new}. It contains {gate['calendar_days']} calendar days, of which {gate['substantial_days']} pass the reporting coverage gate for both peaks. All calendar days are retained. Date selection used only official timestamps, road IDs, and counts.
 
-V5 旧留出 2026-08-31 至 2026-10-11 全部禁用；仅查既有聚合结果。Chicago 原口径和 Geolife 保持 blocked。图、标签、特征时点、unknown、训练和全量评价规则沿用 V5。V6 重建并核验既有开发数据，只有新留出速度和标签在本轮首次使用。
+Exclude the entire previous V5 holdout from 2026-08-31 through 2026-10-11. Use only its existing aggregates for context. The original Chicago protocol and Geolife remain blocked. V6 follows V5 for the graph, labels, feature timing, unknown labels, training, and full evaluation. V6 rebuilds and verifies the existing development data. Only the new holdout speeds and labels are used for the first time.
 
-正式配方 X1＋Attention，两个配对对照 X1＋Mean 和 V4 P1＋Mean。X1＋Mean 同时作为三池化组之一。种子 11、22、33。配置继承 V5 解封前锁定 epoch，训练后各自使用同一 28 日校准阈值规则。稳定性看 60% 等召回的配对平均误报差、至少两种子下降及共享日期块区间上界低于零，分别判定两对照。正式双 0.60 只看预选 Attention。完整计划另见 plan.md。
+The formal recipe is X1 plus Attention. Paired controls are X1 plus Mean and V4 P1 plus Mean. X1 plus Mean is also one of the three pooling configurations. Seeds are 11, 22, and 33. Use the locked epochs from before V5 unsealing, then apply the same threshold rule on 28 days of calibration. For each control, assess stability at 60% matched recall using the paired average false-positive difference, reductions in at least two seeds, and a shared date-block interval with upper bound below zero. The formal dual 0.60 target applies to the preselected Attention model. See plan.md for the complete plan.
 
-新分片传输在本登记之后，标签和速度在模型与阈值冻结后才解析。
+Transfer the new shards after registration. Parse labels and speeds only after freezing the models and thresholds.
 """
     path=root/"registered_holdout.md"
     path.write_text(note,encoding="utf-8")

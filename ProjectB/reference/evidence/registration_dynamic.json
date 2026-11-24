@@ -306,7 +306,7 @@
       "model": "graph_mean",
       "seed": 11,
       "weight_sha256": "e108164a649e3d53b35764d24ce5352693ba2c4fd31a95e0cd938b99354cbc86",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_mean_s11",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\development\\graph_mean_s11",
       "new_training": false
     },
     {
@@ -314,7 +314,7 @@
       "model": "graph_mean",
       "seed": 22,
       "weight_sha256": "9c133183cafffb56997faed295a4654ee602473aeeb96c98b20b266192821b6d",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_mean_s22",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\development\\graph_mean_s22",
       "new_training": false
     },
     {
@@ -322,7 +322,7 @@
       "model": "graph_mean",
       "seed": 33,
       "weight_sha256": "bdd022716c18f7e4f8f25d349cbc43d4c6f3991e9471e5d075db6e07456f7d0c",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_mean_s33",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\development\\graph_mean_s33",
       "new_training": false
     },
     {
@@ -330,7 +330,7 @@
       "model": "graph_max",
       "seed": 11,
       "weight_sha256": "6327021ddcb68d503efd3cdd82e8d0d4d56befeee4a717039a09229c373790c2",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_max_s11",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\development\\graph_max_s11",
       "new_training": false
     },
     {
@@ -338,7 +338,7 @@
       "model": "graph_max",
       "seed": 22,
       "weight_sha256": "80bbac6288ece670c0e586993534e8632ccac5523b1f776dce83a4a986757e77",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_max_s22",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\development\\graph_max_s22",
       "new_training": false
     },
     {
@@ -346,7 +346,7 @@
       "model": "graph_max",
       "seed": 33,
       "weight_sha256": "ac39d12861de06e126e7ebfd888f351833ab6bf1e949df70dc239fb1868e47c8",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_max_s33",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\development\\graph_max_s33",
       "new_training": false
     },
     {
@@ -354,7 +354,7 @@
       "model": "graph_attention",
       "seed": 11,
       "weight_sha256": "63584c6f293b73b75291aa9c9e43f9cf4b29ce660490e740244b60360c7929f9",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_attention_s11",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\development\\graph_attention_s11",
       "new_training": false
     },
     {
@@ -362,7 +362,7 @@
       "model": "graph_attention",
       "seed": 22,
       "weight_sha256": "c9bb07aac156705e9a1420ae35d9e6c2fce057905b73d8b5104e4d404ed6fceb",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_attention_s22",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\development\\graph_attention_s22",
       "new_training": false
     },
     {
@@ -370,7 +370,7 @@
       "model": "graph_attention",
       "seed": 33,
       "weight_sha256": "21ff571f5db1486416a6178219e9fc9b96a0478918a0b9281ec615a66035e275",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\development\\graph_attention_s33",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\development\\graph_attention_s33",
       "new_training": false
     },
     {
@@ -378,7 +378,7 @@
       "model": "graph_mean",
       "seed": 11,
       "weight_sha256": "af64ef0f39e0251975e3beeefd2b5847376faab5d4c71c4c8d14a333c3f01148",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_mean_s11",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\final\\graph_mean_s11",
       "new_training": false
     },
     {
@@ -386,7 +386,7 @@
       "model": "graph_mean",
       "seed": 22,
       "weight_sha256": "3ac9ed0c6692aab03c686c34e2fc61c93f78fd2c85fbd356a86348e1f61013c7",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_mean_s22",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\final\\graph_mean_s22",
       "new_training": false
     },
     {
@@ -394,7 +394,7 @@
       "model": "graph_mean",
       "seed": 33,
       "weight_sha256": "c102358511db151c3b49340e38acfa70e7a92905348bd9a23df9eec42818ea4c",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_mean_s33",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\final\\graph_mean_s33",
       "new_training": false
     },
     {
@@ -402,7 +402,7 @@
       "model": "graph_max",
       "seed": 11,
       "weight_sha256": "ced19b5984b368074df5376d33d7d67244d69b4bf7d538d1f259b85f6261f0b6",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_max_s11",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\final\\graph_max_s11",
       "new_training": false
     },
     {
@@ -410,7 +410,7 @@
       "model": "graph_max",
       "seed": 22,
       "weight_sha256": "2a7858e705b3e7aa817584b85c3d6f484b42d4d57c1c60696cd32dc038ee7ac2",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_max_s22",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\final\\graph_max_s22",
       "new_training": false
     },
     {
@@ -418,7 +418,7 @@
       "model": "graph_max",
       "seed": 33,
       "weight_sha256": "7572e0d7799c41284c6430d46f9d8e234e49fd165eed06c5109e72ae2dedaf35",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_max_s33",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\final\\graph_max_s33",
       "new_training": false
     },
     {
@@ -426,7 +426,7 @@
       "model": "graph_attention",
       "seed": 11,
       "weight_sha256": "071ce596f30b502f0479c1e04ebcf19c829f204b136e79b45130446c537de5b1",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_attention_s11",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\final\\graph_attention_s11",
       "new_training": false
     },
     {
@@ -434,7 +434,7 @@
       "model": "graph_attention",
       "seed": 22,
       "weight_sha256": "076ad450710dbcb67964c2daa5f18d1cd6b0d28fd6d681131fe7488895c44409",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_attention_s22",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\final\\graph_attention_s22",
       "new_training": false
     },
     {
@@ -442,7 +442,7 @@
       "model": "graph_attention",
       "seed": 33,
       "weight_sha256": "30a1922d2751340a96f4b1294669bff83a5529b797e2d933266df841c8aee660",
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\results\\models\\final\\graph_attention_s33",
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\results\\models\\final\\graph_attention_s33",
       "new_training": false
     }
   ],

@@ -12,17 +12,17 @@ from sklearn.metrics import precision_recall_curve
 from v7_io import V6,load,settings
 from v7_train import folder,read_npz
 
-LABELS={"lead_attention":"提前 Attention（预选）","lead_mean":"提前 Mean","lead_max":"提前 Max",
-        "lead_center":"提前仅中心","lead_logit":"提前逻辑回归","lead_lag":"提前滞后规则","lead_majority":"提前全判非拥堵",
-        "current_attention":"当前 Attention","current_rule":"当前上一格低速规则","current_lag":"当前相对速度规则",
-        "current_majority":"当前全判非拥堵"}
+LABELS={"lead_attention":"Ten-minute lead Attention (preselected)","lead_mean":"Ten-minute lead Mean","lead_max":"Ten-minute lead Max",
+        "lead_center":"Ten-minute lead center-only","lead_logit":"Ten-minute lead logistic regression","lead_lag":"Ten-minute lead lag rule","lead_majority":"Ten-minute lead all noncongested",
+        "current_attention":"Current-window Attention","current_rule":"Current-window previous-bin low-speed rule","current_lag":"Current-window relative-speed rule",
+        "current_majority":"Current-window all noncongested"}
 FIG={"lead_attention":"Warning attention","lead_center":"Warning center only","lead_logit":"Logistic regression",
      "lead_lag":"Lag-2 rule","current_attention":"Current-window attention"}
 
 
 def period(bounds):
     a,b=map(date.fromisoformat,bounds)
-    return f"{a} 至 {b-timedelta(days=1)}"
+    return f"{a} to {b-timedelta(days=1)}"
 
 
 def plots(root,cfg):
@@ -65,7 +65,7 @@ def fmt(value,sd=None):
 
 
 def metrics_table(metrics,models):
-    rows=["| 配方 | 平衡准确率 | AP | 正类 F1 | 60% 召回总 FP／日 | 60% 召回恢复 FP／日 |",
+    rows=["| Configuration | Balanced accuracy | AP | Positive F1 | Total FP/day at 60% recall | Recovery FP/day at 60% recall |",
           "| --- | ---: | ---: | ---: | ---: | ---: |"]
     for m in models:
         val=metrics[m]
@@ -89,67 +89,67 @@ def render(root,cfg):
     a=stats["development"]["common"]["current_attention"]
     b=stats["development"]["common"]["lead_attention"]
     lines=[
-        "# Project B V7 审计报告",
+        "# Project B V7 Audit Report",
         "",
-        "**三折开发和独立校准已完成。纽约正式验证 blocked／N/A，Chicago 原口径和 Geolife 分列 blocked。** "
-        "提前十分钟预警按 t−2 及更早输入，原当前格判定按 t−1 及更早输入，两个协议共用原标签。",
+        "**Three development folds and independent calibration completed. Formal NYC validation remains blocked/N/A, and the original Chicago and Geolife protocols remain separately blocked.** "
+        "The ten-minute lead warning uses t−2 and earlier inputs. The original current-window classification uses t−1 and earlier inputs. Both protocols share the original labels.",
         "",
-        "## 日期、证据和实际支持",
+        "## Dates, Evidence, and Evaluation Support",
         "",
-        f"新留出登记为纽约本地 **{period(cfg['holdout'])}**。官方时间查询最新 {g['latest'] or 'N/A'}，登记区间未结束。"
-        "V7 未传输、解析或评估这段速度和标签。旧 V5、V6 留出 2026-08-31 至 11-08 只作历史参考。"
-        "源核验只读原 ZIP 指纹、代码和许可的开发原料。 "
-        "[日期证据](evidence/date_gate.json) · [计划与禁用区间](plan.md) · [NYC DOT 数据](https://data.cityofnewyork.us/d/i4gi-tjb9) · "
-        "[Chicago 停更](https://data.cityofchicago.org/stories/s/c28d-stgw)",
+        f"The new holdout is registered for **{period(cfg['holdout'])}** in NYC local time. The latest official timestamp was {g['latest'] or 'N/A'}, before the registered period ended. "
+        "V7 did not transfer, parse, or evaluate speeds and labels from this period. The previous V5 and V6 holdouts from 2026-08-31 through 11-08 serve only as historical references. "
+        "Source verification read only the original ZIP fingerprint, code, and authorized development inputs. "
+        "[Date evidence](evidence/date_gate.json) · [Plan and excluded periods](plan.md) · [NYC DOT data](https://data.cityofnewyork.us/d/i4gi-tjb9) · "
+        "[Chicago discontinuation](https://data.cityofchicago.org/stories/s/c28d-stgw)",
         "",
-        f"固定 {graph['road_count']} 条有向路段、{graph['edges']} 条候选边。A 复建数组逐字节匹配 V6，"
-        "B 的全部真值与 A 逐格相同。B 按固定日历全量出分，原 A 保留上一格资格。共同支持为 A 的已知键。 "
-        "[原料验签](evidence/inputs.json) · [复建与真值对齐](evidence/prepared_development.json) · [时点合同](方法与数据合同.md)",
+        f"The fixed graph has {graph['road_count']} directed road segments and {graph['edges']} candidate edges. Rebuilt A arrays match V6 byte for byte. "
+        "B and A share ground truth window for window. B scores the entire fixed calendar while A retains its prior-bin eligibility rule. Common support comprises the known A keys. "
+        "[Input verification](evidence/inputs.json) · [Reconstruction and label alignment](evidence/prepared_development.json) · [Timing contract](method_and_data_contract.md)",
         "",
-        "| 评估段 | 本地日期 | B 固定出分键 | B 全量已知 | B unknown | A／B 共同已知 | 正例 | 恢复负例 |",
+        "| Evaluation split | Local dates | B fixed scoring keys | B known windows | B unknown | A/B shared known | Positive | Recovery negative |",
         "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for fold,bounds in {**cfg["folds"],"final":cfg["calibration"]}.items():
         row=load(root/"evidence"/f"fold_lead_{fold}.json")["parts"][1]
-        lines.append(f"| {'独立校准' if fold=='final' else fold.upper()} | {period(bounds)} | {row['expected']:,} | "
+        lines.append(f"| {'Independent calibration' if fold=='final' else fold.upper()} | {period(bounds)} | {row['expected']:,} | "
                      f"{row['positive']+row['negative']:,} | {row['unknown_eligible']:,} | {row['current_known']:,} | "
                      f"{row['positive']:,} | {row['high_risk_recovered']:,} |")
     lines += ["",
-        "unknown 保留在出分文件和数据漏斗，监督评价只用已知。A、B 共同键用 B 在其全量已知样本上定出的原阈值计算。"
-        "数据量不足的开峰滞后按缺失位处理。 "
-        "[逐折支持示例](evidence/fold_lead_f1.json) · [全量及共同指标](results/analysis/phase_metrics.csv)",
+        "Unknown windows remain in score files and coverage funnels. Supervised metrics use known labels only. On the common keys, B uses its original threshold fitted on its complete known support. "
+        "Missing lag information at the start of a peak period is represented by missingness indicators. "
+        "[Example fold support](evidence/fold_lead_f1.json) · [Full and common-support metrics](results/analysis/phase_metrics.csv)",
         "",
-        "## 开发三折实测",
+        "## Three-Fold Development Results",
         "",
-        "各神经组按种子 11、22、33 先作三折等权平均，再报告种子均值和标准差。规则和逻辑回归每折一次。"
-        "开发使用同折选择 AP checkpoint 并计算诊断阈值。", ""]
+        "For each neural configuration, average the three folds equally within seeds 11, 22, and 33. Then report the seed mean and standard deviation. Rules and logistic regression run once per fold. "
+        "Development uses each fold to select the AP checkpoint and calculate diagnostic thresholds.", ""]
     leads=["lead_attention","lead_mean","lead_max","lead_center","lead_logit","lead_lag","lead_majority"]
     lines+=metrics_table(stats["development"]["full"],leads)
     lines+=["",
-        f"在共同已知键上，B Attention 的 AP／正类 F1 为 {b['AP']:.4f}／{b['f1']:.4f}，"
-        f"A 当前 Attention 为 {a['AP']:.4f}／{a['f1']:.4f}。"
-        "提前协议移除了标签中的上一格动态量，并改用全量已知训练和无路由评分，差值反映两个协议的整体难度。"
-        f"B 全量 BA 为 {d['balanced_accuracy']:.4f}，风险组两类等权准确率为 {d['risk_balanced_accuracy']:.4f}。 "
-        "[共同键 PR](figures/common_PR_f3.png) · [共同样本指标](results/analysis/phase_metrics.csv)",
+        f"On the common known keys, B Attention has AP {b['AP']:.4f} and positive F1 {b['f1']:.4f}. "
+        f"A current-window Attention has AP {a['AP']:.4f} and positive F1 {a['f1']:.4f}. "
+        "The lead protocol excludes the previous-bin quantities that contribute to the label, trains on all known windows, and scores without routing. Differences reflect the combined difficulty of the protocols. "
+        f"On the full B support, balanced accuracy is {d['balanced_accuracy']:.4f} and equal-class accuracy within the risk group is {d['risk_balanced_accuracy']:.4f}. "
+        "[Common-key PR curves](figures/common_PR_f3.png) · [Common-support metrics](results/analysis/phase_metrics.csv)",
         "",
-        "## 28 日独立校准诊断",
+        "## 28-Day Independent Calibration",
         "",
-        f"先用开发折锁定中位 epoch，再拟合最终模型。B 用校准最大 BA，A 用原最大 F1。"
-        f"冻结时间 {freeze['frozen_utc']}。表内为该校准段的诊断值。 "
-        "[冻结权重和阈值](evidence/calibration_freeze.json) · [检查点和种子](results/development_receipt.json)",
+        f"Lock the median epoch from development folds before fitting final models. B maximizes calibration balanced accuracy. A uses its original max-F1 rule. "
+        f"The freeze time is {freeze['frozen_utc']}. The table reports diagnostics on that calibration split. "
+        "[Frozen weights and thresholds](evidence/calibration_freeze.json) · [Checkpoints and seeds](results/development_receipt.json)",
         ""]
     lines+=metrics_table(stats["calibration"]["full"],leads[:-1])
     lines+=["",
-        f"校准期 B Attention 的 AP／BA／正类 F1 为 {cal['AP']:.4f}／{cal['balanced_accuracy']:.4f}／{cal['f1']:.4f}。"
-        "BA 最大的工作点和以 F1 最大为目标的工作点会有不同取舍。全部混淆、分类阈值、ROC-AUC、覆盖、成本和逐种子结果随包。 "
-        "[阈值和混淆](results/analysis/phase_metrics.csv)",
+        f"Calibration B Attention has AP {cal['AP']:.4f}, balanced accuracy {cal['balanced_accuracy']:.4f}, and positive F1 {cal['f1']:.4f}. "
+        "Optimizing balanced accuracy and optimizing F1 select different trade-offs. The package includes confusion counts, thresholds, ROC-AUC, coverage, costs, and per-seed results. "
+        "[Thresholds and confusion counts](results/analysis/phase_metrics.csv)",
         "",
-        "## 等召回误报和配对区间",
+        "## Matched-Recall False Positives and Paired Intervals",
         "",
-        "从全量已知分数中取达到相同 TP 数的前缀，主点目标 60%。总误报和实际上一格低速后恢复的误报分列。"
-        "置信区间以相同日历日期、1,000 次共享日期块重采样，报告 Attention 减基线。表为三折开发诊断。 ",
+        "On the full known support, select score prefixes with the same number of true positives, with 60% recall as the primary target. Report total false positives and false positives for recovery from previous-bin low speed separately. "
+        "The confidence intervals use the same calendar dates and 1,000 shared date-block resamples, reporting Attention minus each baseline. The table covers the three development folds. ",
         "",
-        "| 基线 | ΔAP（95% 区间） | Δ总 FP／日（95% 区间） | Δ恢复 FP／日（95% 区间） |",
+        "| Baseline | Δ AP (95% interval) | Δ total FP/day (95% interval) | Δ recovery FP/day (95% interval) |",
         "| --- | ---: | ---: | ---: |",
     ]
     for name in ("lead_lag","lead_logit","lead_center"):
@@ -160,27 +160,27 @@ def render(root,cfg):
             terms.append(f"{row.difference:+.4f} [{row.low_95:+.4f}, {row.high_95:+.4f}]")
         lines.append(f"| {LABELS[name]} | "+" | ".join(terms)+" |")
     lines+=["",
-        "与中心消融相比，恢复 FP 在主点减少，AP 和总 FP 的差值区间跨零。校准段的中心模型 AP 略高。"
-        "三折分数支持提前排序改善的开发证据，跨新日期表现待正式留出。 "
-        "[全部召回点](results/analysis/matched_recall.csv) · [日期块](results/analysis/date_blocks.csv) · [误报曲线](figures/matched_recall.png)",
+        "Relative to the center-only ablation, recovery false positives fell at the primary matched-recall point. The AP and total-FP intervals cross zero. On calibration, the center-only model had slightly higher AP. "
+        "The three folds support a development-stage gain in early-warning ranking. Performance on new dates awaits formal holdout evaluation. "
+        "[All recall points](results/analysis/matched_recall.csv) · [Date blocks](results/analysis/date_blocks.csv) · [False-positive curves](figures/matched_recall.png)",
         "",
-        "## 验收与复核",
+        "## Acceptance and Reproduction",
         "",
-        "改写 t−1 和 t 起的中心、邻居观测后，B 输入和三池化分数一致，真值改变。另检查滞后边界、冻结先验及采样独立于实际风险。"
-        f"复算 {proof['assessments']} 组配置、{proof['matched_rows']} 行等召回记录，"
-        f"抽样重放 {proof['replayed']} 组，最大分数差 {proof['max_score_difference']:.3g}。"
-        "34 项工程测试均只证明工程机制。 "
-        "[复算和权重重放](evidence/verification_replay.json) · [测试报告](测试报告.md)",
+        "After changing center and neighbor observations from t−1 and t onward, B inputs and scores for all three poolings matched while ground truth changed. Checks also covered lag boundaries, frozen priors, and sampling independent of actual risk. "
+        f"Independently recomputed {proof['assessments']} configurations and {proof['matched_rows']} matched-recall rows. "
+        f"Sample replay covered {proof['replayed']} groups, with a maximum score difference of {proof['max_score_difference']:.3g}. "
+        "The 34 engineering tests verify the implementation mechanisms. "
+        "[Recomputation and weight replay](evidence/verification_replay.json) · [Test report](test_report.md)",
         "",
-        "1. 核验 V6 原 ZIP、V7 清单、开发缓存和固定图的 SHA。",
-        "2. 重建两协议的开发数组，检查旧日期、真值、观测时点和全量键。",
-        "3. 从逐窗 NPZ 独立复算 AP、BA、F1、混淆、阈值及等召回，再抽样安全重放。",
-        "4. 对照正式状态、日期闸门和冻结模型。发布未覆盖全部预登记日期时保持 blocked。",
+        "1. Verify SHA-256 for the original V6 ZIP, V7 manifest, development caches, and fixed graph.",
+        "2. Rebuild development arrays for both protocols. Verify excluded old dates, ground truth, observation cutoffs, and the full key sets.",
+        "3. Independently recompute AP, BA, F1, confusion counts, thresholds, and matched recall from per-window NPZ files, then safely replay samples.",
+        "4. Check formal status, the date gate, and frozen models. Keep formal status blocked until publication covers all preregistered dates.",
         "",
-        "[一键复现和审计导航](README_审计入口.md)。干净解压收据和 ZIP 同级。",
+        "[Reproduction and audit guide](README_audit.md). The clean extraction receipt accompanies the ZIP.",
         ""]
-    (root/"审计报告.md").write_text("\n".join(lines),encoding="utf-8")
-    print(dict(report=str(root/"审计报告.md"),NYC_formal=s["NYC_formal"],development_AP=d["AP"],development_F1=d["f1"]),flush=True)
+    (root/"audit_report.md").write_text("\n".join(lines),encoding="utf-8")
+    print(dict(report=str(root/"audit_report.md"),NYC_formal=s["NYC_formal"],development_AP=d["AP"],development_F1=d["f1"]),flush=True)
 
 
 if __name__=="__main__":

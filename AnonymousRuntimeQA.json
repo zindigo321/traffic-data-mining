@@ -12,5 +12,5 @@
   "Python_syntax_check": "PASS",
   "training_or_label_changes": false,
   "full_retraining_this_privacy_review": false,
-  "logs": "Evidence/匿名副本运行验证/"
+  "logs": "Evidence/anonymous_runtime_validation/"
 }

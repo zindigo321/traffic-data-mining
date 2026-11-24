@@ -8,7 +8,7 @@ from v6_check import RELEASE,WORK
 from v6_io import CODE,python,record
 
 STAGES=("check","download","prepare","test","calibrate","freeze","evaluate","verify","report")
-DOCS=("plan.md","registered_holdout.md","README_审计入口.md","方法与数据合同.md","测试报告.md")
+DOCS=("plan.md","registered_holdout.md","README_audit.md","method_and_data_contract.md","test_report.md")
 EVIDENCE=("plan_receipt.json","date_gate.json","registration.json","chicago_status.json")
 
 

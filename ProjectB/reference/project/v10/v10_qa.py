@@ -78,7 +78,7 @@ def qa(run, output, scratch):
                 detail.append(dict(**receipt, console_sha256=sha(log),
                                    console_tail=log.read_text(encoding="utf-8", errors="replace")[-1400:]))
     initial = load(scratch / "zip.json")
-    save(output / "解压复核.json", dict(**initial, completed_utc=now(), bytes=archive.stat().st_size,
+    save(output / "extraction_verification.json", dict(**initial, completed_utc=now(), bytes=archive.stat().st_size,
          documents=len(DOCS), independent_recompute=offline, clean_model_replay=replay,
          clean_full_retrain=rerun, engineering_tests=tests["total"], reconstructed_lead_arrays=signed,
          reproduced_tables=tables, thresholds_identical=True, calibration_weight_digests=weight_rows,

@@ -94,14 +94,14 @@ def main():
     out.mkdir(exist_ok=True)
     t=ROOT/"results/holdout/metrics.csv"
     if not t.exists():
-        (out/"computed_summary.md").write_text("# V3 指标\n\n正式留出无完整结果，查看 evidence/blocked.json。\n",encoding="utf-8")
+        (out/"computed_summary.md").write_text("# V3 Metrics\n\nA complete formal holdout result is unavailable. See evidence/blocked.json.\n",encoding="utf-8")
         return
     table=pd.read_csv(t)
     holdout(table)
     columns=["AP","f1","ROC_AUC","precision","recall","accuracy","risk_FP","fp_per_day","event_f1"]
     p=table.groupby("comparison")[columns].agg(["mean","std"])
     p.to_csv(out/"summary.csv",na_rep="N/A")
-    lines=["# 实测三种子指标","", "| 配方 | AP | 正类 F1 | 误报/日 | 事件 F1 |",
+    lines=["# Measured Metrics Across Three Seeds","", "| Configuration | AP | Positive F1 | FP/day | Event F1 |",
            "| --- | ---: | ---: | ---: | ---: |"]
     for n,g in table.groupby("comparison"):
         values=[f"{g[f].mean():.4f} ± {g[f].std():.4f}" for f in ("AP","f1","fp_per_day","event_f1")]

@@ -92,7 +92,7 @@ def check(root,cfg):
                 assert snap[f"{fold}/{job}"]=={p.name:sha(p) for p in sorted(dest.iterdir()) if p.is_file()}
     orig_freeze=bundle/"evidence/calibration_freeze.json"
     info=dict(status="PASS",checked_utc=now(),V7_zip_sha256=EXPECTED,**sizes,code_files=len(files),
-        source_archive=str(archive.resolve()),V7_report_sha256=sha(bundle/"审计报告.md"),
+        source_archive=str(archive.resolve()),V7_report_sha256=sha(bundle/"\u5ba1\u8ba1\u62a5\u544a.md"),
         original_V7_freeze_sha256=sha(orig_freeze),prepared=pinned,reference=snap,reference_runs=len(snap),
         V5_V6_holdout_used=False,new_holdout_read=False,inheritance="V7 frozen legal data, dev/cal prediction and weight only",
         prereg_utc=registration["at_utc"])

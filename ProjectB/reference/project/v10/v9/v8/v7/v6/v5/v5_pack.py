@@ -9,8 +9,8 @@ import zipfile
 from v5_check import verify_directory
 from v5_io import load,now,save,sha
 
-NAME="ProjectB_GraphTransformer_V5_审计包"
-DOCS=("README_审计入口.md","plan.md","protocol_nyc.md","amendment_nyc.md","方法与数据合同.md","审计报告.md","测试报告.md")
+NAME="ProjectB_GraphTransformer_V5_audit_bundle"
+DOCS=("README_audit.md","plan.md","protocol_nyc.md","amendment_nyc.md","method_and_data_contract.md","audit_report.md","test_report.md")
 FOLDERS=("project","evidence","results","reports","figures","logs","synthetic")
 
 
