@@ -8,8 +8,8 @@ import zipfile
 from check_prior import verified_directory
 from v3_io import now,save,sha
 
-NAME="ProjectB_GraphTransformer_V3_审计包"
-DOCUMENTS=("README_审计入口.md","plan.md","方法与数据合同.md","审计报告.md","测试报告.md")
+NAME="ProjectB_GraphTransformer_V3_audit_bundle"
+DOCUMENTS=("README_audit.md","plan.md","method_and_data_contract.md","audit_report.md","test_report.md")
 
 
 def files(root):

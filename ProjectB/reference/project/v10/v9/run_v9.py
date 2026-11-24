@@ -10,7 +10,7 @@ from v9_check import PREPARED, RELEASE
 from v9_io import CODE, V8, python, record, save
 
 PHASES = ("check", "probe", "test", "develop", "calibrate", "analysis", "verify", "report")
-V7_PROTOCOL = Path("G:/gpt-file/Codex/2026-11-10/project-b-graph-transformer-graph-transformer/outputs/ProjectB_GraphTransformer_V7/ProjectB_GraphTransformer_V7_审计包")
+V7_PROTOCOL = Path("G:/gpt-file/Codex/2026-11-10/project-b-graph-transformer-graph-transformer/outputs/ProjectB_GraphTransformer_V7/ProjectB_GraphTransformer_V7_\u5ba1\u8ba1\u5305")
 
 
 def initialize(out, source):

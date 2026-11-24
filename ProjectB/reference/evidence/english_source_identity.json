@@ -1,0 +1,25 @@
+{
+  "original_freeze_sha256": "e716e42b73f4275e8ce0ffb06fd2212b817e1dfbafc034671894d970b56e02de",
+  "original_frozen_code": {
+    "dynamic_analysis.py": "aee89acc62601972047a2fd3129df046371e1743e0084564ca1589bb35806381",
+    "dynamic_check.py": "f1ee9010e0c8e071b043b2364c7ec7259fd65b6669c9911d549d6849dd9daa7f",
+    "dynamic_clean_qa.py": "03f987d63acc31285d24281595b3901098d84b89acb9f8d49db639ac6a1c35c5",
+    "dynamic_model.py": "677110f2a550a35bcf700e290aac4c097771df5896c7d0f102a0d401f4e94957",
+    "dynamic_pack.py": "24ab76b6988845d5ec39758c7c43b94b5f126f8284013dc83a63c8779d91721e",
+    "dynamic_report.py": "8cfa7383ea0fe78a9d61cfd4e0f0121f47193fc2e5122aecfd495fbf72df53b1",
+    "dynamic_score.py": "03c2faa58160fe53917aa10826d0f943fececf6828d5ca26f4725abaddebdac3",
+    "dynamic_train.py": "3601834c1a0cb9faecd9b0aecfc030915ec1d76d642693796918199d3ef3cdc1",
+    "dynamic_verify.py": "c9ef180613b5a2aeabc6cd8f8a4eb8d36756c63f7aa5004fdd717fb51de89d0b"
+  },
+  "english_code": {
+    "dynamic_analysis.py": "aee89acc62601972047a2fd3129df046371e1743e0084564ca1589bb35806381",
+    "dynamic_check.py": "f1ee9010e0c8e071b043b2364c7ec7259fd65b6669c9911d549d6849dd9daa7f",
+    "dynamic_clean_qa.py": "03f987d63acc31285d24281595b3901098d84b89acb9f8d49db639ac6a1c35c5",
+    "dynamic_model.py": "677110f2a550a35bcf700e290aac4c097771df5896c7d0f102a0d401f4e94957",
+    "dynamic_pack.py": "6f4812bd1bbf74b67d24cb7f97f31fdbf82e9a9e4eb88f1089e450b8d2da7afa",
+    "dynamic_report.py": "36f1b2116dcc3b58aa2a2aff6d2f86d89eb3d18dbffb6500960ef01a5848c3ac",
+    "dynamic_score.py": "03c2faa58160fe53917aa10826d0f943fececf6828d5ca26f4725abaddebdac3",
+    "dynamic_train.py": "3601834c1a0cb9faecd9b0aecfc030915ec1d76d642693796918199d3ef3cdc1",
+    "dynamic_verify.py": "b2d43f4d20dadbdb0a3ab7507a1b9cb53346191ca3b993bd64f34d1571aa1069"
+  }
+}

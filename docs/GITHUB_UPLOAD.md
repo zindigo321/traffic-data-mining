@@ -1,17 +1,17 @@
-# 匿名公开副本 GitHub提交
+# Publishing the Anonymous Copy to GitHub
 
-本副本已清理文件名、正文、Office/PDF作者属性及日志身份字段；旧版未匿名的作业包、ZIP和PPT不应再加入此仓库或Release。审查结果见根目录PrivacyReview.json。
+This copy was prepared with anonymized filenames and text, Office and PDF author properties, and log identity fields. Keep earlier, non-anonymized coursework bundles, ZIPs, and decks out of the public repository and Releases. See `PrivacyReview.json` for the review.
 
-## 新建仓库
+## Create a Repository
 
-打开https://github.com/new，以本人账号创建Public空仓库，例如traffic-data-mining-course。不要勾选自动生成README、.gitignore或License；本地已经准备好文件。
+Open <https://github.com/new> in your own account and create an empty public repository, for example `traffic-data-mining-course`. The local archive already contains its README and ignore rules.
 
-## 本地检查与首次提交
+## Local Checks and Initial Commit
 
-本副本已初始化main并设置仅本仓库生效的匿名作者名Course Archive及占位邮箱archive@example.invalid，不使用本机全局个人署名。
+The original public copy was prepared with `main` and the repository-local anonymous identity `Course Archive <archive@example.invalid>`.
 
 ```powershell
-Set-Location -LiteralPath 'G:\gpt-file\Codex\outputs\TrafficDataMining_GitHub'
+Set-Location -LiteralPath 'path/to/TrafficDataMining_GitHub'
 git config --local user.name
 git config --local user.email
 git add .
@@ -22,11 +22,11 @@ git remote add origin https://github.com/YOUR_GITHUB_USERNAME/traffic-data-minin
 git push -u origin main
 ```
 
-将YOUR_GITHUB_USERNAME换成本人GitHub账号，若仓库名不同也一并更改。第一次push如弹出浏览器，按提示登录授权；无需把密码或Token写入代码、URL或聊天。匿名提交字段不改变公开仓库所属的GitHub账号，仓库拥有者仍在GitHub网页上可见。
+Replace `YOUR_GITHUB_USERNAME` and the repository name as needed. If Git opens a browser on first push, sign in there. Keep passwords and tokens out of code, remote URLs, and chats. Repository ownership is visible on GitHub independently of the anonymous commit identity.
 
-## 后续更新
+## Subsequent Updates
 
-添加新文件前检查正文、文件属性、截图、署名及学号，沿用本仓库匿名提交身份。新运行日志可能记录本机路径，先审查再提交。
+Review text, file properties, screenshots, bylines, and student IDs before adding files. Use the repository's anonymous commit identity. Review new run logs for local paths before publishing.
 
 ```powershell
 git status
@@ -36,13 +36,12 @@ git commit -m "Update anonymized coursework"
 git push
 ```
 
-本副本最大单文件约22.5MB，普通Git足够。不要提交原课程压缩包、未匿名期末ZIP或个人轨迹。正式课程提交所需的实名材料另行保管，不能混入公开副本。
+The largest file in the original public copy was about 22.5 MB and fit in ordinary Git. Keep the original course archive, non-anonymized final ZIP, individual trajectories, and formal named coursework submissions in private storage.
 
-## 来源与复核
+## References
 
-- https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
-- https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
+- [Add locally hosted code to GitHub](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
+- [Large files on GitHub](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)
+- [Set a commit email address](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address)
 
-本次只完成本地匿名整理，没有创建远程仓库、commit或push。
-
-匿名提交邮箱设置依据：https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address
+The original preparation step covered local anonymization only. Repository creation, commit, and push followed separately.

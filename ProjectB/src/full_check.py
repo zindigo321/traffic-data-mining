@@ -39,7 +39,7 @@ def check(root,cfg):
     specs=[("V10","download_development.json"),("V5","download_holdout_sealed.json"),("V6","download_holdout_sealed.json")]
     for version,filename in specs:
         prior=Path(BASE)/"outputs"/("ProjectB_GraphTransformer"+("" if version=="V1" else "_"+version))
-        name="ProjectB_GraphTransformer_"+version+"_审计包"
+        name="ProjectB_GraphTransformer_"+version+"_\u5ba1\u8ba1\u5305"
         bundle=source if version=="V10" else prior/name
         if version!="V10":
             source_checks[version]=dict(zip_sha256=sha(prior/(name+".zip")),**directory(bundle))

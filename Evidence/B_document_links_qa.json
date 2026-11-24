@@ -5,15 +5,15 @@
   "source_B": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi",
   "path_checks": [
     {
-      "document": "实验总报告.md",
+      "document": "experiment_report.md",
       "line": 207,
-      "reference": "ProjectB/数据来源与使用说明.md",
-      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\数据来源与使用说明.md",
+      "reference": "ProjectB/data_sources_and_usage.md",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\data_sources_and_usage.md",
       "exists": true,
       "kind": "file"
     },
     {
-      "document": "实验总报告.md",
+      "document": "experiment_report.md",
       "line": 253,
       "reference": "ProjectB/reference/results/summary.json",
       "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\summary.json",
@@ -21,7 +21,7 @@
       "kind": "file"
     },
     {
-      "document": "实验总报告.md",
+      "document": "experiment_report.md",
       "line": 253,
       "reference": "ProjectB/reference/results/operating_points.csv",
       "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\operating_points.csv",
@@ -29,7 +29,7 @@
       "kind": "file"
     },
     {
-      "document": "实验总报告.md",
+      "document": "experiment_report.md",
       "line": 253,
       "reference": "ProjectB/reference/results/matched_recall.csv",
       "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\matched_recall.csv",
@@ -37,7 +37,7 @@
       "kind": "file"
     },
     {
-      "document": "实验总报告.md",
+      "document": "experiment_report.md",
       "line": 253,
       "reference": "ProjectB/reference/results/paired_date_blocks.csv",
       "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\results\\paired_date_blocks.csv",
@@ -45,7 +45,7 @@
       "kind": "file"
     },
     {
-      "document": "实验总报告.md",
+      "document": "experiment_report.md",
       "line": 254,
       "reference": "ProjectB/reference/evidence/cohort_final.json",
       "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\evidence\\cohort_final.json",
@@ -53,7 +53,7 @@
       "kind": "file"
     },
     {
-      "document": "实验总报告.md",
+      "document": "experiment_report.md",
       "line": 254,
       "reference": "ProjectB/reference/evidence/dynamic_threshold_freeze.json",
       "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\reference\\evidence\\dynamic_threshold_freeze.json",
@@ -61,15 +61,15 @@
       "kind": "file"
     },
     {
-      "document": "实验总报告.md",
+      "document": "experiment_report.md",
       "line": 255,
-      "reference": "ProjectB/本地运行验证.json",
-      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\本地运行验证.json",
+      "reference": "ProjectB/local_run_verification.json",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\local_run_verification.json",
       "exists": true,
       "kind": "file"
     },
     {
-      "document": "实验总报告.md",
+      "document": "experiment_report.md",
       "line": 255,
       "reference": "ProjectB/validation_logs/",
       "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\validation_logs",
@@ -77,7 +77,7 @@
       "kind": "directory"
     },
     {
-      "document": "实验总报告.md",
+      "document": "experiment_report.md",
       "line": 255,
       "reference": "ProjectB/requirements-lock.txt",
       "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\requirements-lock.txt",
@@ -86,8 +86,8 @@
     },
     {
       "document": "explicit required check",
-      "reference": "ProjectB/数据来源与使用说明.md",
-      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\数据来源与使用说明.md",
+      "reference": "ProjectB/data_sources_and_usage.md",
+      "mapped_source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GT_niulaoshi\\data_sources_and_usage.md",
       "exists": true,
       "kind": "file"
     },
@@ -240,11 +240,11 @@
   "train_example": "python ProjectB/run.py train --output \"D:\\CourseRuns\\B_new\"",
   "modified_documents": [
     {
-      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\README_提交说明.md",
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\README_submission.md",
       "sha256": "aeac17303c36599aeb3119ffaaacdfbd7087e34b4f2f593aafd02ac1e8c64ee1"
     },
     {
-      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\实验总报告.md",
+      "path": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\final_course_20261117\\experiment_report.md",
       "sha256": "3ec18e0e5f4419c744761a6f499339b402ad9190bdc20b6f4ec8d5b81d3cb85f"
     }
   ],

@@ -9,8 +9,8 @@ import zipfile
 from v6_check import verify_directory
 from v6_io import load,now,save,sha
 
-NAME="ProjectB_GraphTransformer_V6_审计包"
-DOCS=("README_审计入口.md","plan.md","registered_holdout.md","方法与数据合同.md","审计报告.md","测试报告.md")
+NAME="ProjectB_GraphTransformer_V6_audit_bundle"
+DOCS=("README_audit.md","plan.md","registered_holdout.md","method_and_data_contract.md","audit_report.md","test_report.md")
 DIRS=("project","evidence","results","reports","figures","logs","synthetic")
 
 

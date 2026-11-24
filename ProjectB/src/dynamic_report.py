@@ -37,12 +37,12 @@ def report(root,cfg):
         m=summary['2']['constrained'][model]
         rows.append([model,pm(m,'AP'),pm(m,'f1'),precision(m['balanced_accuracy']),precision(m['recall']),
                      f"{m['FP_day']:.3f}",f"{m['recovery_FP_day']:.3f}"])
-    metric_table=table(['配方','AP（均值±样本SD）','正类 F1（均值±样本SD）','平衡准确率','召回','总FP/日','恢复FP/日'],rows)
+    metric_table=table(['Recipe','AP (mean ± sample SD)','Positive F1 (mean ± sample SD)','Balanced accuracy','Recall','Total FP/day','Recovery FP/day'],rows)
     matched_rows=[]
     for model in ALL:
         m=paired['2'][model]['matched60']
         matched_rows.append([model,precision(m['achieved_recall']),f"{m['FP_per_day']:.3f}",f"{m['recovery_FP_per_day']:.3f}"])
-    matched_table=table(['配方','实际召回','总 FP/日','恢复 FP/日'],matched_rows)
+    matched_table=table(['Recipe','Achieved recall','Total FP/day','Recovery FP/day'],matched_rows)
     points=pd.read_csv(root/'results/matched_recall.csv',float_precision='round_trip')
     signs=[]
     deltas=[]
@@ -51,95 +51,98 @@ def report(root,cfg):
         b=points[(points.model=='graph_'+pool)&(points.phase==2)&(points.scope=='all')&(points.target_recall==.6)].sort_values('seed')
         total=(a.FP_per_day.to_numpy()<b.FP_per_day.to_numpy())
         recovery=(a.recovery_FP_per_day.to_numpy()<b.recovery_FP_per_day.to_numpy())
-        signs.append(f'{pool}：总误报下降 {int(total.sum())}/3 种子，恢复误报下降 {int(recovery.sum())}/3 种子，同时下降 {int((total&recovery).sum())}/3 种子。')
+        signs.append(f'{pool}: total false positives fell for {int(total.sum())}/3 seeds, recovery false positives for {int(recovery.sum())}/3, and both for {int((total&recovery).sum())}/3.')
         ma=summary['2']['constrained']['dynamic_'+pool]
         mb=summary['2']['constrained']['graph_'+pool]
         deltas.append(['dynamic_'+pool+' − graph_'+pool,f"{ma['AP']-mb['AP']:+.4f}",f"{ma['f1']-mb['f1']:+.4f}",
             f"{a.FP_per_day.mean()-b.FP_per_day.mean():+.3f}",f"{a.recovery_FP_per_day.mean()-b.recovery_FP_per_day.mean():+.3f}"])
-    delta_table=table(['同池化配对差','ΔAP','ΔF1','Δ等召回总FP/日','Δ等召回恢复FP/日'],deltas)
+    delta_table=table(['Same-pooling paired difference','ΔAP','ΔF1','ΔTotal FP/day at matched recall','ΔRecovery FP/day at matched recall'],deltas)
     intervals=pd.read_csv(root/'results/paired_date_blocks.csv',float_precision='round_trip')
     interval_rows=[[r.contrast,r.metric,f'{r.low95:+.4f}',f'{r.high95:+.4f}'] for r in intervals.itertuples()
         if r.phase==2 and r.metric in ('f1','FP60_day','recovery_FP60_day')]
-    interval_table=table(['配对','指标','条件性95%下界','条件性95%上界'],interval_rows)
+    interval_table=table(['Pair','Metric','Conditional 95% lower bound','Conditional 95% upper bound'],interval_rows)
     environment=load(root/'logs/environment_dynamic.json')
-    outcome='达到回测数值目标' if p['AP']>=.6 and p['f1']>=.6 else '未达到回测数值目标'
-    budgets=table(['池化','回测 AP≥.60 且 F1≥.60（三种子均值）','总FP≤12/日','恢复FP≤6/日'],[
-        [model,'是' if summary['2']['constrained'][model]['AP']>=.6 and summary['2']['constrained'][model]['f1']>=.6 else '否',
-         '是' if summary['2']['constrained'][model]['FP_day']<=12 else '否',
-         '是' if summary['2']['constrained'][model]['recovery_FP_day']<=6 else '否'] for model in DYNAMIC])
+    outcome='met the backtest metric targets' if p['AP']>=.6 and p['f1']>=.6 else 'fell short of the backtest metric targets'
+    budgets=table(['Pooling','Backtest AP ≥ 0.60 and F1 ≥ 0.60 (three-seed means)','Total FP ≤ 12/day','Recovery FP ≤ 6/day'],[
+        [model,'Yes' if summary['2']['constrained'][model]['AP']>=.6 and summary['2']['constrained'][model]['f1']>=.6 else 'No',
+         'Yes' if summary['2']['constrained'][model]['FP_day']<=12 else 'No',
+         'Yes' if summary['2']['constrained'][model]['recovery_FP_day']<=6 else 'No'] for model in DYNAMIC])
     resources=pd.read_csv(root/'results/training_resources.csv')
     new=resources[resources.new_training]
     clean_path=root/'evidence/clean_qa_prepackage.json'
     clean=load(clean_path) if clean_path.exists() else None
     commands='''```powershell
 $python = 'D:/conda_envs/niulaoshi/python.exe'
-# 在解压审计包根目录执行：仅依赖包内预测，独立重算指标与阈值
+# From the extracted audit package root, recompute metrics and thresholds from bundled predictions.
 & $python -B -X utf8 project/run_dynamic.py --phase verify --artifacts (Get-Location).Path --output G:/gpt-file/Codex/work/ProjectB_dynamic_verify_new --no-replay
-# 加上外部已核验 prepared 数组，抽样重放全部 36 个模型
+# Supply both externally verified prepared arrays to sample replay all 36 models.
 & $python -B -X utf8 project/run_dynamic.py --phase verify --artifacts (Get-Location).Path --output G:/gpt-file/Codex/work/ProjectB_dynamic_replay_new
-# 新目录完整重跑 18 次动态训练；静态 18 个模型仍从原审计包核验后复用
+# Rerun all 18 dynamic fits in a fresh directory and verify and reuse the 18 static models.
 & $python -B -X utf8 project/run_dynamic.py --phase all --output G:/gpt-file/Codex/work/ProjectB_dynamic_refit_new
 ```
-输出目录必须选择尚未使用的名称。分阶段命令将 `--phase all` 替换为 check、tests、development、select、final、freeze、evaluate、analysis、verify、report；初始化资料通过完整入口复制。不能用 check 覆盖既有注册收据。
+
+Choose an unused output directory. For individual phases, replace `--phase all` with check, tests, development, select, final, freeze, evaluate, analysis, verify, or report. The full entry point copies initialization files. Preserve the existing registration receipt when running check.
 '''
-    method='''# 动态边权方法与数据时点合同
+    method='''# Dynamic Edge Weight Method and Data Timing Contract
 
-节点是原 121 条有向路段；静态边 source→target 的方向、56 条候选边、54 个孤立节点及一跳局部图不变。每批图独立，目标映射为局部节点 0；只从现有物理前驱和自身取注意力，池化只覆盖目标的局部子图。输入 [B,N,104] 为 52 个训练段填补/标准化值及其 52 个缺失位，N≤5。52 列名称见 evidence/cohort_final.json。没有新复制私人轨迹。
+Nodes are the 121 original directed road segments. The original source-to-target directions, 56 candidate edges, 54 isolated nodes, and one-hop local graphs are used. Graphs in a batch are independent. The target maps to local node 0 and attends only to physical predecessors and itself. Pooling covers the target's local subgraph. The input tensor `[B,N,104]` contains 52 train-fitted imputed and standardized values plus their 52 missingness indicators, with `N ≤ 5`. See `evidence/cohort_final.json` for the 52 fields. The experiment uses public segment-level data and copied no additional private trajectories.
 
-动态描述选取 lag20/30/40_relative_speed、lag20_minus_lag30_ratio、legal_usable_count、lag20_message_count、lag20_history_days、lag20_half_last_ratio。每端使用 8 个值（仅边描述裁剪到标准化 ±5）与 8 个原始缺失位，源/目标/两端绝对差拼成 48 维。最新动态信息来自 t−2 格，标签涉及 t−1、t 两格速度及未来观测完全不进入描述。t 为目标窗口起点，出分时点 t−10；t−2 格为 [t−20,t−10)。
+The descriptors use `lag20_relative_speed`, `lag30_relative_speed`, `lag40_relative_speed`, `lag20_minus_lag30_ratio`, `legal_usable_count`, `lag20_message_count`, `lag20_history_days`, and `lag20_half_last_ratio`. Each endpoint contributes eight values and eight original missingness indicators. Values are clipped to standardized ±5 for edge descriptors only. Concatenating source, target, and their elementwise absolute difference yields 48 dimensions. The latest dynamic information is bin t−2. The t−1 and t speeds used in the label and future observations are excluded. Here t is the target window start, scoring occurs at t−10 minutes, and t−2 is [t−20,t−10).
 
-对第 l 层、第 h 头、物理边 j→i：
+For layer l, head h, and physical edge j to i:
 
-`b[l,h,i,j] = log(2) * tanh(MLP_l([u_j,u_i,abs(u_j-u_i)]))[h]`；
-`w[l,h,i,j] = exp(b[l,h,i,j]) ∈ [0.5,2]`；
-`attention = softmax_j(Q_i K_j / sqrt(8) + b[l,h,i,j] + directed_mask)`。
+`b[l,h,i,j] = log(2) * tanh(MLP_l([u_j,u_i,abs(u_j-u_i)]))[h]`
 
-MLP 为 48→16→4、GELU。每层额外 852 参数，两层共 1704；最后线性层零初始化使初始所有边权等于 1，且不扰动原骨干/分类器的随机初始化。self 边权恒为 1；任一端 lag20 相对速度缺失时退回 1；非物理边保持 mask 禁止。原 QK 已有随输入变化的注意力；本轮新增的是显式、可审计、由合法过去交通属性驱动的乘性边先验，不声称基线没有自适应注意力。所有动态参数只由训练标签学习。
+`w[l,h,i,j] = exp(b[l,h,i,j]) ∈ [0.5,2]`
 
-动态边先验张量 [B,4,N,N]，层数为 2；物理 source→target 转置成 query target/key source。仍采用 dense 局部注意力，非稀疏算法：骨干每层 O(BN²D + BND²)，边 MLP 每层 O(BN²(48×16+16×4))，额外空间 O(BHN²)。边权不会产生新的路网边，也不连接跨批图。孤立图自环为 1，固定骨干下开关动态边权输出严格相同。
+`attention = softmax_j(Q_i K_j / sqrt(8) + b[l,h,i,j] + directed_mask)`
 
-Mean：有效节点向量逐维均值；Max：有效节点逐维最大；Attention：a_i=softmax(vᵀh_i+c)，池化=sum(a_i h_i)。三者池化 O(BND)，目标节点向量与池化向量拼为 [B,64]，输出每个目标路段的二分类 logit。空图和无效中心拒绝；padding 不参加池化或有效边。
+The MLP has layers 48→16→4 with GELU. It adds 852 parameters per layer and 1,704 across both layers. Zero initialization of the final linear layer gives all edges initial weight 1 and preserves the backbone and classifier initialization. Self-edge weights stay at 1. A missing endpoint lag20 relative speed also yields weight 1. The mask excludes nonphysical edges. The original QK attention is already input-dependent. Dynamic edge weights add an explicit, auditable multiplicative prior based on legal past traffic attributes. Dynamic parameters learn only from training labels.
 
-纽约本地时间、07–09/17–19、原双格低速/历史支持/unknown 定义全部继承。训练段过去信息形成历史基准并在后段冻结；标准化仅训练输入拟合。边权不使用当前真值、risk、后续标签、评估类别或采样结果。risk 为 t−1 是否低速，只用于独立校准误报约束和事后恢复误报诊断，未用于训练/路由/边权。
+Each of the two layers has a `[B,4,N,N]` prior tensor. Physical source-to-target edges map to source keys and target queries. Local attention uses dense computation. Per-layer backbone cost is `O(BN²D + BND²)`, with edge MLP cost `O(BN²(48×16+16×4))` and additional space `O(BHN²)`. Edge weights create no additional roads or cross-batch connections. An isolated graph has only the unit self edge, so toggling dynamic weights produces exactly identical outputs for the same frozen backbone.
 
-原数据来源、下载时间/查询/哈希由 source_snapshot.json 继承并实际重核；本轮没有联网获取续期数据，也没有重新检查许可网页。官方公开表及原采集条款证据见 source_provenance/；未对官方数据添加新的许可授权。只读速度聚合分片和 prepared 数组不入包，通过 evidence/path_mapping.json、prepared.json 映射；完整原始到指标流水线仍保留在 project/full_*.py。离线 data_as_of 没有独立到达时间，以原假设截止，不把这一假设说成实时可用性已经证实。
+Mean pooling averages valid node vectors elementwise. Max pooling takes an elementwise maximum over valid nodes. Attention pooling uses `a_i=softmax(vᵀh_i+c)` and `sum(a_i h_i)`. Each costs `O(BND)`. Concatenate the target node and pooled vectors into `[B,64]` and output one binary logit per target road segment. Reject empty graphs and invalid centers. Padding is excluded from pooling and valid edges.
+
+Use New York local time, 07:00–09:00 and 17:00–19:00, and the original two-bin low-speed label, historical support, and unknown definitions. Past observations in training form the historical baseline and are frozen in subsequent periods. Fit standardization on training inputs only. Edge weights do not depend on current ground truth, risk, later labels, evaluation classes, or sampling. Risk is a t−1 low-speed indicator used for independent calibration of false-positive limits and retrospective recovery diagnostics. Training, routing, and edge weight computations exclude it.
+
+The original data sources, download times, queries, and hashes were inherited and verified against `source_snapshot.json`. This run neither fetched new dates nor rechecked the source terms. Usage rights follow the original terms. See `source_provenance/` for the official source and usage records. This historical audit directory refers to the read-only speed shards and prepared arrays in `evidence/path_mapping.json` and `evidence/prepared.json`. The full input-to-metric pipeline is in `project/full_*.py`. Offline `data_as_of` provides the original assumed cutoff, with no separate observation-arrival timestamp.
 '''
-    text(root,'方法与数据合同.md',method)
-    audit=f'''# Project B 动态边权实验审计报告
+    text(root,'method_and_data_contract.md',method)
+    audit=f'''# Project B Dynamic Edge Weight Audit Report
 
-## 结论和验收
+## Findings and Acceptance
 
-真实 NYC 公开数据实验已完成。新增 18 次动态训练（三种池化 × 三种子 × 开发/最终），复用并核验 18 个静态模型；静态模型不计作本轮新训练。主模型由开发 AP 预选为 **{primary}**，三种子回测 AP={pm(p,'AP')}，正类 F1={pm(p,'f1')}，平衡准确率={precision(p['balanced_accuracy'])}，召回={precision(p['recall'])}，**{outcome}**。总 FP/日={p['FP_day']:.3f}，恢复 FP/日={p['recovery_FP_day']:.3f}；误报预算是否维持分别见下表。另报 ROC-AUC={precision(p['ROC_AUC'])}、Precision={precision(p['precision'])}、Accuracy={precision(p['accuracy'])}；在正例仅约 3.56% 时，Accuracy 不等同于正类识别效果。
+The NYC public-data experiment completed 18 new dynamic fits across three pooling methods, three seeds, and two stages, development and final. The paired comparison reused and verified 18 static models from the earlier audit. Development AP selected **{primary}**. Across three backtest seeds, AP was {pm(p,'AP')}, positive-class F1 was {pm(p,'f1')}, balanced accuracy was {precision(p['balanced_accuracy'])}, and recall was {precision(p['recall'])}. The model **{outcome}**. It recorded {p['FP_day']:.3f} total false positives per day and {p['recovery_FP_day']:.3f} recovery false positives per day. The table reports each budget separately. ROC-AUC was {precision(p['ROC_AUC'])}, precision was {precision(p['precision'])}, and accuracy was {precision(p['accuracy'])}. With roughly 3.56% positives, interpret accuracy alongside positive-class metrics.
 
-原回测期结果早已公开，本轮是同支持时间回测消融；没有全新盲测，也没有通过此次修改补足未来独立留出。Geolife 原课程和 Chicago 原口径仍为 blocked/N/A。NYC 仅为公开代理任务，与原 Geolife 用户数、年份、北京路网和至少五分钟定义不能混称。
+The test dates had already been disclosed. This experiment compares variants over those same dates and samples. An independent blind test on new dates remains pending. The original Geolife course experiment and Chicago protocol remain blocked or N/A. NYC serves as a public proxy with different users, years, road geometry, and a different label from the original Geolife requirement for at least five continuous minutes.
 
 {budgets}
 
-## 数据、标签与完整支持
+## Data, Labels, and Evaluation Support
 
-官方数据 i4gi-tjb9，固定快照 54 个分片、1,019,891 原始行，最新 data_as_of=2026-11-11T17:12:06。路径/查询/哈希见 evidence/source_snapshot.json 与 registration_dynamic.json。固定道路数 121、候选边 56、孤立道路 54。日期使用 NYC 本地时间。最终源日不完整仍保留所有固定窗口，并将缺证据真值留为 unknown。
+The fixed snapshot of official dataset i4gi-tjb9 contains 54 shards and 1,019,891 raw rows. The latest data_as_of is 2026-11-11T17:12:06. See evidence/source_snapshot.json and registration_dynamic.json for paths, queries, and hashes. The graph has 121 fixed road segments, 56 candidate edges, and 54 isolated roads. Dates use NYC local time. The last source day was incomplete. All scheduled windows were retained, with unknown labels where the evidence was insufficient.
 
-{table(['部分','日期（右端不含）','天','已知窗','正例','负例','unknown','正例事件段'],[[r['part'],r['start']+' → '+r['stop_exclusive'],r['days'],r['known'],r['positive'],r['negative'],r['unknown'],r['positive_events']] for r in cohort])}
+{table(['Split','Dates (end exclusive)','Days','Known windows','Positive','Negative','Unknown','Positive events'],[[r['part'],r['start']+' → '+r['stop_exclusive'],r['days'],r['known'],r['positive'],r['negative'],r['unknown'],r['positive_events']] for r in cohort])}
 
-所有监督训练使用全量已知窗口，每轮每条训练 ID 一次；unknown 不变成负类。三池化/三种子在开发和最终各自完全相同的训练 IDs、归一化、评估样本键和标签上比较；各阶段 12 轮执行预算保持一致。test known=80,536，正例=2,866，阳性率={2866/80536:.4%}；覆盖=80,536/130,680={80536/130680:.4%}。逐模型预测还包含 50,144 个 test unknown，全部出分，但主指标排除。
+Supervised training uses every known window and sees each training ID once per epoch. Unknown labels remain separate from negatives. Within each development and final stage, all three poolings and three seeds use identical training IDs, normalization, evaluation sample keys, and labels. Each stage has a 12-epoch budget. The test set has 80,536 known windows, with 2,866 positives ({2866/80536:.4%}). Coverage is 80,536 of 130,680 windows ({80536/130680:.4%}). Each model also scores all 50,144 unknown test windows. The main metrics exclude those windows.
 
-时间划分及窗口边界延续原全量协议。道路在各段重叠，任务是已知道路向后时间泛化，不是跨路段或跨人员实验。公开表为聚合路段估速，没有人员/轨迹 ID，不能声称已核验人员隔离。未知到达延迟仍是离线假设。
+The original full evaluation protocol supplies the time splits and window boundaries. Roads overlap across splits, so the evaluation measures forward-in-time generalization for known roads. The public table contains aggregate segment speed estimates and no person or trajectory IDs. Generalization across roads or people and separation by person remain outside the evaluation. Observation arrival delays remain an offline assumption.
 
-## 实现和本轮配对结果
+## Implementation and Paired Results
 
-动态边权公式、张量、方向、缺失/自环规则和复杂度见 方法与数据合同.md；核心实现 project/dynamic_model.py。所有参数/优化/全量采样与原静态保持一致，新增边 MLP 两层共 1704 参数。Gate 零初始化与静态输出精确一致已实际测试。
+See method_and_data_contract.md for the dynamic edge formula, tensors, direction, missingness and self-loop behavior, and complexity. The implementation is in project/dynamic_model.py. Existing parameters, optimization, and full-sample training follow the static protocol. The two edge MLP layers add 1,704 parameters. With zero gate initialization, the dynamic and static outputs matched exactly in testing.
 
-以下是**校准段冻结的误报约束 F1 阈值**在回测上的结果，均为 11/22/33 三种子，SD 为样本标准差；AP 是 sklearn.average_precision_score，没有改 AUC 定义。
+These backtest results use **false-positive-constrained F1 thresholds frozen on calibration data**. The three seeds are 11, 22, and 33. SD is sample standard deviation. AP uses sklearn.average_precision_score and the original AUC definition remains separate.
 
 {metric_table}
 
 {delta_table}
 
-AP 与 F1 具体改善或退化均如表保留；不会按测试挑选池化、种子或阈值。选定模型与同池化静态的 AP 差={p['AP']-baseline['AP']:+.4f}，F1 差={p['f1']-baseline['f1']:+.4f}。原预选静态 Max 仍单列，不能用不同池化差异全部归因于边权。
+The tables include gains and declines in AP and F1. Pooling, seeds, and thresholds were chosen independently of the test outcomes. The selected model's AP difference from the static model with the same pooling is {p['AP']-baseline['AP']:+.4f}. Its F1 difference is {p['f1']-baseline['f1']:+.4f}. The previously selected static Max is reported separately because comparisons across poolings combine multiple effects.
 
-## 等召回恢复误报和统计局限
+## Recovery False Positives at Matched Recall
 
-主诊断点为全量 test known 支持上的 60% 召回，固定相同 TP 数；分数并列按 sample_id 处理。它是事后排序诊断，不能视作已经可部署的测试阈值。50/70/80% 及 t−2 低速组单列在 matched_recall.csv。
+The principal diagnostic compares scores at 60% recall over every known test window with the same true-positive count. Ties are resolved by sample_id. This retrospective ranking diagnostic does not provide an operating threshold. See matched_recall.csv for 50%, 70%, and 80% recall and the t−2 low-speed subgroup.
 
 {matched_table}
 
@@ -147,84 +150,84 @@ AP 与 F1 具体改善或退化均如表保留；不会按测试挑选池化、�
 
 {interval_table}
 
-日期块 bootstrap 使用 1000 次共同日期权重，条件于现有模型、固定阈值和现有日期；不覆盖模型重训或新道路总体的不确定性，未作多重比较校正。区间跨零时不宣称稳定优势。AP 不在这些 bootstrap 区间之内，其三种子 SD 在主表。
+The date-block bootstrap uses 1,000 resamples with shared date weights. Its intervals are conditional on the fitted models, fixed thresholds, and observed dates. They exclude retraining and new-road population uncertainty and do not adjust for multiple comparisons. An interval crossing zero leaves the direction uncertain. AP is outside these bootstrap intervals. Its three-seed SD appears in the main table.
 
-## 误报、结构和边权证据
+## False Positives, Graph Structure, and Edge Weights
 
-results/groups.csv 分 t−2 已低速、未低速、缺失组，含 AP、F1、混淆及恢复误报；topology_groups.csv 分 connected/isolated；daily_errors.csv 含逐日计数。事件级结果沿原同道路连续十分钟归并，直接在 operating_points.csv 中保留，与窗口级指标分开。
+results/groups.csv separates windows with low, regular, or missing speed at t−2 and reports AP, F1, confusion counts, and recovery false positives. topology_groups.csv separates connected and isolated roads. daily_errors.csv gives counts by date. operating_points.csv retains event-level results using the original grouping of consecutive 10-minute bins on the same road. These counts are separate from window-level metrics.
 
-真实边权抽样固定种子 1811，按有连接的 assessment 图随机抽最多 1024 个，不按标签抽样；保存到 results/edge_weights/。edge_multiplier_summary.csv 仅统计物理边，含中位数、分位数、边界和退回 1 的比例。edge_neutralization_diagnostic.csv 在**同一训练后骨干**上仅关闭边先验且不重新拟合阈值，用于检验机制；它不是另一次配对训练，也不用于选型。
+With seed 1811, the edge-weight audit randomly sampled up to 1,024 connected assessment graphs independently of labels and saved them under results/edge_weights/. edge_multiplier_summary.csv reports medians, quantiles, bounds, and the fallback-to-1 share for physical edges. edge_neutralization_diagnostic.csv turns off only the edge prior on **the same trained backbone** without refitting the threshold. It tests the mechanism independently of paired training and model selection.
 
-54 个孤立路段和几何候选边较少，限制边权作用范围。即使孤立图在同一固定骨干上开关无差异，重新训练共享骨干后全局参数会变化，不能把孤立组跨模型差异解释为直接边传播。原地图几何端点近邻、冲突元数据、估速和缺失分布偏差继续存在。
+The 54 isolated roads and relatively few geometric candidate edges limit the reach of edge weights. Toggling the edge prior does not affect an isolated graph on a fixed backbone. Retraining can change the shared parameters, so isolated-group differences across models do not measure direct edge propagation. Endpoint proximity in the road geometry, conflicting metadata, estimated speeds, and biases in missing observations remain limitations.
 
-## 冻结、运行和测试证据
+## Freezing, Execution, and Test Evidence
 
-开发配方：{dev['selection_rule']}。最终 epoch：{dev['epochs']}。权重/阈值冻结 UTC={freeze['frozen_utc']}，SHA-256={sha(root/'evidence/dynamic_threshold_freeze.json')}。阈值只拟合 28 天独立校准段，不读当前 test 分数；开发定 epoch 后完整执行 12 轮。动态 final 训练只先保存 calibration 预测，在冻结后才生成 test 分数；静态 test 分数来自此前已公开的只读对照。
+Development selection followed {dev['selection_rule']}. Final epochs: {dev['epochs']}. Weights and thresholds were frozen at {freeze['frozen_utc']} UTC. The freeze record SHA-256 is {sha(root/'evidence/dynamic_threshold_freeze.json')}. Threshold fitting used only the separate 28-day calibration split. Development fixed the epoch budget, and final training ran all 12 epochs. Final dynamic training saved calibration predictions first and scored the test split after freezing. Static test predictions came from the previously disclosed read-only controls.
 
-{tests['total']} 项工程测试通过，其中新增 12 项动态测试。工程样本仅测试前向、反向、过拟合、图/池化/批次/中心映射、方向、缺失退回、权重范围、安全保存和改写 t−1/t/未来观测不改变当前特征/边权/分数；不将合成分数列为真实成绩。独立重算 {verify['operating_points']} 个工作点、{verify['matched_points']} 个等召回点、{verify['group_metrics']} 个分组指标；抽样重放全部 36 个模型（18 复用静态，18 新动态），最大概率差={verify['maximum_probability_error']}。静态主指标逐值等同旧包。
+All {tests['total']} engineering tests passed, including 12 new dynamic tests. Synthetic fixtures cover forward and backward passes, overfitting, graph structure, pooling, batch isolation, center mapping, direction, missing-value fallback, weight bounds, safe persistence, and invariance of current features, weights, and scores when modifying t−1, t, or future data. Independent recomputation covered {verify['operating_points']} operating points, {verify['matched_points']} matched-recall points, and {verify['group_metrics']} subgroup metrics. Sampled replay covered all 36 models, 18 reused static and 18 new dynamic, with maximum probability difference {verify['maximum_probability_error']}. Static headline metrics matched the original package exactly.
 
-CPU={environment['cpu']}，Python={environment['python'].splitlines()[0]}，torch={environment['packages']['torch']}，每进程 {cfg['cpu_threads']} 线程、最多 {cfg['workers']} 任务。新训练 fit+score 时长之和={new.fit_and_score_seconds.sum():.1f} 秒（并行之和，非总墙钟），每模型资源详见 training_resources.csv，真实命令、退出码、用时、错误保存在 logs/。没有修改现有 Conda 环境，没有安装依赖。权重仅 weights_only=True，NPZ allow_pickle=False。
+CPU: {environment['cpu']}. Python: {environment['python'].splitlines()[0]}. Torch: {environment['packages']['torch']}. Each process used {cfg['cpu_threads']} threads, with up to {cfg['workers']} tasks. The sum of fit-and-score durations was {new.fit_and_score_seconds.sum():.1f} seconds across parallel tasks. See training_resources.csv for resources by model and logs/ for actual commands, exit codes, durations, and errors. The experiment used the existing Conda environment and dependencies. Weight loading uses weights_only=True and NPZ loading uses allow_pickle=False.
 
-本轮没有在干净目录第二次完整训练 18 个模型；干净解压只复核清单/哈希、重新算指标、重放权重和运行测试，范围见交付根目录 解压复核.json。{'封包前干净文件夹重算和重放已通过，见 evidence/clean_qa_prepackage.json。' if clean else '封包前复制复核状态尚未登记，最终以解压复核.json 为准。'}
+A second full run of the 18-model training matrix in a clean directory remains outside this audit. Clean extraction verified manifests and hashes, recomputed metrics, replayed weights, and ran tests. See extraction_verification.json at the delivery root. {'Prepackaging checks passed for recomputation and replay in a clean directory. See evidence/clean_qa_prepackage.json.' if clean else 'Refer to extraction_verification.json for the final status because the prepackaging copy check has not been registered.'}
 
-## 复核路径和交付
+## Verification and Delivery
 
-1. 核验 ZIP 外部 SHA，再核验 manifest.csv、SHA256SUMS。其自身不循环包含；清单哈希在 SHA256SUMS。
-2. 按 evidence/path_mapping.json 定位只读原审计包和 prepared 数组，按 source_snapshot.json 逐分片复核查询、行数、SHA。来源采集与条款证据在 source_provenance/。
-3. 核验 plan、config、source、prepared 与冻结权重哈希，检查选择/最终训练/阈值冻结/测试评分的时间顺序。未来独立测试仍未执行。
-4. 从 results/models 的 assessment.npz、training_ids.npz、curve.csv 及 results/evaluation 的动态最终预测，复算阈值与全量指标，核对 coverage/unknown/事件和日分母；不得只取高风险或有边的容易样本。
-5. 通过 project/run_dynamic.py --phase verify 在独立输出目录复算，再加载已哈希的训练预处理器和 weights_only 权重抽样重放。
+1. Check the external ZIP SHA-256, manifest.csv, and SHA256SUMS. The checksum file includes the manifest and excludes itself.
+2. Use evidence/path_mapping.json to find the read-only original audit package and prepared arrays. Review each shard's query, row count, and SHA-256 against source_snapshot.json. Source terms and collection evidence are in source_provenance/.
+3. Verify the plan, configuration, source, prepared arrays, and frozen weight hashes. Check the ordering of selection, final training, threshold freezing, and test scoring. An independent future test remains pending.
+4. Recompute thresholds and full metrics from assessment.npz, training_ids.npz, and curve.csv in results/models and from final dynamic predictions in results/evaluation. Verify coverage, unknowns, events, and per-day denominators across all eligible samples, including windows without risk flags or edges.
+5. Run project/run_dynamic.py --phase verify in a separate output directory. Then load the hash-verified training preprocessors and weights_only weights for sampled replay.
 
 {commands}
 
-答辩可用表述：在 NYC 原代理标签和严格提前十分钟口径的全量时间回测中，完成有向 Graph Transformer 三池化、三种子的动态边先验消融；结果为实测，提升/退化及误报预算分别报告。公开回测不能替代未来盲测，原 Geolife/Chicago 阻塞未被本实验解除。
+For the course defense, describe this as a measured full historical NYC backtest of explicit dynamic edge priors in a directed Graph Transformer with three pooling methods, three seeds, the original proxy labels, and a strict 10-minute lead. Report gains, declines, and false-positive budgets individually. A new blind test remains pending, and the original Geolife and Chicago experiments remain blocked.
 '''
-    text(root,'审计报告.md',audit)
-    text(root,'README_动态边权入口.md',f'''# Project B 动态边权实验交付
+    text(root,'audit_report.md',audit)
+    text(root,'README_dynamic_edge_weights.md',f'''# Project B Dynamic Edge Weight Handoff
 
-真实 NYC 全量时间回测已完成：18 次新动态训练，18 个已核验静态模型配对复用。主模型 {primary}；AP={pm(p,'AP')}，正类 F1={pm(p,'f1')}，{outcome}。总FP/日={p['FP_day']:.3f}，恢复FP/日={p['recovery_FP_day']:.3f}。误报预算在回测是否成立见审计报告，数值达标不等于预算达标。
+The full NYC historical backtest completed 18 new dynamic fits and paired them with 18 verified, reused static models. Development selected **{primary}**. AP was {pm(p,'AP')} and positive-class F1 was {pm(p,'f1')}. The model **{outcome}**. It recorded {p['FP_day']:.3f} total false positives per day and {p['recovery_FP_day']:.3f} recovery false positives per day. See the audit report for separate false-positive budget results.
 
-原测试已公开，这是回测消融；新独立盲测尚未完成。Geolife 与 Chicago 原口径继续 blocked。本轮沿用已有纽约快照，没有修改标签、剔除困难测试窗口或降低准确率来凑数。
+The test dates had already been disclosed. An independent blind test remains pending. The original Geolife and Chicago protocols remain blocked. The experiment uses the existing NYC snapshot with the original labels, full difficult-window coverage, and the original accuracy definition.
 
 {metric_table}
 
-阅读顺序：审计报告.md → 方法与数据合同.md → plan.md → results/operating_points.csv、matched_recall.csv、paired_date_blocks.csv → evidence/dynamic_threshold_freeze.json → logs/ → 测试报告.md。
+Start with audit_report.md, method_and_data_contract.md, and plan.md. Review the results in results/operating_points.csv, matched_recall.csv, and paired_date_blocks.csv. The freeze receipt is evidence/dynamic_threshold_freeze.json. See logs/ and test_report.md for execution and tests.
 
-代码：project/dynamic_model.py（有界边权），dynamic_train.py（全量训练），dynamic_score.py（开发选择/校准冻结/回测），dynamic_verify.py（独立复算与安全重放），run_dynamic.py（一键入口）。配置 project/config.json；原输入预处理模块保留在 project/full_prepare.py 及继承代码内。
+The code entry point is project/run_dynamic.py. dynamic_model.py implements bounded edge weights, dynamic_train.py runs full training, dynamic_score.py handles selection, freezing, and backtesting, and dynamic_verify.py independently recomputes and replays results. Configuration is in project/config.json. Original input preprocessing is available in project/full_prepare.py and its inherited modules.
 
 {commands}
 
-离线指标复算只需包内预测及原 Python 依赖；重放还需 evidence/prepared.json 中两份只读数组；完整新训练还需原全量审计包及其实际原始快照路径。原始公开大表、私人 Geolife 轨迹和旧巨大压缩包未复制。先核验文件哈希后才能重放。依赖实际版本见 logs/environment_dynamic.json 和 project/requirements_actual.txt。
+Offline recomputation uses bundled predictions and the original Python dependencies. Sampled replay also requires the two read-only arrays listed in evidence/prepared.json. A new training run needs the original full audit package and actual raw snapshot paths. The original large public table, private Geolife trajectories, and old large archives are outside this handoff. Verify hashes before replay. Dependency versions are in logs/environment_dynamic.json and project/requirements_actual.txt.
 
-清单 manifest.csv 枚举除自身和 SHA256SUMS 外所有文件；SHA256SUMS 包含 manifest，不包含自身。解压复核收据及 ZIP 整体哈希放在交付目录外层，避免自指循环。
+manifest.csv lists all files except itself and SHA256SUMS. SHA256SUMS includes the manifest and excludes itself. The extraction verification receipt and ZIP hash are stored alongside the archive to avoid self-reference.
 ''')
-    text(root,'测试报告.md',f'''# 测试与审查报告
+    text(root,'test_report.md',f'''# Testing and Review Report
 
-实际工程测试 {tests['total']} 项通过：根 tests 19 项（原 7 + 新增动态 12），其余继承 56。原命令、stdout、退出码和用时见 logs/*engineering_dynamic*.json/log。合成数据仅工程用途，见 synthetic/engineering_status.json。
+All {tests['total']} engineering tests passed. The root suite ran 19 tests, seven original and 12 new. Inherited suites ran 56. See logs/*engineering_dynamic*.json and the corresponding logs for commands, standard output, exit codes, and timings. Synthetic fixtures provide engineering evidence. See synthetic/engineering_status.json.
 
-新增覆盖：零权重等于静态（三池化）、有向边坐标/自环/padding/范围、缺失端点退回 1、非单位边权确实改变输出、结构 mask 影响输出、孤立图开关一致、batch 隔离（三池化）、节点重排与中心映射（三池化）、空图/无效中心/NaN 拒绝、反向与 weights_only 保存加载（三池化）、单批过拟合、改写标签两格与未来（含邻居）不能改变当前特征/边权/分数。
+New tests cover outputs matching static weights at zero across three poolings, directed edges, self-loops, padding, bounds, missing-endpoint fallback to 1, effects of nonunit weights and structural masks, and identical isolated-graph outputs when toggling weights. They also cover batch isolation and node permutation with center mapping across the three poolings, rejection of empty graphs, invalid centers, and NaN, backward passes and weights_only save/load across all three poolings, single-batch overfitting, and invariance of current features, weights, and scores when changing the label bins or future observations, including at neighboring roads.
 
-真实验收：{verify['operating_points']} 工作点、{verify['matched_points']} 等召回点、{verify['group_metrics']} 分组复算通过；模型 36 个抽样重放通过，最大概率差 {verify['maximum_probability_error']}。同支持训练 IDs 完全相同、每轮唯一已知样本数和更新预算一致、unknown 未进入监督评价；静态汇总精确等于旧包。见 evidence/verification_dynamic_replay.json。
+Real-data verification passed for {verify['operating_points']} operating points, {verify['matched_points']} matched-recall points, and {verify['group_metrics']} subgroup metrics. Sampled replay passed for 36 models, with a maximum probability difference of {verify['maximum_probability_error']}. Same-support training IDs matched exactly, and the numbers of unique known samples and updates per epoch agreed. Supervised evaluation excludes unknown labels. Static metrics match the original package exactly. See evidence/verification_dynamic_replay.json.
 
-静态审查按 code-review 技能的安全、破坏性变更、错误处理、资源释放、规范/变更纪律、类型/形状检查执行。保留原源文件，新增动态模块；没有凭据、不执行 pickle，路径重放须哈希校验；数值精度 float32 logits/probability，float64 score 由 float32 精确提升。规范问题修复记录见 reports/变更说明.md。未使用 Python assert 的优化模式执行。
+The static review covered data and artifact handling, compatibility, error handling, resource cleanup, change scope, types, and shapes. Dynamic modules were added alongside the original code. Replay verifies file hashes and uses pickle-free inputs. Float32 logits and probabilities are promoted exactly to float64 scores. See reports/change_notes.md for review findings. Python assertions were enabled.
 
-未执行：第二次完整干净训练矩阵、全新未来独立盲测、Chicago/Geolife 新真实训练。干净解压复算/重放范围另见 解压复核.json。回测结果不足以确认对新日期总体的稳定收益。
+This audit covers clean extraction, recomputation, and replay as recorded in extraction_verification.json. A second clean training matrix, a blind independent test on new dates, and new Chicago or Geolife training remain pending. Generalization to new dates remains unverified.
 ''')
     mapping=load(root/'evidence/path_mapping.json')
     source=Path(mapping['source_bundle'])
-    changes=f'''# 相对原全量实验的变更
+    changes=f'''# Changes from the Original Full Experiment
 
-原包 SHA-256：0436558b017bb6c5d52d0ab2103ae52f2315b970e4a9b9cf615c7b4a9f0c1c47。原项目和包只读，代码独立复制。
+The original package SHA-256 was `0436558b017bb6c5d52d0ab2103ae52f2315b970e4a9b9cf615c7b4a9f0c1c47`. The original project and audit package were read-only. Implementation used an independent copy of the source.
 
-新增 dynamic_model/check/train/score/analysis/verify/report.py、run_dynamic.py、finish_dynamic.py 和 tests/test_dynamic.py；config.json 增加唯一 dynamic_edge 配方和三池化矩阵。原模型/特征/图/标签实现未改。每层增加 852 参数；不新增特征时点或道路。
+Added `dynamic_model.py`, `dynamic_check.py`, `dynamic_train.py`, `dynamic_score.py`, `dynamic_analysis.py`, `dynamic_verify.py`, `dynamic_report.py`, `run_dynamic.py`, `finish_dynamic.py`, and `tests/test_dynamic.py`. The configuration registers one dynamic-edge recipe with a three-pooling matrix. The baseline model, features, graph, and labels retained the original implementation. Each layer adds 852 parameters and uses the existing feature cutoffs and roads.
 
-静态两阶段 18 个 Graph 模型从原包复制，哈希在 evidence/registration_dynamic.json，均安全抽样重放，不声称本轮重新训练。旧中心路段等基线完整聚合保留在 evidence/static_reference_summary.json，只作历史同支持参考；本轮新增 fit 仅动态 18 个。
+Copied 18 static graph models for both stages from the original package. Their hashes are recorded in `evidence/registration_dynamic.json`, and all were safely replayed on sampled inputs. Existing center-only and other baseline aggregates remain in `evidence/static_reference_summary.json` for historical same-support reference. This run added 18 dynamic fits.
 
-训练开启后将 dynamic_train.py 单次 np.load 检查改为 with 上下文释放文件句柄，不改运算、采样、模型或配置。新增入口支持只依赖包内预测的 --no-replay，避免外部大数据不在时阻断离线指标复算。所有选择规则保持登记计划。
+After training began, a one-time NumPy load in `dynamic_train.py` was wrapped in a context manager to release its file handle. Computation, sampling, models, and configuration stayed within the registered protocol. All selection rules followed the registered plan. The new `--no-replay` option supports offline metric recomputation from bundled predictions when external arrays are unavailable.
 
-初次手工启动用相对工作目录解析失败（尚未运行 check 或训练），随后改用项目父目录绝对路径并成功；实际实验 check 和以后命令均由 record 保存。保留事实记录，不将失败视为成功实验。
+The initial manual launch failed while resolving its relative working directory, before the check or training phases began. Retrying from the absolute project parent succeeded. The recorded commands capture the actual check and subsequent phases.
 '''
-    text(root,'reports/变更说明.md',changes)
+    text(root,'reports/change_notes.md',changes)
     if source.exists():
         diff=''.join(difflib.unified_diff((source/'project/config.json').read_text(encoding='utf-8').splitlines(True),
               (CODE/'config.json').read_text(encoding='utf-8').splitlines(True),fromfile='original/config.json',tofile='dynamic/config.json'))
@@ -235,7 +238,7 @@ CPU={environment['cpu']}，Python={environment['python'].splitlines()[0]}，torc
         goal_met=p['AP']>=.6 and p['f1']>=.6,total_FP_budget_met=p['FP_day']<=12,recovery_FP_budget_met=p['recovery_FP_day']<=6,
         independent_validation=False,new_dynamic_fits=18,reused_static_fits=18,static_pair_AP_delta=p['AP']-baseline['AP'],
         static_pair_F1_delta=p['f1']-baseline['f1']))
-    print(dict(primary=primary,report='审计报告.md',engineering_tests=tests['total'],goal=outcome),flush=True)
+    print(dict(primary=primary,report='audit_report.md',engineering_tests=tests['total'],goal=outcome),flush=True)
 
 
 if __name__=='__main__':report(*settings())

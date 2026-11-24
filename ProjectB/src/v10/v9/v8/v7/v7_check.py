@@ -36,7 +36,7 @@ def directory(root):
 
 def registered(root):
     receipt=load(root/"evidence/prereg.json")
-    required={root/"plan.md":"plan_sha256",root/"重规划.md":"replan_sha256",CONFIG:"config_sha256"}
+    required={root/"plan.md":"plan_sha256",root/"replanning.md":"replan_sha256",CONFIG:"config_sha256"}
     if receipt["observation_values_read"] is not False or any(sha(f)!=receipt[k] for f,k in required.items()):
         raise ValueError("V7 preregistration changed")
     cfg=load(CONFIG)
@@ -85,7 +85,7 @@ def verify(root):
     for src,dst in (("graph.json","prior_graph.json"),("prepared_development.json","prior_prepared.json"),
         ("chicago_status.json","chicago_prior_status.json"),("geolife_prior.json","geolife_prior.json")):
         shutil.copy2(bundle/"evidence"/src,ev/dst)
-    report=bundle/"审计报告.md"
+    report=bundle/"\u5ba1\u8ba1\u62a5\u544a.md"
     result=dict(status="PASS",zip_sha256=PIN,zip=str(zip_path),**found,source_files=len(records),
         raw_roles=roles,excluded=cfg["embargo"],read_prior_holdout="Byte-level integrity only",
         prior_published_report_sha256=sha(report),checked_utc=now())

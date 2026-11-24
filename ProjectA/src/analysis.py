@@ -117,7 +117,7 @@ def analyze(out,cfg):
     traj['sampling_fraction']=traj.points/traj.available_thinned_points
     traj['quality_issue_rows']=traj.trajectory_id.map(qc).fillna(0).astype(int)
     traj['candidate']=(traj.points>=cfg['anomaly_min_points']) & (traj.noise_fraction>=cfg['anomaly_noise_fraction'])
-    traj['interpretation']=np.where(traj.candidate,'低密度出行候选，非已证实行为异常','未触发规则')
+    traj['interpretation']=np.where(traj.candidate,'Low-density travel candidate (unverified)','Rule not triggered')
     traj.to_csv(out/'trajectory_candidates.csv',index=False)
     cases=traj[traj.candidate].sort_values(['noise_fraction','points','trajectory_id'],ascending=[False,False,True]).head(3).copy()
     cases['case_type']='candidate'
@@ -134,7 +134,7 @@ def analyze(out,cfg):
     grid['thinned_share']=grid.thinned_points/grid.thinned_points.sum()
     grid.to_csv(out/'density_bias_grid.csv',index=False)
     # Fixed DBSCAN footprint, normalized within each UTC+8 time period.
-    p['period']=pd.cut(p.hour_local,[-1,5,9,16,23],labels=['夜间00-06','早间06-10','日间10-17','晚间17-24'])
+    p['period']=pd.cut(p.hour_local,[-1,5,9,16,23],labels=['Night 00-06','Morning 06-10','Daytime 10-17','Evening 17-24'])
     time_table=p.groupby(['period','dbscan'],observed=True).size().reset_index(name='points')
     time_table['within_period_share']=time_table.points/time_table.groupby('period',observed=True).points.transform('sum')
     time_table.to_csv(out/'time_period_hotspots.csv',index=False)
@@ -153,12 +153,12 @@ def analyze(out,cfg):
         plt.savefig(figs/name,dpi=170,bbox_inches='tight');plt.close()
     extent=(X[:,0].min()/1000,X[:,0].max()/1000,X[:,1].min()/1000,X[:,1].max()/1000)
     def axes(ax,title):
-        ax.set(title=title,xlabel='UTM 50N 东向 / km',ylabel='UTM 50N 北向 / km')
+        ax.set(title=title,xlabel='UTM 50N easting (km)',ylabel='UTM 50N northing (km)')
         ax.set_xlim(extent[:2]);ax.set_ylim(extent[2:]);ax.set_aspect('equal')
         ax.grid(alpha=.15)
     def scatter(ax,frame,label,title):
         y=frame[label].to_numpy();mask=y>=0
-        if (~mask).any(): ax.scatter(frame.x[~mask]/1000,frame.y[~mask]/1000,c='#a7acb4',s=2,alpha=.45,label='噪声')
+        if (~mask).any(): ax.scatter(frame.x[~mask]/1000,frame.y[~mask]/1000,c='#a7acb4',s=2,alpha=.45,label='Noise')
         ax.scatter(frame.x[mask]/1000,frame.y[mask]/1000,c=y[mask]%20,cmap='tab20',vmin=0,vmax=19,s=3,alpha=.65)
         axes(ax,title)
         if (~mask).any(): ax.legend(loc='lower right')
@@ -167,41 +167,41 @@ def analyze(out,cfg):
     aa[0].scatter(preview.lon,preview.lat,s=.2,alpha=.3)
     from matplotlib.patches import Rectangle
     w,e,s,n=cfg['bounds'];aa[0].add_patch(Rectangle((w,s),e-w,n-s,fill=False,edgecolor='red'))
-    aa[0].set(title='图1a 全量轨迹空间预览（每文件最多20点）',xlabel='WGS84 经度 / °',ylabel='纬度 / °')
+    aa[0].set(title='Figure 1a. Full trajectory overview (up to 20 points per file)',xlabel='WGS84 longitude (°)',ylabel='Latitude (°)')
     aa[1].scatter(p.x/1000,p.y/1000,s=1,alpha=.25)
-    axes(aa[1],'图1b 研究样本分布');save('01_region.png')
+    axes(aa[1],'Figure 1b. Study sample distribution');save('01_region.png')
     st=pd.read_csv(out/'cleaning_summary.csv')
     fig,ax=plt.subplots(figsize=(10,4))
-    labels={'invalid_coordinate_or_time':'非法坐标或时间','time_outside_release':'超出采集期',
-            'exact_duplicate':'完全重复','timestamp_conflict':'时间戳冲突','jump_edge_endpoint':'跳点边端点',
-            'outside_region':'研究区域外','temporal_thinning':'分钟抽稀'}
+    labels={'invalid_coordinate_or_time':'Invalid coordinates or time','time_outside_release':'Outside collection period',
+            'exact_duplicate':'Exact duplicate','timestamp_conflict':'Timestamp conflict','jump_edge_endpoint':'Endpoints of GPS jumps',
+            'outside_region':'Outside study area','temporal_thinning':'One-minute thinning'}
     bars=ax.barh(st.step.map(labels),st.removed,color='#35759c')
-    ax.set(xscale='symlog',xlabel='删除或筛除的点数（对称对数刻度）',title='图2 清洗、区域筛选和抽稀（分开记录）')
+    ax.set(xscale='symlog',xlabel='Points removed or filtered (symmetric log scale)',title='Figure 2. Cleaning, region filtering, and thinning')
     ax.bar_label(bars,labels=[f'{v:,}' for v in st.removed],padding=5)
     ax.set_xlim(0,max(st.removed)*5)
     save('02_cleaning.png')
-    fig,ax=plt.subplots(figsize=(7,6));scatter(ax,p,'dbscan',f'图3 DBSCAN：{main[0]} m / {main[1]}');save('03_dbscan.png')
+    fig,ax=plt.subplots(figsize=(7,6));scatter(ax,p,'dbscan',f'Figure 3. DBSCAN {main[0]} m / {main[1]}');save('03_dbscan.png')
     fig,aa=plt.subplots(1,2,figsize=(11,4))
     for m,g in dt.groupby('min_samples'):
         aa[0].plot(g.eps_m,g.clusters,'o-',label=f'min_samples={m}')
         aa[1].plot(g.eps_m,100*g.noise_fraction,'o-',label=f'min_samples={m}')
-    for ax,title in zip(aa,['有效簇数','噪声比例 / %']):
-        ax.set(xlabel='eps / m',ylabel=title,title='图4 '+title);ax.legend();ax.grid(alpha=.2)
+    for ax,title in zip(aa,['Clusters','Noise (%)']):
+        ax.set(xlabel='eps / m',ylabel=title,title='Figure 4. '+title);ax.legend();ax.grid(alpha=.2)
     save('04_sensitivity.png')
     fig,ax=plt.subplots(figsize=(7,6))
     edgesx=np.arange(np.floor(X[:,0].min()/500)*500,X[:,0].max()+501,500)
     edgesy=np.arange(np.floor(X[:,1].min()/500)*500,X[:,1].max()+501,500)
     h=ax.hist2d(p.x/1000,p.y/1000,bins=[edgesx/1000,edgesy/1000],norm=LogNorm(),cmap='inferno',cmin=1)
-    fig.colorbar(h[3],ax=ax,label='分析样本点数 / 500 m × 500 m')
-    axes(ax,'图5 空间密度热力图');save('05_heatmap.png')
+    fig.colorbar(h[3],ax=ax,label='Analysis points per 500 m × 500 m cell')
+    axes(ax,'Figure 5. Spatial density');save('05_heatmap.png')
     fig,aa=plt.subplots(1,2,figsize=(13,6))
-    scatter(aa[0],p,'dbscan',f'图6a DBSCAN {main}')
-    scatter(aa[1],p,'kmeans',f'图6b K-means K={chosen}');save('06_comparison.png')
+    scatter(aa[0],p,'dbscan',f'Figure 6a. DBSCAN {main}')
+    scatter(aa[1],p,'kmeans',f'Figure 6b. K-means K={chosen}');save('06_comparison.png')
     chosen_users=users.sort_values(['points','user_id'],ascending=[False,True]).head(3).user_id.tolist()
     fig,aa=plt.subplots(1,3,figsize=(16,5))
     for ax,u in zip(aa,chosen_users):
         g=p[p.user_id==u].copy();g['personal']=DBSCAN(eps=main[0],min_samples=main[1]).fit_predict(g[['x','y']])
-        scatter(ax,g,'personal',f'图7 用户{u}个人热点 (n={len(g)})')
+        scatter(ax,g,'personal',f'Figure 7. Hotspots for user {u} (n={len(g)})')
     save('07_users.png')
     fig,aa=plt.subplots(1,max(1,len(cases)),figsize=(5*max(1,len(cases)),5),squeeze=False)
     for ax,row in zip(aa[0],cases.itertuples()):
@@ -211,32 +211,32 @@ def analyze(out,cfg):
         segment=full.time.diff().dt.total_seconds().gt(cfg['gap_seconds']).cumsum()
         for _,seg in full.groupby(segment): ax.plot(seg.x/1000,seg.y/1000,color='#9ba8b6',lw=.6,zorder=0)
         ax.scatter(g.x/1000,g.y/1000,c=np.where(g.dbscan.lt(0),'#e06b4e','#247b9c'),s=10)
-        ax.set(title=f'{row.case_type}\n{row.trajectory_id}\n噪声{row.noise_fraction:.1%}, n={row.points}',
-               xlabel='东向 / km',ylabel='北向 / km');ax.set_aspect('equal');ax.grid(alpha=.2)
-    if cases.empty: aa[0,0].text(.1,.5,'没有满足规则的候选或对照')
-    fig.suptitle('图8 候选与对照：橙=噪声，蓝=热点；灰线=抽稀轨迹',y=1.04)
+        ax.set(title=f'{row.case_type}\n{row.trajectory_id}\nNoise {row.noise_fraction:.1%}, n={row.points}',
+               xlabel='Easting (km)',ylabel='Northing (km)');ax.set_aspect('equal');ax.grid(alpha=.2)
+    if cases.empty: aa[0,0].text(.1,.5,'No eligible candidates or controls')
+    fig.suptitle('Figure 8. Candidates and controls (orange: noise, blue: hotspot, gray: thinned track)',y=1.04)
     save('08_cases.png')
     neighbors=min(cfg['main_min_samples'],len(X))
     neigh=NearestNeighbors(n_neighbors=neighbors,algorithm='kd_tree').fit(X)
     distance=neigh.kneighbors(X)[0][:,-1]
     pd.Series(distance).describe(percentiles=[.25,.5,.75,.9,.95,.99]).to_csv(out/'kdistance_quantiles.csv')
     fig,aa=plt.subplots(1,3,figsize=(15,4))
-    aa[0].plot(np.sort(distance));aa[0].set(yscale='log',xlabel='按距离排序的样本',ylabel=f'第{neighbors}近邻距离 / m',title='图9a k-distance（含自身）')
-    aa[1].plot(kt.k,kt.inertia,'o-');aa[1].axvline(chosen,color='orange');aa[1].set(xlabel='K',ylabel='SSE / m²',title='图9b K-means 肘部')
-    aa[2].plot(kt.k,kt.silhouette,'o-');aa[2].set(xlabel='K',ylabel='轮廓系数',title='图9c K-means（同一固定样本）')
+    aa[0].plot(np.sort(distance));aa[0].set(yscale='log',xlabel='Samples sorted by distance',ylabel=f'Distance to neighbor {neighbors} (m)',title='Figure 9a. k-distance (including self)')
+    aa[1].plot(kt.k,kt.inertia,'o-');aa[1].axvline(chosen,color='orange');aa[1].set(xlabel='K',ylabel='SSE / m²',title='Figure 9b. K-means elbow')
+    aa[2].plot(kt.k,kt.silhouette,'o-');aa[2].set(xlabel='K',ylabel='Silhouette score',title='Figure 9c. K-means on the fixed sample')
     save('09_diagnostics.png')
     fig,aa=plt.subplots(1,3,figsize=(16,5))
     for ax,key in zip(aa,[(min(cfg['eps_m']),20),main,(500,5)]):
-        p['display']=db[key];scatter(ax,p,'display',f'图10 eps={key[0]} m, min={key[1]}')
+        p['display']=db[key];scatter(ax,p,'display',f'Figure 10. eps={key[0]} m, min={key[1]}')
     save('10_parameter_examples.png')
     top=p[p.dbscan>=0].dbscan.value_counts().head(6).index
     temp=time_table[time_table.dbscan.isin(top)].pivot(index='period',columns='dbscan',values='within_period_share').fillna(0)
     fig,ax=plt.subplots(figsize=(10,4))
     if temp.empty:
-        ax.text(.1,.5,'无有效热点（全噪声），不计算热点时段构成',transform=ax.transAxes)
+        ax.text(.1,.5,'All points are noise. No hotspots to compare.',transform=ax.transAxes)
     else:
         temp.plot.bar(ax=ax)
-    ax.set(title='图11 固定热点的时段构成（UTC+8）',ylabel='占该时段全部样本的比例',xlabel='时段')
-    if not temp.empty: ax.legend(title='热点编号',ncol=3)
+    ax.set(title='Figure 11. Fixed hotspots by time of day (UTC+8)',ylabel='Share of samples in the time period',xlabel='Time period')
+    if not temp.empty: ax.legend(title='Hotspot ID',ncol=3)
     plt.xticks(rotation=0);save('11_time.png')
     print('Analysis and figures complete',flush=True)

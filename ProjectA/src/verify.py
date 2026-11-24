@@ -30,8 +30,8 @@ def verify(out,cfg):
     x0,y0=trans.transform(116.3,39.9);x1,y1=trans.transform(116.301,39.9)
     geod=Geod(ellps='WGS84').inv(116.3,39.9,116.301,39.9)[2]
     assert abs(np.hypot(x1-x0,y1-y0)/geod-1)<.001
-    text=(out/'实验报告.md').read_text(encoding='utf-8')
-    assert f"{len(p):,}" in text and f"{int(p.dbscan.max()+1)} 个热点簇" in text
+    text=(out/'experiment_report.md').read_text(encoding='utf-8')
+    assert f"{len(p):,}" in text and f"{int(p.dbscan.max()+1)} hotspot clusters" in text
     figures=re.findall(r'!\[[^]]*\]\(([^)]+)\)',text)
     assert len(figures)>=8
     for name in figures: assert (out/name).is_file() and (out/name).stat().st_size>10000

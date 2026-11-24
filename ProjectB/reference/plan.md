@@ -1,42 +1,42 @@
-# Project B 动态边权配对实验计划
+# Project B Paired Dynamic Edge Weight Experiment Plan
 
-登记日期：2026-11-12。先登记、后实现运行；现有全量实验及其审计包保持只读。
+Registered on 2026-11-12 before implementation or execution. The existing full experiment and audit archive were read-only inputs.
 
-## 证据和任务范围
+## Evidence and Scope
 
-来源为 `outputs/ProjectB_GraphTransformer_全量实验_20261112/ProjectB_GraphTransformer_全量实验_审计包.zip`，期望 SHA-256 为 `0436558b017bb6c5d52d0ab2103ae52f2315b970e4a9b9cf615c7b4a9f0c1c47`；实施前实际核验 ZIP、manifest、SHA256SUMS、两份预处理数组和静态模型权重。纽约官方 i4gi-tjb9 固定快照，121 条有向路段，原高峰、10 分钟格、过去历史均速 40% 且连续两格的原代理标签不变。全量 known 用于监督，unknown 保留覆盖审计但不作负类。
+The original evidence is the full Project B Graph Transformer audit archive dated 2026-11-12, with expected SHA-256 `0436558b017bb6c5d52d0ab2103ae52f2315b970e4a9b9cf615c7b4a9f0c1c47`. Before implementation, check the ZIP, manifest, checksum list, both prepared arrays, and static model weights. Use the fixed official NYC i4gi-tjb9 snapshot with 121 directed road segments, the original peak periods, and 10-minute bins. The original proxy label requires two consecutive bins below 40% of their respective historical mean speeds. Supervised learning uses all known windows. Unknown windows remain in coverage records.
 
-这是用户已授权的全量时间回测；既有测试分数已公开，不能变成新盲测。Geolife 和 Chicago 的既有 blocked 状态不受此实验影响。不下载新数据，不改变标签或放宽可用时点。
+This is the authorized full temporal backtest on dates whose existing test scores are already public. The original Geolife and Chicago tasks remain blocked. Use the existing data, labels, and availability cutoffs.
 
-## 固定日期和预算
+## Fixed Dates and Budget
 
-- 开发训练 [2026-05-11, 2026-08-03)，开发验证 [2026-08-03, 2026-08-31)。
-- 最终训练 [2026-05-11, 2026-08-31)，独立校准 [2026-08-31, 2026-09-28)，回测 [2026-09-28, 2026-11-12)。右端不含。
-- 继续使用已验证 CPU 环境 D:/conda_envs/niulaoshi/python.exe；不修改环境。每进程 2 线程，最多 4 个训练进程。
-- 52 个合法输入值及 52 个缺失位；最新动态格 t−2，标签涉及的 t−1、t 速度不进入任何边权。预处理仅训练段拟合，评估段历史冻结。
-- 12 轮、batch 128、Adam lr=0.001、宽度 32、4 头、2 层、相同全量训练 IDs 和打乱顺序；种子固定 11、22、33。
+- Development training is [2026-05-11, 2026-08-03), and development validation is [2026-08-03, 2026-08-31).
+- Final training is [2026-05-11, 2026-08-31), independent calibration is [2026-08-31, 2026-09-28), and historical testing is [2026-09-28, 2026-11-12). The right endpoints are excluded.
+- Use the verified CPU interpreter `D:/conda_envs/niulaoshi/python.exe` with 2 threads per process and up to 4 training processes.
+- Features are 52 legal values plus 52 missingness indicators. The latest dynamic input is bin t−2. Speeds in t−1 and t are label inputs and stay out of the edge weights. Fit preprocessing on training only and freeze historical features for evaluation.
+- Run 12 epochs with batch size 128, Adam learning rate 0.001, width 32, 4 heads, and 2 layers. Use the same full training IDs and shuffle order. Seeds are 11, 22, and 33.
 
-## 唯一新增配方与配对矩阵
+## Dynamic Recipe and Paired Matrix
 
-已有静态邻接限制仍保留。对物理边 source→target，用两端过去相对速度、趋势、覆盖及缺失位构造有序边描述；每层小型 MLP 输出每个注意力头的有界 log 边权，加入该层 QK 注意力分数。self 权重恒为 1，缺失的最新相对速度使边权退回 1，禁止新增非路网边。边权范围固定 [0.5, 2]，初始为 1；不做超参数搜索。具体列号须按现有字段字典断言。
+Keep the static adjacency constraints. For a physical edge from source to target, concatenate the endpoints' past relative speed, trend, coverage, and missingness descriptors in order. A small MLP in each layer produces a bounded log edge weight for each attention head, added to the layer's QK attention score. The self-edge weight is 1. If the latest relative speed is missing, the edge weight falls back to 1. The mask excludes nonphysical edges. Weights range from 0.5 to 2 and initialize at 1. The recipe uses fixed hyperparameters and asserts the selected columns against the existing feature dictionary.
 
-矩阵：dynamic_mean/max/attention × 3 种子 × 开发/最终两阶段 = 18 次新训练。静态三池化两阶段共 18 个已完成模型作为同支持、同预算配对对照，核验哈希并重放，明确它们属于复用、不是新训练。保留静态中心路段、逻辑回归、滞后规则和多数类已有结果作为历史同支持参考。不把复用计入新增 fit 数量。
+Train dynamic Mean, Max, and Attention pooling for three seeds each in the development and final phases, for 18 new fits. The two stages of the three completed static pooling methods supply 18 matched controls on the same support and update budget. Verify hashes and replay those controls. Center-only, logistic regression, lag-rule, and majority-class results remain historical same-support comparisons. Count reused models separately from new fits.
 
-动态模型的开发最佳 epoch 只按开发 AP 选，最终固定为同池化三个开发最佳 epoch 中位数；仍完整执行 12 轮并保留该 epoch 权重。动态主模型按开发三种子均值 AP、再 F1、再 Mean/Max/Attention 顺序选；静态预选对照为原开发选定 Max。选择、权重和阈值收据在计算本轮回测结果前冻结。回测结果不会触发第二配方。
+Select each development checkpoint by development AP. For final training, use the median of the three development checkpoints for that pooling method, execute all 12 epochs, and retain weights from the fixed epoch. Select the primary dynamic model by mean development AP across three seeds, then development F1, then the Mean, Max, Attention registration order. The original preselected static control uses Max pooling. Freeze selection, weights, and threshold receipts before computing this backtest. The backtest does not select a second recipe.
 
-## 阈值和评价
+## Thresholds and Evaluation
 
-主阈值只在校准段按原规则选择：在总 FP≤12/日、恢复 FP≤6/日条件下最大正类 F1；另保留校准最大 F1 工作点。不得按回测调阈值。报告三种子均值与样本标准差、AP（average precision）、ROC-AUC、平衡准确率、Accuracy、Precision、Recall、F1、TP/FP/FN/TN、FP/日、恢复 FP/日、覆盖、事件级结果。固定 50/60/70/80% 召回下比较误报；这些是标签已知后的排序诊断，不能冒充部署阈值。主比较为同池化 dynamic−static，按日期配对 bootstrap 1000 次，说明条件性区间和多重比较限制。
+Select the primary threshold on calibration by maximizing positive-class F1 under 12 total and 6 recovery false positives per day. Retain the calibration max-F1 operating point separately. Freeze thresholds before backtest scoring. Report across-seed means and sample standard deviations, average precision (AP), ROC-AUC, balanced accuracy, accuracy, precision, recall, F1, TP/FP/FN/TN, total and recovery FP per day, coverage, and event metrics. Compare false positives at 50%, 60%, 70%, and 80% matched recall as retrospective ranking diagnostics. The primary comparison is dynamic minus static with the same pooling. Use 1,000 paired date-block bootstrap samples and describe the conditional intervals and limits from multiple comparisons.
 
-AP、正类 F1 三种子均值同时≥0.60 只是性能结果，不作为进入实验条件。误报预算是否在回测维持单独验收。不要求人为把 Accuracy 调到 70%。
+Report whether the three-seed AP and positive-class F1 means both reach 0.60. This is a performance result. Check backtest false-positive budgets separately. There is no requirement to target 70% accuracy.
 
-## 实施、测试与交付
+## Implementation, Testing, and Delivery
 
-1. 核验证据并保存路径、哈希、版本、资源及真实命令收据。
-2. 复制代码至本工作目录，仅新增动态模块与实验入口；大数据只读引用。
-3. 测试零边权初始化等于静态、图方向、无边/孤立节点、边变化影响、权重范围、缺失退回、自环、padding/batch/中心映射、反向/单批过拟合/安全保存重放、unknown 排除和 t−1/t/未来观测改写不改变当前边权与分数。
-4. 完成开发训练、选择、最终训练、独立校准冻结，再一次性计算回测；保留逐样本 float32 logits/probability 和精确 float64 阈值比较分数。
-5. 报告连接/孤立路段、t−2 低速/未低速/缺失组，抽样保存真实边权及分布，记录开销，禁止无证据归因。
-6. 交付独立代码入口、结果、报告和 `ProjectB_GraphTransformer_动态边权_审计包.zip` 及同名解压目录；manifest 和 SHA256SUMS 排除自身循环。全新目录解压后复核哈希、独立重算指标、抽样重放全部静态与动态权重，并运行新增测试。完整二次训练若未做须明确说明。
+1. Verify inputs and record actual paths, hashes, versions, resources, and commands.
+2. Copy source into the working directory and add only the dynamic modules and entry point. Read large inputs from their source locations.
+3. Test zero-initialized log edge weights against the static model, orientation, edgeless and isolated graphs, changes to edge weights, bounds, missingness fallback, self edges, padding, batch and center mapping, backward passes, single-batch overfitting, safe save and replay, exclusion of unknown labels, and invariance of current edge weights and scores to changes in t−1, t, or future observations.
+4. Complete development training, selection, final training, and independent calibration freeze before a single pass at backtest scoring. Retain per-example float32 logits and probabilities plus exact float64 scores for threshold comparisons.
+5. Report connected and isolated road groups and t−2 low-speed, regular, and missing groups. Sample and retain actual edge weights and their distributions. Record resource costs and ground interpretations in evidence.
+6. Deliver the standalone entry point, results, reports, and the dynamic edge-weight audit ZIP with its extracted folder. The manifest and checksum list avoid self-reference. Extract to a new directory and verify hashes, independently recompute metrics, replay samples from all static and dynamic models, and run the new tests. Record whether a second full training run took place.
 
-可能限制：54/121 路段孤立、仅 56 条候选边，动态边权无法补足路网；离线时间戳无独立到达时间；后段正类和缺失比例漂移；现有测试已公开。任何失败保留日志、明确失败范围，不虚构增益。
+Limits include 54 isolated segments out of 121, 56 candidate edges, and limited geometry coverage. Edge weights cannot create missing network edges. There is no independent arrival timestamp. Positive and missing proportions drift in later splits, and the test dates were already public. Preserve failures and their logs and report their scope.

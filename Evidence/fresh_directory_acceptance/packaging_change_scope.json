@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "changed_preexisting_payload_files": [
+    "README_submission.md",
+    "Report/experiment_report.md"
+  ],
+  "project_A_B_code_models_data_unchanged": true,
+  "presentation_figures_unchanged": true,
+  "candidate_runtime_checks": {
+    "A_tests": 9,
+    "B_tests": 81,
+    "model_replays": 36
+  },
+  "final_zip_integrity_receipt": "Outside the ZIP: final_delivery_acceptance.json"
+}

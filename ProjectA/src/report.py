@@ -1,4 +1,4 @@
-"""Chinese report generated directly from measured result tables."""
+"""English report generated directly from measured result tables."""
 import json
 from pathlib import Path
 import pandas as pd
@@ -24,173 +24,130 @@ def report(out,cfg):
     um=read('user_manifest.csv')
     chosen_users=users.sort_values(['points','user_id'],ascending=[False,True]).head(3)
     summary_hot=''
-    hotspot_insight='没有足够热点进行前四名对比；不强行解释用户覆盖。'
+    hotspot_insight='There are too few hotspots to compare user coverage across the top four.'
     if len(hot)>=4:
-        hotspot_insight=f"""前两大热点分别有{int(hot.iloc[0].users)}和{int(hot.iloc[1].users)}名用户参与，
-而排名第四的热点H{int(hot.iloc[3].dbscan)}只有{int(hot.iloc[3].users)}名用户。
-这直接说明“轨迹点密集”与“许多独立用户访问”不等价，区域筛选应同时参考用户覆盖。
-即使主eps只有50米，密度链也能形成公里级包围盒，eps不能解释为每个热点的最大半径。"""
+        hotspot_insight=f"""The two largest hotspots include {int(hot.iloc[0].users)} and {int(hot.iloc[1].users)} users, respectively.
+The fourth-largest hotspot, H{int(hot.iloc[3].dbscan)}, includes only {int(hot.iloc[3].users)} users.
+High point density and broad user participation measure different properties. Consider user coverage when interpreting hotspots.
+Density chaining can create kilometer-scale bounding boxes even with an eps of 50 m. Interpret eps as a neighborhood distance."""
     for row in hot.head(5).itertuples():
-        summary_hot+=f'- H{row.dbscan}：中心经纬度 ({row.lon:.5f}, {row.lat:.5f})，{row.points:,} 点，{row.users} 用户，{row.trajectories} 条轨迹，{row.days} 个本地日期；投影包围盒 {row.width_m/1000:.2f} × {row.height_m/1000:.2f} km。\n'
+        summary_hot+=f'- H{row.dbscan}: center ({row.lon:.5f}, {row.lat:.5f}), {row.points:,} points, {row.users} users, {row.trajectories} trajectories, {row.days} local dates. Projected bounding box {row.width_m/1000:.2f} × {row.height_m/1000:.2f} km.\n'
     case_text=''
     for row in cases.itertuples():
         case_text+=f"""
-### {'候选' if row.case_type=='candidate' else '低噪声对照'}：{row.trajectory_id}
-分析时间（UTC）{row.time_start} 至 {row.time_end}；{row.points} 个分析点，噪声 {row.noise_fraction:.1%}，
-覆盖该轨迹区域内抽稀点的 {row.sampling_fraction:.1%}。有效相邻边最大速度 {row.max_valid_speed_mps:.2f} m/s
-（NA 表示没有可用相邻边），原轨迹有 {row.quality_issue_rows} 行质量问题。
-触发规则：{'分析点≥20 且噪声比例≥80%' if row.case_type=='candidate' else '分析点≥20、噪声≤10%、无已记录质量问题'}。
-这只表明与群体密集区域的重合程度。稀少但合理的出行、样本覆盖不均和区域边界截断均可能解释该现象；
-存在质量问题时还应检查定位漂移，不能认定为异常驾驶。图8灰线仅连接间隔不超过300秒的抽稀点。
+### {'Candidate' if row.case_type=='candidate' else 'Low-noise control'} {row.trajectory_id}
+Analysis period (UTC) {row.time_start} to {row.time_end}. The {row.points} analysis points had {row.noise_fraction:.1%} noise and represented {row.sampling_fraction:.1%} of the thinned points inside the region for this trajectory.
+The maximum valid adjacent-edge speed was {row.max_valid_speed_mps:.2f} m/s. NA indicates an unavailable edge. The original trajectory had {row.quality_issue_rows} rows with quality issues.
+Criteria: {'at least 20 analysis points and at least 80% noise' if row.case_type=='candidate' else 'at least 20 analysis points, at most 10% noise, and no recorded quality issues'}.
+This result measures overlap with dense group activity. Unusual but reasonable trips, uneven coverage, and regional boundary truncation can all produce this pattern.
+Investigate GPS drift when the source has quality issues. The gray lines in Figure 8 connect thinned points separated by up to 300 seconds. Driving behavior requires separate ground truth.
 """
-    text=f"""# Project A：出行热点区域发现
+    text=f"""# Project A Travel Hotspot Discovery
 
-## 1 摘要
-本实验使用本地 Geolife 1.3 真实数据，以空间轨迹点而非目的地为聚类对象。
-全量读取 {inv['users']} 名用户、{inv['trajectories']:,} 条轨迹、{inv['points']:,} 点；
-正式建模使用 {s['users']} 名用户、{s['trajectories']:,} 条轨迹中的 {s['points']:,} 个分析样本。
-DBSCAN 主参数 eps={s['main_eps_m']} m、min_samples={s['main_min_samples']}，得到 {int(main.clusters)} 个热点簇，
-噪声比例 {main.noise_fraction:.2%}，最大簇占全部样本 {main.largest_cluster_fraction:.2%}。
-同样本 K-means 比较 K=2—10，采用肘部准则选 K={s['kmeans_k']}。
-检测到 {s['candidate_count']} 条满足低密度规则的异常候选，均未经过人工标签验证。
-这些结果描述研究样本中的活动密度，不能推广为全北京市居民、机动车出行或拥堵规律。
+## 1 Summary
 
-## 2 任务、依据与实施范围
-已独立读取并渲染课程 `Lecture1-logistics-DM2026V3-part1.pdf` 第8—10页：
-第8页为评分结构，第9—10页明确 Python/scikit-learn、Geolife、清洗与特征、DBSCAN调参、
-K-means对比、不同主体热点与异常轨迹、散点图/热力图及报告。
-时间分析为进阶，路网与事件识别不属于本次必做范围。30用户、采样上限、区域边界和全部阈值是本实验决定，
-不是教师指定。课件使用“车辆”措辞，但 Geolife 包含步行、骑行等，本报告准确采用“用户/出行轨迹”。
-验收映射见项目根目录 `验收对照表.md`。
+This experiment clusters spatial trajectory points from local Geolife 1.3 data. The full inventory has {inv['users']} users, {inv['trajectories']:,} trajectories, and {inv['points']:,} points. The analysis sample contains {s['points']:,} points from {s['trajectories']:,} trajectories and {s['users']} users.
 
-## 3 数据说明与完整性核对
-来源为微软 Geolife 项目，本次输入文件 `{meta.get('input_zip_name','Geolife Trajectories 1.3.zip')}`，
-SHA256：`{meta.get('input_sha256','见run_metadata.json')}`。原 ZIP 始终只读。
-内部路径为 `Geolife Trajectories 1.3/Data/<user_id>/Trajectory/<timestamp>.plt`；
-交通方式标签位于各用户目录 `labels.txt`。
-跳过6行头部，依次解析纬度、经度、保留字段、海拔（英尺）、1899-12-30起算天数、日期、时间。
-WGS84坐标；海拔 -777 表示无效，转换米乘0.3048。速度由相邻点推导，原文件没有速度字段。
-1.3版官方说明明确日期时间和交通方式标签都是 GMT，本实验按 UTC 解析，需要日历统计时转换 Asia/Shanghai（UTC+8）。
+The main DBSCAN model uses eps={s['main_eps_m']} m and min_samples={s['main_min_samples']} and produces {int(main.clusters)} hotspot clusters. Noise accounts for {main.noise_fraction:.2%} of all sample points, and the largest cluster accounts for {main.largest_cluster_fraction:.2%}. K-means compares K=2–10 on the same sample and the elbow rule selects K={s['kmeans_k']}. The low-density rule flags {s['candidate_count']} candidates without manual anomaly labels. The results describe activity density in this study sample.
 
-| 全量字段 | 实测值 |
+## 2 Coursework and Scope
+
+The experiment reviewed physical pages 8–10 of `Lecture1-logistics-DM2026V3-part1.pdf`. Page 8 lists grading. Pages 9–10 require Python and scikit-learn, Geolife loading and cleaning, feature extraction, DBSCAN tuning, comparison with K-means, hotspots across subjects, unusual trajectories, scatterplots, heatmaps, and a report.
+
+Time analysis is an extension. Road-network and traffic-event identification are outside the required scope used here. The experiment selected 30 users, sample limits, a study rectangle, and thresholds. The course uses the term vehicles. Geolife also includes walking and cycling, so this report describes users and travel trajectories. The historical project acceptance crosswalk records the requirement mapping.
+
+## 3 Data and Integrity
+
+The source is Microsoft Geolife. The input file is `{meta.get('input_zip_name','Geolife Trajectories 1.3.zip')}` with SHA-256 `{meta.get('input_sha256','see run_metadata.json')}`. The original ZIP is read-only. It stores trajectories under `Geolife Trajectories 1.3/Data/<user_id>/Trajectory/<timestamp>.plt` and mode labels in user-level `labels.txt` files.
+
+After six header lines, the parser reads latitude, longitude, a reserved field, altitude in feet, days since 1899-12-30, date, and time. Coordinates are WGS84. Altitude -777 indicates an invalid value. Convert feet to meters with 0.3048. Speed comes from adjacent points. The version 1.3 guide uses GMT for timestamps and mode labels. This workflow parses them as UTC and uses Asia/Shanghai (UTC+8) for calendar analysis.
+
+| Inventory field | Observed value |
 | --- | --- |
-| 用户 / 轨迹 / 点 | {inv['users']} / {inv['trajectories']:,} / {inv['points']:,} |
-| 原始时间范围（含异常） | {inv['time_start']} — {inv['time_end']} |
-| 经纬度范围（坐标合法点） | 经度 {inv['lon_min']:.6f} 至 {inv['lon_max']:.6f}；纬度 {inv['lat_min']:.6f} 至 {inv['lat_max']:.6f} |
-| 非法坐标或时间 | {inv['invalid']:,} |
-| 缺字段记录 | {inv['missing_fields']:,} |
-| 文件内完全重复记录 | {inv['duplicates']:,} |
-| 无效海拔 -777 | {inv['altitude_invalid']:,} |
-| 原顺序非正采样间隔 | {inv['nonpositive_dt']:,} |
-| 原顺序间隔超过300秒 | {inv['gaps']:,} |
-| 超出说明书采集期的时间戳 | {inv.get('time_outside_release','详见inventory.csv') } |
-| 具有方式标签文件的用户 | {inv['labels_users']} / {inv['users']}（{inv['labels_users']/inv['users']:.1%}） |
-| 研究矩形内合法点 | {inv['region_points']:,}（全量点的{inv['region_points']/inv['points']:.1%}） |
+| Users, trajectories, and points | {inv['users']} / {inv['trajectories']:,} / {inv['points']:,} |
+| Original time range including anomalies | {inv['time_start']} – {inv['time_end']} |
+| Valid longitude and latitude ranges | Longitude {inv['lon_min']:.6f} to {inv['lon_max']:.6f}, latitude {inv['lat_min']:.6f} to {inv['lat_max']:.6f} |
+| Invalid coordinate or time | {inv['invalid']:,} |
+| Missing fields | {inv['missing_fields']:,} |
+| Exact duplicate rows within a file | {inv['duplicates']:,} |
+| Invalid altitude (-777) | {inv['altitude_invalid']:,} |
+| Nonpositive interval in original order | {inv['nonpositive_dt']:,} |
+| Original intervals over 300 seconds | {inv['gaps']:,} |
+| Timestamps outside the documented collection period | {inv.get('time_outside_release','see inventory.csv')} |
+| Users with mode label files | {inv['labels_users']} / {inv['users']} ({inv['labels_users']/inv['users']:.1%}) |
+| Valid points within the study rectangle | {inv['region_points']:,} ({inv['region_points']/inv['points']:.1%} of all points) |
 
-说明书首段仍写17,621条，后续版本表写18,670条；本地实测支持版本表。
-说明书写73名带标签用户，本地仅找到69个标签文件，因此不把名义标签数量当成本地覆盖率。
-这里的覆盖率是**标签文件用户覆盖率**，并非点级已标注比例。本次不按交通方式筛选，不输出机动车结论。
-全量时间早于2007年，说明少数设备时间可疑；正式清洗将2007-04-01之前或2012-09-01及之后的点排除，
-这个范围来自版本说明且属于质量筛查假设。文件级采样间隔中位数等详见 `inventory.csv`；
-没有把不同文件中位数的平均值误称为全体点的中位数。
+The guide's opening paragraph lists 17,621 trajectories and its version table lists 18,670. The local inventory matches the version table. The guide lists 73 users with labels and the local archive contains 69 label files. The table reports user-level file coverage. It does not estimate point-level labels, and the analysis does not filter by mode or draw motor-vehicle conclusions.
 
-## 4 研究区域、清洗与特征
-先统计全量坐标和每轨迹最多20点的空间预览，再选连续北京矩形：
-WGS84经度116.1—116.7°、纬度39.7—40.2°。其覆盖全量{inv['region_points']/inv['points']:.1%}个点，
-并非按聚类结果裁剪。范围约50 km量级，采用 WGS84 / UTM 50N（EPSG:32650）米制平面，
-`always_xy=True` 明确输入经度、纬度；两模型均只输入 x,y，不混入用户编号、时间或速度。
-UTM投影适合该局部区域，不用于全球样本距离计算。
+Some original timestamps predate 2007. The documented collection period was used for quality screening, excluding points before 2007-04-01 and at or after 2012-09-01. See `inventory.csv` for file-level intervals, including medians. A mean of file medians does not estimate the pooled point-level median.
 
-筛选规则：按用户编号升序选区域内至少1000合法点的前30名；
-每用户按 `SHA256(seed:ZIP成员名)` 顺序最多选40条含区域点轨迹，共 {len(manifest):,} 个原始文件。
-每轨迹清洗后按时间排序，每个UTC整分钟桶保留首点，再固定种子20261020按用户随机保留最多2000点。
-抽稀后共 {int(um.thin_points.sum()):,} 点，最终 {s['points']:,} 点。
-这不是人口随机样本：低编号选择与每用户点数上限改变权重，轨迹长度和设备记录习惯仍有影响。
-保留 `user_id, trajectory_id, raw_index, point_id`；
-原文件数据行索引从0开始，物理行号为raw_index+7。
-`raw_to_sample.csv.gz` 将区域内清洁原始点对应到分钟代表点及最终point_id，空point_id表示未进入正式样本，
-并不表示该原始点无效。被删质量问题另存 `quality_issues.csv.gz`。
+## 4 Study Area, Cleaning, and Features
 
-### 4.1 清洗规则与计数
-依次排除非法坐标/时间、超采集期时间、七字段完全重复、同一时间的冲突记录。
-同位置不同时间仍保留。原顺序问题先记录，保留点分轨迹排序。
-仅在相邻原始行、正时间差且间隔≤300秒时计算球面距离与速度；
-速度>100m/s的边两端均标记为定位跳变候选并排除，避免立即把断边重连。
-这是保守质量阈值，不是异常驾驶阈值，可能排除真实高速出行；报告不把它解释成交通违法。
-不跨用户/轨迹计算距离，不跨长间隔计算速度。质量清洗与区域/采样筛选分别计数。
+The inventory includes a spatial preview of up to 20 points per trajectory. The study rectangle is contiguous and spans longitude 116.1–116.7° and latitude 39.7–40.2° in Beijing. It contains {inv['region_points']/inv['points']:.1%} of the original points. The rectangle was chosen before clustering. The region is roughly 50 km across, so the projection uses meters in WGS84 / UTM 50N (EPSG:32650). `always_xy=True` fixes input order to longitude and latitude. Both models use x and y only. This projection serves local distance calculations.
+
+Select the first 30 users by ID with at least 1,000 valid points in the region. For each user, order trajectories by `SHA256(seed:ZIP member name)` and retain up to 40 containing regional points. This selects {len(manifest):,} source files. After cleaning, sort each trajectory by time and retain its first point per UTC minute. With seed 20261020, randomly retain at most 2,000 points per user. Thinning leaves {int(um.thin_points.sum()):,} points, and final sampling leaves {s['points']:,}. User order, per-user caps, duration, and devices affect representativeness.
+
+The workflow retains `user_id`, `trajectory_id`, `raw_index`, and `point_id` in the local full-run outputs. The raw data index starts at 0, and physical line number is `raw_index + 7`. `raw_to_sample.csv.gz` maps clean regional points to minute representatives and final point IDs. An empty point ID means no final selection. `quality_issues.csv.gz` records quality exclusions.
+
+### 4.1 Cleaning Rules and Counts
+
+Remove invalid coordinates or timestamps, times outside the collection period, exact duplicates over all seven fields, and conflicting records at the same timestamp. Retain the same location at different times. Record original order issues before sorting the points within each trajectory.
+
+Compute spherical distance and speed only for adjacent original rows with positive intervals of at most 300 seconds. If speed exceeds 100 m/s, flag and exclude both endpoints of the possible GPS jump. Leave the broken edge disconnected. The threshold is a conservative data-quality rule and can exclude real high-speed trips. Compute distances within each trajectory and user. Count quality cleaning separately from region and sample filters.
 
 {table(clean)}
 
-![图1 研究区域与样本](figures/01_region.png)
-![图2 清洗统计](figures/02_cleaning.png)
+![Study area and sample](figures/01_region.png)
+![Cleaning and filtering counts](figures/02_cleaning.png)
 
-### 4.2 密度偏差检查
-每分钟抽稀减轻高频设备和同分钟重复点的影响，但长时间停留和反复往返仍贡献更多点。
-相同500m网格内，对所选轨迹清洁区域点与一分钟抽稀点分别归一化，
-分布总变差距离为 {s['grid_bias_total_variation']:.4f}（0表示完全相同），表明采样口径确实影响空间密度。
-详见 `density_bias_grid.csv`，不能把点多直接解释为用户多。
-每个热点同时报告独立用户、轨迹和本地日期数；本次没有提取停留点，因此不称“目的地”。
+### 4.2 Density Bias
 
-## 5 DBSCAN 原理、参数与结果
-eps邻域内包含自身在内至少min_samples个点即核心点；可由核心点密度连接的点形成簇，
-邻近核心点而自身密度不足者为边界点；剩余点标为-1噪声。
-使用欧氏米制距离和kd-tree，避免显式构建全量两两距离矩阵。
-首先对 {pilot['n']:,} 个真实样本跑最大eps/最小min_samples试验，
-拟合 {pilot['seconds']:.3f} 秒，进程事后驻留内存 {pilot['rss_mb_after']:.1f} MB（不是峰值）。
-先跑100/200/500m × 5/10/20共9组；观察到200m/10最大簇占约77%，因此补充30/50m，
-最终5种eps × 3种min_samples共15组，不删除原始9组。图9a为含自身的第20近邻距离曲线，
-对应主模型min_samples=20，分位数在 `kdistance_quantiles.csv`。
-轮廓系数使用米制距离，排除-1后固定种子最多抽2000点；
-簇数不满足2≤簇数≤样本数-1时为NA，并记录原因与实际评估量。
-表中最大簇占比的分母为所有输入点，覆盖率=1-噪声比例。拟合耗时不含轮廓评估和作图。
+Minute thinning reduces contributions from high-frequency devices and repeat points within the minute. Longer stays and repeated trips can still contribute more points. Compare normalized clean regional and minute-thinned counts in the same 500 m grid. The distributions have total variation distance {s['grid_bias_total_variation']:.4f}, with zero denoting identical distributions. See `density_bias_grid.csv`. Each hotspot reports distinct users, trajectories, and local dates. The workflow does not identify stop locations.
+
+## 5 DBSCAN Method, Parameters, and Results
+
+A core point has at least min_samples points within eps, including itself. Density-connected points form clusters. A point adjacent to a core point that has insufficient density itself is a border point. Other points receive noise label -1. The implementation uses Euclidean distances in meters and a kd-tree.
+
+The pilot uses {pilot['n']:,} real points with maximum eps and minimum min_samples. Fit time was {pilot['seconds']:.3f} seconds and post-fit process RSS was {pilot['rss_mb_after']:.1f} MB. The pilot does not measure peak memory. The initial nine cases used 100, 200, and 500 m with 5, 10, and 20 points. At 200 m and 10 points the largest cluster held about 77% of the sample, so 30 m and 50 m were added. The final grid retains all 15 cases. Figure 9a shows the distance to the 20th neighbor including self. See `kdistance_quantiles.csv`.
+
+Silhouette scores use metric distance and a fixed-seed sample of at most 2,000 non-noise points. Scores are NA when there are fewer than two clusters or all sample points have distinct clusters. The largest-cluster fraction uses all points as its denominator. Coverage equals one minus noise share. Fit time excludes silhouette scoring and plotting.
 
 {table(db[['eps_m','min_samples','n','clusters','noise_fraction','coverage','largest_cluster_fraction','fit_seconds','silhouette','silhouette_n']])}
 
-主参数采用50m/20，优先减弱沿道路链式连接，同时保留超过一半样本；
-相比30m/20保留更多活动点，相比100m及以上显著降低最大簇占比。
-50m仍可能受GPS误差影响，这是解释性折中，非最优参数证明，也不是只按轮廓最高分选择。
-30m/20得到{int(low.clusters)}簇、噪声{low.noise_fraction:.1%}，呈现更严格的密度筛选；
-500m/5得到{int(high.clusters)}簇、噪声{high.noise_fraction:.1%}、最大簇占比{high.largest_cluster_fraction:.1%}，
-应结合图10检查是否把沿线活动连成大簇，而不能仅以低噪声宣布更优。
-主模型最大簇占比{main.largest_cluster_fraction:.1%}，仍存在密度链式连接风险。
-90%随机子样本重新聚类，与原模型在同一子样本上的含噪声ARI为{s['stability']['ari_including_noise']:.4f}，
-得到{s['stability']['clusters']}簇、噪声{s['stability']['noise_fraction']:.1%}。
-该单次扰动仅是局部稳定性检查；大簇和噪声会影响ARI，不是完整统计置信度。
+The main 50 m and 20-point combination retains more than half the points while reducing density chaining. It retains more points than 30 m and 20 and gives a smaller largest cluster than eps of 100 m or more. GPS error can still affect a 50 m neighborhood. This setting is an interpretability trade-off.
 
-![图3 主聚类](figures/03_dbscan.png)
-![图4 参数敏感性](figures/04_sensitivity.png)
-![图10 严格、中间、宽松三组实测结果](figures/10_parameter_examples.png)
-图中颜色循环用于区分空间结构，不同模型的相同颜色或数字不表示相同区域；簇多于20时颜色会复用，精确编号以点级表为准。
+A 30 m and 20-point setting gives {int(low.clusters)} clusters and {low.noise_fraction:.1%} noise. At 500 m and five points, there are {int(high.clusters)} clusters, {high.noise_fraction:.1%} noise, and a largest-cluster share of {high.largest_cluster_fraction:.1%}. Use Figure 10 to inspect merged chains along routes. The main model's largest cluster accounts for {main.largest_cluster_fraction:.1%} and may still contain chained activity.
 
-## 6 K-means 原理与同样本比较
-K-means通过最小化点到所属质心的平方欧氏距离和（SSE）迭代分配与更新中心。
-设随机种子20261020、k-means++初始化、n_init=10、Lloyd算法，K取2—10。
-对归一化K/SSE曲线计算相对端点连线的最大下凹位置作为可复现肘部，选择K={s['kmeans_k']}；
-同时展示轮廓系数和空间图，轮廓高值不一定对应适宜的局部热点尺度。
-本次K=4的轮廓系数为{km.loc[km.k.eq(4),'silhouette'].iloc[0]:.4f}，
-高于K=5的{km.loc[km.k.eq(5),'silhouette'].iloc[0]:.4f}，
-但从4到5可进一步降低SSE约{1-km.loc[km.k.eq(5),'inertia'].iloc[0]/km.loc[km.k.eq(4),'inertia'].iloc[0]:.1%}。
-因此K=5是更细空间分区的肘部对照方案，K=4同样是应保留的粗分区备选，不能声称唯一最优。
+A random 90% subsample, clustered again, has ARI {s['stability']['ari_including_noise']:.4f} against the original labels on the same support, including noise. It gives {s['stability']['clusters']} clusters and {s['stability']['noise_fraction']:.1%} noise. This single perturbation is a local stability check. Large clusters and noise influence ARI.
+
+![Main clustering](figures/03_dbscan.png)
+![Parameter sensitivity](figures/04_sensitivity.png)
+![Strict, intermediate, and loose configurations](figures/10_parameter_examples.png)
+
+Colors separate structures, cycle when there are more than 20 clusters, and are local to each model. Use the point-level output for exact cluster IDs.
+
+## 6 K-means and Common-Support Comparison
+
+K-means alternates assignment and centroid updates to minimize the sum of squared Euclidean distances (SSE). It uses seed 20261020, k-means++ initialization, n_init=10, Lloyd iterations, and K=2–10. The reproducible elbow is the greatest downward deviation from the normalized K/SSE endpoint line, selecting K={s['kmeans_k']}. Silhouettes and spatial plots provide additional diagnostics.
+
+The silhouette is {km.loc[km.k.eq(4),'silhouette'].iloc[0]:.4f} at K=4 and {km.loc[km.k.eq(5),'silhouette'].iloc[0]:.4f} at K=5. Increasing K from 4 to 5 reduces SSE by about {1-km.loc[km.k.eq(5),'inertia'].iloc[0]/km.loc[km.k.eq(4),'inertia'].iloc[0]:.1%}. K=5 is the finer elbow choice, and K=4 remains a coarser alternative.
 
 {table(km)}
 
-![图9 距离诊断、肘部与轮廓](figures/09_diagnostics.png)
-![图6 同样本同坐标范围对比](figures/06_comparison.png)
+![Distance, elbow, and silhouette diagnostics](figures/09_diagnostics.png)
+![Clustering on the same sample and coordinate range](figures/06_comparison.png)
 
-DBSCAN无需预设K，可以保留噪声和非规则连通形状，但对密度变化与参数敏感；
-K-means必须给K、将每个点分入某簇，倾向紧凑空间分区，对离群点敏感。
-前者适用于发现重复出现的局部高密度活动，后者更适合预设数量的粗粒度空间分区。
-DBSCAN去噪轮廓与K-means全样本轮廓的支持集不同，不能直接公平排名。
-补充在主DBSCAN非噪声共同样本上比较原模型标签（不重新训练），固定同一组评估点：
+DBSCAN does not require a preset K and can represent noise and irregular shapes. It is sensitive to density and parameters. K-means assigns every point to a cluster and favors compact partitions. It requires a specified K and is sensitive to outliers. DBSCAN suits recurring local concentrations, while K-means provides a preselected number of coarser partitions.
+
+The full K-means and non-noise DBSCAN scores use different supports. The following comparison uses the same fixed evaluation points in the main DBSCAN non-noise support and retains each model's original labels.
 
 {table(common)}
 
-两模型簇数和目标仍不同，以上指标只是结构诊断。没有真值标签，不报告准确率、召回率或F1。
-各簇投影包围盒及规模分别见 `hotspots.csv` 和 `kmeans_clusters.csv`，
-运行成本见参数表；包围盒宽高不代表真实覆盖面积。
+The methods have different cluster counts and objectives. These metrics describe internal structure. There are no ground-truth labels for accuracy, recall, or F1. See `hotspots.csv`, `kmeans_clusters.csv`, and the parameter tables for bounding boxes, cluster sizes, and execution cost. Bounding-box dimensions do not measure covered area.
 
-## 7 热点与用户差异
-热点按分析点数降序。前五个区域如下，只给坐标和区域编号，不猜测地点、住址或用户身份：
+## 7 Hotspots and User Differences
+
+The five largest hotspots by analysis points are summarized below using coordinates and cluster IDs. The report does not infer a place, address, or identity.
 
 {summary_hot}
 
@@ -198,79 +155,52 @@ DBSCAN去噪轮廓与K-means全样本轮廓的支持集不同，不能直接公�
 
 {hotspot_insight}
 
-![图5 500米网格热力图](figures/05_heatmap.png)
+![500 m heatmap](figures/05_heatmap.png)
 
-按分析点数降序、用户编号升序确定性选择以下3名用户。
-个人热点使用同样eps/min_samples单独拟合，因此个人标签不能与群体标签直接等同；
-`user_hotspot_relation.csv`另记录每个用户在群体固定热点中的点数。
-个人样本更稀疏，使用相同绝对密度阈值可能产生更多噪声，不能据此认定其行为更异常。
+Select three users deterministically by descending point count and ascending user ID. Personal hotspots use the same eps and min_samples in separate fits. `user_hotspot_relation.csv` records each user's points in the fixed group hotspots. Sparse personal samples may yield more noise under the same absolute threshold.
 
 {table(chosen_users)}
 
-三位用户的个人热点数量分别为{', '.join(str(v) for v in chosen_users.personal_clusters)}，
-覆盖的群体热点数量分别为{', '.join(str(v) for v in chosen_users.group_hotspots)}。
-个人聚类与群体归属相差较大，说明其他用户对共享活动区域的密度贡献会改变热点判定。
+The three personal hotspot counts are {', '.join(str(v) for v in chosen_users.personal_clusters)}, and their covered group hotspot counts are {', '.join(str(v) for v in chosen_users.group_hotspots)}. The differences show how other users' contributions to shared areas affect density-based assignments.
 
-![图7 用户个人热点](figures/07_users.png)
+![Individual hotspot plots](figures/07_users.png)
 
-## 8 异常轨迹候选与对照
-规则在分析前配置：轨迹至少20个正式分析点，且DBSCAN噪声占比≥80%。
-共{s['candidate_count']}条候选；按噪声比例降序、点数降序、轨迹编号升序最多展示3条。
-候选规则不要求连续噪声时长，原因是按用户限额抽样会产生间隙，不能从抽样点虚构连续片段。
-所有案例记录抽样覆盖率；“轨迹”结论仅针对研究矩形内且通过清洗、抽样的观测部分。
-质量异常见单独表，-1不是定位错误或异常驾驶真值。
-低噪声对照也不代表经过人工确认的正常行为，只是规则下的参考。
+## 8 Low-Density Candidates and Controls
+
+The configured rule flags trajectories with at least 20 analysis points and at least 80% DBSCAN noise. It finds {s['candidate_count']} candidates. Show up to three by descending noise fraction, descending point count, and ascending trajectory ID. Per-user sampling creates gaps, so the rule does not infer continuous noise intervals. Each case reports sample coverage and describes the cleaned, sampled portion within the region. Review recorded quality issues separately. Noise and low-noise controls have no manual anomaly or normal-behavior ground truth.
 
 {case_text}
 
-![图8 候选与对照](figures/08_cases.png)
+![Candidates and controls](figures/08_cases.png)
 
-## 9 可选时间扩展
-转换为UTC+8，夜间00—06、早间06—10、日间10—17、晚间17—24。
-沿用同一空间热点标签，按各时段全部样本数（包括噪声）归一化，展示点数前6个热点的占比。
-完整样本量与噪声类别见 `time_period_hotspots.csv`。时段长度不同、用户与年份组成不同，
-不能将比例差异直接推断为通勤目的、拥堵强度或因果关系。
+## 9 Time-of-Day Extension
 
-![图11 时段构成](figures/11_time.png)
+Convert to UTC+8 and group into night 00–06, morning 06–10, daytime 10–17, and evening 17–24. Keep spatial hotspot labels fixed. Divide counts in the six largest hotspots by all points in the corresponding period, including noise. See `time_period_hotspots.csv` for full counts. Period lengths, users, and years differ, so the shares do not establish trip purpose, congestion severity, or causality.
 
-## 10 应用价值、局限与结论
-本方法可为样本活动区域汇总、出行服务候选区域探索和轨迹质量排查提供依据，
-没有测量服务效率或拥堵改善，故不声称实际收益百分比。
-结果支持以下有限结论：本研究样本形成{int(main.clusters)}个密度连通区域；
-参数从严格到宽松时噪声比例从{low.noise_fraction:.1%}变为{high.noise_fraction:.1%}，
-热点边界与数量依赖尺度；个人热点数量及与群体重合程度见表7；
-候选只是对稀疏出行的可解释筛查，不构成异常驾驶检测器。
-主要局限包括用户非随机、采样频率和时长偏差、每用户限额权重、
-区域截断、同密度阈值对不同用户不公平、定位质量、标签缺失、缺乏人工验证、单次扰动稳定性不足。
-所有统计是本次样本结论，不能外推为现代全城市规律。
+![Hotspot shares by time of day](figures/11_time.png)
 
-## 11 复现、资源与验收
-Python {meta['python']}；实际依赖版本：
-`{json.dumps(meta['versions'],ensure_ascii=False)}`。
-原始ZIP大小{meta.get('input_zip_bytes',0)/2**20:.1f}MiB；参数和种子见 `config.json`。
-分阶段实测耗时（秒）为 `{json.dumps(meta.get('stage_seconds',{}),ensure_ascii=False)}`，
-阶段计时不含其后报告/验收写出；首次全流程会重新读取全量ZIP。
-正式样本时间范围（UTC）为 {s['time_start']} 至 {s['time_end']}。
-各模型拟合事后RSS见参数表，并非峰值。建议可用内存至少4GB，保留约1GB工作空间；
-改变规模/eps可能显著增加DBSCAN内存。程序无在线地图依赖。
-运行方法见README，一条入口可重建全部结果。
-`python run.py --stage verify`核对样本一致性、标签、统计、文件和报告关键数值，
-`python -m unittest discover -s tests -v`执行合成边界测试（只用于程序检查，不作正式实验）。
-路网匹配、拥堵/停车事件识别和机动车专门分析未实施，属于明确不纳入本次范围的扩展；
-本次交付Markdown报告与静态PNG，未导出PDF。
+## 10 Uses, Limitations, and Conclusions
 
-## 12 参考资料
-1. 课程课件第8—10页，本地副本提取证据位于 `references/课件第8-10页.txt`。
-2. Geolife 1.3 ZIP自带User Guide，Version 1.3 (2012/08/01)，核对第2、4节和版本表；
-   [微软数据介绍](https://www.microsoft.com/en-us/research/publication/geolife-gps-trajectory-dataset-user-guide/)（网页存在旧版数字，以本地实测和1.3说明为准）。
-3. [scikit-learn DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html)、
-   [KMeans](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)、
-   [silhouette_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html)；
-   2026-10-20查阅，KMeans页面显示1.9.1，与本地一致；检索索引部分DBSCAN页面标1.9.0，
-   同时对本地1.9.1接口和实际运行验证，未假称索引为精确补丁版本。
+The method supports sample activity summaries, exploratory service-area selection, and trajectory-quality review. The study does not measure service gains or congestion reduction. The sample forms {int(main.clusters)} density-connected areas. Noise ranges from {low.noise_fraction:.1%} under the stricter setting to {high.noise_fraction:.1%} under the looser setting. Hotspot counts and boundaries depend on scale. The user comparison reports personal clusters and group overlap. The candidate rule screens low-density travel.
+
+Limitations include nonrandom users, sampling frequency and duration, per-user caps, regional truncation, a common density threshold across users, positioning quality, missing labels and manual validation, and a single stability perturbation. Treat results as descriptive of the study sample.
+
+## 11 Reproduction, Resources, and Verification
+
+Python version is {meta['python']}. Dependency versions are `{json.dumps(meta['versions'],ensure_ascii=False)}`. The ZIP is {meta.get('input_zip_bytes',0)/2**20:.1f} MiB. See `config.json` for parameters and seeds.
+
+Recorded stage times in seconds are `{json.dumps(meta.get('stage_seconds',{}),ensure_ascii=False)}`. These exclude subsequent reporting and verification. The first full run reads the entire ZIP again. The formal sample spans {s['time_start']} to {s['time_end']} UTC. Fit tables contain post-fit RSS. The original reproduction guidance recommends at least 4 GB available memory and about 1 GB of workspace. More data or larger eps can increase memory use. No map service is required.
+
+See the README for the full-run entry point. Use `python run_original.py --stage verify --data <ZIP> --out <existing-full-run>` to check full-run sample consistency, labels, statistics, files, and report values. `python -m unittest discover -s tests -v` runs synthetic boundary tests. Road network matching, congestion and parking event detection, and motor-vehicle-specific analysis are outside this run. The full analysis writes a Markdown report and static PNGs.
+
+## 12 References
+
+1. Course slides, physical pages 8–10. See the English extraction in the public Evidence directory.
+2. Geolife 1.3 ZIP User Guide, Version 1.3 (2012/08/01), sections 2 and 4 and the version table. The [Microsoft overview](https://www.microsoft.com/en-us/research/publication/geolife-gps-trajectory-dataset-user-guide/) includes older counts. This report uses the version 1.3 guide and local inventory.
+3. [scikit-learn DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html), [KMeans](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html), and [silhouette_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html), consulted 2026-10-20. KMeans showed 1.9.1, matching the local version. Some DBSCAN index entries showed 1.9.0. The local 1.9.1 interface and run were checked separately.
 4. Zheng et al. Mining interesting locations and travel sequences from GPS trajectories. WWW 2009: 791–800.
 5. Zheng et al. Understanding Mobility Based on GPS Data. UbiComp 2008: 312–321.
 6. Zheng, Xie, Ma. GeoLife: A Collaborative Social Networking Service among User, location and trajectory. IEEE Data Engineering Bulletin 33(2), 2010: 32–40.
 """
-    (out/'实验报告.md').write_text(text,encoding='utf-8')
+    (out/'experiment_report.md').write_text(text,encoding='utf-8')
     print('Report generated from measured tables',flush=True)

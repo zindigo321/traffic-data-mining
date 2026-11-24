@@ -2,41 +2,56 @@
   "copied_utc": "2026-11-12T07:26:37.127138+00:00",
   "files": [
     {
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\README_全量实验入口.md",
-      "target": "source_provenance/原全量_README_全量实验入口.md",
-      "sha256": "72dd93edff037ae1b8d52fd6df0cad15757850544ac2033b5ed5e9ec7398d254"
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\README_\u5168\u91cf\u5b9e\u9a8c\u5165\u53e3.md",
+      "target": "source_provenance/original_full_README.md",
+      "sha256": "72dd93edff037ae1b8d52fd6df0cad15757850544ac2033b5ed5e9ec7398d254",
+      "original_target": "source_provenance/\u539f\u5168\u91cf_README_\u5168\u91cf\u5b9e\u9a8c\u5165\u53e3.md",
+      "localized_sha256": "f1b04f93ffc1faa92f73f08c86db566e538a01add7a2b9642cf06b92f6cce631"
     },
     {
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\方法与数据合同.md",
-      "target": "source_provenance/原全量_方法与数据合同.md",
-      "sha256": "963eba098e734c8df07f297d0ce3411e07e54aebd48ccc736a016d0389678108"
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\\u65b9\u6cd5\u4e0e\u6570\u636e\u5408\u540c.md",
+      "target": "source_provenance/original_full_method_and_data_contract.md",
+      "sha256": "963eba098e734c8df07f297d0ce3411e07e54aebd48ccc736a016d0389678108",
+      "original_target": "source_provenance/\u539f\u5168\u91cf_\u65b9\u6cd5\u4e0e\u6570\u636e\u5408\u540c.md",
+      "localized_sha256": "9316cdc65f7d835d8f5742b3c5ab9bdb10cd1a25ec0356d37550a6900073ffa0"
     },
     {
-      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_全量实验_20261112\\ProjectB_GraphTransformer_全量实验_审计包\\审计报告.md",
-      "target": "source_provenance/原全量_审计报告.md",
-      "sha256": "55a804fce261a166d01c93ca4ac65daae2ca350b0fe0eaf099008b12b18e3e81"
+      "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_20261112\\ProjectB_GraphTransformer_\u5168\u91cf\u5b9e\u9a8c_\u5ba1\u8ba1\u5305\\\u5ba1\u8ba1\u62a5\u544a.md",
+      "target": "source_provenance/original_full_audit_report.md",
+      "sha256": "55a804fce261a166d01c93ca4ac65daae2ca350b0fe0eaf099008b12b18e3e81",
+      "original_target": "source_provenance/\u539f\u5168\u91cf_\u5ba1\u8ba1\u62a5\u544a.md",
+      "localized_sha256": "9e53219c0ca0cbb10ea33bb2812d8ef716627525d86f546d252cf183d8695abf"
     },
     {
       "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\protocol_nyc.md",
-      "target": "source_provenance/原V5_protocol_nyc.md",
-      "sha256": "acbbe494d2ff476cbbfd1a04c65a5388b96c9f535aebe570f28dc3d1ad73238e"
+      "target": "source_provenance/original_v5_protocol_nyc.md",
+      "sha256": "acbbe494d2ff476cbbfd1a04c65a5388b96c9f535aebe570f28dc3d1ad73238e",
+      "original_target": "source_provenance/\u539fV5_protocol_nyc.md",
+      "localized_sha256": "ca38fb6bc06fe5dc88c7d31e486bd71b45b05ffec83915901610d47576ffb147"
     },
     {
       "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\evidence\\feasibility.json",
-      "target": "source_provenance/原V5_feasibility.json",
-      "sha256": "331e77b22ba4bf8d70a4c2345e82ed3559dc862a6a9f0481cfcf0275a119084e"
+      "target": "source_provenance/original_v5_feasibility.json",
+      "sha256": "331e77b22ba4bf8d70a4c2345e82ed3559dc862a6a9f0481cfcf0275a119084e",
+      "original_target": "source_provenance/\u539fV5_feasibility.json",
+      "localized_sha256": "331e77b22ba4bf8d70a4c2345e82ed3559dc862a6a9f0481cfcf0275a119084e"
     },
     {
       "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\evidence\\dictionary_receipt.json",
-      "target": "source_provenance/原V5_dictionary_receipt.json",
-      "sha256": "594972303e8155c0efe14cb231b4b835fd3c2294c464e2a4aaab21dfd9864495"
+      "target": "source_provenance/original_v5_dictionary_receipt.json",
+      "sha256": "594972303e8155c0efe14cb231b4b835fd3c2294c464e2a4aaab21dfd9864495",
+      "original_target": "source_provenance/\u539fV5_dictionary_receipt.json",
+      "localized_sha256": "594972303e8155c0efe14cb231b4b835fd3c2294c464e2a4aaab21dfd9864495"
     },
     {
       "source": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\work\\gt_v5\\20261110_v5\\evidence\\dictionary_local.txt",
-      "target": "source_provenance/原V5_dictionary_local.txt",
-      "sha256": "8e06e88bef38d3632597b8eabae0da5da5bb8f59828198f5d4494379af20d6de"
+      "target": "source_provenance/original_v5_dictionary_local.txt",
+      "sha256": "8e06e88bef38d3632597b8eabae0da5da5bb8f59828198f5d4494379af20d6de",
+      "original_target": "source_provenance/\u539fV5_dictionary_local.txt",
+      "localized_sha256": "8e06e88bef38d3632597b8eabae0da5da5bb8f59828198f5d4494379af20d6de"
     }
   ],
   "new_online_license_check": false,
-  "note": "Historical collection evidence only; source snapshots remain external."
+  "note": "Historical collection evidence only; source snapshots remain external.",
+  "localization_note": "The sha256 and original_target fields identify the historical copied bytes. The target and localized_sha256 fields identify the English repository copies. The historical source paths are retained for audit."
 }

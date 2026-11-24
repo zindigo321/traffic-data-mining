@@ -1,5 +1,7 @@
 {
-  "zip": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GraphTransformer_niulaoshi_\u5b8c\u6574\u8fd0\u884c\u5305.zip",
+  "zip": "G:\\gpt-file\\Codex\\2026-11-10\\project-b-graph-transformer-graph-transformer\\outputs\\ProjectB_GT_niulaoshi_20261112\\ProjectB_GraphTransformer_niulaoshi_%E5%AE%8C%E6%95%B4%E8%BF%90%E8%A1%8C%E5%8C%85.zip",
   "sha256": "b732275b75092bf4738373965749db6405218fe29b9e25908d861d953d3fd424",
-  "size_bytes": 114528697
+  "size_bytes": 114528697,
+  "zip_path_encoding": "Original Windows archive path with its basename percent-encoded as UTF-8",
+  "archive_description": "Original complete Project B Graph Transformer runtime package"
 }

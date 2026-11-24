@@ -1,30 +1,32 @@
-PDF physical page 9
-Project A：出行热点区域发现
-◼ 一、实验目标
- 掌握 Python 数据科学环境的搭建方法
- 学会使用 scikit-learn 处理交通轨迹数据
- 应用聚类算法对车辆轨迹进行分析，识别不同的出行模
-式
-◼ 二、实验内容
- 搭建环境：python 和ski-learn库
- 数据准备：Geolife Trajectories
- 实验步骤：导入库 -> 数据加载和处理 ->  （数据清洗） -> 
-特征提取 -> 建模（算法实现） -> 结果可视化展示分析（
-散点图、热力图）
-10/13/2026 9
+English translation of course slide text, physical PDF page 9
 
-PDF physical page 10
-Project A：出行热点区域发现
-◼ 三、实验任务
- 调整 DBSCAN 算法的 eps 和 min_samples 参数，观察聚类
-结果变化
- 尝试使用 K-means 算法进行对比分析
- 根据聚类结果，分析不同车辆的出行热点区域和异常轨
-迹
- 撰写实验报告，包括数据预处理方法、算法选择理由、
-结果分析和应用价值
-◼ 四、实验进阶
- 加入时间维度，分析不同时段的交通轨迹模式
- 结合道路网络数据，分析车辆行驶路径特征
- 尝试识别特定的交通事件（如拥堵、异常停车等）
-10/13/2026 10
+Project A: Travel Hotspot Discovery
+
+1. Objectives
+- Set up the Python data science environment.
+- Use scikit-learn to process traffic trajectory data.
+- Apply clustering to vehicle trajectories to identify travel patterns.
+
+2. Contents
+- Set up Python and scikit-learn.
+- Prepare Geolife Trajectories.
+- Import libraries, load and clean data, extract features, implement the algorithm, and visualize and analyze results using scatterplots and heatmaps.
+
+10/13/2026, page 9
+
+English translation of course slide text, physical PDF page 10
+
+Project A: Travel Hotspot Discovery
+
+3. Tasks
+- Adjust DBSCAN eps and min_samples and observe changes in clustering.
+- Compare the results with K-means.
+- Analyze travel hotspots and unusual trajectories for different vehicles.
+- Write an experiment report covering preprocessing, algorithm choice, results, and potential applications.
+
+4. Extensions
+- Add time and analyze traffic trajectories across periods.
+- Combine results with a road network to study driving routes.
+- Explore detection of specific traffic events, such as congestion or unusual stops.
+
+10/13/2026, page 10

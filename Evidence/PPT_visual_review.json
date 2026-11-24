@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "date": "2026-11-17",
+  "renderer": "Microsoft PowerPoint 16 native PNG export",
+  "slides_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "findings": [],
+  "checks": [
+    "All 10 slides inspected individually",
+    "No clipping, overlap, or missing images",
+    "SimSun for Chinese and Times New Roman for English in the original presentation",
+    "White background, black text, blue and red accents",
+    "Figure values matched the Project A and B evidence and tables"
+  ],
+  "pptx_sha256": "d43a39469721d99ea5fb6fd5e5a3f2f6c6d938f14efd8ee1583fd39054a7405c"
+}

@@ -12,8 +12,8 @@ sys.path.insert(0,str(V10))
 from v10_check import directory as verify_directory
 from full_io import load,now,save,sha
 
-NAME="ProjectB_GraphTransformer_全量实验_审计包"
-DOCS=("README_全量实验入口.md","plan.md","方法与数据合同.md","审计报告.md","测试报告.md")
+NAME="ProjectB_GraphTransformer_full_experiment_audit"
+DOCS=("README_full_experiment.md","plan.md","method_and_data_contract.md","audit_report.md","test_report.md")
 DIRS=("project","evidence","results","reports","figures","logs","synthetic")
 
 

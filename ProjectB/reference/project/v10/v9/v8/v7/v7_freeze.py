@@ -8,7 +8,7 @@ from v7_check import registered
 from v7_prepare import fingerprint_keys,key_matrix,local_dates,minute_values,times_for
 from v7_train import folder,read_npz,specifications
 
-FILES=("plan.md","重规划.md","evidence/prereg.json","evidence/inputs.json","evidence/date_gate.json",
+FILES=("plan.md","replanning.md","evidence/prereg.json","evidence/inputs.json","evidence/date_gate.json",
        "evidence/prepared_development.json","evidence/graph.json","prepared/topology.npz",
        "prepared/frozen_history.npz","results/development_receipt.json","results/calibration_receipt.json",
        "synthetic/status.json")

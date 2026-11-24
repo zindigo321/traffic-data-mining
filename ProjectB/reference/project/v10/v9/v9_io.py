@@ -11,7 +11,7 @@ import time
 CODE = Path(__file__).resolve().parent
 CONFIG = CODE / "config.json"
 V8 = CODE / "v8"
-V8_NAME = "ProjectB_GraphTransformer_V8_审计包"
+V8_NAME = "ProjectB_GraphTransformer_V8_\u5ba1\u8ba1\u5305"
 
 
 def now():

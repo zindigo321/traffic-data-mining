@@ -13,7 +13,7 @@ EVIDENCE=("registration.json","amendment.json","dictionary_receipt.json","feasib
 
 def start_reproduction(root,source):
     (root/"evidence").mkdir(parents=True,exist_ok=True)
-    for doc in ("plan.md","protocol_nyc.md","amendment_nyc.md","README_审计入口.md","方法与数据合同.md","测试报告.md"):
+    for doc in ("plan.md","protocol_nyc.md","amendment_nyc.md","README_audit.md","method_and_data_contract.md","test_report.md"):
         origin=source/doc
         if origin.is_file():
             shutil.copy2(origin,root/doc)

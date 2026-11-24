@@ -9,9 +9,9 @@ import zipfile
 from full_io import load,save,now,sha
 from dynamic_check import directory
 
-NAME='ProjectB_GraphTransformer_动态边权_审计包'
+NAME='ProjectB_GraphTransformer_dynamic_edge_weights_audit'
 DIRECTORIES=('project','evidence','results','logs','figures','reports','synthetic','source_provenance')
-DOCS=('README_动态边权入口.md','plan.md','方法与数据合同.md','审计报告.md','测试报告.md')
+DOCS=('README_dynamic_edge_weights.md','plan.md','method_and_data_contract.md','audit_report.md','test_report.md')
 
 
 def files(root):
@@ -47,7 +47,7 @@ def build(root,output):
     archive=output/(NAME+'.zip')
     with zipfile.ZipFile(archive,'x',zipfile.ZIP_DEFLATED,compresslevel=5) as z:
         for rel,p in files(bundle):z.write(p,f'{NAME}/{rel}')
-    save(output/'交付校验.json',dict(created_utc=now(),archive=str(archive),sha256=sha(archive),bytes=archive.stat().st_size,
+    save(output/'delivery_verification.json',dict(created_utc=now(),archive=str(archive),sha256=sha(archive),bytes=archive.stat().st_size,
         bundle=str(bundle),manifest=directory(bundle)))
     print(dict(archive=str(archive),sha256=sha(archive),bytes=archive.stat().st_size),flush=True)
 

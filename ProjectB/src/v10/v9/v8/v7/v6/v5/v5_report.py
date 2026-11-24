@@ -15,7 +15,7 @@ from v5_prepare import read_npz
 
 def readable_dates(interval):
     a,b=map(date.fromisoformat,interval)
-    return f"{a} 至 {b-timedelta(days=1)}"
+    return f"{a} through {b-timedelta(days=1)}"
 
 
 def plots(root,metrics,points,choice,groups):
@@ -77,7 +77,7 @@ def render(root,cfg):
     recipe,pool=lock["choice"]["recipe"],lock["choice"]["pool"]
     selected=f"{recipe}_{pool}"
     groups=[f"{recipe}_{p}" for p in cfg["pools"]]+["B_mean"]
-    labels=[f"{recipe}＋Mean",f"{recipe}＋Max",f"{recipe}＋Attention","V4 P1＋Mean 同支持重跑"]
+    labels=[f"{recipe} + Mean",f"{recipe} + Max",f"{recipe} + Attention","V4 P1 + Mean common-support refit"]
     names=dict(zip(groups,labels,strict=True))
     aggregate=load(out/"aggregates.json")
     screen=load(root/"results/screen.json")["summary"]
@@ -92,88 +92,88 @@ def render(root,cfg):
     held=load(root/"evidence/fold_holdout.json")["parts"][0]
     day=readable_dates(cfg["holdout"])
     raw_ratio=dev["source_funnel"]["implied_miles_over_polyline_miles_p10_median_p90"]
-    stable="达到" if state["stable_recovery_FP_reduction"] else "未达到"
-    goal="达到" if state["goal_reached"] else "未达到"
+    stable="met" if state["stable_recovery_FP_reduction"] else "did not meet"
+    goal="met" if state["goal_reached"] else "did not meet"
     lines=[
-        "# Project B V5 审计报告",
+        "# Project B V5 Audit Report",
         "",
-        f"**纽约外部留出{goal}双 0.60 目标，{stable}稳定降低恢复误报的预登记条件。** "
-        f"开发预选 {names[selected]} 的 AP {state['AP']:.4f}、正类 F1 {state['F1']:.4f}。Chicago 原口径正式状态继续 **blocked / N/A**。",
+        f"**The New York external holdout {goal} the dual 0.60 target and {stable} the preregistered criterion for a stable decrease in recovery false positives.** "
+        f"The development-selected {names[selected]} scored AP {state['AP']:.4f} and positive-class F1 {state['F1']:.4f}. Formal Chicago validation under the original protocol remains **blocked/N/A**.",
         "",
-        "## 1. 数据边界、协议与证据",
+        "## 1. Data Boundaries, Protocol, and Evidence",
         "",
-        "Chicago 4g9f-3jbs 的时间查询仍以 2026-04-30 为末日，5 月 1 日起同道路范围返回空。官方停更后的日流量缺少同口径路段估速。"
-        "V4 Chicago 开发结果与以往留出仅作历史参考。Geolife 继续分列 blocked。 "
-        "[查询收据](evidence/feasibility.json) · [Chicago 状态](evidence/chicago_status.json) · "
-        "[官方停更说明](https://data.cityofchicago.org/stories/s/c28d-stgw) · [Geolife](evidence/geolife_prior.json)",
+        "Chicago table 4g9f-3jbs still ends on 2026-04-30. The query from May 1 onward returns no records for the same roads. Daily traffic volumes published after discontinuation lack comparable segment speeds. "
+        "V4 Chicago development results and earlier holdouts are historical references. Geolife remains blocked and is reported separately. "
+        "[Query receipt](evidence/feasibility.json) · [Chicago status](evidence/chicago_status.json) · "
+        "[Official discontinuation notice](https://data.cityofchicago.org/stories/s/c28d-stgw) · [Geolife](evidence/geolife_prior.json)",
         "",
-        f"纽约采用 NYC DOT i4gi-tjb9。按无速度元数据选择日期，注册于 {load(root/'evidence/registration.json')['at_utc']}。"
-        "官方数据为主要干道的点到点估速。纽约使用其本地日历、两半格汇总、自己构造的有向图与全新拟合权重。"
-        "双城市结果不合并。字段字典将 status 列为遗留字段，已在解析速度前锁定勘误。"
-        f"开发快照中，估速与行程时间的隐含英里相对几何长度的中位比为 {raw_ratio[1]:.3f}。 "
-        "[预登记](protocol_nyc.md) · [字段勘误](amendment_nyc.md) · "
-        "[NYC DOT 官方数据](https://data.cityofnewyork.us/d/i4gi-tjb9) · "
-        "[NYC DOT 字段说明](https://www1.nyc.gov/html/dot/downloads/pdf/metadata-trafficspeeds.pdf)",
+        f"New York uses NYC DOT table i4gi-tjb9. Dates were selected using metadata without speeds and registered at {load(root/'evidence/registration.json')['at_utc']}. "
+        "The official data provide point-to-point speed estimates on arterial roads. The study uses New York's local calendar, two half-bin aggregates, its own directed graph, and newly fitted weights. "
+        "The two cities' results are reported separately. The field dictionary lists status as a legacy field, and the amendment was locked before speed parsing. "
+        f"The development snapshot's median ratio of miles implied by speed and travel time to geometric length is {raw_ratio[1]:.3f}. "
+        "[Preregistration](protocol_nyc.md) · [Field amendment](amendment_nyc.md) · "
+        "[Official NYC DOT data](https://data.cityofnewyork.us/d/i4gi-tjb9) · "
+        "[NYC DOT field descriptions](https://www1.nyc.gov/html/dot/downloads/pdf/metadata-trafficspeeds.pdf)",
         "",
-        f"锚点 125 个 ID，{graph['road_count']} 个保留并固定，{graph['edges']} 条有向边，{graph['isolated']} 个孤立节点，"
-        f"最大实际子图 {graph['max_subgraph_nodes']} 节点。{graph['metadata_link_conflicts']} 个 ID 有多个元数据记录版本，按锚点模式选择。"
-        f"正式已知窗实际来自 {held['known_roads']} 条路段，所有固定路段的预期网格仍计入覆盖。"
-        "近端连接可能缺少立交和物理转向信息。 "
-        "[节点和边](evidence/graph.json) · [时点与标签](方法与数据合同.md)",
+        f"The anchor snapshot has 125 IDs. The fixed graph retains {graph['road_count']} roads, {graph['edges']} directed edges, and {graph['isolated']} isolated nodes. "
+        f"The largest observed subgraph has {graph['max_subgraph_nodes']} nodes. For the {graph['metadata_link_conflicts']} IDs with multiple metadata variants, the anchor mode is used. "
+        f"Known formal holdout windows come from {held['known_roads']} segments. The expected grid for all fixed segments counts toward coverage. "
+        "Proximity-based connections can miss grade separation and physical turns. "
+        "[Nodes and edges](evidence/graph.json) · [Availability and labels](method_and_data_contract.md)",
         "",
-        "| 阶段 | 纽约本地日期 | 全部已知窗 | 正例 | 恢复负例 | 代理事件段 | 已知覆盖 |",
+        "| Period | New York local dates | All known windows | Positives | Recovery negatives | Proxy events | Known coverage |",
         "| --- | --- | ---: | ---: | ---: | ---: | ---: |",
     ]
     periods={**cfg["folds"],"final":cfg["calibration"],"holdout":cfg["holdout"]}
     for key,interval in periods.items():
         cov=load(root/"evidence"/f"fold_{key}.json")["parts"][0 if key=="holdout" else 1]
-        label={"final":"校准","holdout":"正式留出"}.get(key,key.upper())
+        label={"final":"Calibration","holdout":"Formal holdout"}.get(key,key.upper())
         lines.append(f"| {label} | {readable_dates(interval)} | {cov['positive']+cov['negative']:,} | "
                      f"{cov['positive']:,} | {cov['high_risk_recovered']:,} | {cov['true_events']:,} | {cov['known_coverage']:.2%} |")
     lines += ["",
-        f"正式留出 {held['total_days']} 天，固定网格 {held['expected']:,} 个，合格 {held['eligible']:,} 个，"
-        f"其中 {held['unknown_eligible']:,} 个 unknown 保留出分并排除监督评价。正例率 {held['positive']/state['n']:.2%}，"
-        f"上一格低速的已知风险组正例率 {held['positive']/(held['positive']+held['high_risk_recovered']):.2%}。"
-        "风险组基准比例和 Chicago 明显不同。两个半格可能反映同一提供方的估计延续，代理标签不证明真实连续五分钟拥堵。 "
-        "[漏斗和标签](evidence/fold_holdout.json) · [完整支持摘要](evidence/holdout_support.json)",
+        f"The formal holdout covers {held['total_days']} days with {held['expected']:,} fixed windows and {held['eligible']:,} eligible windows. "
+        f"The {held['unknown_eligible']:,} eligible unknowns receive scores and are excluded from supervised evaluation. The positive rate is {held['positive']/state['n']:.2%}. "
+        f"The positive rate among known risk-group windows with low speed in the previous bin is {held['positive']/(held['positive']+held['high_risk_recovered']):.2%}. "
+        "Risk-group prevalence differs substantially from Chicago. Both half-bins can reflect an estimate carried forward by the same provider, so the proxy label does not prove actual congestion throughout five continuous minutes. "
+        "[Funnel and labels](evidence/fold_holdout.json) · [Full-support summary](evidence/holdout_support.json)",
         "",
-        "## 2. 开发选择和正式冻结",
+        "## 2. Development Selection and Formal Freeze",
         "",
-        "| 三折单种子初筛 | AP | 同折诊断 F1 | 60% 召回误报／日 |",
+        "| Initial screening, three folds and one seed | AP | Within-fold diagnostic F1 | FP/day at 60% recall |",
         "| --- | ---: | ---: | ---: |",
     ]
     for name,value in screen.items():
         lines.append(f"| {name} | {value['AP']:.4f} | {value['f1']:.4f} | {value['FP60_per_day']:.3f} |")
     lines += ["",
-        f"初筛选择 {recipe}，三池化确认后按开发 AP 预选 {names[selected]}。"
-        "B 使用 V4 P1 配方，在纽约同图、同样本、同步数和同阈值规则重跑。"
-        "选择完成后，12 组模型在同一 28 日独立校准用最大 F1 定阈值。"
-        f"冻结 {lock['frozen_utc']}，解封 {opened['unlocked_utc']}。"
-        "日历、图、代码、预处理、权重与阈值哈希均在解封前记录。 "
-        "[确认](results/confirmation.csv) · [冻结](evidence/freeze.json) · [解封](evidence/unlock.json)",
+        f"Initial screening selected {recipe}. After confirming the three pooling variants, development AP selected {names[selected]}. "
+        "B refits the V4 P1 recipe in New York using the same graph, samples, number of training steps, and threshold rule. "
+        "After selection, the 12 models chose maximum-F1 thresholds on the same independent 28-day calibration period. "
+        f"Freeze time {lock['frozen_utc']}. Unseal time {opened['unlocked_utc']}. "
+        "Calendar, graph, code, preprocessing, weights, and threshold hashes were recorded before unsealing. "
+        "[Confirmation](results/confirmation.csv) · [Freeze](evidence/freeze.json) · [Unseal](evidence/unlock.json)",
         "",
-        "## 3. 纽约全量留出实测",
+        "## 3. Full New York Holdout Results",
         "",
-        "| 配方 | AP 均值 ± SD | 正类 F1 均值 ± SD | ROC-AUC | Precision | Recall | FP／日（冻结阈值） | 事件 F1 |",
+        "| Recipe | AP mean ± SD | Positive-class F1 mean ± SD | ROC-AUC | Precision | Recall | Frozen-threshold FP/day | Event F1 |",
         "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for g in groups:
         a=aggregate[g]
-        name=f"**{names[g]}（预选）**" if g==selected else names[g]
+        name=f"**{names[g]} (preselected)**" if g==selected else names[g]
         lines.append(f"| {name} | {a['AP']:.4f} ± {a['AP_sd']:.4f} | {a['f1']:.4f} ± {a['f1_sd']:.4f} | "
                      f"{a['ROC_AUC']:.4f} | {a['precision']:.4f} | {a['recall']:.4f} | {a['fp_per_day']:.3f} | {a['event_f1']:.4f} |")
     lines += ["",
-        f"预选组对 V4 同支持重跑 ΔAP {best['AP']-ref['AP']:+.4f}、ΔF1 {best['f1']-ref['f1']:+.4f}。"
-        "V4 重跑也超过双 0.60。冻结阈值的混淆计数、Accuracy、每种子 TP/FP/FN/TN 与事件统计见指标表。"
-        "正式判定以预选池化为准，三池化都保留。 "
-        "[逐配置](results/holdout/metrics.csv) · [比较图](figures/holdout_comparison.png) · [PR](figures/holdout_PR.png)",
+        f"Against the V4 common-support refit, the preselected group scored ΔAP {best['AP']-ref['AP']:+.4f} and ΔF1 {best['f1']-ref['f1']:+.4f}. "
+        "The V4 refit also exceeded both 0.60 targets. See the metrics table for frozen-threshold confusion counts, accuracy, TP/FP/FN/TN by seed, and event statistics. "
+        "The formal decision uses the preselected pooling method. Results for all three methods are retained. "
+        "[Metrics by configuration](results/holdout/metrics.csv) · [Comparison plot](figures/holdout_comparison.png) · [PR](figures/holdout_PR.png)",
         "",
-        "## 4. 等召回恢复误报",
+        "## 4. Recovery False Positives at Matched Recall",
         "",
-        f"主要比较在实际召回 {p_main.iloc[0].actual_recall:.3%}，每模型检出 {int(p_main.iloc[0].TP):,} 个正例。"
-        "所有在此点出现的误报均为前一格低速、当前恢复。日期块在所有种子与配对模型间共享。",
+        f"The primary comparison achieved {p_main.iloc[0].actual_recall:.3%} recall, with {int(p_main.iloc[0].TP):,} positives detected per model. "
+        "Every false positive at this point had low speed in the previous bin and recovery in the current bin. Date blocks are shared across all seeds and paired models.",
         "",
-        "| 种子 | V4 恢复 FP | V5 预选恢复 FP | V5−V4 |",
+        "| Seed | V4 recovery FP | Preselected V5 recovery FP | V5−V4 |",
         "| --- | ---: | ---: | ---: |",
     ]
     for row in p_main.itertuples():
@@ -181,31 +181,31 @@ def render(root,cfg):
     lo,hi=state["delta_FP_95"]
     decrease=(ref["FP60_per_day"]-best["FP60_per_day"])/ref["FP60_per_day"]
     lines += ["",
-        f"三种子平均恢复 FP／日由 {ref['FP60_per_day']:.3f} 降至 {best['FP60_per_day']:.3f}（{decrease:.1%}）。"
-        f"配对日期块 1000 次的 95% 差区间为 [{lo:+.3f}, {hi:+.3f}] 个／日，"
-        f"{state['seeds_with_fewer_FP']} 个种子下降。预登记要求至少两个种子下降且区间上界低于零，因此稳定改善{stable}标准。"
-        "召回点使用真值确定排序截面，实际部署阈值仍取独立校准。 "
-        "[完整等召回](results/holdout/matched_recall.csv) · [日期块区间](results/holdout/date_blocks.csv) · "
-        "[误报漏报分组](results/holdout/errors_grouped.csv) · [误报曲线](figures/matched_recall.png)",
+        f"Mean recovery FP/day across three seeds declined from {ref['FP60_per_day']:.3f} to {best['FP60_per_day']:.3f} ({decrease:.1%}). "
+        f"The 95% difference interval from 1000 paired date-block draws is [{lo:+.3f}, {hi:+.3f}] per day. "
+        f"Recovery false positives decreased for {state['seeds_with_fewer_FP']} seeds. The preregistration requires decreases for at least two seeds and an upper bound below zero. The improvement {stable} the stability criterion. "
+        "Matched recall uses observed labels to choose a rank cutoff. The deployment threshold comes from independent calibration. "
+        "[Full matched recall](results/holdout/matched_recall.csv) · [Date-block intervals](results/holdout/date_blocks.csv) · "
+        "[Grouped false positives and negatives](results/holdout/errors_grouped.csv) · [False-positive curve](figures/matched_recall.png)",
         "",
-        "## 5. 复核与局限",
+        "## 5. Verification and Limitations",
         "",
-        f"独立验证复算 {verification['development_and_calibration_runs']} 组开发与校准、{verification['heldout_runs']} 组留出，"
-        f"抽样安全重放 {verification['dev_replayed']+verification['heldout_replayed']} 组，"
-        f"最大概率差 {verification['max_probability_difference']:.2g}。"
-        "工程用例合计 23 项，合成只检验实现。运行命令、退出码、用时、硬件和种子在 logs。"
-        "道路和季节固定、路网几何接续、路段缺报、不同探针和标签富集均限制跨城市解释。 "
-        "[独立复算](evidence/verification_replay.json) · [测试报告](测试报告.md)",
+        f"Independent checks recomputed {verification['development_and_calibration_runs']} development and calibration runs and {verification['heldout_runs']} holdout runs. "
+        f"Safe replay sampled {verification['dev_replayed']+verification['heldout_replayed']} runs. "
+        f"The maximum probability difference was {verification['max_probability_difference']:.2g}. "
+        "There are 23 engineering cases. Synthetic cases check the implementation. Commands, exit codes, durations, hardware, and seeds are recorded in logs. "
+        "The fixed roads and season, geometry-based network connections, unreported segments, different probes, and label enrichment constrain cross-city interpretation. "
+        "[Independent recomputation](evidence/verification_replay.json) · [Test report](test_report.md)",
         "",
-        "1. 校验本包 manifest、SHA256SUMS、原 V4 ZIP 与外部纽约分片哈希。",
-        "2. 从锚点几何和开发 CSV 复建四个准备数组与冻结历史，核对按日历分段、未知标签、同折支持与抽样。",
-        "3. 核对注册、勘误、开发选择、阈值、权重和冻结解封顺序。",
-        "4. 从全部合格逐窗分数筛 known 复算 AP、F1、混淆、等召回和日期配对区间，按固定权重抽样重放。",
+        "1. Verify the package manifest, SHA256SUMS, original V4 ZIP, and external New York shard hashes.",
+        "2. Rebuild the four prepared arrays and frozen history from anchor geometry and the development CSV files. Check chronological partitions, unknown labels, common fold support, and sampling.",
+        "3. Verify registration, amendment, development selection, thresholds, weights, and the order of freeze and unseal.",
+        "4. Filter all eligible per-window scores to known labels and recompute AP, F1, confusion counts, matched recall, and paired date intervals. Replay a sample using the fixed weights.",
         "",
-        "[运行命令和导航](README_审计入口.md)。干净解压收据与 ZIP 同级。",
+        "[Run commands and navigation](README_audit.md). The clean extraction receipt is next to the ZIP.",
         ""]
-    (root/"审计报告.md").write_text("\n".join(lines),encoding="utf-8")
-    print(dict(report=str(root/"审计报告.md"),figures=3,selected=selected,external_goal=state["goal_reached"],
+    (root/"audit_report.md").write_text("\n".join(lines),encoding="utf-8")
+    print(dict(report=str(root/"audit_report.md"),figures=3,selected=selected,external_goal=state["goal_reached"],
                stable_recovery_FP_reduction=state["stable_recovery_FP_reduction"]),flush=True)
 
 

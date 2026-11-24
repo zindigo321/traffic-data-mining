@@ -34,7 +34,7 @@ def check(run,output,scratch):
     hashes=load(clean/"evidence/prepared.json")["files"]
     for stage,pinned in hashes.items():
         assert sha(scratch/"clean_rebuilt/prepared"/(stage+".npz"))==pinned["sha256"]
-    docs=("README_全量实验入口.md","plan.md","方法与数据合同.md","审计报告.md","测试报告.md")
+    docs=("README_full_experiment.md","plan.md","method_and_data_contract.md","audit_report.md","test_report.md")
     assert all((clean/f).is_file() and (clean/f).stat().st_size for f in docs)
     logs=[]
     for directory in (scratch/"logs",scratch/"clean_rebuilt/logs",scratch/"offline/logs",scratch/"replay/logs"):
@@ -45,7 +45,7 @@ def check(run,output,scratch):
                 log=directory/r["log"]
                 logs.append(dict(**r,console_sha256=sha(log),console_tail=log.read_text(encoding="utf-8")[-1200:]))
     checked=load(scratch/"zip_check.json")
-    save(output/"解压复核.json",dict(**checked,completed_utc=now(),bytes=archive.stat().st_size,
+    save(output/"extraction_verification.json",dict(**checked,completed_utc=now(),bytes=archive.stat().st_size,
         clean_rebuilt_feature_hashes={k:v["sha256"] for k,v in hashes.items()},
         independent_metrics=offline,clean_model_replay=replay,original_engineering_tests=63,
         clean_new_engineering_tests=7,fresh_refits_in_clean_extraction=0,

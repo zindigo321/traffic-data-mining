@@ -1,84 +1,86 @@
-# Project B 只读证据核查（2026-11-17）
+# Project B Read-Only Evidence Review
 
-## 版本认定
+Review date: November 17, 2026
 
-G:/course-jiaotongshujuwajue/ProjectB 目前仍是原 Geolife MLP/RF 工程。results/training_status.json 为 blocked、formal_training_executed=false，pipeline_summary.json 为578个分钟道路窗全部 unknown，原因 insufficient_history。0.9916535624 是 8198/8267 的近邻匹配率，不是分类准确率。此目录不得当作 Graph Transformer 已训练结果。
+## Version and Provenance
 
-本轮“重跑 Project B”的实际交付版本为本任务 `outputs/ProjectB_GT_niulaoshi_20261112/ProjectB_GT_niulaoshi`。该目录的 本地运行验证.json 记录 18 次完整动态模型重训（3池化×3种子×开发/最终），另复用18个已核验静态对照。源码/数据/权重/逐样本预测/真实图及哈希齐全，36个模型抽样重放概率差为0，全部新动态权重和汇总指标重现。此前真实训练发生在2026-11-12；本次11-17仅复核、汇报和封装，不宣称11-17重新采集/训练。
+`G:/course-jiaotongshujuwajue/ProjectB` is the original Geolife MLP/RF project. Its `results/training_status.json` reports `blocked` and `formal_training_executed=false`. `pipeline_summary.json` reports that all 578 road-minute windows are unknown due to `insufficient_history`. The value 0.9916535624 is the nearest-road match rate (8,198 of 8,267). The trained Graph Transformer comes from a separate package.
 
-原运行ZIP实际SHA-256：b732275b75092bf4738373965749db6405218fe29b9e25908d861d953d3fd424，大小114528697字节。
+The Project B rerun is from `outputs/ProjectB_GT_niulaoshi_20261112/ProjectB_GT_niulaoshi`. The local verification receipt (`local_run_verification.json` in this translation) records 18 complete dynamic-model retrains across three pooling methods, three seeds, and development and final stages, alongside 18 verified static controls. Source, data, weights, per-example predictions, plots, and hashes were available. Sampled replay for 36 models had a probability difference of zero. The new dynamic weights and aggregate metrics reproduced. The training occurred on November 12, 2026. The November 17 work verified, presented, and packaged those results.
 
-## 可直接用于PPT的4页事实
+The original run ZIP was 114,528,697 bytes with SHA-256 `b732275b75092bf4738373965749db6405218fe29b9e25908d861d953d3fd424`.
 
-### B页1：原任务诊断与数据补充协议
+## Four Presentation Evidence Sections
 
-- 课件要求100名用户、2010–2012年 Geolife，7–9/17–19高峰，速度低于历史同期均速40%且持续至少5分钟。
-- 原当前项目只有578个unknown窗，正式训练 blocked。未知标签不补为负类。
-- 补充来源 NYC DOT 官方 i4gi-tjb9，54分片、1019891行原始记录；日期2026-05-11至2026-11-11，源最新时间2026-11-11T17:12:06，最后一天不完整。
-- 固定121条有向路段、56条几何候选方向边、54个孤立节点，局部图最多5节点。
-- 公开数据代理规则：两个相邻10分钟估速分别低于各自过去基准40%。每格需两个5分钟半格均有估速；历史同道路/时段/工作日类型，至少3个过去合格日；训练后历史冻结。此代理规则不能说成逐分钟证实课程原5分钟持续拥堵。
-- 最终训练[05-11,08-31)：171672 known、4649正例；校准[08-31,09-28)：47780 known、1476正例；回测[09-28,11-12)：80536 known、2866正例、77670负例、50144 unknown、796个正例事件段，45日，已知覆盖61.6284%，阳性率3.5587%。
-- 展示标签分布图宜用 known正/负与unknown 三色，并明确不是模型3分类。
+### 1. Original Task and Supplementary Data Protocol
 
-### B页2：有向 Graph Transformer 与动态边权
+- The coursework calls for 100 Geolife users in 2010–2012, rush hours 07:00–09:00 and 17:00–19:00, and speed below 40% of the historical mean for the same period for five continuous minutes.
+- All 578 windows from the original project are unknown. Training is blocked, and unknown labels are excluded from the negative class.
+- The NYC DOT public table `i4gi-tjb9` provided 54 files and 1,019,891 raw rows from 2026-05-11 to 2026-11-11. The latest source timestamp was 2026-11-11T17:12:06, and the final day is incomplete.
+- The graph has 121 fixed directed segments, 56 geometric candidate directed edges, and 54 isolated nodes. A local graph has up to five nodes.
+- The proxy defines two consecutive 10-minute speed estimates each below 40% of their past baselines. Each estimate needs both 5-minute halves. Baselines use at least three qualifying prior days for the same road, period, and weekday or weekend type and are frozen after training. This proxy does not establish minute-by-minute low speed under the original five-minute definition.
+- Final training [05-11, 08-31) has 171,672 known windows and 4,649 positives. Calibration [08-31, 09-28) has 47,780 known and 1,476 positives. Backtesting [09-28, 11-12) has 80,536 known, 2,866 positive, 77,670 negative, and 50,144 unknown windows, with 796 positive events over 45 days. Known coverage is 61.6284% and positive prevalence among known windows is 3.5587%.
+- The label-distribution plot can show known positives, known negatives, and unknowns separately. The model is binary.
 
-- 提前10分钟预警：目标格t在t−10发分，动态输入最新t−2格[t−20,t−10)，标签涉及t−1和t两格速度不入模型。
-- 52列过去速度比/趋势/覆盖/历史支持、道路和时间特征，训练段填补与标准化后拼52缺失位，输入[B,N,104]。
-- 中心为局部节点0，一跳子图固定，attention只能读取物理前驱和自身。2层、4头、宽度32，每头8维。输入104→32。
-- 边门控使用两端各8项合法过去值及缺失位，源/目标/绝对差构48维，MLP48→16→4，log先验=log(2)×tanh(...)，倍率[0.5,2]，零初始化为1。缺任一端最新相对速度则中性1，自环1；新增1704参数，不新增道路边。
-- score=QKᵀ/sqrt(8)+log(edge prior)+directed mask，softmax后汇总V，再残差、LayerNorm、前馈。
-- Mean/Max/Attention 各独立模型。池化只在目标子图有效节点内，32维池化+32维中心=64维分类器，输出路段标签。
-- 加权BCE、Adam lr=.001、batch128、12轮、CPU每进程2线程，3种子11/22/33；相同样本/预算。主模型开发均值AP选中 dynamic_mean，各动态模型最终保存epoch11。阈值只校准段拟合并冻结。
+### 2. Directed Graph Transformer and Dynamic Edge Weights
 
-### B页3：三池化的静态/动态实测对比
+- A score for target bin t is issued at t−10 minutes. The newest dynamic feature bin is t−2, covering [t−20, t−10). Speeds from label bins t−1 and t are excluded.
+- The 52 features cover past speed ratios and trends, coverage, historical support, road attributes, and time. Training-split imputation and standardization precede concatenation with 52 missingness indicators, giving input shape [B, N, 104].
+- The target is node 0 of a fixed one-hop graph. Attention sees physical predecessors and self-loops. There are two layers and four heads of width 8, with total width 32. The input projects from 104 to 32 features.
+- The edge gate uses eight legal past values and missingness indicators at each endpoint. Source, destination, and absolute difference make 48 inputs to an MLP of widths 48→16→4. Its log prior is log(2) × tanh(...), giving a multiplier in [0.5, 2] initially equal to 1. If either endpoint's latest relative speed is missing, the multiplier is 1. Self-loops also use 1. The gate adds 1,704 parameters and no new road edges.
+- Attention scores are QKᵀ / sqrt(8) + log(edge prior) + directed mask. After softmax, the layer aggregates V, then applies residuals, layer normalization, and feed-forward processing.
+- Mean, Max, and Attention are separate models. Pooling uses valid nodes in the target subgraph, and a 32-dimensional pooled vector plus the 32-dimensional center vector feeds the 64-dimensional classifier for the segment label.
+- Training uses weighted BCE, Adam with learning rate 0.001, batch size 128, 12 epochs, two CPU threads per process, and seeds 11, 22, and 33 on the same support and budget. Mean development AP selected `dynamic_mean`. The dynamic final models saved epoch 11. Thresholds were fitted on calibration and then frozen.
 
-以下均3种子均值±样本SD，完全相同80536个known测试支持，主阈值为校准误报约束F1：
+### 3. Static and Dynamic Pooling Results
 
-|模型|AP|正类F1|平衡准确率|召回率|FP/日|恢复FP/日|
-|---|---|---|---|---|---|---|
-|静态Mean|.65526±.03477|.64552±.01139|.78922|.58700|14.756|7.578|
-|动态Mean（开发预选）|.66644±.02427|.65005±.01952|.79189|.59223|14.600|7.504|
-|静态Max|.65914±.02618|.65514±.01582|.79548|.59944|14.652|7.630|
-|动态Max|.65913±.01439|.64398±.00531|.78330|.57432|13.341|6.852|
-|静态Attention|.66382±.03318|.63880±.01963|.78319|.57467|14.289|7.459|
-|动态Attention|.66866±.01345|.65407±.00789|.79407|.59653|14.489|7.348|
+All results use the same 80,536 known test windows. AP and positive F1 show mean ± sample SD across three seeds. The main threshold optimizes calibration F1 within false-positive constraints.
 
-动态Mean同池化AP+0.01118、F1+0.00453；动态Attention同池化F1+0.01528；动态Max F1−0.01115。三动态池化双均值均过0.60，但主模型日均总误报14.6>12，恢复误报7.504>6。不可说“全部稳定提升”或“已达部署误报目标”。Attention测试较高也不能事后替代开发预选Mean。
+| Model | AP | Positive F1 | Balanced accuracy | Recall | FP/day | Recovery FP/day |
+| --- | --- | --- | --- | --- | --- | --- |
+| Static Mean | .65526±.03477 | .64552±.01139 | .78922 | .58700 | 14.756 | 7.578 |
+| Dynamic Mean (selected on development) | .66644±.02427 | .65005±.01952 | .79189 | .59223 | 14.600 | 7.504 |
+| Static Max | .65914±.02618 | .65514±.01582 | .79548 | .59944 | 14.652 | 7.630 |
+| Dynamic Max | .65913±.01439 | .64398±.00531 | .78330 | .57432 | 13.341 | 6.852 |
+| Static Attention | .66382±.03318 | .63880±.01963 | .78319 | .57467 | 14.289 | 7.459 |
+| Dynamic Attention | .66866±.01345 | .65407±.00789 | .79407 | .59653 | 14.489 | 7.348 |
 
-Accuracy动态Mean=.97733，但多数类占96.44%，不宜把97.7%作为主要结论。AP明确定义为average_precision_score。
+Dynamic Mean gains 0.01118 AP and 0.00453 F1 over its static counterpart. Dynamic Attention gains 0.01528 F1, and Dynamic Max loses 0.01115 F1. All three dynamic models have mean AP and F1 above 0.60. The main model exceeds the deployment budgets of 12 total and 6 recovery false positives per day. Attention has the higher test results for some metrics, while Mean is the development-selected model.
 
-### B页4：等召回误报、复核与结论边界
+Dynamic Mean accuracy is .97733 with a 96.44% majority class, so report the class-sensitive metrics. AP is `average_precision_score`.
 
-相同全量支持/相同TP，达到召回0.6001396后的事后排序诊断（不是部署阈值）：
+### 4. False Positives at Matched Recall and Verification
 
-|池化|静态总FP/日|动态总FP/日|静态恢复FP/日|动态恢复FP/日|
-|---|---|---|---|---|
-|Mean|15.3778|14.7481|7.8148|7.5704|
-|Max|14.4444|14.8667|7.5407|7.3556|
-|Attention|15.5407|14.6815|7.8222|7.3852|
+The post hoc ranking diagnostic uses common support and the same true-positive count at recall 0.6001396. Its threshold is for comparison.
 
-Mean等召回两个误报方向均3/3种子下降，但1000次日期块条件性95%区间：F1差[-.003986,.012004]跨零，恢复FP60/日差[-.585185,.089074]跨零，尚不能认定稳定恢复误报收益。Attention对应恢复FP60/日区间[-.933333,-.073889]，未作多重比较校正。Max F1退化也需要如实保留。
+| Pooling | Static FP/day | Dynamic FP/day | Static recovery FP/day | Dynamic recovery FP/day |
+| --- | --- | --- | --- | --- |
+| Mean | 15.3778 | 14.7481 | 7.8148 | 7.5704 |
+| Max | 14.4444 | 14.8667 | 7.5407 | 7.3556 |
+| Attention | 15.5407 | 14.6815 | 7.8222 | 7.3852 |
 
-运行验收81项测试（75原模型工程+6便携），36模型重放误差0，从包内原始CSV重建两份prepared字节SHA一致；18次新完整动态重训权重SHA与参考逐个一致。真实结果图/命令/退出码/耗时/模型都已具备。
+Mean reduced both matched-recall false-positive rates in 3/3 seeds. Conditional 95% intervals from 1,000 paired date-block replicates span zero for the F1 change [-.003986, .012004] and the recovery FP60/day change [-.585185, .089074]. That evidence leaves the stability of a recovery benefit unresolved. Attention's recovery FP60/day interval is [-.933333, -.073889], with no multiple-comparison correction. Max's F1 degradation also matters.
 
-纽约结果属于已公开历史日期的时间回测，不是全新独立盲测；Geolife/Chicago原任务正式验证并未因此解除。路段估速、几何近邻拓扑、孤立节点、缺失覆盖和到达时间缺失仍有限制。道路跨集合重叠属于同路段向后时间泛化，不能说跨路段/跨用户泛化。
+Acceptance covered 81 tests, including 75 original engineering and six portability tests. All 36 model replays had zero probability difference. Both prepared arrays were rebuilt from packaged raw CSVs with identical byte hashes. Weights for 18 new dynamic retrains matched their references individually. The run provides plots, commands, exit codes, timings, and models.
 
-## 实际结果图与主要来源
+The NYC results are a temporal backtest on disclosed historical dates. The original Geolife and Chicago tasks still have unmet verification conditions. Segment speed estimates, geometric-neighbor topology, isolated nodes, missing coverage, and unavailable arrival timestamps add limitations. The road overlap across time splits evaluates temporal generalization on the same roads.
 
-根目录：`outputs/ProjectB_GT_niulaoshi_20261112/ProjectB_GT_niulaoshi/`
+## Result Figures and Sources
 
-- `reference/figures/paired_PR.png`：三池化各三种子的真实PR。
-- `reference/figures/paired_metrics.png`：静/动态AP、F1、Recall及误差条。
-- `reference/figures/matched_recall_FP.png`：60%召回总/恢复FP比较。
-- `reference/figures/development_curves.png`：seed11开发期AP训练曲线。
-- 用户当前配色要求为蓝/红，原图有橙色，可直接从 `reference/results/summary.json`、`paired_summary.json`、`operating_points.csv`、`matched_recall.csv` 重绘，精确数据已写 `work/final_course_20261117/B_evidence.json`。
-- `reference/results/dynamic_selection.json`：开发选型规则、主模型、epoch。
-- `reference/evidence/cohort_final.json`：日历/样本/未知/类分布。
-- `reference/results/paired_date_blocks.csv`：日块配对区间。
-- `reference/方法与数据合同.md`、`src/dynamic_model.py`：方法公式/实现。
-- `本地运行验证.json`、`本地运行验收.md`、`validation_logs/`：新目录真实运行证据。
-- 运行入口 `run.py`；Conda入口 `run_niulaoshi.cmd`。默认verify，prepare重建，replay重放，predict出分，train完整18次动态训练并复用18静态对照。
+The original package root is `outputs/ProjectB_GT_niulaoshi_20261112/ProjectB_GT_niulaoshi/`.
 
-## 期末交付建议
+- `reference/figures/paired_PR.png` shows precision–recall curves for three pooling methods across three seeds.
+- `reference/figures/paired_metrics.png` shows static and dynamic AP, F1, and recall with error bars.
+- `reference/figures/matched_recall_FP.png` compares total and recovery false positives near 60% recall.
+- `reference/figures/development_curves.png` shows development AP across training for seed 11.
+- The deck's blue and red plots use `reference/results/summary.json`, `paired_summary.json`, `operating_points.csv`, and `matched_recall.csv`. The original plotting values were recorded in `work/final_course_20261117/B_evidence.json`.
+- `reference/results/dynamic_selection.json` records the development selection rule, primary model, and epoch.
+- `reference/evidence/cohort_final.json` records calendar, sample sizes, unknowns, and class distributions.
+- `reference/results/paired_date_blocks.csv` records paired date-block intervals.
+- `reference/method_and_data_contract.md` and `src/dynamic_model.py` record methods and implementation.
+- `local_run_verification.json`, `local_run_acceptance.md`, and `validation_logs/` record the fresh-directory run.
+- `run.py` is the run entry point, with `run_niulaoshi.cmd` for Conda. It defaults to verification. `prepare` rebuilds arrays, `replay` replays, `predict` scores, and `train` fits 18 dynamic models and reuses 18 verified static controls.
 
-主 ProjectB 使用当前完整运行包的解压目录，代码+公开数据+prepared+权重+结果+日志全部自足。原目录ProjectB仅保留源码、requirements和原Geolife阻塞摘要作课程差异附录。不要把原 `ProjectB.zip`、data/*.pkl、matched/unmatched私有坐标表打入提交包；旧目录含原始个人轨迹/执行式pickle缓存且无正式训练结果。新公开纽约包本身不含私人Geolife轨迹。
+## Final Delivery Scope
+
+The main Project B delivery is the extracted runnable NYC package with source, public data, prepared arrays, weights, results, and logs. The original Geolife project is retained only as a course comparison with source, requirements, and a summary of why training was blocked. Keep the old `ProjectB.zip`, `data/*.pkl`, and private matched and unmatched coordinate tables out of the public submission. The old directory contains private trajectory and executable pickle caches, with no formal training result. The new public NYC package contains no private Geolife tracks.

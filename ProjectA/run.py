@@ -45,7 +45,7 @@ def verify(out):
         assert not set(cols)&{'user_id','trajectory_id','time','time_start','time_end','lon','lat','x','y','x_min','x_max','y_min','y_max'}
     figs=sorted((result/'figures').glob('*.png'))
     assert len(figs)==5 and all(f.stat().st_size>10000 for f in figs)
-    report=(result/'实验报告.md').read_text(encoding='utf-8')
+    report=(result/'experiment_report.md').read_text(encoding='utf-8')
     for f in figs:assert 'figures/'+f.name in report
     receipt=dict(status='PASS',mode='offline aggregate consistency verification',raw_data_required=False,
         points=summary['points'],dbscan_clusters=174,dbscan_assigned=30040,kmeans_k=5,figures=5,
